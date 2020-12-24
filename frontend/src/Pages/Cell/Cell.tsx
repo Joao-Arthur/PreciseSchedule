@@ -1,10 +1,10 @@
 import { DayBox, DayLabel, InvisibleDayBox } from './Cell.styles';
 
-interface props {
+interface Props {
     dia: number;
 }
 
-const Cell = ({ dia }: props) =>
+const Cell = ({ dia }: Props) =>
     dia ? (
         <DayBox
             onClick={() => {
