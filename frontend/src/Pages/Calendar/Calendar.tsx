@@ -3,7 +3,7 @@ import * as Style from './Calendar.styles';
 import Cell from './Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
 
-export default function Calendar() {
+const Calendar = () => {
     const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
     const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
 
@@ -57,4 +57,6 @@ export default function Calendar() {
             </Style.Body>
         </>
     );
-}
+};
+
+export default Calendar;

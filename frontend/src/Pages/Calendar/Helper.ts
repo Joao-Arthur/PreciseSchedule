@@ -1,4 +1,5 @@
-const monthDays = [31, [28, 29], 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const monthDays = [31, NaN, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const februaryDays = [28, 29];
 
 export const nomeDosMeses = [
     'Janeiro',
@@ -25,14 +26,14 @@ export const diasDaSemana = [
     'Sábado'
 ];
 
-export const getMonthTotalDays = (year, month) =>
+export const getMonthTotalDays = (year: number, month: number): number =>
     month !== 1
         ? monthDays[month]
-        : monthDays[1][
+        : februaryDays[
               +((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0)
           ];
 
-export const monthDaysToGrid = (year, month) => {
+export const monthDaysToGrid = (year: number, month: number) => {
     const firstDayOfWeekInMonth = new Date(year, month, 1).getDay();
     const monthDays = getMonthTotalDays(year, month);
     let valores = [];

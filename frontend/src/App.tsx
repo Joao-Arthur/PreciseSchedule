@@ -1,3 +1,11 @@
 import Calendar from './Pages/Calendar';
+import GlobalStyle from './GlobalStyle';
 
-export default () => <Calendar />;
+const App = () => (
+    <>
+        <GlobalStyle />
+        <Calendar />
+    </>
+);
+
+export default App;

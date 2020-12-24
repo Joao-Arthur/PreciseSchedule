@@ -1,11 +1,10 @@
-import React from 'react';
 import { DayBox, DayLabel, InvisibleDayBox } from './Cell.styles';
 
 interface props {
     dia: number;
 }
 
-export default ({ dia }: props) =>
+const Cell = ({ dia }: props) =>
     dia ? (
         <DayBox
             onClick={() => {
@@ -17,3 +16,5 @@ export default ({ dia }: props) =>
     ) : (
         <InvisibleDayBox />
     );
+
+export default Cell;
