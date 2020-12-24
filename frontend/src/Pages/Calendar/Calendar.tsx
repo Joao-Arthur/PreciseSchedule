@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import * as Style from './Calendar.styles';
-import Cell from './Cell';
+import Cell from '../Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
 
 const Calendar = () => {
