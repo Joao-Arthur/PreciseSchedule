@@ -1,4 +1,5 @@
 import GlobalStyle from './GlobalStyle';
+import Home from './Pages/Home';
 import Calendar from './Pages/Calendar';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
@@ -10,6 +11,9 @@ const App = () => (
         <BrowserRouter>
             <Switch>
                 <Route exact path='/'>
+                    <Home />
+                </Route>
+                <Route path='/calendar'>
                     <Calendar />
                 </Route>
                 <Route path='/signin'>
