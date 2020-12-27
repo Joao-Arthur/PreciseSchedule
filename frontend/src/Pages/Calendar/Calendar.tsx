@@ -1,4 +1,7 @@
 import React, { useState, useCallback } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../Store';
 import * as Style from './Calendar.styles';
 import Cell from '../Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
@@ -24,6 +27,11 @@ const Calendar = () => {
         [selectedYear, selectedMonth]
     );
 
+    const logado = useSelector((state: RootState) => state.SignIn.isLogged);
+    console.log(logado);
+
+    if (!logado) return <Redirect to='/home' />;
+
     return (
         <>
             <Style.Header>
@@ -48,13 +56,14 @@ const Calendar = () => {
                 <tbody>
                     {diasFormatados().map(semana => (
                         <tr>
-                            {semana.map(dia => (
-                                <Cell dia={dia} />
+                            {semana.map((dia, index) => (
+                                <Cell dia={dia} key={index} />
                             ))}
                         </tr>
                     ))}
                 </tbody>
             </Style.Body>
+            <Link to='/signin'>sign in</Link>
         </>
     );
 };

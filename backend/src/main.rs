@@ -17,10 +17,17 @@ use rocket::Outcome;
 use rocket::Outcome::*;
 use rocket::Request;
 use rocket::Response;
-use rocket_contrib::json::Json;
+//use rocket_contrib::json::Json;
 use std::io::Read;
 
 const LIMIT: u64 = 256;
+
+//enum Languages {
+//    En,
+//    Pt,
+//    Es,
+//    Dt,
+//}
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Person {
@@ -32,6 +39,10 @@ struct Usuario {
     login: String,
     senha: String,
 }
+
+//struct Configuracoes {
+//    language: Languages,
+//}
 
 impl FromDataSimple for Usuario {
     type Error = String;
@@ -56,14 +67,23 @@ impl FromDataSimple for Usuario {
     }
 }
 
-#[get("/<name>/<age>", format = "json")]
-fn get_hello(name: String, age: u8) -> Json<Person> {
-    let person = Person {
-        name: name,
-        age: age,
-    };
-    return Json(person);
-}
+//#[get("/<name>/<age>", format = "json")]
+//fn get_hello(name: String, age: u8) -> Json<Person> {
+//    let person = Person {
+//        name: name,
+//        age: age,
+//    };
+//    return Json(person);
+//}
+
+//#[get("/configuracoes", format = "json")]
+//fn get_hello(name: String, age: u8) -> Json<Person> {
+//    let person = Person {
+//        name: name,
+//        age: age,
+//    };
+//    return Json(person);
+//}
 
 #[post("/login", format = "json", data = "<usuario>")]
 fn login(usuario: Usuario) -> Status {
@@ -75,7 +95,7 @@ fn login(usuario: Usuario) -> Status {
 }
 
 #[options("/login")]
-fn options_handler<'a>() -> Response<'a> {
+fn options_login<'a>() -> Response<'a> {
     Response::build()
         .raw_header("Access-Control-Allow-Origin", "http://127.0.0.1:3000")
         .raw_header("Access-Control-Allow-Methods", "OPTIONS, POST")
@@ -101,7 +121,7 @@ fn not_found(request: &Request) -> Html<String> {
 
 fn main() {
     rocket::ignite()
-        .mount("/", routes![get_hello, login, options_handler])
+        .mount("/", routes![login, options_login])
         .register(catchers![not_found])
         .launch();
 }

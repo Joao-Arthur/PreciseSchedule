@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
     Header,
@@ -10,23 +12,32 @@ import {
     Button,
     Label
 } from './SignIn.styles';
+import { Creators } from '../../Store/SignIn';
 
 const SignIn = () => {
-    //fetch('http://localhost:8000/login', {
-    //    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    //    mode: 'cors', // no-cors, *cors, same-origin
-    //    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    //    credentials: 'same-origin', // include, *same-origin, omit
-    //    headers: {
-    //        'Content-Type': 'application/json'
-    //        // 'Content-Type': 'application/x-www-form-urlencoded',
-    //    },
-    //    redirect: 'follow', // manual, *follow, error
-    //    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    //    body: JSON.stringify({ login: 'admin', senha: '1623' }) // body data type must match "Content-Type" header
-    //}).then(res => {
-    //    console.log(res);
-    //});
+    const dispatch = useDispatch();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const loginClick = () => {
+        //    fetch('http://localhost:8000/login', {
+        //        method: 'POST',
+        //        cache: 'no-cache',
+        //        headers: {
+        //            'Content-Type': 'application/json'
+        //        },
+        //        referrerPolicy: 'no-referrer',
+        //        body: JSON.stringify({ login: username, senha: password })
+        //    }).then(res => {
+        //        console.log(res);
+        //    });
+        dispatch(Creators.signIn({}));
+    };
+
+    const signout = () => {
+        dispatch(Creators.logout());
+    };
+
     return (
         <>
             <Header>
@@ -36,15 +47,23 @@ const SignIn = () => {
             <FormContainer>
                 <FieldContainer>
                     <Label>Username</Label>
-                    <Input type='text' />
+                    <Input
+                        type='text'
+                        onChange={e => setUsername(e.target.value)}
+                    />
                 </FieldContainer>
                 <FieldContainer>
                     <Label>
                         Password <Anchor href='#'>Forgot password?</Anchor>
                     </Label>
-                    <Input type='password' />
+                    <Input
+                        type='password'
+                        onChange={e => setPassword(e.target.value)}
+                    />
                 </FieldContainer>
-                <Button>Sign in</Button>
+                <Button onClick={loginClick}>Sign in</Button>
+                <Button onClick={signout}>Sign out</Button>
+                <Link to='/calendar'>calendar</Link>
             </FormContainer>
             <RedirectContainer>
                 New to PreciseSchedule?
