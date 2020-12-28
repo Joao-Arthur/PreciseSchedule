@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import LinkBase from '../../Components/Core/Link';
 
 export const Title = styled.h1`
     text-align: center;
@@ -6,10 +7,6 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.h3`
     text-align: center;
-`;
-
-export const Anchor = styled.a`
-    text-decoration: none;
 `;
 
 export const Label = styled.label`
@@ -59,4 +56,10 @@ export const RedirectContainer = styled.div`
     margin: 10px auto;
     border: 1px solid gray;
     border-radius: 4px;
+`;
+
+export const Link = styled(LinkBase)`
+    &:hover {
+        text-decoration: underline;
+    }
 `;

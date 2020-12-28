@@ -33,4 +33,5 @@ export const CustomLink = styled(Link)`
     padding-left: 50px;
     font-size: 20px;
     width: 100%;
+    color: black;
 `;

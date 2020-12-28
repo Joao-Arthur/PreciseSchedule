@@ -1,9 +1,17 @@
-export const Types = {
-    SIGN_IN: 'SIGN_IN/SIGN_IN',
-    SIGN_IN_SUCCESS: 'SIGN_IN/SIGN_IN',
-    LOGIN_FAILURE: 'SIGN_IN/SIGN_IN',
-    LOGOUT: 'SIGN_IN/LOGOUT'
+const Types = {
+    SIGN_IN: 'AUTH/SIGN_IN',
+    SIGN_IN_SUCCESS: 'AUTH/SIGN_IN_SUCCESS',
+    SIGN_IN_FAILURE: 'AUTH/SIGN_IN_FAILURE',
+    LOGOUT: 'AUTH/LOGOUT'
 };
+
+type Keys = keyof typeof Types;
+type ActionTypes = typeof Types[Keys];
+
+interface Action {
+    type: ActionTypes;
+    payload: any;
+}
 
 const initialState = {
     loadingLogin: false,
@@ -12,8 +20,8 @@ const initialState = {
     user: {}
 };
 
-const SignIn = (state = initialState, action: any) => {
-    switch (action.type) {
+const Auth = (state = initialState, { type, payload }: Action) => {
+    switch (type) {
         case Types.SIGN_IN:
             //    console.log(state);
             return { ...state, isLogged: true };
@@ -22,7 +30,7 @@ const SignIn = (state = initialState, action: any) => {
             return { ...state, isLogged: false };
         //   case Types.SIGN_IN_SUCCESS:
         //       return { loadingLogin: false, isLogged: true };
-        //   case Types.LOGIN_FAILURE:
+        //   case Types.SIGN_IN_FAILURE:
         //       return { loadingLogin: false };
         default:
             return state;
@@ -34,4 +42,4 @@ export const Creators = {
     logout: () => ({ type: Types.LOGOUT })
 };
 
-export default SignIn;
+export default Auth;

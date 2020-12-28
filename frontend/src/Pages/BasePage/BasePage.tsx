@@ -1,16 +1,17 @@
 import { ReactChild } from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../Store';
 import {
     Header,
     HeaderTitle,
     ContentContainer,
     ChildrenContainer,
-    Footer
+    Footer,
+    Button,
+    Link
 } from './BasePage.styles';
 import Sidebar from '../../Components/Sidebar';
-import { useDispatch } from 'react-redux';
-import { Creators } from '../../Store/SignIn';
-
+import { Creators } from '../../Store/Auth';
 interface Props {
     children: ReactChild;
 }
@@ -20,16 +21,30 @@ const BasePage = ({ children }: Props) => {
     const signout = () => {
         dispatch(Creators.logout());
     };
+
+    const actualPage = useSelector(
+        (state: RootState) => state.General.actualPage
+    );
+
+    const getPageActions = () => {
+        switch (actualPage) {
+            case 'signin':
+                return <Link to='/signup'>Sign up</Link>;
+            case 'signup':
+                return <Link to='/signin'>Sign in</Link>;
+            default:
+                return <Button onClick={signout}>Sign out</Button>;
+        }
+    };
+
     return (
         <>
             <Header>
-                <HeaderTitle>título</HeaderTitle>
-                <Link to='/signup'>Sign up</Link>
-                <Link to='/signin'>Sign in</Link>
-                <button onClick={signout}>Sign out</button>
+                <HeaderTitle>PreciseSchedule</HeaderTitle>
+                {getPageActions()}
             </Header>
             <ContentContainer>
-                <Sidebar />
+                {!actualPage ? <Sidebar /> : null}
                 <ChildrenContainer>{children}</ChildrenContainer>
             </ContentContainer>
             <Footer>muito shoow</Footer>

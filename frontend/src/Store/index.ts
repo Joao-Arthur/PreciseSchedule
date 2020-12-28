@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import SignIn from './SignIn';
+import Auth from './Auth';
+import General from './General';
 
 export const rootReducer = combineReducers({
-    SignIn
+    Auth,
+    General
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

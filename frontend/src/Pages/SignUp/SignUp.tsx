@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import {
     FormContainer,
@@ -8,14 +9,23 @@ import {
     Input,
     Subtitle,
     Title,
-    Anchor,
+    Link,
     Button,
     Label,
     P
 } from './SignUp.styles';
+import { Creators } from '../../Store/General';
 
 const SignUp = () => {
-    const logado = useSelector((state: RootState) => state.SignIn.isLogged);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(Creators.setActualPage('signup'));
+        return () => {
+            dispatch(Creators.setActualPage(null));
+        };
+    }, [dispatch]);
+
+    const logado = useSelector((state: RootState) => state.Auth.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (
@@ -39,7 +49,7 @@ const SignUp = () => {
                 <Button>Sign up</Button>
             </FormContainer>
             <RedirectContainer>
-                Already in PreciseSchedule? <Anchor href='#'>Sign in</Anchor>
+                Already in PreciseSchedule? <Link to='signin'>Sign in.</Link>
             </RedirectContainer>
         </>
     );

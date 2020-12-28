@@ -1,14 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import { Header, Button, Title, Body, BodyHeader } from './Calendar.styles';
 import Cell from '../Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
-import { Creators } from '../../Store/SignIn';
 
 const Calendar = () => {
-    const dispatch = useDispatch();
     const now = new Date();
     const [visibleYear, setVisibleYear] = useState(now.getFullYear());
     const [visibleMonth, setVisibleMonth] = useState(now.getMonth());
@@ -30,11 +28,7 @@ const Calendar = () => {
         [visibleYear, visibleMonth]
     );
 
-    const signout = () => {
-        dispatch(Creators.logout());
-    };
-
-    const logado = useSelector((state: RootState) => state.SignIn.isLogged);
+    const logado = useSelector((state: RootState) => state.Auth.isLogged);
     if (!logado) return <Redirect to='/signin' />;
 
     return (

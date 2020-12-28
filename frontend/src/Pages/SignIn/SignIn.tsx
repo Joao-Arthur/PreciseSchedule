@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import { Redirect } from 'react-router-dom';
@@ -8,11 +8,12 @@ import {
     FieldContainer,
     Input,
     Title,
-    Anchor,
+    Link,
     Button,
     Label
 } from './SignIn.styles';
-import { Creators } from '../../Store/SignIn';
+import { Creators as AuthActions } from '../../Store/Auth';
+import { Creators as GeneralActions } from '../../Store/General';
 
 const SignIn = () => {
     const dispatch = useDispatch();
@@ -31,10 +32,17 @@ const SignIn = () => {
         //    }).then(res => {
         //        console.log(res);
         //    });
-        dispatch(Creators.signIn({}));
+        dispatch(AuthActions.signIn({}));
     };
 
-    const logado = useSelector((state: RootState) => state.SignIn.isLogged);
+    useEffect(() => {
+        dispatch(GeneralActions.setActualPage('signin'));
+        return () => {
+            dispatch(GeneralActions.setActualPage(null));
+        };
+    }, [dispatch]);
+
+    const logado = useSelector((state: RootState) => state.Auth.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (
@@ -50,7 +58,7 @@ const SignIn = () => {
                 </FieldContainer>
                 <FieldContainer>
                     <Label>
-                        Password <Anchor href='#'>Forgot password?</Anchor>
+                        Password <Link to='#'>Forgot password?</Link>
                     </Label>
                     <Input
                         type='password'
@@ -60,8 +68,8 @@ const SignIn = () => {
                 <Button onClick={loginClick}>Sign in</Button>
             </FormContainer>
             <RedirectContainer>
-                New to PreciseSchedule?
-                <Anchor href='#'> Create an account.</Anchor>
+                New to PreciseSchedule?{' '}
+                <Link to='signup'>Create an account.</Link>
             </RedirectContainer>
         </>
     );
