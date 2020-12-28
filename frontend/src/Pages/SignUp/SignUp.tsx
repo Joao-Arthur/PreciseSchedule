@@ -1,8 +1,7 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import {
-    Header,
     FormContainer,
     RedirectContainer,
     FieldContainer,
@@ -21,9 +20,6 @@ const SignUp = () => {
 
     return (
         <>
-            <Header>
-                <Link to='/signin'>Sign in</Link>
-            </Header>
             <Subtitle>join PreciseSchedule</Subtitle>
             <Title>Create your account</Title>
             <FormContainer>

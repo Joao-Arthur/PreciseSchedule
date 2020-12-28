@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
-    display: flex;
-    background-color: gray;
-    box-shadow: 0px 0px 3px gray;
-    justify-content: flex-end;
-`;
-
-export const CalendarHeader = styled.div`
+export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;

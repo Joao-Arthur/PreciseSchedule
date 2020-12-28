@@ -1,15 +1,8 @@
 import React, { useState, useCallback } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
-import {
-    CalendarHeader,
-    Button,
-    Title,
-    Body,
-    BodyHeader,
-    Header
-} from './Calendar.styles';
+import { Header, Button, Title, Body, BodyHeader } from './Calendar.styles';
 import Cell from '../Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
 import { Creators } from '../../Store/SignIn';
@@ -47,9 +40,6 @@ const Calendar = () => {
     return (
         <>
             <Header>
-                <button onClick={signout}>sign out</button>
-            </Header>
-            <CalendarHeader>
                 <Button onClick={() => setVisibleYear(visibleYear - 1)}>
                     {'<<'}
                 </Button>
@@ -59,7 +49,7 @@ const Calendar = () => {
                 <Button onClick={() => setVisibleYear(visibleYear + 1)}>
                     {'>>'}
                 </Button>
-            </CalendarHeader>
+            </Header>
             <Body>
                 <thead>
                     <tr>

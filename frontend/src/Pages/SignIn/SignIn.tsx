@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {
-    Header,
     FormContainer,
     RedirectContainer,
     FieldContainer,
@@ -40,9 +39,6 @@ const SignIn = () => {
 
     return (
         <>
-            <Header>
-                <Link to='/signup'>Sign up</Link>
-            </Header>
             <Title>Sign in to PreciseSchedule</Title>
             <FormContainer>
                 <FieldContainer>

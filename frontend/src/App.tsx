@@ -5,6 +5,8 @@ import Home from './Pages/Home';
 import Calendar from './Pages/Calendar';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
+import BasePage from './Pages/BasePage';
+import NotFound from './Pages/NotFound';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import configureStore from './Store';
 
@@ -15,21 +17,25 @@ const App = () => (
         <GlobalStyle />
         <Provider store={store}>
             <BrowserRouter>
-                <Switch>
-                    <Route exact path='/'>
-                        <Home />
-                    </Route>
-                    <Route path='/calendar'>
-                        <Calendar />
-                    </Route>
-                    <Route path='/signin'>
-                        <SignIn />
-                    </Route>
-                    <Route path='/signup'>
-                        <SignUp />
-                    </Route>
-                    <Route>pegadinha do malandro</Route>
-                </Switch>
+                <BasePage>
+                    <Switch>
+                        <Route exact path='/'>
+                            <Home />
+                        </Route>
+                        <Route path='/calendar'>
+                            <Calendar />
+                        </Route>
+                        <Route path='/signin'>
+                            <SignIn />
+                        </Route>
+                        <Route path='/signup'>
+                            <SignUp />
+                        </Route>
+                        <Route>
+                            <NotFound />
+                        </Route>
+                    </Switch>
+                </BasePage>
             </BrowserRouter>
         </Provider>
     </StrictMode>

@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
-    display: flex;
-    background-color: gray;
-    box-shadow: 0px 0px 3px gray;
-    justify-content: flex-end;
-`;
-
 export const Title = styled.h1`
     text-align: center;
 `;
@@ -21,7 +14,7 @@ export const Label = styled.label`
 
 export const Button = styled.button`
     color: white;
-    background-color: #6239C6;
+    background-color: #6239c6;
     border: 1px solid gray;
     border-radius: 4px;
     padding: 5px 0;
