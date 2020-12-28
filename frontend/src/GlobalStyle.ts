@@ -8,6 +8,12 @@ const GlobalStyle = createGlobalStyle`
         --primaryGrey: #c2c2c2;
         --lightGrey: #f5f5f5;
         --darkGrey: #929292;
+
+        --calendarprimary: #42a5f5;
+        --calendarlight: #80d6ff;
+        --calendardark: #0077c2;
+        --calendarprimarygray: #f2f2f2;
+        --calendardarkgray: #aeaeae;
     }
 
     body {

@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-//#42a5f5 primary
-//#80d6ff light
-//#0077c2 dark
+export const Header = styled.header`
+    display: flex;
+    background-color: gray;
+    box-shadow: 0px 0px 3px gray;
+    justify-content: flex-end;
+`;
 
-//#f2f2f2  primary gray
-//#aeaeae  dark gray
-
-export const Header = styled.div`
+export const CalendarHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,7 @@ export const Button = styled.button`
     color: white;
 `;
 
-export const HeaderTitle = styled.p`
+export const Title = styled.p`
     width: 150px;
     font-size: 18px;
     margin: 10px 0;

@@ -57,6 +57,6 @@ export const monthDaysToGrid = (year: number, month: number) => {
     novosElementos.push(valores.splice(0, 7));
     novosElementos.push(valores.splice(0, 7));
     novosElementos.push(valores.splice(0, 7));
-    //console.log(novosElementos);
+    console.log(novosElementos);
     return novosElementos;
 };

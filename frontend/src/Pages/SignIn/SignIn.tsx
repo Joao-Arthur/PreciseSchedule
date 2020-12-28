@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../Store';
+import { Link, Redirect } from 'react-router-dom';
 import {
     Header,
     FormContainer,
@@ -34,9 +35,8 @@ const SignIn = () => {
         dispatch(Creators.signIn({}));
     };
 
-    const signout = () => {
-        dispatch(Creators.logout());
-    };
+    const logado = useSelector((state: RootState) => state.SignIn.isLogged);
+    if (logado) return <Redirect to='/calendar' />;
 
     return (
         <>
@@ -62,8 +62,6 @@ const SignIn = () => {
                     />
                 </FieldContainer>
                 <Button onClick={loginClick}>Sign in</Button>
-                <Button onClick={signout}>Sign out</Button>
-                <Link to='/calendar'>calendar</Link>
             </FormContainer>
             <RedirectContainer>
                 New to PreciseSchedule?

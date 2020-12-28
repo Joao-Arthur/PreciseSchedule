@@ -1,55 +1,70 @@
 import React, { useState, useCallback } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
-import * as Style from './Calendar.styles';
+import {
+    CalendarHeader,
+    Button,
+    Title,
+    Body,
+    BodyHeader,
+    Header
+} from './Calendar.styles';
 import Cell from '../Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
+import { Creators } from '../../Store/SignIn';
 
 const Calendar = () => {
-    const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-    const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
+    const dispatch = useDispatch();
+    const now = new Date();
+    const [visibleYear, setVisibleYear] = useState(now.getFullYear());
+    const [visibleMonth, setVisibleMonth] = useState(now.getMonth());
 
-    const handleAddMonth = () => {
-        if (selectedMonth < 11) return setSelectedMonth(selectedMonth + 1);
-        setSelectedMonth(0);
-        setSelectedYear(selectedYear + 1);
+    const setNextMonth = () => {
+        if (visibleMonth < 11) return setVisibleMonth(visibleMonth + 1);
+        setVisibleMonth(0);
+        setVisibleYear(visibleYear + 1);
     };
 
-    const handleSubMonth = () => {
-        if (selectedMonth > 0) return setSelectedMonth(selectedMonth - 1);
-        setSelectedMonth(11);
-        setSelectedYear(selectedYear - 1);
+    const setPrevMonth = () => {
+        if (visibleMonth > 0) return setVisibleMonth(visibleMonth - 1);
+        setVisibleMonth(11);
+        setVisibleYear(visibleYear - 1);
     };
 
     const diasFormatados = useCallback(
-        () => monthDaysToGrid(selectedYear, selectedMonth),
-        [selectedYear, selectedMonth]
+        () => monthDaysToGrid(visibleYear, visibleMonth),
+        [visibleYear, visibleMonth]
     );
 
-    const logado = useSelector((state: RootState) => state.SignIn.isLogged);
-    console.log(logado);
+    const signout = () => {
+        dispatch(Creators.logout());
+    };
 
-    if (!logado) return <Redirect to='/home' />;
+    const logado = useSelector((state: RootState) => state.SignIn.isLogged);
+    if (!logado) return <Redirect to='/signin' />;
 
     return (
         <>
-            <Style.Header>
-                <Style.Button onClick={() => setSelectedYear(selectedYear - 1)}>
+            <Header>
+                <button onClick={signout}>sign out</button>
+            </Header>
+            <CalendarHeader>
+                <Button onClick={() => setVisibleYear(visibleYear - 1)}>
                     {'<<'}
-                </Style.Button>
-                <Style.Button onClick={handleSubMonth}>{'<'}</Style.Button>
-                <Style.HeaderTitle>{`${nomeDosMeses[selectedMonth]} ${selectedYear}`}</Style.HeaderTitle>
-                <Style.Button onClick={handleAddMonth}>{'>'}</Style.Button>
-                <Style.Button onClick={() => setSelectedYear(selectedYear + 1)}>
+                </Button>
+                <Button onClick={setPrevMonth}>{'<'}</Button>
+                <Title>{`${nomeDosMeses[visibleMonth]} ${visibleYear}`}</Title>
+                <Button onClick={setNextMonth}>{'>'}</Button>
+                <Button onClick={() => setVisibleYear(visibleYear + 1)}>
                     {'>>'}
-                </Style.Button>
-            </Style.Header>
-            <Style.Body>
+                </Button>
+            </CalendarHeader>
+            <Body>
                 <thead>
                     <tr>
                         {diasDaSemana.map(dia => (
-                            <Style.BodyHeader>{dia}</Style.BodyHeader>
+                            <BodyHeader>{dia}</BodyHeader>
                         ))}
                     </tr>
                 </thead>
@@ -62,8 +77,7 @@ const Calendar = () => {
                         </tr>
                     ))}
                 </tbody>
-            </Style.Body>
-            <Link to='/signin'>sign in</Link>
+            </Body>
         </>
     );
 };
