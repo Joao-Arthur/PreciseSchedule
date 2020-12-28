@@ -50,4 +50,6 @@ export const Link = styled(LinkBase)`
     }
 `;
 
-export const Footer = styled.footer``;
+export const Footer = styled.footer`
+    text-align: center;
+`;

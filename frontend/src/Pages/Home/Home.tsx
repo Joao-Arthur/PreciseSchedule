@@ -1,7 +1,9 @@
+import { Container } from './Home.styles';
+
 const Home = () => (
-    <div>
+    <Container>
         <h1>welcome to precise schedule</h1>
-    </div>
+    </Container>
 );
 
 export default Home;

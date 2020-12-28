@@ -13,7 +13,7 @@ const Sidebar = () => (
                 <CustomLink to='/signin'>signin</CustomLink>
             </Item>
             <Item>
-                <CustomLink to='/home'>home</CustomLink>
+                <CustomLink to='/'>home</CustomLink>
             </Item>
             <Item>
                 <CustomLink to='/sample'>sample</CustomLink>
