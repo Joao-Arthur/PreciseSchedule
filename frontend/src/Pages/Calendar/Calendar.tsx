@@ -47,16 +47,16 @@ const Calendar = () => {
             <Body>
                 <thead>
                     <tr>
-                        {diasDaSemana.map(dia => (
-                            <BodyHeader>{dia}</BodyHeader>
+                        {diasDaSemana.map(day => (
+                            <BodyHeader key={day}>{day}</BodyHeader>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {diasFormatados().map(semana => (
-                        <tr>
-                            {semana.map((dia, index) => (
-                                <Cell dia={dia} key={index} />
+                    {diasFormatados().map((week, weekIndex) => (
+                        <tr key={weekIndex}>
+                            {week.map((day, index) => (
+                                <Cell dia={day} key={weekIndex * 7 + index} />
                             ))}
                         </tr>
                     ))}

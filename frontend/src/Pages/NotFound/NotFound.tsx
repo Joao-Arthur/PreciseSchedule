@@ -2,7 +2,7 @@ import { Container } from './NotFound.styles';
 
 const NotFound = () => (
     <Container>
-        <h1>página não encontrada</h1>
+        <h3>página não encontrada</h3>
     </Container>
 );
 

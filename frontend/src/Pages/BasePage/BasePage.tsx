@@ -47,7 +47,9 @@ const BasePage = ({ children }: Props) => {
                 {!actualPage ? <Sidebar /> : null}
                 <ChildrenContainer>{children}</ChildrenContainer>
             </ContentContainer>
-            <Footer>muito shoow</Footer>
+            <Footer>
+                2020 João Arthur Lothamer Fernandes. Terms Privacy Help
+            </Footer>
         </>
     );
 };
