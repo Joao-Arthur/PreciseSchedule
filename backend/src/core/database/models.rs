@@ -1,3 +1,5 @@
+use super::schema::posts;
+
 #[derive(Queryable)]
 pub struct Post {
     pub id: i32,
@@ -5,7 +7,6 @@ pub struct Post {
     pub body: String,
     pub published: bool,
 }
-use super::schema::posts;
 
 #[derive(Insertable)]
 #[table_name = "posts"]
