@@ -1,0 +1,1 @@
+create type gender_enum as enum('M', 'F', 'O');
