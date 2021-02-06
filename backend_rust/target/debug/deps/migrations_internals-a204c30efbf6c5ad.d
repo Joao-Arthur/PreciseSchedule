@@ -1,0 +1,10 @@
+C:\Programacao\PreciseScheduleRefactor\backend\target\debug\deps\migrations_internals-a204c30efbf6c5ad.rmeta: C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\lib.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\connection.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\migration.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\schema.rs
+
+C:\Programacao\PreciseScheduleRefactor\backend\target\debug\deps\libmigrations_internals-a204c30efbf6c5ad.rlib: C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\lib.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\connection.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\migration.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\schema.rs
+
+C:\Programacao\PreciseScheduleRefactor\backend\target\debug\deps\migrations_internals-a204c30efbf6c5ad.d: C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\lib.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\connection.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\migration.rs C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\schema.rs
+
+C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\lib.rs:
+C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\connection.rs:
+C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\migration.rs:
+C:\Users\Joao_\.cargo\registry\src\github.com-1ecc6299db9ec823\migrations_internals-1.4.1\src\schema.rs:
