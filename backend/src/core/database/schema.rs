@@ -18,7 +18,7 @@ table! {
     user_profile (id) {
         id -> Int4,
         name -> Varchar,
-        gender -> Gender_enum,
+        gender -> Varchar,
         birthdate -> Date,
         email -> Varchar,
         username -> Varchar,

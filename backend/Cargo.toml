@@ -15,6 +15,9 @@ rocket_cors = "0.5.1"
 diesel = { version = "1.4.4", features = ["postgres"] }
 diesel_migrations = "1.4.0"
 dotenv = "0.15.0"
+ring = "0.16.20"
+data-encoding = "2.3.2"
+chrono = "0.4"
 
 [dependencies.rocket_contrib]
 version = "0.4.6"

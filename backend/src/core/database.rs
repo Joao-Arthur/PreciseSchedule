@@ -1,4 +1,4 @@
+mod connection;
 mod models;
-pub mod posts;
-mod posts;
-mod squema;
+mod schema;
+pub mod user;
