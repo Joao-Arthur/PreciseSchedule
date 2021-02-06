@@ -40,9 +40,10 @@ fn select() {
 
 pub fn insert(user: User) {
     let connection = connection::establish_connection();
-    let result = diesel::insert_into(user_profile)
-        .values(&user)
-        .get_result(&connection);
+    let result: std::result::Result<User, diesel::result::Error> =
+        diesel::insert_into(user_profile)
+            .values(&user)
+            .get_result::<User>(&connection);
 
     //       .expect("Error saving user")
 }

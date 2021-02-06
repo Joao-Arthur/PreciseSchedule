@@ -1,17 +1,5 @@
 use super::schema::{event, user_profile};
-
-#[derive(Queryable, Insertable)]
-#[table_name = "user_profile"]
-pub struct User<'a> {
-    pub id: i32,
-    pub name: &'a str,
-    pub gender: &'a str,
-    pub email: &'a str,
-    pub username: &'a str,
-    pub iterations: i32,
-    pub salt: &'a str,
-    pub hash: &'a str,
-}
+use chrono::NaiveDate;
 
 #[derive(Queryable, Insertable)]
 #[table_name = "event"]
@@ -24,4 +12,18 @@ pub struct Event<'a> {
     importance: i32,
     frequency: i32,
     category: i32,
+}
+
+#[derive(Queryable, Insertable)]
+#[table_name = "user_profile"]
+pub struct User<'a> {
+    pub id: i32,
+    pub name: &'a str,
+    pub gender: &'a str,
+    pub birthdate: &'a NaiveDate,
+    pub email: &'a str,
+    pub username: &'a str,
+    pub iterations: i32,
+    pub salt: &'a str,
+    pub hash: &'a str,
 }
