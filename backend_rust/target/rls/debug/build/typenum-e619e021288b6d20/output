@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=c:\Programacao\PreciseScheduleRefactor\backend\target\rls\debug\build\typenum-e619e021288b6d20\out\consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=c:\Programacao\PreciseScheduleRefactor\backend\target\rls\debug\build\typenum-e619e021288b6d20\out\op.rs

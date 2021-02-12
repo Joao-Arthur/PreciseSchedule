@@ -1,1 +1,0 @@
-C:\Programacao\PreciseScheduleRefactor\backend\target\debug\backend.exe: C:\Programacao\PreciseScheduleRefactor\backend\src\controller.rs C:\Programacao\PreciseScheduleRefactor\backend\src\main.rs C:\Programacao\PreciseScheduleRefactor\backend\src\routes.rs

@@ -1,1 +1,0 @@
-alter table user_profile alter column gender type char(1);
