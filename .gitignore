@@ -1,8 +1,8 @@
 backend/node_modules
 backend/dist
+backend/src/Core/Authorization/Keys/
 
 frontend/node_modules
 frontend/coverage
 frontend/build
-frontend/npm-debug.log*
 frontend/.eslintcache

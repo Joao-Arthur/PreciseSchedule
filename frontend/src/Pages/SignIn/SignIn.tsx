@@ -21,17 +21,6 @@ const SignIn = () => {
     const [password, setPassword] = useState('');
 
     const loginClick = () => {
-        //    fetch('http://localhost:8000/login', {
-        //        method: 'POST',
-        //        cache: 'no-cache',
-        //        headers: {
-        //            'Content-Type': 'application/json'
-        //        },
-        //        referrerPolicy: 'no-referrer',
-        //        body: JSON.stringify({ login: username, senha: password })
-        //    }).then(res => {
-        //        console.log(res);
-        //    });
         dispatch(AuthActions.signIn({}));
     };
 

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import LinkBase from '../../Components/Core/Link';
+import Icon from '../../Components/Core/Icon';
 
 export const Header = styled.header`
     display: flex;
     background-color: #373737;
     box-shadow: 0px 0px 3px gray;
-    justify-content: space-around;
+    justify-content: space-between;
 `;
 
 export const HeaderTitle = styled.h1`
@@ -33,6 +34,11 @@ export const Button = styled.button`
     &:hover {
         color: #ccc;
     }
+`;
+
+export const Hamburguer = styled(Icon).attrs({ name: 'hamburguer', size: 38 })`
+    fill: white;
+    cursor: pointer;
 `;
 
 export const Link = styled(LinkBase)`

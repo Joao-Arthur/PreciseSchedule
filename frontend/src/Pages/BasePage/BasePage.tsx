@@ -8,6 +8,7 @@ import {
     ChildrenContainer,
     Footer,
     Button,
+    Hamburguer,
     Link
 } from './BasePage.styles';
 import Sidebar from '../../Components/Sidebar';
@@ -40,6 +41,7 @@ const BasePage = ({ children }: Props) => {
     return (
         <>
             <Header>
+                <Hamburguer />
                 <HeaderTitle>PreciseSchedule</HeaderTitle>
                 {getPageActions()}
             </Header>

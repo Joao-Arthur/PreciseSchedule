@@ -11,10 +11,15 @@ export const Subtitle = styled.h3`
 
 export const Label = styled.label`
     padding: 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
 `;
 
 export const P = styled.p`
     margin: 0;
+    font-size: 12px;
+    padding: 2px 0;
 `;
 
 export const Button = styled.button`
@@ -22,7 +27,7 @@ export const Button = styled.button`
     background-color: #6239c6;
     border: 1px solid gray;
     border-radius: 4px;
-    padding: 5px 0;
+    padding: 7px 0;
     font-size: 16px;
     cursor: pointer;
 `;
@@ -48,6 +53,7 @@ export const Input = styled.input`
     border: 1px solid gray;
     border-radius: 4px;
     padding: 5px;
+    font-size: 16px;
 `;
 
 export const RedirectContainer = styled.div`
