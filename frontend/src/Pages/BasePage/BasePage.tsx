@@ -12,15 +12,19 @@ import {
     Link
 } from './BasePage.styles';
 import Sidebar from '../../Components/Sidebar';
-import { Creators } from '../../Store/Auth';
+import { Creators as AuthCreators } from '../../Store/Auth';
+import { Creators as GeneralCreators } from '../../Store/General';
 interface Props {
     children: ReactChild;
 }
 
-const BasePage = ({ children }: Props) => {
+export default function BasePage({ children }: Props) {
     const dispatch = useDispatch();
     const signout = () => {
-        dispatch(Creators.logout());
+        dispatch(AuthCreators.logout());
+    };
+    const switchSidebar = () => {
+        dispatch(GeneralCreators.switchSidebarOpen());
     };
 
     const actualPage = useSelector(
@@ -41,7 +45,9 @@ const BasePage = ({ children }: Props) => {
     return (
         <>
             <Header>
-                <Hamburguer />
+                <button onClick={switchSidebar}>
+                    <Hamburguer />
+                </button>
                 <HeaderTitle>PreciseSchedule</HeaderTitle>
                 {getPageActions()}
             </Header>
@@ -54,6 +60,4 @@ const BasePage = ({ children }: Props) => {
             </Footer>
         </>
     );
-};
-
-export default BasePage;
+}
