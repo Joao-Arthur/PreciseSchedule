@@ -15,7 +15,7 @@ import {
 import { Creators as AuthActions } from '../../Store/Auth';
 import { Creators as GeneralActions } from '../../Store/General';
 
-const SignIn = () => {
+export default function SignIn() {
     const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -62,6 +62,4 @@ const SignIn = () => {
             </RedirectContainer>
         </>
     );
-};
-
-export default SignIn;
+}

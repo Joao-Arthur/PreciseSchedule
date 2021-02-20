@@ -12,33 +12,33 @@ import configureStore from './Store';
 
 const store = configureStore();
 
-const App = () => (
-    <StrictMode>
-        <GlobalStyle />
-        <Provider store={store}>
-            <BrowserRouter>
-                <BasePage>
-                    <Switch>
-                        <Route exact path='/'>
-                            <Home />
-                        </Route>
-                        <Route path='/calendar'>
-                            <Calendar />
-                        </Route>
-                        <Route path='/signin'>
-                            <SignIn />
-                        </Route>
-                        <Route path='/signup'>
-                            <SignUp />
-                        </Route>
-                        <Route>
-                            <NotFound />
-                        </Route>
-                    </Switch>
-                </BasePage>
-            </BrowserRouter>
-        </Provider>
-    </StrictMode>
-);
-
-export default App;
+export default function App() {
+    return (
+        <StrictMode>
+            <GlobalStyle />
+            <Provider store={store}>
+                <BrowserRouter>
+                    <BasePage>
+                        <Switch>
+                            <Route exact path='/'>
+                                <Home />
+                            </Route>
+                            <Route path='/calendar'>
+                                <Calendar />
+                            </Route>
+                            <Route path='/signin'>
+                                <SignIn />
+                            </Route>
+                            <Route path='/signup'>
+                                <SignUp />
+                            </Route>
+                            <Route>
+                                <NotFound />
+                            </Route>
+                        </Switch>
+                    </BasePage>
+                </BrowserRouter>
+            </Provider>
+        </StrictMode>
+    );
+}

@@ -9,6 +9,6 @@ export const rootReducer = combineReducers({
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-const configureStore = () => createStore(rootReducer);
-
-export default configureStore;
+export default function configureStore() {
+    return createStore(rootReducer);
+}

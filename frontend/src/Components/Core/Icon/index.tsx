@@ -7,13 +7,11 @@ interface Props {
     className?: string;
 }
 
-const Icon = ({ name, size, className }: Props) => {
+export default function Icon({ name, size, className }: Props) {
     const SVGIcon = styled(SVG[name])`
         height: ${size}px;
         width: ${size}px;
     `;
 
     return <SVGIcon className={className} />;
-};
-
-export default Icon;
+}

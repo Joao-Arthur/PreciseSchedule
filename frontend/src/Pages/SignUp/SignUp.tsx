@@ -18,7 +18,7 @@ import { Creators } from '../../Store/General';
 import Fetch from '../../Core/Fetch';
 import { UserSignUp } from '../../Models/User';
 
-const SignUp = () => {
+export default function SignUp() {
     const name = useRef<HTMLInputElement>(null);
     const email = useRef<HTMLInputElement>(null);
     const birthday = useRef<HTMLInputElement>(null);
@@ -118,6 +118,4 @@ const SignUp = () => {
             </RedirectContainer>
         </>
     );
-};
-
-export default SignUp;
+}

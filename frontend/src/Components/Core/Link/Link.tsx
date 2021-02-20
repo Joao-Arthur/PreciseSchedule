@@ -7,10 +7,10 @@ interface Props {
     className?: string;
 }
 
-const Link = ({ to, children, className }: Props) => (
-    <CustomLink to={to} className={className}>
-        {children}
-    </CustomLink>
-);
-
-export default Link;
+export default function Link({ to, children, className }: Props) {
+    return (
+        <CustomLink to={to} className={className}>
+            {children}
+        </CustomLink>
+    );
+}

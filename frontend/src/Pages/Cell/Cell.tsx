@@ -4,8 +4,8 @@ interface Props {
     dia: number;
 }
 
-const Cell = ({ dia }: Props) =>
-    dia ? (
+export default function Cell({ dia }: Props) {
+    return dia ? (
         <DayBox
             onClick={() => {
                 //console.log(props.children)
@@ -16,5 +16,4 @@ const Cell = ({ dia }: Props) =>
     ) : (
         <InvisibleDayBox />
     );
-
-export default Cell;
+}

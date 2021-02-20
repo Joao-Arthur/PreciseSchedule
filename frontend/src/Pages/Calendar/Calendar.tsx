@@ -6,7 +6,7 @@ import { Header, Button, Title, Body, BodyHeader } from './Calendar.styles';
 import Cell from '../Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
 
-const Calendar = () => {
+export default function Calendar() {
     const now = new Date();
     const [visibleYear, setVisibleYear] = useState(now.getFullYear());
     const [visibleMonth, setVisibleMonth] = useState(now.getMonth());
@@ -64,6 +64,4 @@ const Calendar = () => {
             </Body>
         </>
     );
-};
-
-export default Calendar;
+}
