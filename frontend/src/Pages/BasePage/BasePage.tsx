@@ -45,9 +45,7 @@ export default function BasePage({ children }: Props) {
     return (
         <>
             <Header>
-                <button onClick={switchSidebar}>
-                    <Hamburguer />
-                </button>
+                <Hamburguer onClick={switchSidebar} />
                 <HeaderTitle>PreciseSchedule</HeaderTitle>
                 {getPageActions()}
             </Header>

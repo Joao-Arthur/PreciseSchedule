@@ -9,19 +9,16 @@ export const Container = styled.div<ContainerProps>`
     height: 100vh;
     box-shadow: 0px 0px 2px;
     overflow: hidden;
-    transition: width 1s;
+    transition: width 0.7s ease;
     flex: 0 0 auto;
     width: ${({ open }) => (open ? '300' : '0')}px;
 `;
 
 export const Item = styled.div`
-    background-color: #f5f5f5;
     display: flex;
     align-items: center;
     position: relative;
-
     cursor: pointer;
-
     &:hover {
         box-shadow: 0px 0px 2px;
         z-index: 1;
