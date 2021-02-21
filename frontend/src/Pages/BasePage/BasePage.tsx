@@ -1,31 +1,24 @@
 import { ReactChild } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../Store';
+import { Creators } from '../../Store/General';
 import {
     Header,
     HeaderTitle,
-    ContentContainer,
+    Main,
     ChildrenContainer,
     Footer,
-    Button,
     Hamburguer,
     Link
 } from './BasePage.styles';
 import Sidebar from '../../Components/Sidebar';
-import { Creators as AuthCreators } from '../../Store/Auth';
-import { Creators as GeneralCreators } from '../../Store/General';
+import UserActions from '../../Components/UserActions';
 interface Props {
     children: ReactChild;
 }
 
 export default function BasePage({ children }: Props) {
     const dispatch = useDispatch();
-    const signout = () => {
-        dispatch(AuthCreators.logout());
-    };
-    const switchSidebar = () => {
-        dispatch(GeneralCreators.switchSidebarOpen());
-    };
 
     const actualPage = useSelector(
         (state: RootState) => state.General.actualPage
@@ -38,21 +31,25 @@ export default function BasePage({ children }: Props) {
             case 'signup':
                 return <Link to='/signin'>Sign in</Link>;
             default:
-                return <Button onClick={signout}>Sign out</Button>;
+                return <UserActions />;
         }
     };
 
     return (
         <>
             <Header>
-                <Hamburguer onClick={switchSidebar} />
+                {!actualPage ? (
+                    <Hamburguer
+                        onClick={() => dispatch(Creators.switchSidebarOpen())}
+                    />
+                ) : null}
                 <HeaderTitle>PreciseSchedule</HeaderTitle>
                 {getPageActions()}
             </Header>
-            <ContentContainer>
+            <Main>
                 {!actualPage ? <Sidebar /> : null}
                 <ChildrenContainer>{children}</ChildrenContainer>
-            </ContentContainer>
+            </Main>
             <Footer>
                 2020 João Arthur Lothamer Fernandes. Terms Privacy Help
             </Footer>

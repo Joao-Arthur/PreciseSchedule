@@ -14,26 +14,13 @@ export const HeaderTitle = styled.h1`
     color: white;
 `;
 
-export const ContentContainer = styled.div`
+export const Main = styled.main`
     display: flex;
 `;
 
 export const ChildrenContainer = styled.div`
     display: block;
     flex: 1 0 auto;
-`;
-
-export const Button = styled.button`
-    color: white;
-    background-color: #373737;
-    border: none;
-    font-size: 15px;
-    cursor: pointer;
-    font-weight: bold;
-
-    &:hover {
-        color: #ccc;
-    }
 `;
 
 export const Hamburguer = styled(ButtonIcon).attrs({

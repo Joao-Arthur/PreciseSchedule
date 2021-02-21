@@ -1,38 +1,36 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store';
-import { Container, Item, CustomLink } from './Sidebar.styles';
+import { Container, Item, Link } from './Sidebar.styles';
 
 export default function Sidebar() {
     const open = useSelector((state: RootState) => state.General.isSidebarOpen);
 
     return (
-        <div style={{ display: 'flex' }}>
-            <Container open={open}>
-                <Item>
-                    <CustomLink to='/calendar'>calendar</CustomLink>
-                </Item>
-                <Item>
-                    <CustomLink to='/signup'>signup</CustomLink>
-                </Item>
-                <Item>
-                    <CustomLink to='/signin'>signin</CustomLink>
-                </Item>
-                <Item>
-                    <CustomLink to='/'>home</CustomLink>
-                </Item>
-                <Item>
-                    <CustomLink to='/sample'>sample</CustomLink>
-                </Item>
-                <Item>
-                    <CustomLink to='/sample'>sample</CustomLink>
-                </Item>
-                <Item>
-                    <CustomLink to='/sample'>sample</CustomLink>
-                </Item>
-                <Item>
-                    <CustomLink to='/sample'>sample</CustomLink>
-                </Item>
-            </Container>
-        </div>
+        <Container open={open}>
+            <Item>
+                <Link to='/'>home</Link>
+            </Item>
+            <Item>
+                <Link to='/signup'>signup</Link>
+            </Item>
+            <Item>
+                <Link to='/signin'>signin</Link>
+            </Item>
+            <Item>
+                <Link to='/recover'>recover password</Link>
+            </Item>
+            <Item>
+                <Link to='/calendar'>calendar</Link>
+            </Item>
+            <Item>
+                <Link to='/settings'>settings</Link>
+            </Item>
+            <Item>
+                <Link to='/sample'>sample</Link>
+            </Item>
+            <Item>
+                <Link to='/sample'>sample</Link>
+            </Item>
+        </Container>
     );
 }

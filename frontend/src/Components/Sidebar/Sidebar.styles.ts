@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import Link from '../Core/Link';
+import LinkBase from '../Core/Link';
 
 interface ContainerProps {
     open: boolean;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.nav<ContainerProps>`
     height: 100vh;
     box-shadow: 0px 0px 2px;
     overflow: hidden;
-    transition: width 0.7s ease;
+    transition: width 0.6s ease;
     flex: 0 0 auto;
     width: ${({ open }) => (open ? '300' : '0')}px;
 `;
@@ -23,9 +23,10 @@ export const Item = styled.div`
         box-shadow: 0px 0px 2px;
         z-index: 1;
     }
+    white-space: nowrap;
 `;
 
-export const CustomLink = styled(Link)`
+export const Link = styled(LinkBase)`
     padding: 20px;
     padding-left: 50px;
     font-size: 20px;
