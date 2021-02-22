@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import { Redirect } from 'react-router-dom';
 import {
-    FormContainer,
     RedirectContainer,
     FieldContainer,
-    Input,
     Title,
     Link,
-    Button,
     Label
 } from './SignIn.styles';
+import Form from '../../Components/Core/Form';
+import Field from '../../Components/Core/Field';
+import Input from '../../Components/Core/Input';
 import { Creators as AuthActions } from '../../Store/Auth';
 import { Creators as GeneralActions } from '../../Store/General';
 
@@ -37,14 +37,15 @@ export default function SignIn() {
     return (
         <>
             <Title>Sign in to PreciseSchedule</Title>
-            <FormContainer>
-                <FieldContainer>
-                    <Label>Username</Label>
+            <Form title='Sign in' onSubmit={loginClick}>
+                <Field title='Username' name='username'>
                     <Input
+                        name='username'
                         type='text'
                         onChange={e => setUsername(e.target.value)}
+                        required
                     />
-                </FieldContainer>
+                </Field>
                 <FieldContainer>
                     <Label>
                         Password <Link to='#'>Forgot password?</Link>
@@ -52,10 +53,10 @@ export default function SignIn() {
                     <Input
                         type='password'
                         onChange={e => setPassword(e.target.value)}
+                        required
                     />
                 </FieldContainer>
-                <Button onClick={loginClick}>Sign in</Button>
-            </FormContainer>
+            </Form>
             <RedirectContainer>
                 New to PreciseSchedule?{' '}
                 <Link to='signup'>Create an account.</Link>

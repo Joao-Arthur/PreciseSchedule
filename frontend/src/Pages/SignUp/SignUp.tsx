@@ -1,19 +1,11 @@
-import { useEffect, useRef, FormEvent } from 'react';
+import { useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
-import {
-    FormContainer,
-    RedirectContainer,
-    FieldContainer,
-    Input,
-    Subtitle,
-    Title,
-    Link,
-    Button,
-    Label,
-    P
-} from './SignUp.styles';
+import { RedirectContainer, Subtitle, Title, Link } from './SignUp.styles';
+import Form from '../../Components/Core/Form';
+import Field from '../../Components/Core/Field';
+import Input from '../../Components/Core/Input';
 import { Creators } from '../../Store/General';
 import Fetch from '../../Core/Fetch';
 import { UserSignUp } from '../../Models/User';
@@ -27,22 +19,13 @@ export default function SignUp() {
 
     const dispatch = useDispatch();
 
-    const onSubmit = (e: FormEvent) => {
-        e.preventDefault();
+    const onSubmit = () => {
         if (!name.current) return;
         if (!email.current) return;
         if (!birthday.current) return;
         if (!birthday.current.valueAsDate) return;
         if (!username.current) return;
         if (!password.current) return;
-
-        console.log(
-            name.current.value,
-            email.current.value,
-            birthday.current.valueAsDate,
-            username.current.value,
-            password.current.value
-        );
 
         Fetch.post(
             'user/create',
@@ -70,49 +53,43 @@ export default function SignUp() {
         <>
             <Subtitle>join PreciseSchedule</Subtitle>
             <Title>Create your account</Title>
-            <FormContainer>
-                <form onSubmit={onSubmit}>
-                    <FieldContainer>
-                        <Label htmlFor='name'>Full name</Label>
-                        <Input ref={name} name='name' type='text' required />
-                    </FieldContainer>
-                    <FieldContainer>
-                        <Label htmlFor='email'>Email</Label>
-                        <Input ref={email} name='email' type='email' required />
-                    </FieldContainer>
-                    <FieldContainer>
-                        <Label htmlFor='birthday'>Birthday</Label>
-                        <Input
-                            ref={birthday}
-                            name='birthday'
-                            type='date'
-                            onChange={e => console.log(e.target.value)}
-                            required
-                        />
-                    </FieldContainer>
-                    <FieldContainer>
-                        <Label htmlFor='username'>Username</Label>
-                        <Input
-                            ref={username}
-                            name='username'
-                            type='text'
-                            required
-                        />
-                    </FieldContainer>
-                    <FieldContainer>
-                        <Label htmlFor='password'>Password</Label>
-                        <Input
-                            ref={password}
-                            name='password'
-                            type='password'
-                            required
-                            minLength={10}
-                        />
-                        <P>At least 10 characters</P>
-                    </FieldContainer>
-                    <Button>Sign up</Button>
-                </form>
-            </FormContainer>
+            <Form title='Sign up' onSubmit={onSubmit}>
+                <Field title='Full name' name='name'>
+                    <Input ref={name} name='name' type='text' required />
+                </Field>
+                <Field title='Email' name='email'>
+                    <Input ref={email} name='email' type='email' required />
+                </Field>
+                <Field title='Birthday' name='birthday'>
+                    <Input
+                        ref={birthday}
+                        name='birthday'
+                        type='date'
+                        required
+                    />
+                </Field>
+                <Field title='Username' name='username'>
+                    <Input
+                        ref={username}
+                        name='username'
+                        type='text'
+                        required
+                    />
+                </Field>
+                <Field
+                    title='Password'
+                    name='password'
+                    observation='At least 10 characters'
+                >
+                    <Input
+                        ref={password}
+                        name='password'
+                        type='password'
+                        required
+                        minLength={10}
+                    />
+                </Field>
+            </Form>
             <RedirectContainer>
                 Already in PreciseSchedule? <Link to='signin'>Sign in.</Link>
             </RedirectContainer>

@@ -17,7 +17,7 @@ export default function Sidebar() {
                 <Link to='/signin'>signin</Link>
             </Item>
             <Item>
-                <Link to='/recover'>recover password</Link>
+                <Link to='/forgotpassword'>forgot password</Link>
             </Item>
             <Item>
                 <Link to='/calendar'>calendar</Link>
