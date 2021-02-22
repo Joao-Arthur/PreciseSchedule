@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import { Redirect } from 'react-router-dom';
@@ -14,13 +14,25 @@ import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
 import { Creators as AuthActions } from '../../Store/Auth';
 import { Creators as GeneralActions } from '../../Store/General';
+import Fetch from '../../Core/Fetch';
+import { UserSignIn } from '../../Models/User';
 
 export default function SignIn() {
     const dispatch = useDispatch();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const username = useRef<HTMLInputElement>(null);
+    const password = useRef<HTMLInputElement>(null);
 
-    const loginClick = () => {
+    const handleSignIn = () => {
+        if (!username.current) return;
+        if (!password.current) return;
+
+        Fetch.post(
+            'user/login',
+            new UserSignIn(
+                username.current.value,
+                password.current.value
+            ).toSDK()
+        );
         dispatch(AuthActions.signIn({}));
     };
 
@@ -37,12 +49,12 @@ export default function SignIn() {
     return (
         <>
             <Title>Sign in to PreciseSchedule</Title>
-            <Form title='Sign in' onSubmit={loginClick}>
+            <Form title='Sign in' onSubmit={handleSignIn}>
                 <Field title='Username' name='username'>
                     <Input
+                        ref={username}
                         name='username'
                         type='text'
-                        onChange={e => setUsername(e.target.value)}
                         required
                     />
                 </Field>
@@ -50,11 +62,7 @@ export default function SignIn() {
                     <Label>
                         Password <Link to='#'>Forgot password?</Link>
                     </Label>
-                    <Input
-                        type='password'
-                        onChange={e => setPassword(e.target.value)}
-                        required
-                    />
+                    <Input ref={password} type='password' required />
                 </FieldContainer>
             </Form>
             <RedirectContainer>
