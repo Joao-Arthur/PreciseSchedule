@@ -8,7 +8,7 @@ import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
 import { Creators } from '../../Store/General';
 import Fetch from '../../Core/Fetch';
-import { UserSignUp } from '../../Models/User';
+import UserBuilder from '../../Models/UserBuilder';
 
 export default function SignUp() {
     const name = useRef<HTMLInputElement>(null);
@@ -29,13 +29,13 @@ export default function SignUp() {
 
         Fetch.post(
             'user/create',
-            new UserSignUp(
-                name.current.value,
-                email.current.value,
-                birthday.current.valueAsDate,
-                username.current.value,
-                password.current.value
-            ).toSDK()
+            new UserBuilder()
+                .setName(name.current.value)
+                .setEmail(email.current.value)
+                .setBirthday(birthday.current.valueAsDate)
+                .setUsername(username.current.value)
+                .setPassword(password.current.value)
+                .build()
         );
     };
 

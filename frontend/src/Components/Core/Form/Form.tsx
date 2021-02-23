@@ -5,7 +5,7 @@ import Button from '../Button';
 interface Props {
     title: string;
     onSubmit: () => void;
-    children: ReactChild[];
+    children: ReactChild | ReactChild[];
 }
 
 export default function Form({ title, onSubmit, children }: Props) {

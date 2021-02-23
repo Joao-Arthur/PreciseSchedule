@@ -29,6 +29,8 @@ export default function BasePage({ children }: Props) {
             case 'signin':
                 return <Link to='/signup'>Sign up</Link>;
             case 'signup':
+            case 'passwordForgot':
+            case 'passwordNew':
                 return <Link to='/signin'>Sign in</Link>;
             default:
                 return <UserActions />;

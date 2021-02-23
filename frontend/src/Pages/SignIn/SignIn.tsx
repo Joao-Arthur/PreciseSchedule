@@ -15,7 +15,7 @@ import Input from '../../Components/Core/Input';
 import { Creators as AuthActions } from '../../Store/Auth';
 import { Creators as GeneralActions } from '../../Store/General';
 import Fetch from '../../Core/Fetch';
-import { UserSignIn } from '../../Models/User';
+import UserBuilder from '../../Models/UserBuilder';
 
 export default function SignIn() {
     const dispatch = useDispatch();
@@ -28,10 +28,10 @@ export default function SignIn() {
 
         Fetch.post(
             'user/login',
-            new UserSignIn(
-                username.current.value,
-                password.current.value
-            ).toSDK()
+            new UserBuilder()
+                .setUsername(username.current.value)
+                .setPassword(password.current.value)
+                .build()
         );
         dispatch(AuthActions.signIn({}));
     };
@@ -60,7 +60,8 @@ export default function SignIn() {
                 </Field>
                 <FieldContainer>
                     <Label>
-                        Password <Link to='#'>Forgot password?</Link>
+                        Password{' '}
+                        <Link to='forgotpassword'>Forgot password?</Link>
                     </Label>
                     <Input ref={password} type='password' required />
                 </FieldContainer>

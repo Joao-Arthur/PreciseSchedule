@@ -5,6 +5,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import NotFound from './NotFound';
 import Settings from './Settings';
+import ForgotPassword from './ForgotPassword';
 
 export default function Routes() {
     return (
@@ -23,6 +24,12 @@ export default function Routes() {
             </Route>
             <Route path='/settings'>
                 <Settings />
+            </Route>
+            <Route path='/password/forgot'>
+                <ForgotPassword />
+            </Route>
+            <Route path='/password/new'>
+                <ForgotPassword />
             </Route>
             <Route>
                 <NotFound />
