@@ -35,7 +35,6 @@ export default function SignUp() {
                 .setBirthday(birthday.current.valueAsDate)
                 .setUsername(username.current.value)
                 .setPassword(password.current.value)
-                .build()
         );
     };
 

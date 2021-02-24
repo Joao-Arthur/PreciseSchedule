@@ -18,7 +18,7 @@ export default function ForgotPassword() {
 
         Fetch.post(
             'user/forgotpassword',
-            new UserBuilder().setEmail(email.current.value).build()
+            new UserBuilder().setEmail(email.current.value)
         );
     };
 

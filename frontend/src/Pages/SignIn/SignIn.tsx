@@ -31,7 +31,6 @@ export default function SignIn() {
             new UserBuilder()
                 .setUsername(username.current.value)
                 .setPassword(password.current.value)
-                .build()
         );
         dispatch(AuthActions.signIn({}));
     };

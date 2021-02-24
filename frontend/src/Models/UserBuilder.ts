@@ -1,11 +1,12 @@
 import Cryptography from '../Core/Cryptography';
 
+/**o builder não é um builder de verdade, e as propriedades que deveriam ser privadas estão públicas */
 export default class UserBuilder {
-    private name?: string;
-    private email?: string;
-    private birthday?: Date;
-    private username?: string;
-    private password?: string;
+    name?: string;
+    email?: string;
+    birthday?: Date;
+    username?: string;
+    password?: string;
 
     setName(name: string) {
         this.name = name;
@@ -29,10 +30,6 @@ export default class UserBuilder {
 
     setPassword(password: string) {
         this.password = Cryptography.encryptRSA(password);
-        return this;
-    }
-
-    build() {
         return this;
     }
 }
