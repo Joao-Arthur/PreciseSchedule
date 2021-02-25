@@ -1,4 +1,4 @@
-import UserBuilder from './UserBuilder';
+import UserBuilder from './User.Builder';
 
 describe('UserBuilder', () => {
     it('Should generate an empty object', () => {

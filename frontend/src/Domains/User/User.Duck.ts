@@ -1,4 +1,4 @@
-const Types = {
+export const Types = {
     SIGN_IN: 'AUTH/SIGN_IN',
     SIGN_IN_SUCCESS: 'AUTH/SIGN_IN_SUCCESS',
     SIGN_IN_FAILURE: 'AUTH/SIGN_IN_FAILURE',
@@ -23,7 +23,7 @@ interface Action {
 }
 
 const initialState = {
-    loadingLogin: false,
+    loading: false,
     isLogged: false,
     token: null,
     user: {}
@@ -32,22 +32,27 @@ const initialState = {
 const Auth = (state = initialState, { type, payload }: Action) => {
     switch (type) {
         case Types.SIGN_IN:
-            //    console.log(state);
-            return { ...state, isLogged: true };
+            return { ...state, loading: true };
+        case Types.SIGN_IN_SUCCESS:
+            return { ...state, loading: false };
+        case Types.SIGN_IN_FAILURE:
+            return { ...state, loading: false };
         case Types.LOGOUT:
-            //      console.log(state);
             return { ...state, isLogged: false };
-        //   case Types.SIGN_IN_SUCCESS:
-        //       return { loadingLogin: false, isLogged: true };
-        //   case Types.SIGN_IN_FAILURE:
-        //       return { loadingLogin: false };
         default:
             return state;
     }
 };
 
+interface SignInPayload {
+    username: string;
+    password: string;
+}
+
 export const Creators = {
-    signIn: (payload: any) => ({ type: Types.SIGN_IN, payload }),
+    signIn: (payload: SignInPayload) => ({ type: Types.SIGN_IN, payload }),
+    signInSuccess: () => ({ type: Types.SIGN_IN }),
+    signInFailure: () => ({ type: Types.SIGN_IN }),
     logout: () => ({ type: Types.LOGOUT })
 };
 

@@ -1,4 +1,4 @@
-import Cryptography from '../Core/Cryptography';
+import Cryptography from '../../Core/Cryptography';
 
 /**o builder não é um builder de verdade, e as propriedades que deveriam ser privadas estão públicas */
 export default class UserBuilder {

@@ -1,14 +1,19 @@
-import { createStore, combineReducers } from 'redux';
-import Auth from './Auth';
-import General from './General';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { UserDuck, UserSaga } from '../Domains/User';
+import General from '../Domains/General';
 
-export const rootReducer = combineReducers({
-    Auth,
+const sagaMiddleware = createSagaMiddleware();
+
+export const CombinedReducers = combineReducers({
+    User: UserDuck,
     General
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof CombinedReducers>;
 
 export default function configureStore() {
-    return createStore(rootReducer);
+    return createStore(CombinedReducers, applyMiddleware(sagaMiddleware));
 }
+
+sagaMiddleware.run(UserSaga);

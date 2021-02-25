@@ -15,7 +15,7 @@ import Input from '../../Components/Core/Input';
 import { Creators as AuthActions } from '../../Store/Auth';
 import { Creators as GeneralActions } from '../../Store/General';
 import Fetch from '../../Core/Fetch';
-import UserBuilder from '../../Models/UserBuilder';
+import { UserBuilder } from '../../Domains/User';
 
 export default function SignIn() {
     const dispatch = useDispatch();

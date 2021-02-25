@@ -6,7 +6,7 @@ import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
 import Fetch from '../../Core/Fetch';
-import UserBuilder from '../../Models/UserBuilder';
+import UserBuilder from '../../Domains/User/User.Builder';
 import { Creators as GeneralActions } from '../../Store/General';
 
 export default function ForgotPassword() {
