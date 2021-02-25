@@ -1,12 +1,8 @@
 import UserBuilder from './UserBuilder';
 
 describe('UserBuilder', () => {
-    /**É necessário comparar os objetos por json.stringify pois:
-     * todas as propriedades do builder já existem, mesmo estando undefined
-     * toBe compara os objetos com ===
-     */
     it('Should generate an empty object', () => {
-        expect(JSON.stringify(new UserBuilder())).toBe(JSON.stringify({}));
+        expect(new UserBuilder()).toEqual({});
     });
 
     it('Should generate an object with all the setted properties', () => {
