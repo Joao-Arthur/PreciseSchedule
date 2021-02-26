@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../Store';
+import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
-import Fetch from '../../Core/Fetch';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 
@@ -16,9 +15,10 @@ export default function ForgotPassword() {
     const handleForgotPassword = () => {
         if (!email.current) return;
 
-        Fetch.post(
-            'user/forgotpassword',
-            new User.Builder().setEmail(email.current.value)
+        dispatch(
+            User.Creators.passwordForgot(
+                new User.Builder().setEmail(email.current.value)
+            )
         );
     };
 
@@ -29,7 +29,7 @@ export default function ForgotPassword() {
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: RootState) => state.User.isLogged);
+    const logado = useSelector((state: StateType) => state.User.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (

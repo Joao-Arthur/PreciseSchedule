@@ -1,7 +1,7 @@
 import { ReactChild } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../Store';
-import { Creators } from '../../Store/General';
+import { StateType } from '../../Store';
+import General from '../../Domains/General';
 import {
     Header,
     HeaderTitle,
@@ -21,7 +21,7 @@ export default function BasePage({ children }: Props) {
     const dispatch = useDispatch();
 
     const actualPage = useSelector(
-        (state: RootState) => state.General.actualPage
+        (state: StateType) => state.General.actualPage
     );
 
     const getPageActions = () => {
@@ -42,7 +42,9 @@ export default function BasePage({ children }: Props) {
             <Header>
                 {!actualPage ? (
                     <Hamburguer
-                        onClick={() => dispatch(Creators.switchSidebarOpen())}
+                        onClick={() =>
+                            dispatch(General.Creators.switchSidebarOpen())
+                        }
                     />
                 ) : null}
                 <HeaderTitle>PreciseSchedule</HeaderTitle>

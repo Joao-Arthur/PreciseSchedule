@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '../../Store';
+import { StateType } from '../../Store';
 import { Container, Item, Link } from './Sidebar.styles';
 
 export default function Sidebar() {
-    const open = useSelector((state: RootState) => state.General.isSidebarOpen);
+    const open = useSelector((state: StateType) => state.General.isSidebarOpen);
 
     return (
         <Container open={open}>

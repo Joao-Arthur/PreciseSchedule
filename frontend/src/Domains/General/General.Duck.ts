@@ -4,10 +4,9 @@ const Types = {
 };
 
 type Keys = keyof typeof Types;
-type ActionTypes = typeof Types[Keys];
 
 interface Action {
-    type: ActionTypes;
+    type: Keys;
     payload: any;
 }
 

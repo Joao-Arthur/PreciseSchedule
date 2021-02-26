@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../Store';
+import { StateType } from '../../Store';
 import { Header, Button, Title, Body, BodyHeader } from './Calendar.styles';
 import Cell from '../Cell';
 import { monthDaysToGrid, diasDaSemana, nomeDosMeses } from './Helper';
@@ -28,7 +28,7 @@ export default function Calendar() {
         [visibleYear, visibleMonth]
     );
 
-    const logado = useSelector((state: RootState) => state.User.isLogged);
+    const logado = useSelector((state: StateType) => state.User.isLogged);
     if (!logado) return <Redirect to='/signin' />;
 
     return (

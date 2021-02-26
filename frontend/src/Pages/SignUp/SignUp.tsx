@@ -1,12 +1,11 @@
 import { useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../Store';
+import { StateType } from '../../Store';
 import { RedirectContainer, Subtitle, Title, Link } from './SignUp.styles';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
-import Fetch from '../../Core/Fetch';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 
@@ -19,7 +18,7 @@ export default function SignUp() {
 
     const dispatch = useDispatch();
 
-    const handleSignUp = () => {
+    function handleSignUp() {
         if (!name.current) return;
         if (!email.current) return;
         if (!birthday.current) return;
@@ -27,16 +26,17 @@ export default function SignUp() {
         if (!username.current) return;
         if (!password.current) return;
 
-        Fetch.post(
-            'user/create',
-            new User.Builder()
-                .setName(name.current.value)
-                .setEmail(email.current.value)
-                .setBirthday(birthday.current.valueAsDate)
-                .setUsername(username.current.value)
-                .setPassword(password.current.value)
+        dispatch(
+            User.Creators.signUp(
+                new User.Builder()
+                    .setName(name.current.value)
+                    .setEmail(email.current.value)
+                    .setBirthday(birthday.current.valueAsDate)
+                    .setUsername(username.current.value)
+                    .setPassword(password.current.value)
+            )
         );
-    };
+    }
 
     useEffect(() => {
         dispatch(General.Creators.setActualPage('signup'));
@@ -45,7 +45,7 @@ export default function SignUp() {
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: RootState) => state.User.isLogged);
+    const logado = useSelector((state: StateType) => state.User.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (

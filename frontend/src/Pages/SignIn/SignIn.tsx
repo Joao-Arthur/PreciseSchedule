@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../Store';
+import { StateType } from '../../Store';
 import { Redirect } from 'react-router-dom';
 import {
     RedirectContainer,
@@ -20,16 +20,18 @@ export default function SignIn() {
     const username = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
 
-    const handleSignIn = () => {
+    function handleSignIn() {
         if (!username.current) return;
         if (!password.current) return;
 
-        User.Creators.signIn(
-            new User.Builder()
-                .setUsername(username.current.value)
-                .setPassword(password.current.value)
+        dispatch(
+            User.Creators.signIn(
+                new User.Builder()
+                    .setUsername(username.current.value)
+                    .setPassword(password.current.value)
+            )
         );
-    };
+    }
 
     useEffect(() => {
         dispatch(General.Creators.setActualPage('signin'));
@@ -38,7 +40,7 @@ export default function SignIn() {
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: RootState) => state.User.isLogged);
+    const logado = useSelector((state: StateType) => state.User.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (

@@ -10,10 +10,13 @@ export const CombinedReducers = combineReducers({
     General: General.Reducer
 });
 
-export type RootState = ReturnType<typeof CombinedReducers>;
+export type StateType = ReturnType<typeof CombinedReducers>;
 
 export default function configureStore() {
-    return createStore(CombinedReducers, applyMiddleware(sagaMiddleware));
+    const store = createStore(
+        CombinedReducers,
+        applyMiddleware(sagaMiddleware)
+    );
+    sagaMiddleware.run(User.Saga);
+    return store;
 }
-
-sagaMiddleware.run(User.Saga);

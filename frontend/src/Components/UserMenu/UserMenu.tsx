@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { Container, List, Item, Link } from './UserMenu.styles';
-import { Creators } from '../../Store/Auth';
+import User from '../../Domains/User';
 
 export default function UserMenu() {
     const dispatch = useDispatch();
@@ -11,7 +11,9 @@ export default function UserMenu() {
                 <Item>
                     <Link to='/settings'>configurações</Link>
                 </Item>
-                <Item onClick={() => dispatch(Creators.logout())}>sair</Item>
+                <Item onClick={() => dispatch(User.Creators.logout())}>
+                    sair
+                </Item>
             </List>
         </Container>
     );
