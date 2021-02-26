@@ -1,11 +1,12 @@
-import UserDuck from './User.Duck';
-import UserSaga from './User.Saga';
-import UserBuilder from './User.Builder';
+import { Reducer, Creators } from './User.Duck';
+import Saga from './User.Saga';
+import Builder from './User.Builder';
 
 const User = {
-    UserDuck,
-    UserSaga,
-    UserBuilder
+    Reducer,
+    Creators,
+    Saga,
+    Builder
 };
 
 export default User;

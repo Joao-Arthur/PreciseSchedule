@@ -1,3 +1,5 @@
+import { User } from './User.Builder';
+
 export const Types = {
     SIGN_IN: 'AUTH/SIGN_IN',
     SIGN_IN_SUCCESS: 'AUTH/SIGN_IN_SUCCESS',
@@ -13,23 +15,42 @@ export const Types = {
     PASSWORD_NEW_FAILURE: 'AUTH/PASSWORD_NEW_FAILURE',
     LOGOUT: 'AUTH/LOGOUT'
 };
+/*a tipagem está ruim */
 
-type Keys = keyof typeof Types;
-type ActionTypes = typeof Types[Keys];
+interface SignInSuccess {
+    token: string;
+}
+
+interface signInCreator {
+    type: string;
+    payload: User;
+}
+
+export const Creators = {
+    signIn: (payload: User): signInCreator => ({
+        type: Types.SIGN_IN,
+        payload
+    }),
+    signInSuccess: (payload: SignInSuccess) => ({
+        type: Types.SIGN_IN,
+        payload
+    }),
+    signInFailure: () => ({ type: Types.SIGN_IN }),
+    logout: () => ({ type: Types.LOGOUT })
+};
 
 interface Action {
-    type: ActionTypes;
-    payload: any;
+    type: keyof typeof Types;
+    payload: User | SignInSuccess;
 }
 
 const initialState = {
     loading: false,
     isLogged: false,
-    token: null,
-    user: {}
+    token: null
 };
 
-const Auth = (state = initialState, { type, payload }: Action) => {
+export function Reducer(state = initialState, { type, payload }: Action) {
     switch (type) {
         case Types.SIGN_IN:
             return { ...state, loading: true };
@@ -42,18 +63,4 @@ const Auth = (state = initialState, { type, payload }: Action) => {
         default:
             return state;
     }
-};
-
-interface SignInPayload {
-    username: string;
-    password: string;
 }
-
-export const Creators = {
-    signIn: (payload: SignInPayload) => ({ type: Types.SIGN_IN, payload }),
-    signInSuccess: () => ({ type: Types.SIGN_IN }),
-    signInFailure: () => ({ type: Types.SIGN_IN }),
-    logout: () => ({ type: Types.LOGOUT })
-};
-
-export default Auth;

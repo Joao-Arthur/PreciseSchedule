@@ -6,8 +6,8 @@ import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
 import Fetch from '../../Core/Fetch';
-import UserBuilder from '../../Domains/User/User.Builder';
-import { Creators as GeneralActions } from '../../Store/General';
+import User from '../../Domains/User';
+import General from '../../Domains/General';
 
 export default function ForgotPassword() {
     const dispatch = useDispatch();
@@ -18,23 +18,23 @@ export default function ForgotPassword() {
 
         Fetch.post(
             'user/forgotpassword',
-            new UserBuilder().setEmail(email.current.value)
+            new User.Builder().setEmail(email.current.value)
         );
     };
 
     useEffect(() => {
-        dispatch(GeneralActions.setActualPage('forgotpassword'));
+        dispatch(General.Creators.setActualPage('forgotpassword'));
         return () => {
-            dispatch(GeneralActions.setActualPage(null));
+            dispatch(General.Creators.setActualPage(null));
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: RootState) => state.Auth.isLogged);
+    const logado = useSelector((state: RootState) => state.User.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (
         <Form
-            title='enviar link para criar nova senha'
+            title='send link to email to generate new password'
             onSubmit={handleForgotPassword}
         >
             <Field title='email' name='email'>

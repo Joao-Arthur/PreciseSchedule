@@ -12,10 +12,8 @@ import {
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
-import { Creators as AuthActions } from '../../Store/Auth';
-import { Creators as GeneralActions } from '../../Store/General';
-import Fetch from '../../Core/Fetch';
-import { UserBuilder } from '../../Domains/User';
+import User from '../../Domains/User';
+import General from '../../Domains/General';
 
 export default function SignIn() {
     const dispatch = useDispatch();
@@ -26,23 +24,21 @@ export default function SignIn() {
         if (!username.current) return;
         if (!password.current) return;
 
-        Fetch.post(
-            'user/login',
-            new UserBuilder()
+        User.Creators.signIn(
+            new User.Builder()
                 .setUsername(username.current.value)
                 .setPassword(password.current.value)
         );
-        dispatch(AuthActions.signIn({}));
     };
 
     useEffect(() => {
-        dispatch(GeneralActions.setActualPage('signin'));
+        dispatch(General.Creators.setActualPage('signin'));
         return () => {
-            dispatch(GeneralActions.setActualPage(null));
+            dispatch(General.Creators.setActualPage(null));
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: RootState) => state.Auth.isLogged);
+    const logado = useSelector((state: RootState) => state.User.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (

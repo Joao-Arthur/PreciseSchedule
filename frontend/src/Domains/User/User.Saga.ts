@@ -1,17 +1,17 @@
+import { put, takeLatest, delay } from 'redux-saga/effects';
 import { Types, Creators } from './User.Duck';
-
-import { put, takeLatest } from 'redux-saga/effects';
-
-function* fetchUser() {
+function* signIn() {
     try {
-        yield put(Creators.signInSuccess());
+        delay(3000);
+        //UserApi.signIn();
+        yield put(Creators.signInSuccess({ token: 'fake token' }));
     } catch (e) {
         yield put(Creators.signInFailure());
     }
 }
 
 function* UserSaga() {
-    yield takeLatest(Types.SIGN_IN, fetchUser);
+    yield takeLatest(Types.SIGN_IN, signIn);
 }
 
 export default UserSaga;

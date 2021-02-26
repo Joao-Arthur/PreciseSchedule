@@ -28,7 +28,7 @@ export default function Calendar() {
         [visibleYear, visibleMonth]
     );
 
-    const logado = useSelector((state: RootState) => state.Auth.isLogged);
+    const logado = useSelector((state: RootState) => state.User.isLogged);
     if (!logado) return <Redirect to='/signin' />;
 
     return (

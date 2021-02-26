@@ -1,4 +1,4 @@
-type method = 'GET' | 'POST' | 'PUT' | 'DELETE';
+type method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 const CustomFetch = (method: method, resource: string, content: object) =>
     fetch(`http://localhost:3001/${resource}`, {
@@ -20,6 +20,9 @@ const postFetch = (resource: string, content: object) =>
 const putFetch = (resource: string, content: object) =>
     CustomFetch('PUT', resource, content);
 
+const patchFetch = (resource: string, content: object) =>
+    CustomFetch('PATCH', resource, content);
+
 const deleteFetch = (resource: string, content: object) =>
     CustomFetch('DELETE', resource, content);
 
@@ -27,7 +30,8 @@ const Fetch = {
     get: getFetch,
     post: postFetch,
     put: putFetch,
-    delete: deleteFetch
+    delete: deleteFetch,
+    patch: patchFetch
 };
 
 export default Fetch;

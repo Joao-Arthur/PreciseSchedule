@@ -1,7 +1,13 @@
 import Cryptography from '../../Core/Cryptography';
 
-/**o builder não é um builder de verdade, e as propriedades que deveriam ser privadas estão públicas */
-export default class UserBuilder {
+export interface User {
+    name?: string;
+    email?: string;
+    birthday?: Date;
+    username?: string;
+    password?: string;
+}
+export default class UserBuilder implements User {
     name?: string;
     email?: string;
     birthday?: Date;

@@ -6,9 +6,9 @@ import { RedirectContainer, Subtitle, Title, Link } from './SignUp.styles';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
-import { Creators } from '../../Store/General';
 import Fetch from '../../Core/Fetch';
-import UserBuilder from '../../Models/UserBuilder';
+import User from '../../Domains/User';
+import General from '../../Domains/General';
 
 export default function SignUp() {
     const name = useRef<HTMLInputElement>(null);
@@ -29,7 +29,7 @@ export default function SignUp() {
 
         Fetch.post(
             'user/create',
-            new UserBuilder()
+            new User.Builder()
                 .setName(name.current.value)
                 .setEmail(email.current.value)
                 .setBirthday(birthday.current.valueAsDate)
@@ -39,13 +39,13 @@ export default function SignUp() {
     };
 
     useEffect(() => {
-        dispatch(Creators.setActualPage('signup'));
+        dispatch(General.Creators.setActualPage('signup'));
         return () => {
-            dispatch(Creators.setActualPage(null));
+            dispatch(General.Creators.setActualPage(null));
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: RootState) => state.Auth.isLogged);
+    const logado = useSelector((state: RootState) => state.User.isLogged);
     if (logado) return <Redirect to='/calendar' />;
 
     return (

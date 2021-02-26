@@ -1,3 +1,8 @@
-import General from './General.Duck';
+import { Reducer, Creators } from './General.Duck';
+
+const General = {
+    Reducer,
+    Creators
+};
 
 export default General;
