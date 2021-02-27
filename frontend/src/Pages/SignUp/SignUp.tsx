@@ -46,13 +46,14 @@ export default function SignUp() {
     }, [dispatch]);
 
     const logado = useSelector((state: StateType) => state.User.isLogged);
+    const loading = useSelector((state: StateType) => state.User.loading);
     if (logado) return <Redirect to='/calendar' />;
 
     return (
         <>
             <Subtitle>join PreciseSchedule</Subtitle>
             <Title>Create your account</Title>
-            <Form title='Sign up' onSubmit={handleSignUp}>
+            <Form title='Sign up' loading={loading} onSubmit={handleSignUp}>
                 <Field title='Full name' name='name'>
                     <Input ref={name} name='name' type='text' required />
                 </Field>

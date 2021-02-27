@@ -2,11 +2,17 @@ import Fetch from '../../Core/Fetch';
 import { User } from './User.Builder';
 
 function signIn(user: User) {
-    return Fetch.post('user/login', user);
+    return new Promise(resolve => {
+        setTimeout(() => resolve('mock token'), 2000);
+    });
+    //return Fetch.post('user/login', user);
 }
 
 function signUp(user: User) {
-    return Fetch.put('user', user);
+    return new Promise(resolve => {
+        setTimeout(() => resolve('mock token'), 2000);
+    });
+    //return Fetch.put('user', user);
 }
 
 function forgotPassword(user: User) {

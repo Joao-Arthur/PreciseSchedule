@@ -6,6 +6,7 @@ import SignUp from './SignUp';
 import NotFound from './NotFound';
 import Settings from './Settings';
 import ForgotPassword from './ForgotPassword';
+import NewPassword from './NewPassword';
 
 export default function Routes() {
     return (
@@ -29,7 +30,7 @@ export default function Routes() {
                 <ForgotPassword />
             </Route>
             <Route path='/password/new'>
-                <ForgotPassword />
+                <NewPassword />
             </Route>
             <Route>
                 <NotFound />

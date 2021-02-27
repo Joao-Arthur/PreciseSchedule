@@ -17,13 +17,13 @@ export default function ForgotPassword() {
 
         dispatch(
             User.Creators.passwordForgot(
-                new User.Builder().setEmail(email.current.value)
+                new User.Builder().setPassword(email.current.value)
             )
         );
     };
 
     useEffect(() => {
-        dispatch(General.Creators.setActualPage('passwordForgot'));
+        dispatch(General.Creators.setActualPage('passwordNew'));
         return () => {
             dispatch(General.Creators.setActualPage(null));
         };
@@ -35,7 +35,7 @@ export default function ForgotPassword() {
 
     return (
         <Form
-            title='send link to email to generate new password'
+            title='generate new password'
             loading={loading}
             onSubmit={handleForgotPassword}
         >

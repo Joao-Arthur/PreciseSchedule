@@ -41,12 +41,13 @@ export default function SignIn() {
     }, [dispatch]);
 
     const logado = useSelector((state: StateType) => state.User.isLogged);
+    const loading = useSelector((state: StateType) => state.User.loading);
     if (logado) return <Redirect to='/calendar' />;
 
     return (
         <>
             <Title>Sign in to PreciseSchedule</Title>
-            <Form title='Sign in' onSubmit={handleSignIn}>
+            <Form title='Sign in' loading={loading} onSubmit={handleSignIn}>
                 <Field title='Username' name='username'>
                     <Input
                         ref={username}
@@ -58,7 +59,7 @@ export default function SignIn() {
                 <FieldContainer>
                     <Label>
                         Password{' '}
-                        <Link to='forgotpassword'>Forgot password?</Link>
+                        <Link to='password/forgot'>Forgot password?</Link>
                     </Label>
                     <Input ref={password} type='password' required />
                 </FieldContainer>

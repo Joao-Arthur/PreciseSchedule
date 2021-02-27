@@ -1,13 +1,23 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const enabledButton = css`
+    background-color: #6239c6;
+    cursor: pointer;
+`;
+
+const disabledButton = css`
+    background-color: gray;
+    cursor: wait;
+`;
 
 const Button = styled.button`
     color: white;
-    background-color: #6239c6;
     border: 1px solid gray;
     border-radius: 4px;
     padding: 7px 0;
     font-size: 16px;
-    cursor: pointer;
+
+    ${({ disabled }) => (disabled ? disabledButton : enabledButton)}
 `;
 
 export default Button;

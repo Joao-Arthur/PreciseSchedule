@@ -11,7 +11,7 @@ export default function UserMenu() {
                 <Item>
                     <Link to='/settings'>configurações</Link>
                 </Item>
-                <Item onClick={() => dispatch(User.Creators.logout())}>
+                <Item onClick={() => dispatch(User.Creators.signOut())}>
                     sair
                 </Item>
             </List>
