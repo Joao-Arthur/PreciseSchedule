@@ -1,7 +1,11 @@
-type method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+type method = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
-const CustomFetch = (method: method, resource: string, content: object) =>
-    fetch(`http://localhost:3001/${resource}`, {
+function CustomFetch<T>(
+    method: method,
+    resource: string,
+    content: object
+): Promise<T> {
+    return fetch(`http://localhost:3001/${resource}`, {
         method,
         cache: 'no-cache',
         headers: {
@@ -9,29 +13,30 @@ const CustomFetch = (method: method, resource: string, content: object) =>
         },
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(content)
-    });
+    }).then(res => res.json());
+}
 
-const getFetch = (resource: string, content: object) =>
-    CustomFetch('GET', resource, content);
+function getFetch<T>(resource: string, content: object) {
+    return CustomFetch<T>('GET', resource, content);
+}
 
-const postFetch = (resource: string, content: object) =>
-    CustomFetch('POST', resource, content);
+function postFetch<T>(resource: string, content: object) {
+    return CustomFetch<T>('POST', resource, content);
+}
 
-const putFetch = (resource: string, content: object) =>
-    CustomFetch('PUT', resource, content);
+function patchFetch<T>(resource: string, content: object) {
+    return CustomFetch<T>('PATCH', resource, content);
+}
 
-const patchFetch = (resource: string, content: object) =>
-    CustomFetch('PATCH', resource, content);
-
-const deleteFetch = (resource: string, content: object) =>
-    CustomFetch('DELETE', resource, content);
+function deleteFetch<T>(resource: string, content: object) {
+    return CustomFetch<T>('DELETE', resource, content);
+}
 
 const Fetch = {
     get: getFetch,
     post: postFetch,
-    put: putFetch,
-    delete: deleteFetch,
-    patch: patchFetch
+    patch: patchFetch,
+    delete: deleteFetch
 };
 
 export default Fetch;

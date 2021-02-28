@@ -4,7 +4,7 @@ import UserApi from './User.api';
 
 function* signIn({ payload }: SignIn) {
     try {
-        const token = yield call(UserApi.signIn, payload);
+        const { token } = yield call(UserApi.signIn, payload);
         yield put(Creators.signInSuccess(token));
     } catch (e) {
         yield put(Creators.signInFailure());
@@ -13,7 +13,7 @@ function* signIn({ payload }: SignIn) {
 
 function* signUp({ payload }: SignUp) {
     try {
-        const token = yield call(UserApi.signUp, payload);
+        const { token } = yield call(UserApi.signUp, payload);
         yield put(Creators.signUpSuccess(token));
     } catch (e) {
         yield put(Creators.signUpFailure());

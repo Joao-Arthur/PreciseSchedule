@@ -1,18 +1,16 @@
 import Fetch from '../../Core/Fetch';
 import { User } from './User.Builder';
 
+interface UserInfo {
+    token: string;
+}
+
 function signIn(user: User) {
-    return new Promise(resolve => {
-        setTimeout(() => resolve('mock token'), 2000);
-    });
-    //return Fetch.post('user/login', user);
+    return Fetch.post<UserInfo>('user/login', user);
 }
 
 function signUp(user: User) {
-    return new Promise(resolve => {
-        setTimeout(() => resolve('mock token'), 2000);
-    });
-    //return Fetch.put('user', user);
+    return Fetch.post<UserInfo>('user', user);
 }
 
 function forgotPassword(user: User) {

@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import User from '../Domains/User';
 import General from '../Domains/General';
@@ -15,7 +16,7 @@ export type StateType = ReturnType<typeof CombinedReducers>;
 export default function configureStore() {
     const store = createStore(
         CombinedReducers,
-        applyMiddleware(sagaMiddleware)
+        composeWithDevTools(applyMiddleware(sagaMiddleware))
     );
     sagaMiddleware.run(User.Saga);
     return store;
