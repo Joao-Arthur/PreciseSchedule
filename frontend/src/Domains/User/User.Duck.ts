@@ -91,7 +91,7 @@ interface Action {
         | PasswordNewSuccess['type']
         | PasswordNewFailure['type']
         | SignOut['type'];
-    payload:
+    payload?:
         | SignIn['payload']
         | SignInSuccess['payload']
         | SignUp['payload']
@@ -176,5 +176,11 @@ export const Reducer = produce((draft, { type, payload }: Action) => {
             break;
         case Types.USER_SIGN_OUT:
             return initialState;
+        //case Types.USER_PASSWORD_FORGOT:
+        //case Types.USER_PASSWORD_FORGOT_SUCCESS:
+        //case Types.USER_PASSWORD_FORGOT_FAILURE:
+        //case Types.USER_PASSWORD_NEW:
+        //case Types.USER_PASSWORD_NEW_SUCCESS:
+        //case Types.USER_PASSWORD_NEW_FAILURE:
     }
 }, initialState);

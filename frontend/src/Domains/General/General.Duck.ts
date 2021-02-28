@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-enum Types {
+export enum Types {
     GENERAL_SET_ACTUAL_PAGE = 'GENERAL_SET_ACTUAL_PAGE',
     GENERAL_SWITCH_SIDEBAR_OPEN = 'GENERAL_SWITCH_SIDEBAR_OPEN'
 }
@@ -16,7 +16,7 @@ interface SwitchSidebarOpen {
 
 interface Action {
     type: SetActualPage['type'] | SwitchSidebarOpen['type'];
-    payload: SetActualPage['payload'];
+    payload?: SetActualPage['payload'];
 }
 
 export const Creators = {

@@ -25,10 +25,12 @@ const generatePassword = (password: string): [string, string] => {
     return [hash, salt];
 };
 
-export default {
+const Authorization = {
     generateSalt,
     getIterations,
     encryptRSA,
     decryptRSA,
     generatePassword
 };
+
+export default Authorization;
