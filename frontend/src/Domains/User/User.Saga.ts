@@ -21,8 +21,8 @@ function* signUp({ payload }: SignUp) {
 }
 
 function* UserSaga() {
-    yield takeLatest(Types.SIGN_IN, signIn);
-    yield takeLatest(Types.SIGN_UP, signUp);
+    yield takeLatest(Types.USER_SIGN_IN, signIn);
+    yield takeLatest(Types.USER_SIGN_UP, signUp);
 }
 
 export default UserSaga;

@@ -15,6 +15,7 @@ export default function SignUp() {
     const birthday = useRef<HTMLInputElement>(null);
     const username = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
+    const passwordVerification = useRef<HTMLInputElement>(null);
 
     const dispatch = useDispatch();
 
@@ -25,6 +26,10 @@ export default function SignUp() {
         if (!birthday.current.valueAsDate) return;
         if (!username.current) return;
         if (!password.current) return;
+        if (!passwordVerification.current) return;
+
+        if (password.current.value !== passwordVerification.current.value)
+            return;
 
         dispatch(
             User.Creators.signUp(
@@ -41,7 +46,7 @@ export default function SignUp() {
     useEffect(() => {
         dispatch(General.Creators.setActualPage('signup'));
         return () => {
-            dispatch(General.Creators.setActualPage(null));
+            dispatch(General.Creators.setActualPage(''));
         };
     }, [dispatch]);
 
@@ -84,6 +89,15 @@ export default function SignUp() {
                     <Input
                         ref={password}
                         name='password'
+                        type='password'
+                        required
+                        minLength={10}
+                    />
+                </Field>
+                <Field title='Type password again' name='passwordVerification'>
+                    <Input
+                        ref={passwordVerification}
+                        name='passwordVerification'
                         type='password'
                         required
                         minLength={10}

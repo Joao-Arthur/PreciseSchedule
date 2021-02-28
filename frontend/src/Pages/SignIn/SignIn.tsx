@@ -36,7 +36,7 @@ export default function SignIn() {
     useEffect(() => {
         dispatch(General.Creators.setActualPage('signin'));
         return () => {
-            dispatch(General.Creators.setActualPage(null));
+            dispatch(General.Creators.setActualPage(''));
         };
     }, [dispatch]);
 

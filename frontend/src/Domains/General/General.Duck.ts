@@ -1,34 +1,46 @@
-const Types = {
-    SET_ACTUAL_PAGE: 'GENERAL/SET_ACTUAL_PAGE',
-    SWITCH_SIDEBAR_OPEN: 'GENERAL/SWITCH_SIDEBAR_OPEN'
-};
+import produce from 'immer';
 
-type Keys = keyof typeof Types;
+enum Types {
+    GENERAL_SET_ACTUAL_PAGE = 'GENERAL_SET_ACTUAL_PAGE',
+    GENERAL_SWITCH_SIDEBAR_OPEN = 'GENERAL_SWITCH_SIDEBAR_OPEN'
+}
+
+interface SetActualPage {
+    type: Types.GENERAL_SET_ACTUAL_PAGE;
+    payload: string;
+}
+
+interface SwitchSidebarOpen {
+    type: Types.GENERAL_SWITCH_SIDEBAR_OPEN;
+}
 
 interface Action {
-    type: Keys;
-    payload: any;
+    type: SetActualPage['type'] | SwitchSidebarOpen['type'];
+    payload: SetActualPage['payload'];
 }
 
 export const Creators = {
-    setActualPage: (payload: any) => ({ type: Types.SET_ACTUAL_PAGE, payload }),
-    switchSidebarOpen: () => ({
-        type: Types.SWITCH_SIDEBAR_OPEN
+    setActualPage: (payload: SetActualPage['payload']): SetActualPage => ({
+        type: Types.GENERAL_SET_ACTUAL_PAGE,
+        payload
+    }),
+    switchSidebarOpen: (): SwitchSidebarOpen => ({
+        type: Types.GENERAL_SWITCH_SIDEBAR_OPEN
     })
 };
 
 const initialState = {
-    actualPage: null,
+    actualPage: '',
     isSidebarOpen: false
 };
 
-export function Reducer(state = initialState, { type, payload }: Action) {
+export const Reducer = produce((draft, { type, payload }: Action) => {
     switch (type) {
-        case Types.SET_ACTUAL_PAGE:
-            return { ...state, actualPage: payload };
-        case Types.SWITCH_SIDEBAR_OPEN:
-            return { ...state, isSidebarOpen: !state.isSidebarOpen };
-        default:
-            return state;
+        case Types.GENERAL_SET_ACTUAL_PAGE:
+            draft.actualPage = payload;
+            break;
+        case Types.GENERAL_SWITCH_SIDEBAR_OPEN:
+            draft.isSidebarOpen = !draft.isSidebarOpen;
+            break;
     }
-}
+}, initialState);

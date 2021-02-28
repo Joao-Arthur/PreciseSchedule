@@ -10,14 +10,14 @@ import General from '../../Domains/General';
 
 export default function ForgotPassword() {
     const dispatch = useDispatch();
-    const email = useRef<HTMLInputElement>(null);
+    const password = useRef<HTMLInputElement>(null);
 
     const handleForgotPassword = () => {
-        if (!email.current) return;
+        if (!password.current) return;
 
         dispatch(
             User.Creators.passwordForgot(
-                new User.Builder().setPassword(email.current.value)
+                new User.Builder().setPassword(password.current.value)
             )
         );
     };
@@ -25,7 +25,7 @@ export default function ForgotPassword() {
     useEffect(() => {
         dispatch(General.Creators.setActualPage('passwordNew'));
         return () => {
-            dispatch(General.Creators.setActualPage(null));
+            dispatch(General.Creators.setActualPage(''));
         };
     }, [dispatch]);
 
@@ -39,8 +39,13 @@ export default function ForgotPassword() {
             loading={loading}
             onSubmit={handleForgotPassword}
         >
-            <Field title='email' name='email'>
-                <Input ref={email} name='email' type='email' required></Input>
+            <Field title='password' name='password'>
+                <Input
+                    ref={password}
+                    name='password'
+                    type='password'
+                    required
+                />
             </Field>
         </Form>
     );

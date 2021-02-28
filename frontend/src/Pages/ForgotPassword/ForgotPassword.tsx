@@ -25,7 +25,7 @@ export default function ForgotPassword() {
     useEffect(() => {
         dispatch(General.Creators.setActualPage('passwordForgot'));
         return () => {
-            dispatch(General.Creators.setActualPage(null));
+            dispatch(General.Creators.setActualPage(''));
         };
     }, [dispatch]);
 
@@ -40,7 +40,7 @@ export default function ForgotPassword() {
             onSubmit={handleForgotPassword}
         >
             <Field title='email' name='email'>
-                <Input ref={email} name='email' type='email' required></Input>
+                <Input ref={email} name='email' type='email' required />
             </Field>
         </Form>
     );
