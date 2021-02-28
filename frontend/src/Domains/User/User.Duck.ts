@@ -44,7 +44,7 @@ interface SignUpFailure {
     type: Types.USER_SIGN_UP_FAILURE;
 }
 
-interface PasswordForgot {
+export interface PasswordForgot {
     type: Types.USER_PASSWORD_FORGOT;
     payload: User;
 }
@@ -58,7 +58,7 @@ interface PasswordForgotFailure {
     type: Types.USER_PASSWORD_FORGOT_FAILURE;
 }
 
-interface PasswordNew {
+export interface PasswordNew {
     type: Types.USER_PASSWORD_NEW;
     payload: User;
 }
@@ -126,6 +126,28 @@ export const Creators = {
     passwordForgot: (payload: PasswordForgot['payload']): PasswordForgot => ({
         type: Types.USER_PASSWORD_FORGOT,
         payload
+    }),
+    passwordForgotSuccess: (
+        payload: PasswordForgotSuccess['payload']
+    ): PasswordForgotSuccess => ({
+        type: Types.USER_PASSWORD_FORGOT_SUCCESS,
+        payload
+    }),
+    passwordForgotFailure: (): PasswordForgotFailure => ({
+        type: Types.USER_PASSWORD_FORGOT_FAILURE
+    }),
+    passwordNew: (payload: PasswordNew['payload']): PasswordNew => ({
+        type: Types.USER_PASSWORD_NEW,
+        payload
+    }),
+    passwordNewSuccess: (
+        payload: PasswordNewSuccess['payload']
+    ): PasswordNewSuccess => ({
+        type: Types.USER_PASSWORD_NEW_SUCCESS,
+        payload
+    }),
+    passwordNewFailure: (): PasswordNewFailure => ({
+        type: Types.USER_PASSWORD_NEW_FAILURE
     }),
     signOut: (): SignOut => ({ type: Types.USER_SIGN_OUT })
 };

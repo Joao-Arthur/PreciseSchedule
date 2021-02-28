@@ -1,5 +1,12 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { Types, Creators, SignIn, SignUp } from './User.Duck';
+import {
+    Types,
+    Creators,
+    SignIn,
+    SignUp,
+    PasswordForgot,
+    PasswordNew
+} from './User.Duck';
 import UserApi from './User.api';
 
 function* signIn({ payload }: SignIn) {
@@ -7,6 +14,7 @@ function* signIn({ payload }: SignIn) {
         const { token } = yield call(UserApi.signIn, payload);
         yield put(Creators.signInSuccess(token));
     } catch (e) {
+        console.error(e);
         yield put(Creators.signInFailure());
     }
 }
@@ -16,13 +24,36 @@ function* signUp({ payload }: SignUp) {
         const { token } = yield call(UserApi.signUp, payload);
         yield put(Creators.signUpSuccess(token));
     } catch (e) {
+        console.error(e);
         yield put(Creators.signUpFailure());
+    }
+}
+
+function* passwordForgot({ payload }: PasswordForgot) {
+    try {
+        const { token } = yield call(UserApi.forgotPassword, payload);
+        yield put(Creators.passwordForgotSuccess(token));
+    } catch (e) {
+        console.error(e);
+        yield put(Creators.passwordForgotFailure());
+    }
+}
+
+function* passwordNew({ payload }: PasswordNew) {
+    try {
+        const { token } = yield call(UserApi.newPassword, payload);
+        yield put(Creators.passwordNewSuccess(token));
+    } catch (e) {
+        console.error(e);
+        yield put(Creators.passwordNewFailure());
     }
 }
 
 function* UserSaga() {
     yield takeLatest(Types.USER_SIGN_IN, signIn);
     yield takeLatest(Types.USER_SIGN_UP, signUp);
+    yield takeLatest(Types.USER_PASSWORD_FORGOT, passwordForgot);
+    yield takeLatest(Types.USER_PASSWORD_NEW, passwordNew);
 }
 
 export default UserSaga;
