@@ -5,10 +5,6 @@ export const Title = styled.h1`
     text-align: center;
 `;
 
-export const Subtitle = styled.h3`
-    text-align: center;
-`;
-
 export const RedirectContainer = styled.div`
     padding: 10px;
     width: 25%;

@@ -35,7 +35,7 @@ export default function ForgotPassword() {
 
     return (
         <Form
-            title='send link to email to generate new password'
+            title='send email to generate new password'
             loading={loading}
             onSubmit={handleForgotPassword}
         >

@@ -6,7 +6,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.nav<ContainerProps>`
-    height: 100vh;
+    height: calc(100vh - 43px);
     box-shadow: 0px 0px 2px;
     overflow: hidden;
     transition: width 0.6s ease;

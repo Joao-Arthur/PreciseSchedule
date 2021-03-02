@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../Store';
-import { RedirectContainer, Subtitle, Title, Link } from './SignUp.styles';
+import { RedirectContainer, Title, Link } from './SignUp.styles';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
@@ -56,7 +56,6 @@ export default function SignUp() {
 
     return (
         <>
-            <Subtitle>join PreciseSchedule</Subtitle>
             <Title>Create your account</Title>
             <Form title='Sign up' loading={loading} onSubmit={handleSignUp}>
                 <Field title='Full name' name='name'>

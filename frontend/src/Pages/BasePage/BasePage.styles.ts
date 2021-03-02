@@ -14,13 +14,38 @@ export const HeaderTitle = styled.h1`
     color: white;
 `;
 
+export const HeaderDivisionStart = styled.div`
+    display: flex;
+    width: calc(100% / 3);
+    justify-content: flex-start;
+`;
+
+export const HeaderDivisionCenter = styled.div`
+    display: flex;
+    width: calc(100% / 3);
+    justify-content: center;
+`;
+
+export const HeaderDivisionEnd = styled.div`
+    display: flex;
+    width: calc(100% / 3);
+    justify-content: flex-end;
+`;
+
 export const Main = styled.main`
     display: flex;
+    height: calc(100vh - 43px);
 `;
 
 export const ChildrenContainer = styled.div`
     display: block;
     flex: 1 0 auto;
+`;
+
+export const ChildrenContainerCenter = styled.div`
+    display: block;
+    flex: 1 0 auto;
+    align-self: center;
 `;
 
 export const Hamburguer = styled(ButtonIcon).attrs({

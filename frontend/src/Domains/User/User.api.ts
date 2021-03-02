@@ -6,6 +6,7 @@ interface UserInfo {
 }
 
 function signIn(user: User) {
+    return Promise.resolve({ token: 'mock token' });
     return Fetch.post<UserInfo>('user/login', user);
 }
 

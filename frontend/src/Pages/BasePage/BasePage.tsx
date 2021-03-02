@@ -5,8 +5,12 @@ import General from '../../Domains/General';
 import {
     Header,
     HeaderTitle,
+    HeaderDivisionStart,
+    HeaderDivisionCenter,
+    HeaderDivisionEnd,
     Main,
     ChildrenContainer,
+    ChildrenContainerCenter,
     Footer,
     Hamburguer,
     Link
@@ -26,6 +30,14 @@ export default function BasePage({ children }: Props) {
 
     const getPageActions = () => {
         switch (actualPage) {
+            case 'home':
+            case 'notfound':
+                return (
+                    <>
+                        <Link to='/signin'>Sign in</Link>
+                        <Link to='/signup'>Sign up</Link>
+                    </>
+                );
             case 'signin':
                 return <Link to='/signup'>Sign up</Link>;
             case 'signup':
@@ -37,26 +49,44 @@ export default function BasePage({ children }: Props) {
         }
     };
 
+    const getChildrenContainer = () => {
+        switch (actualPage) {
+            case 'signin':
+            case 'signup':
+            case 'passwordForgot':
+            case 'passwordNew':
+                return ChildrenContainerCenter;
+            default:
+                return ChildrenContainer;
+        }
+    };
+
+    const Container = getChildrenContainer();
+
     return (
         <>
             <Header>
-                {!actualPage ? (
-                    <Hamburguer
-                        onClick={() =>
-                            dispatch(General.Creators.switchSidebarOpen())
-                        }
-                    />
-                ) : null}
-                <HeaderTitle>PreciseSchedule</HeaderTitle>
-                {getPageActions()}
+                <HeaderDivisionStart>
+                    {!actualPage ? (
+                        <Hamburguer
+                            onClick={() =>
+                                dispatch(General.Creators.switchSidebarOpen())
+                            }
+                        />
+                    ) : null}
+                </HeaderDivisionStart>
+                <HeaderDivisionCenter>
+                    <HeaderTitle>PreciseSchedule</HeaderTitle>
+                </HeaderDivisionCenter>
+                <HeaderDivisionEnd>{getPageActions()}</HeaderDivisionEnd>
             </Header>
             <Main>
                 {!actualPage ? <Sidebar /> : null}
-                <ChildrenContainer>{children}</ChildrenContainer>
+                <Container>{children}</Container>
             </Main>
-            <Footer>
+            {/*<Footer>
                 2020 João Arthur Lothamer Fernandes. Terms Privacy Help
-            </Footer>
+            </Footer>*/}
         </>
     );
 }
