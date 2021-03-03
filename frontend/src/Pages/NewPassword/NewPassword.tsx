@@ -6,7 +6,6 @@ import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
 import User from '../../Domains/User';
-import General from '../../Domains/General';
 import { Container } from './NewPassword.styles';
 
 export default function ForgotPassword() {
@@ -22,13 +21,6 @@ export default function ForgotPassword() {
             )
         );
     };
-
-    useEffect(() => {
-        dispatch(General.Creators.setActualPage('passwordNew'));
-        return () => {
-            dispatch(General.Creators.setActualPage(''));
-        };
-    }, [dispatch]);
 
     const logged = useSelector((state: StateType) => state.User.isLogged);
     const loading = useSelector((state: StateType) => state.User.loading);

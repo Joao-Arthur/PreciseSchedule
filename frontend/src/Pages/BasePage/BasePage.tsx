@@ -63,7 +63,7 @@ export default function BasePage({ children }: Props) {
                 </HeaderDivisionEnd>
             </Header>
             <Main>
-                {!logged ? <Sidebar /> : null}
+                {logged ? <Sidebar /> : null}
                 {children}
             </Main>
             {/*<Footer>
