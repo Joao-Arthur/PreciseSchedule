@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { StateType } from '../../Store';
 
 export default function Settings() {
-    const logado = useSelector((state: StateType) => state.User.isLogged);
-    if (!logado) return <Redirect to='/signin' />;
+    const logged = useSelector((state: StateType) => state.User.isLogged);
+    if (!logged) return <Redirect to='/signin' />;
 
     return (
         <Container>

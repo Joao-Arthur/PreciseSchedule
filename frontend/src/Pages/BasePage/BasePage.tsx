@@ -9,8 +9,6 @@ import {
     HeaderDivisionCenter,
     HeaderDivisionEnd,
     Main,
-    ChildrenContainer,
-    ChildrenContainerCenter,
     Footer,
     Hamburguer,
     Link
@@ -27,47 +25,29 @@ export default function BasePage({ children }: Props) {
     const actualPage = useSelector(
         (state: StateType) => state.General.actualPage
     );
+    const logged = useSelector((state: StateType) => state.User.isLogged);
 
-    const getPageActions = () => {
+    const getLinksByPage = () => {
         switch (actualPage) {
-            case 'home':
-            case 'notfound':
+            case 'signin':
+                return <Link to='/signup'>Sign up</Link>;
+            case 'signup':
+                return <Link to='/signin'>Sign in</Link>;
+            default:
                 return (
                     <>
                         <Link to='/signin'>Sign in</Link>
                         <Link to='/signup'>Sign up</Link>
                     </>
                 );
-            case 'signin':
-                return <Link to='/signup'>Sign up</Link>;
-            case 'signup':
-            case 'passwordForgot':
-            case 'passwordNew':
-                return <Link to='/signin'>Sign in</Link>;
-            default:
-                return <UserActions />;
         }
     };
-
-    const getChildrenContainer = () => {
-        switch (actualPage) {
-            case 'signin':
-            case 'signup':
-            case 'passwordForgot':
-            case 'passwordNew':
-                return ChildrenContainerCenter;
-            default:
-                return ChildrenContainer;
-        }
-    };
-
-    const Container = getChildrenContainer();
 
     return (
         <>
             <Header>
                 <HeaderDivisionStart>
-                    {!actualPage ? (
+                    {logged ? (
                         <Hamburguer
                             onClick={() =>
                                 dispatch(General.Creators.switchSidebarOpen())
@@ -78,11 +58,13 @@ export default function BasePage({ children }: Props) {
                 <HeaderDivisionCenter>
                     <HeaderTitle>PreciseSchedule</HeaderTitle>
                 </HeaderDivisionCenter>
-                <HeaderDivisionEnd>{getPageActions()}</HeaderDivisionEnd>
+                <HeaderDivisionEnd>
+                    {logged ? <UserActions /> : getLinksByPage()}
+                </HeaderDivisionEnd>
             </Header>
             <Main>
-                {!actualPage ? <Sidebar /> : null}
-                <Container>{children}</Container>
+                {!logged ? <Sidebar /> : null}
+                {children}
             </Main>
             {/*<Footer>
                 2020 João Arthur Lothamer Fernandes. Terms Privacy Help

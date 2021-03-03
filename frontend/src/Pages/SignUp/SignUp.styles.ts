@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import LinkBase from '../../Components/Core/Link';
 
+export const Container = styled.div`
+    display: block;
+    flex: 1 0 auto;
+    align-self: center;
+`;
+
 export const Title = styled.h1`
     text-align: center;
 `;

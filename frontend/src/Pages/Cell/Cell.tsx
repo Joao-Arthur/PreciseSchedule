@@ -1,17 +1,17 @@
 import { DayBox, DayLabel, InvisibleDayBox } from './Cell.styles';
 
 interface Props {
-    dia: number;
+    day: number;
 }
 
-export default function Cell({ dia }: Props) {
-    return dia ? (
+export default function Cell({ day }: Props) {
+    return day ? (
         <DayBox
             onClick={() => {
                 //console.log(props.children)
             }}
         >
-            <DayLabel>{dia}</DayLabel>
+            <DayLabel>{day}</DayLabel>
         </DayBox>
     ) : (
         <InvisibleDayBox />

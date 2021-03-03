@@ -1,19 +1,20 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { StateType } from '../../Store';
 import { Redirect } from 'react-router-dom';
+import { StateType } from '../../Store';
+import Form from '../../Components/Core/Form';
+import Field from '../../Components/Core/Field';
+import Input from '../../Components/Core/Input';
+import User from '../../Domains/User';
+import General from '../../Domains/General';
 import {
+    Container,
     RedirectContainer,
     FieldContainer,
     Title,
     Link,
     Label
 } from './SignIn.styles';
-import Form from '../../Components/Core/Form';
-import Field from '../../Components/Core/Field';
-import Input from '../../Components/Core/Input';
-import User from '../../Domains/User';
-import General from '../../Domains/General';
 
 export default function SignIn() {
     const dispatch = useDispatch();
@@ -40,12 +41,12 @@ export default function SignIn() {
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: StateType) => state.User.isLogged);
+    const logged = useSelector((state: StateType) => state.User.isLogged);
     const loading = useSelector((state: StateType) => state.User.loading);
-    if (logado) return <Redirect to='/calendar' />;
+    if (logged) return <Redirect to='/calendar' />;
 
     return (
-        <>
+        <Container>
             <Title>Sign in to PreciseSchedule</Title>
             <Form title='Sign in' loading={loading} onSubmit={handleSignIn}>
                 <Field title='Username' name='username'>
@@ -68,6 +69,6 @@ export default function SignIn() {
                 New to PreciseSchedule?{' '}
                 <Link to='signup'>Create an account.</Link>
             </RedirectContainer>
-        </>
+        </Container>
     );
 }

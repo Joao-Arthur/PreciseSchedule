@@ -37,17 +37,6 @@ export const Main = styled.main`
     height: calc(100vh - 43px);
 `;
 
-export const ChildrenContainer = styled.div`
-    display: block;
-    flex: 1 0 auto;
-`;
-
-export const ChildrenContainerCenter = styled.div`
-    display: block;
-    flex: 1 0 auto;
-    align-self: center;
-`;
-
 export const Hamburguer = styled(ButtonIcon).attrs({
     name: 'hamburguer',
     size: 38,

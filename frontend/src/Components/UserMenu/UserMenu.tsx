@@ -9,10 +9,10 @@ export default function UserMenu() {
         <Container>
             <List>
                 <Item>
-                    <Link to='/settings'>configurações</Link>
+                    <Link to='/settings'>settings</Link>
                 </Item>
                 <Item onClick={() => dispatch(User.Creators.signOut())}>
-                    sair
+                    sign out
                 </Item>
             </List>
         </Container>

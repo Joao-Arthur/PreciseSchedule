@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
-import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
-import { RedirectContainer, Title, Link } from './SignUp.styles';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
+import { Container, RedirectContainer, Title, Link } from './SignUp.styles';
 
 export default function SignUp() {
     const name = useRef<HTMLInputElement>(null);
@@ -50,12 +50,12 @@ export default function SignUp() {
         };
     }, [dispatch]);
 
-    const logado = useSelector((state: StateType) => state.User.isLogged);
+    const logged = useSelector((state: StateType) => state.User.isLogged);
     const loading = useSelector((state: StateType) => state.User.loading);
-    if (logado) return <Redirect to='/calendar' />;
+    if (logged) return <Redirect to='/calendar' />;
 
     return (
-        <>
+        <Container>
             <Title>Create your account</Title>
             <Form title='Sign up' loading={loading} onSubmit={handleSignUp}>
                 <Field title='Full name' name='name'>
@@ -106,6 +106,6 @@ export default function SignUp() {
             <RedirectContainer>
                 Already in PreciseSchedule? <Link to='signin'>Sign in.</Link>
             </RedirectContainer>
-        </>
+        </Container>
     );
 }
