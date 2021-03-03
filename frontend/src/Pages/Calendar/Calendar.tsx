@@ -10,7 +10,7 @@ import {
     Body,
     BodyHeader
 } from './Calendar.styles';
-import Cell from '../Cell';
+import Cell from './Cell';
 import { monthDaysToTable, daysOfWeek, monthsOfTheYear } from './Helper';
 
 export default function Calendar() {
