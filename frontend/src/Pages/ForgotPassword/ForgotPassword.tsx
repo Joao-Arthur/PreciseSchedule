@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
@@ -6,7 +6,7 @@ import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
 import User from '../../Domains/User';
-import { Container } from './ForgotPassword.styles';
+import { Container, RedirectContainer, Link } from './ForgotPassword.styles';
 
 export default function ForgotPassword() {
     const dispatch = useDispatch();
@@ -37,6 +37,9 @@ export default function ForgotPassword() {
                     <Input ref={email} name='email' type='email' required />
                 </Field>
             </Form>
+            <RedirectContainer>
+                Already in PreciseSchedule? <Link to='/signin'>Sign in.</Link>
+            </RedirectContainer>
         </Container>
     );
 }

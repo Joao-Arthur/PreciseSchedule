@@ -5,6 +5,7 @@ import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
+import ToggleInput from '../../Components/Core/ToggleInput';
 import { Container } from './Settings.styles';
 
 export default function Settings() {
@@ -35,6 +36,7 @@ export default function Settings() {
                 <Field title='enable two factor authentication' name='language'>
                     <Input ref={language} name='language' type='checkbox' />
                 </Field>
+                <ToggleInput />
                 <button>delete my account</button>
                 <button>what info do PreciseSchedule know about you?</button>
             </Form>
