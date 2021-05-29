@@ -1,15 +1,8 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import {
-    Types,
-    Creators,
-    SignIn,
-    SignUp,
-    PasswordForgot,
-    PasswordNew
-} from './User.Duck';
+import { Types, Creators, CreatorsType } from './User.Duck';
 import UserApi from './User.api';
 
-function* signIn({ payload }: SignIn) {
+function* signIn({ payload }: CreatorsType['signIn']) {
     try {
         const { token } = yield call(UserApi.signIn, payload);
         yield put(Creators.signInSuccess(token));
@@ -19,7 +12,7 @@ function* signIn({ payload }: SignIn) {
     }
 }
 
-function* signUp({ payload }: SignUp) {
+function* signUp({ payload }: CreatorsType['signUp']) {
     try {
         const { token } = yield call(UserApi.signUp, payload);
         yield put(Creators.signUpSuccess(token));
@@ -29,7 +22,7 @@ function* signUp({ payload }: SignUp) {
     }
 }
 
-function* passwordForgot({ payload }: PasswordForgot) {
+function* passwordForgot({ payload }: CreatorsType['passwordForgot']) {
     try {
         const { token } = yield call(UserApi.forgotPassword, payload);
         yield put(Creators.passwordForgotSuccess(token));
@@ -39,7 +32,7 @@ function* passwordForgot({ payload }: PasswordForgot) {
     }
 }
 
-function* passwordNew({ payload }: PasswordNew) {
+function* passwordNew({ payload }: CreatorsType['passwordNew']) {
     try {
         const { token } = yield call(UserApi.newPassword, payload);
         yield put(Creators.passwordNewSuccess(token));

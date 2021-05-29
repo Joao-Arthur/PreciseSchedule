@@ -17,149 +17,77 @@ export enum Types {
     USER_SIGN_OUT = 'USER_SIGN_OUT'
 }
 
-export interface SignIn {
-    type: Types.USER_SIGN_IN;
-    payload: User;
-}
-
-interface SignInSuccess {
-    type: Types.USER_SIGN_IN_SUCCESS;
-    payload: string;
-}
-interface SignInFailure {
-    type: Types.USER_SIGN_IN_FAILURE;
-}
-
-export interface SignUp {
-    type: Types.USER_SIGN_UP;
-    payload: User;
-}
-
-interface SignUpSuccess {
-    type: Types.USER_SIGN_UP_SUCCESS;
-    payload: string;
-}
-
-interface SignUpFailure {
-    type: Types.USER_SIGN_UP_FAILURE;
-}
-
-export interface PasswordForgot {
-    type: Types.USER_PASSWORD_FORGOT;
-    payload: User;
-}
-
-interface PasswordForgotSuccess {
-    type: Types.USER_PASSWORD_FORGOT_SUCCESS;
-    payload: string;
-}
-
-interface PasswordForgotFailure {
-    type: Types.USER_PASSWORD_FORGOT_FAILURE;
-}
-
-export interface PasswordNew {
-    type: Types.USER_PASSWORD_NEW;
-    payload: User;
-}
-
-interface PasswordNewSuccess {
-    type: Types.USER_PASSWORD_NEW_SUCCESS;
-    payload: string;
-}
-
-interface PasswordNewFailure {
-    type: Types.USER_PASSWORD_NEW_FAILURE;
-}
-
-interface SignOut {
-    type: Types.USER_SIGN_OUT;
-}
-
-interface Action {
-    type:
-        | SignIn['type']
-        | SignInSuccess['type']
-        | SignInFailure['type']
-        | SignUp['type']
-        | SignUpSuccess['type']
-        | SignUpFailure['type']
-        | PasswordForgot['type']
-        | PasswordForgotSuccess['type']
-        | PasswordForgotFailure['type']
-        | PasswordNew['type']
-        | PasswordNewSuccess['type']
-        | PasswordNewFailure['type']
-        | SignOut['type'];
-    payload?:
-        | SignIn['payload']
-        | SignInSuccess['payload']
-        | SignUp['payload']
-        | SignUpSuccess['payload']
-        | PasswordForgot['payload']
-        | PasswordForgotSuccess['payload']
-        | PasswordNew['payload']
-        | PasswordNewSuccess['payload'];
-}
-
 export const Creators = {
-    signIn: (payload: SignIn['payload']): SignIn => ({
-        type: Types.USER_SIGN_IN,
-        payload
-    }),
-    signInSuccess: (payload: SignInSuccess['payload']): SignInSuccess => ({
-        type: Types.USER_SIGN_IN_SUCCESS,
-        payload
-    }),
-    signInFailure: (): SignInFailure => ({
-        type: Types.USER_SIGN_IN_FAILURE
-    }),
-    signUp: (payload: SignUp['payload']): SignUp => ({
-        type: Types.USER_SIGN_UP,
-        payload
-    }),
-    signUpSuccess: (payload: SignUpSuccess['payload']): SignUpSuccess => ({
-        type: Types.USER_SIGN_UP_SUCCESS,
-        payload
-    }),
-    signUpFailure: (): SignUpFailure => ({ type: Types.USER_SIGN_UP_FAILURE }),
-    passwordForgot: (payload: PasswordForgot['payload']): PasswordForgot => ({
-        type: Types.USER_PASSWORD_FORGOT,
-        payload
-    }),
-    passwordForgotSuccess: (
-        payload: PasswordForgotSuccess['payload']
-    ): PasswordForgotSuccess => ({
-        type: Types.USER_PASSWORD_FORGOT_SUCCESS,
-        payload
-    }),
-    passwordForgotFailure: (): PasswordForgotFailure => ({
-        type: Types.USER_PASSWORD_FORGOT_FAILURE
-    }),
-    passwordNew: (payload: PasswordNew['payload']): PasswordNew => ({
-        type: Types.USER_PASSWORD_NEW,
-        payload
-    }),
-    passwordNewSuccess: (
-        payload: PasswordNewSuccess['payload']
-    ): PasswordNewSuccess => ({
-        type: Types.USER_PASSWORD_NEW_SUCCESS,
-        payload
-    }),
-    passwordNewFailure: (): PasswordNewFailure => ({
-        type: Types.USER_PASSWORD_NEW_FAILURE
-    }),
-    signOut: (): SignOut => ({ type: Types.USER_SIGN_OUT })
+    signIn: (payload: User) =>
+        <const>{
+            type: Types.USER_SIGN_IN,
+            payload
+        },
+    signInSuccess: (payload: string) =>
+        <const>{
+            type: Types.USER_SIGN_IN_SUCCESS,
+            payload
+        },
+    signInFailure: () =>
+        <const>{
+            type: Types.USER_SIGN_IN_FAILURE
+        },
+    signUp: (payload: User) =>
+        <const>{
+            type: Types.USER_SIGN_UP,
+            payload
+        },
+    signUpSuccess: (payload: string) =>
+        <const>{
+            type: Types.USER_SIGN_UP_SUCCESS,
+            payload
+        },
+    signUpFailure: () => <const>{ type: Types.USER_SIGN_UP_FAILURE },
+    passwordForgot: (payload: User) =>
+        <const>{
+            type: Types.USER_PASSWORD_FORGOT,
+            payload
+        },
+    passwordForgotSuccess: (payload: string) =>
+        <const>{
+            type: Types.USER_PASSWORD_FORGOT_SUCCESS,
+            payload
+        },
+    passwordForgotFailure: () =>
+        <const>{
+            type: Types.USER_PASSWORD_FORGOT_FAILURE
+        },
+    passwordNew: (payload: User) =>
+        <const>{
+            type: Types.USER_PASSWORD_NEW,
+            payload
+        },
+    passwordNewSuccess: (payload: string) =>
+        <const>{
+            type: Types.USER_PASSWORD_NEW_SUCCESS,
+            payload
+        },
+    passwordNewFailure: () =>
+        <const>{
+            type: Types.USER_PASSWORD_NEW_FAILURE
+        },
+    signOut: () => <const>{ type: Types.USER_SIGN_OUT }
 };
+
+export type CreatorsType = {
+    [action in keyof typeof Creators]: ReturnType<typeof Creators[action]>;
+};
+
+type Action = ReturnType<typeof Creators[keyof typeof Creators]>;
 
 const initialState = {
     loading: false,
     isLogged: false,
-    token: null
+    token: ''
 };
 
-export const Reducer = produce((draft, { type, payload }: Action) => {
-    switch (type) {
+export const Reducer = produce((draft, action: Action) => {
+    switch (action.type) {
         case Types.USER_SIGN_IN:
         case Types.USER_SIGN_UP:
             draft.loading = true;
@@ -168,7 +96,7 @@ export const Reducer = produce((draft, { type, payload }: Action) => {
         case Types.USER_SIGN_UP_SUCCESS:
             draft.loading = false;
             draft.isLogged = true;
-            draft.token = payload;
+            draft.token = action.payload;
             break;
         case Types.USER_SIGN_IN_FAILURE:
         case Types.USER_SIGN_UP_FAILURE:
