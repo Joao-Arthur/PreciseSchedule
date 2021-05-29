@@ -1,4 +1,5 @@
 # PreciseScheduleRefactor
 
-Esse projeto é mantido como um monorepo;
-Talk is cheap. Show me the code;
+This project is a refactor of an old personal project. There is nothing special about it.
+
+It is a monorepo with backend written in _NestJS_ and frontend written in _React_.
