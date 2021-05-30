@@ -62,12 +62,17 @@ function* verifyToken() {
     }
 }
 
+function signOut() {
+    localStorage.removeItem('@precise_schedule_token');
+}
+
 function* UserSaga() {
     yield takeLatest(Types.USER_SIGN_IN, signIn);
     yield takeLatest(Types.USER_SIGN_UP, signUp);
     yield takeLatest(Types.USER_PASSWORD_FORGOT, passwordForgot);
     yield takeLatest(Types.USER_PASSWORD_NEW, passwordNew);
     yield takeLatest(Types.VERIFY_TOKEN, verifyToken);
+    yield takeLatest(Types.USER_SIGN_OUT, signOut);
 }
 
 export default UserSaga;

@@ -111,7 +111,8 @@ export const Reducer = produce((draft, action: Action) => {
             draft.loading = false;
             break;
         case Types.USER_SIGN_OUT:
-            return initialState;
+            draft.isLogged = false;
+            break;
         //case Types.USER_PASSWORD_FORGOT:
         //case Types.USER_PASSWORD_FORGOT_SUCCESS:
         //case Types.USER_PASSWORD_FORGOT_FAILURE:
@@ -124,7 +125,7 @@ export const Reducer = produce((draft, action: Action) => {
         case Types.VERIFY_TOKEN_SUCCESS:
             draft.loading = false;
             draft.isLogged = true;
-            draft.isVerified = false;
+            draft.isVerified = true;
             break;
         case Types.VERIFY_TOKEN_FAILURE:
             draft.loading = false;
