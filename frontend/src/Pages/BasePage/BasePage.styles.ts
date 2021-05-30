@@ -57,7 +57,3 @@ export const Link = styled(LinkBase)`
         color: #ccc;
     }
 `;
-
-export const Footer = styled.footer`
-    text-align: center;
-`;

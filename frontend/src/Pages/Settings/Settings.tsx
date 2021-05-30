@@ -11,8 +11,10 @@ import { Container } from './Settings.styles';
 export default function Settings() {
     const language = useRef<HTMLInputElement>(null);
 
-    const logged = useSelector((state: StateType) => state.User.isLogged);
-    if (!logged) return <Redirect to='/signin' />;
+    const shouldLogin = useSelector(
+        (state: StateType) => !state.User.isLogged && state.User.isVerified
+    );
+    if (shouldLogin) return <Redirect to='/signin' />;
 
     return (
         <Container>
@@ -34,9 +36,8 @@ export default function Settings() {
                 <span>my account</span>
                 <button>change password</button>
                 <Field title='enable two factor authentication' name='language'>
-                    <Input ref={language} name='language' type='checkbox' />
+                    <ToggleInput />
                 </Field>
-                <ToggleInput />
                 <button>delete my account</button>
                 <button>what info do PreciseSchedule know about you?</button>
             </Form>

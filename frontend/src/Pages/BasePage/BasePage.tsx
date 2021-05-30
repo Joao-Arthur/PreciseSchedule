@@ -1,4 +1,4 @@
-import { ReactChild } from 'react';
+import { ReactChild, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StateType } from '../../Store';
 import General from '../../Domains/General';
@@ -9,18 +9,23 @@ import {
     HeaderDivisionCenter,
     HeaderDivisionEnd,
     Main,
-    Footer,
     Hamburguer,
     Link
 } from './BasePage.styles';
 import Sidebar from '../../Components/Sidebar';
 import UserActions from '../../Components/UserActions';
-interface Props {
-    children: ReactChild;
-}
+import User from '../../Domains/User';
 
-export default function BasePage({ children }: Props) {
+type props = {
+    children: ReactChild;
+};
+
+export default function BasePage({ children }: props) {
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(User.Creators.verifyToken());
+    }, [dispatch]);
 
     const actualPage = useSelector(
         (state: StateType) => state.General.actualPage

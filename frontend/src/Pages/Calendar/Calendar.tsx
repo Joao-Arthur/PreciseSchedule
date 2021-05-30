@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { StateType } from '../../Store';
+import { useState } from 'react';
 import {
     Container,
     Header,
@@ -29,9 +26,6 @@ export default function Calendar() {
         setVisibleMonth(11);
         setVisibleYear(shownYear - 1);
     };
-
-    const logged = useSelector((state: StateType) => state.User.isLogged);
-    if (!logged) return <Redirect to='/signin' />;
 
     return (
         <Container>

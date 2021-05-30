@@ -14,7 +14,10 @@ export enum Types {
     USER_PASSWORD_NEW = 'USER_PASSWORD_NEW',
     USER_PASSWORD_NEW_SUCCESS = 'USER_PASSWORD_NEW_SUCCESS',
     USER_PASSWORD_NEW_FAILURE = 'USER_PASSWORD_NEW_FAILURE',
-    USER_SIGN_OUT = 'USER_SIGN_OUT'
+    USER_SIGN_OUT = 'USER_SIGN_OUT',
+    VERIFY_TOKEN = 'VERIFY_TOKEN',
+    VERIFY_TOKEN_SUCCESS = 'VERIFY_TOKEN_SUCCESS',
+    VERIFY_TOKEN_FAILURE = 'VERIFY_TOKEN_FAILURE'
 }
 
 export const Creators = {
@@ -71,7 +74,10 @@ export const Creators = {
         <const>{
             type: Types.USER_PASSWORD_NEW_FAILURE
         },
-    signOut: () => <const>{ type: Types.USER_SIGN_OUT }
+    signOut: () => <const>{ type: Types.USER_SIGN_OUT },
+    verifyToken: () => <const>{ type: Types.VERIFY_TOKEN },
+    verifyTokenSuccess: () => <const>{ type: Types.VERIFY_TOKEN_SUCCESS },
+    verifyTokenFailure: () => <const>{ type: Types.VERIFY_TOKEN_FAILURE }
 };
 
 export type CreatorsType = {
@@ -83,6 +89,7 @@ type Action = ReturnType<typeof Creators[keyof typeof Creators]>;
 const initialState = {
     loading: false,
     isLogged: false,
+    isVerified: false,
     token: ''
 };
 
@@ -96,6 +103,7 @@ export const Reducer = produce((draft, action: Action) => {
         case Types.USER_SIGN_UP_SUCCESS:
             draft.loading = false;
             draft.isLogged = true;
+            draft.isVerified = true;
             draft.token = action.payload;
             break;
         case Types.USER_SIGN_IN_FAILURE:
@@ -110,5 +118,18 @@ export const Reducer = produce((draft, action: Action) => {
         //case Types.USER_PASSWORD_NEW:
         //case Types.USER_PASSWORD_NEW_SUCCESS:
         //case Types.USER_PASSWORD_NEW_FAILURE:
+        case Types.VERIFY_TOKEN:
+            draft.loading = true;
+            break;
+        case Types.VERIFY_TOKEN_SUCCESS:
+            draft.loading = false;
+            draft.isLogged = true;
+            draft.isVerified = false;
+            break;
+        case Types.VERIFY_TOKEN_FAILURE:
+            draft.loading = false;
+            draft.isLogged = false;
+            draft.isVerified = true;
+            break;
     }
 }, initialState);
