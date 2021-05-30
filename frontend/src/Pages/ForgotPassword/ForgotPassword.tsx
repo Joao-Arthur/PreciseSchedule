@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
@@ -10,15 +10,13 @@ import { Container, RedirectContainer, Link } from './ForgotPassword.styles';
 
 export default function ForgotPassword() {
     const dispatch = useDispatch();
-    const email = useRef<HTMLInputElement>(null);
+    const [email, setEmail] = useState('');
 
     const handleForgotPassword = () => {
-        if (!email.current) return;
+        if (!email) return;
 
         dispatch(
-            User.Creators.passwordForgot(
-                new User.Builder().setEmail(email.current.value)
-            )
+            User.Creators.passwordForgot(new User.Builder().setEmail(email))
         );
     };
 
@@ -34,7 +32,13 @@ export default function ForgotPassword() {
                 onSubmit={handleForgotPassword}
             >
                 <Field title='email' name='email'>
-                    <Input ref={email} name='email' type='email' required />
+                    <Input
+                        name='email'
+                        type='email'
+                        required
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
                 </Field>
             </Form>
             <RedirectContainer>

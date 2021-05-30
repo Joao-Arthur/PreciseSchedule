@@ -1,16 +1,14 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import Input from '../../Components/Core/Input';
-import ToggleInput from '../../Components/Core/ToggleInput';
+import Toggle from '../../Components/Core/Toggle';
 import { Container } from './Settings.styles';
 
 export default function Settings() {
-    const language = useRef<HTMLInputElement>(null);
-
     const shouldLogin = useSelector(
         (state: StateType) => !state.User.isLogged && state.User.isVerified
     );
@@ -20,12 +18,7 @@ export default function Settings() {
         <Container>
             <Form title='Settings' loading={false} onSubmit={() => {}}>
                 <Field title='Language' name='language'>
-                    <Input
-                        ref={language}
-                        name='language'
-                        type='text'
-                        required
-                    />
+                    <Input name='language' type='text' required />
                 </Field>
                 <select value='english'>
                     <option value='english'>english</option>
@@ -36,7 +29,7 @@ export default function Settings() {
                 <span>my account</span>
                 <button>change password</button>
                 <Field title='enable two factor authentication' name='language'>
-                    <ToggleInput />
+                    <Toggle />
                 </Field>
                 <button>delete my account</button>
                 <button>what info do PreciseSchedule know about you?</button>

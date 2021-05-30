@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
@@ -18,18 +18,16 @@ import {
 
 export default function SignIn() {
     const dispatch = useDispatch();
-    const username = useRef<HTMLInputElement>(null);
-    const password = useRef<HTMLInputElement>(null);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     function handleSignIn() {
-        if (!username.current) return;
-        if (!password.current) return;
+        if (!username) return;
+        if (!password) return;
 
         dispatch(
             User.Creators.signIn(
-                new User.Builder()
-                    .setUsername(username.current.value)
-                    .setPassword(password.current.value)
+                new User.Builder().setUsername(username).setPassword(password)
             )
         );
     }
@@ -51,10 +49,11 @@ export default function SignIn() {
             <Form title='Sign in' loading={loading} onSubmit={handleSignIn}>
                 <Field title='Username' name='username'>
                     <Input
-                        ref={username}
                         name='username'
                         type='text'
                         required
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
                     />
                 </Field>
                 <FieldContainer>
@@ -62,7 +61,12 @@ export default function SignIn() {
                         Password{' '}
                         <Link to='password/forgot'>Forgot password?</Link>
                     </Label>
-                    <Input ref={password} type='password' required />
+                    <Input
+                        type='password'
+                        required
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                    />
                 </FieldContainer>
             </Form>
             <RedirectContainer>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
@@ -10,35 +10,32 @@ import General from '../../Domains/General';
 import { Container, RedirectContainer, Title, Link } from './SignUp.styles';
 
 export default function SignUp() {
-    const name = useRef<HTMLInputElement>(null);
-    const email = useRef<HTMLInputElement>(null);
-    const birthday = useRef<HTMLInputElement>(null);
-    const username = useRef<HTMLInputElement>(null);
-    const password = useRef<HTMLInputElement>(null);
-    const passwordVerification = useRef<HTMLInputElement>(null);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [birthday, setBirthday] = useState<Date | null>(null);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [passwordMatch, setPasswordMatch] = useState('');
 
     const dispatch = useDispatch();
 
     function handleSignUp() {
-        if (!name.current) return;
-        if (!email.current) return;
-        if (!birthday.current) return;
-        if (!birthday.current.valueAsDate) return;
-        if (!username.current) return;
-        if (!password.current) return;
-        if (!passwordVerification.current) return;
-
-        if (password.current.value !== passwordVerification.current.value)
-            return;
+        if (!name) return;
+        if (!email) return;
+        if (!birthday) return;
+        if (!username) return;
+        if (!password) return;
+        if (!passwordMatch) return;
+        if (password !== passwordMatch) return;
 
         dispatch(
             User.Creators.signUp(
                 new User.Builder()
-                    .setName(name.current.value)
-                    .setEmail(email.current.value)
-                    .setBirthday(birthday.current.valueAsDate)
-                    .setUsername(username.current.value)
-                    .setPassword(password.current.value)
+                    .setName(name)
+                    .setEmail(email)
+                    .setBirthday(birthday)
+                    .setUsername(username)
+                    .setPassword(password)
             )
         );
     }
@@ -59,25 +56,39 @@ export default function SignUp() {
             <Title>Create your account</Title>
             <Form title='Sign up' loading={loading} onSubmit={handleSignUp}>
                 <Field title='Full name' name='name'>
-                    <Input ref={name} name='name' type='text' required />
+                    <Input
+                        name='name'
+                        type='text'
+                        required
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                    />
                 </Field>
                 <Field title='Email' name='email'>
-                    <Input ref={email} name='email' type='email' required />
+                    <Input
+                        name='email'
+                        type='email'
+                        required
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
                 </Field>
                 <Field title='Birthday' name='birthday'>
                     <Input
-                        ref={birthday}
                         name='birthday'
                         type='date'
                         required
+                        value={birthday?.toISOString().slice(0, 10)}
+                        onChange={e => setBirthday(e.target.valueAsDate)}
                     />
                 </Field>
                 <Field title='Username' name='username'>
                     <Input
-                        ref={username}
                         name='username'
                         type='text'
                         required
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
                     />
                 </Field>
                 <Field
@@ -86,20 +97,22 @@ export default function SignUp() {
                     observation='At least 10 characters'
                 >
                     <Input
-                        ref={password}
                         name='password'
                         type='password'
                         required
                         minLength={10}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
                     />
                 </Field>
-                <Field title='Type password again' name='passwordVerification'>
+                <Field title='Type password again' name='passwordMatch'>
                     <Input
-                        ref={passwordVerification}
-                        name='passwordVerification'
+                        name='passwordMatch'
                         type='password'
                         required
                         minLength={10}
+                        value={passwordMatch}
+                        onChange={e => setPasswordMatch(e.target.value)}
                     />
                 </Field>
             </Form>

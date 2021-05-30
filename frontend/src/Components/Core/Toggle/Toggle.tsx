@@ -1,6 +1,6 @@
-import { Label, Input, Span } from './ToggleInput.styles';
+import { Label, Input, Span } from './Toggle.styles';
 
-export default function ToggleInput() {
+export default function Toggle() {
     return (
         <Label>
             <Input type='checkbox' />

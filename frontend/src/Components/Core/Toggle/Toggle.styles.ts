@@ -4,7 +4,7 @@ export const Label = styled.label`
     position: relative;
     display: inline-block;
     width: 60px;
-    height: 34px;
+    height: 30px;
 `;
 
 export const Span = styled.span`
@@ -16,16 +16,17 @@ export const Span = styled.span`
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    border-radius: 34px;
+    border-radius: 15px;
+    border: 1px solid gray;
 
     &::before {
         position: absolute;
-        transition: 0.4s;
+        transition: 0.3s ease-in-out;
         content: '';
-        height: 26px;
-        width: 26px;
+        height: 22px;
+        width: 22px;
         left: 4px;
-        bottom: 4px;
+        bottom: 3px;
         background-color: white;
         border-radius: 50%;
     }
@@ -45,6 +46,6 @@ export const Input = styled.input`
     }
 
     &:checked + ${Span}:before {
-        transform: translateX(26px);
+        transform: translateX(29px);
     }
 `;
