@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
-import Input from '../../Components/Core/Input';
+import { Password } from '../../Components/Core/Input';
 import User from '../../Domains/User';
 import { Container } from './NewPassword.styles';
 
@@ -37,24 +37,22 @@ export default function ForgotPassword() {
                 <Field
                     title='password'
                     name='password'
-                    observation='At least 10 characters'
+                    notice='At least 10 characters'
                 >
-                    <Input
+                    <Password
                         name='password'
-                        type='password'
-                        required
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={setPassword}
+                        required
                     />
                 </Field>
                 <Field title='Type password again' name='passwordMatch'>
-                    <Input
+                    <Password
                         name='passwordMatch'
-                        type='password'
-                        required
                         minLength={10}
                         value={passwordMatch}
-                        onChange={e => setPasswordMatch(e.target.value)}
+                        onChange={setPasswordMatch}
+                        required
                     />
                 </Field>
             </Form>

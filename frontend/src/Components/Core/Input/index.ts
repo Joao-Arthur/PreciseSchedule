@@ -1,10 +1,4 @@
-import styled from 'styled-components';
-
-const Input = styled.input`
-    border: 1px solid gray;
-    border-radius: 4px;
-    padding: 5px;
-    font-size: 16px;
-`;
-
-export default Input;
+export { default as Date } from './Date';
+export { default as Email } from './Email';
+export { default as Password } from './Password';
+export { default as Text } from './Text';

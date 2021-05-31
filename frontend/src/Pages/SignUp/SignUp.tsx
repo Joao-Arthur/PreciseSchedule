@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
-import Input from '../../Components/Core/Input';
+import { Date, Email, Text, Password } from '../../Components/Core/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 import { Container, RedirectContainer, Title, Link } from './SignUp.styles';
@@ -56,63 +56,57 @@ export default function SignUp() {
             <Title>Create your account</Title>
             <Form title='Sign up' loading={loading} onSubmit={handleSignUp}>
                 <Field title='Full name' name='name'>
-                    <Input
+                    <Text
                         name='name'
-                        type='text'
-                        required
                         value={name}
-                        onChange={e => setName(e.target.value)}
+                        onChange={setName}
+                        required
                     />
                 </Field>
                 <Field title='Email' name='email'>
-                    <Input
+                    <Email
                         name='email'
-                        type='email'
-                        required
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={setEmail}
+                        required
                     />
                 </Field>
                 <Field title='Birthday' name='birthday'>
-                    <Input
+                    <Date
                         name='birthday'
-                        type='date'
+                        value={birthday}
+                        onChange={setBirthday}
                         required
-                        value={birthday?.toISOString().slice(0, 10)}
-                        onChange={e => setBirthday(e.target.valueAsDate)}
                     />
                 </Field>
                 <Field title='Username' name='username'>
-                    <Input
+                    <Text
                         name='username'
-                        type='text'
-                        required
                         value={username}
-                        onChange={e => setUsername(e.target.value)}
+                        onChange={setUsername}
+                        required
                     />
                 </Field>
                 <Field
                     title='Password'
                     name='password'
-                    observation='At least 10 characters'
+                    notice='At least 10 characters'
                 >
-                    <Input
+                    <Password
                         name='password'
-                        type='password'
-                        required
                         minLength={10}
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={setPassword}
+                        required
                     />
                 </Field>
                 <Field title='Type password again' name='passwordMatch'>
-                    <Input
+                    <Password
                         name='passwordMatch'
-                        type='password'
-                        required
                         minLength={10}
                         value={passwordMatch}
-                        onChange={e => setPasswordMatch(e.target.value)}
+                        onChange={setPasswordMatch}
+                        required
                     />
                 </Field>
             </Form>

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
-import Input from '../../Components/Core/Input';
+import { Text, Password } from '../../Components/Core/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 import {
@@ -48,12 +48,11 @@ export default function SignIn() {
             <Title>Sign in to PreciseSchedule</Title>
             <Form title='Sign in' loading={loading} onSubmit={handleSignIn}>
                 <Field title='Username' name='username'>
-                    <Input
+                    <Text
                         name='username'
-                        type='text'
-                        required
                         value={username}
-                        onChange={e => setUsername(e.target.value)}
+                        onChange={setUsername}
+                        required
                     />
                 </Field>
                 <FieldContainer>
@@ -61,11 +60,11 @@ export default function SignIn() {
                         Password{' '}
                         <Link to='password/forgot'>Forgot password?</Link>
                     </Label>
-                    <Input
-                        type='password'
-                        required
+                    <Password
+                        name='password'
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={setPassword}
+                        required
                     />
                 </FieldContainer>
             </Form>

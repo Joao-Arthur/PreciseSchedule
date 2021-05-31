@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
-import Input from '../../Components/Core/Input';
+import { Text } from '../../Components/Core/Input';
 import Toggle from '../../Components/Core/Toggle';
 import { Container } from './Settings.styles';
 
@@ -18,7 +18,12 @@ export default function Settings() {
         <Container>
             <Form title='Settings' loading={false} onSubmit={() => {}}>
                 <Field title='Language' name='language'>
-                    <Input name='language' type='text' required />
+                    <Text
+                        name='language'
+                        value=''
+                        onChange={() => {}}
+                        required
+                    />
                 </Field>
                 <select value='english'>
                     <option value='english'>english</option>

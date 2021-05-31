@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
-import Input from '../../Components/Core/Input';
+import { Email } from '../../Components/Core/Input';
 import User from '../../Domains/User';
 import { Container, RedirectContainer, Link } from './ForgotPassword.styles';
 
@@ -32,12 +32,11 @@ export default function ForgotPassword() {
                 onSubmit={handleForgotPassword}
             >
                 <Field title='email' name='email'>
-                    <Input
+                    <Email
                         name='email'
-                        type='email'
                         required
                         value={email}
-                        onChange={e => setEmail(e.target.value)}
+                        onChange={setEmail}
                     />
                 </Field>
             </Form>

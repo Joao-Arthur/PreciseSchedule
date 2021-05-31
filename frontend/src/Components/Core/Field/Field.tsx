@@ -5,20 +5,15 @@ interface Props {
     children: ReactChild;
     title: string;
     name: string;
-    observation?: string;
+    notice?: string;
 }
 
-export default function FormField({
-    children,
-    title,
-    name,
-    observation
-}: Props) {
+export default function FormField({ children, title, name, notice }: Props) {
     return (
         <Container>
             <Label htmlFor={name}>{title}</Label>
             {children}
-            {observation ? <Observation>{observation}</Observation> : null}
+            {notice ? <Observation>{notice}</Observation> : null}
         </Container>
     );
 }
