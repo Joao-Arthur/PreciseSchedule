@@ -16,7 +16,7 @@ export default function Settings() {
 
     return (
         <Container>
-            <Form title='Settings' loading={false} onSubmit={() => {}}>
+            <Form title='Save settings' loading={false} onSubmit={() => {}}>
                 <Field title='Language' name='language'>
                     <Text
                         name='language'

@@ -1,17 +1,17 @@
 import Fetch from '../../Core/Fetch';
 import { User } from './User.Builder';
 
-interface UserInfo {
+type userInfo = {
     token: string;
-}
+};
 
 function signIn(user: User) {
     return Promise.resolve({ token: 'mock token' });
-    //return Fetch.post<UserInfo>('user/login', user);
+    //return Fetch.post<userInfo>('user/login', user);
 }
 
 function signUp(user: User) {
-    return Fetch.post<UserInfo>('user', user);
+    return Fetch.post<userInfo>('user', user);
 }
 
 function forgotPassword(user: User) {

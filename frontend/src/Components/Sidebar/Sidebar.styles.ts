@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import LinkBase from '../Core/Link';
 
-interface ContainerProps {
+type containerProps = {
     open: boolean;
-}
+};
 
-export const Container = styled.nav<ContainerProps>`
+export const Container = styled.nav<containerProps>`
     height: calc(100vh - 43px);
     box-shadow: 0px 0px 2px;
     overflow: hidden;

@@ -5,12 +5,12 @@ const SVGs = { hamburguer, user };
 
 export type names = keyof typeof SVGs;
 
-interface Props {
+type props = {
     name: names;
     className?: string;
-}
+};
 
-export default function Icon({ name, className }: Props) {
+export default function Icon({ name, className }: props) {
     const SelectedIcon = SVGs[name];
 
     return <SelectedIcon className={className} />;

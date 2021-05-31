@@ -1,14 +1,14 @@
 import { ReactChild } from 'react';
 import { Container, Label, Observation } from './Field.styles';
 
-interface Props {
+type props = {
     children: ReactChild;
     title: string;
     name: string;
     notice?: string;
-}
+};
 
-export default function FormField({ children, title, name, notice }: Props) {
+export default function FormField({ children, title, name, notice }: props) {
     return (
         <Container>
             <Label htmlFor={name}>{title}</Label>

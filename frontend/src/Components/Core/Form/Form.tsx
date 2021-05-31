@@ -2,14 +2,14 @@ import { ReactChild, FormEvent } from 'react';
 import { Container, CustomForm } from './Form.styles';
 import Button from '../Button';
 
-interface Props {
+type props = {
     title: string;
     loading?: boolean;
     onSubmit: () => void;
     children: ReactChild | ReactChild[];
-}
+};
 
-export default function Form({ title, loading, onSubmit, children }: Props) {
+export default function Form({ title, loading, onSubmit, children }: props) {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         onSubmit();
