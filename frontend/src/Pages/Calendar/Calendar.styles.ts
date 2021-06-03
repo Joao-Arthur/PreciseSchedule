@@ -37,7 +37,7 @@ export const Title = styled.p`
 
 export const Body = styled.table`
     width: 100%;
-    box-shadow: inset 0px 3px 3px darkgrey;
+    box-shadow: inset 0px 2px 2px darkgrey;
     background-color: #fff5ff;
 `;
 

@@ -4,18 +4,14 @@ export default function setupWebVitals() {
     reportWebVitals(sendToAnalytics);
 }
 
-function reportWebVitals(onPerfEntry?: ReportHandler) {
-    if (onPerfEntry && onPerfEntry instanceof Function) {
-        import('web-vitals').then(
-            ({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-                getCLS(onPerfEntry);
-                getFID(onPerfEntry);
-                getFCP(onPerfEntry);
-                getLCP(onPerfEntry);
-                getTTFB(onPerfEntry);
-            }
-        );
-    }
+function reportWebVitals(onPerfEntry: ReportHandler) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+        getCLS(onPerfEntry);
+        getFID(onPerfEntry);
+        getFCP(onPerfEntry);
+        getLCP(onPerfEntry);
+        getTTFB(onPerfEntry);
+    });
 }
 
 function sendToAnalytics(metric: Metric) {

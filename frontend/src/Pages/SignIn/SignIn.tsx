@@ -62,6 +62,7 @@ export default function SignIn() {
                     </Label>
                     <Password
                         name='password'
+                        minLength={10}
                         value={password}
                         onChange={setPassword}
                         required

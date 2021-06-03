@@ -25,16 +25,15 @@ export default function Settings() {
                         onChange={setLanguage}
                     />
                 </Field>
-                <span>my account</span>
-                <a href='/password/new'>change password</a>
                 <Field
                     title='enable two factor authentication'
                     name='twoFactor'
                 >
                     <Toggle />
                 </Field>
-                <button>delete my account</button>
-                <button>what info do PreciseSchedule know about you?</button>
+                <a href='/password/new'>change password</a>
+                <a href='#'>delete my account</a>
+                <a href='#'>what info do PreciseSchedule know about you?</a>
             </Form>
         </Container>
     );

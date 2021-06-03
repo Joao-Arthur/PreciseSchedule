@@ -1,7 +1,9 @@
 import { ReactComponent as hamburguer } from './hamburguer.svg';
 import { ReactComponent as user } from './user.svg';
+import { ReactComponent as settings } from './settings.svg';
+import { ReactComponent as signOut } from './signOut.svg';
 
-const SVGs = { hamburguer, user };
+const SVGs = { hamburguer, user, settings, signOut };
 
 export type names = keyof typeof SVGs;
 

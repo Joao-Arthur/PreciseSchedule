@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { Container, List, Item, Link } from './UserMenu.styles';
+import { Container, List, Item, Link, Icon } from './UserMenu.styles';
 import User from '../../Domains/User';
 
 export default function UserMenu() {
@@ -8,10 +8,18 @@ export default function UserMenu() {
     return (
         <Container>
             <List>
-                <Item>
-                    <Link to='/settings'>settings</Link>
-                </Item>
+                <Link to='/settings'>
+                    <Item>
+                        <Icon
+                            name='settings'
+                            size={20}
+                            color='var(--darkGrey)'
+                        />
+                        settings
+                    </Item>
+                </Link>
                 <Item onClick={() => dispatch(User.Creators.signOut())}>
+                    <Icon name='signOut' size={20} color='var(--darkGrey)' />
                     sign out
                 </Item>
             </List>
