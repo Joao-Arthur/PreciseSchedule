@@ -8,35 +8,40 @@ import {
     BodyHeader
 } from './Calendar.styles';
 import Cell from './Cell';
-import { monthDaysToTable, daysOfWeek, monthsOfTheYear } from './Helper';
+import {
+    monthDaysToTable,
+    daysOfWeek,
+    monthsOfTheYear,
+    infoToDate
+} from './Helper';
 
 export default function Calendar() {
     const now = new Date();
-    const [shownYear, setVisibleYear] = useState(now.getFullYear());
-    const [shownMonth, setVisibleMonth] = useState(now.getMonth());
+    const [selectedYear, setVisibleYear] = useState(now.getFullYear());
+    const [selectedMonth, setVisibleMonth] = useState(now.getMonth());
 
     const setNextMonth = () => {
-        if (shownMonth < 11) return setVisibleMonth(shownMonth + 1);
+        if (selectedMonth < 11) return setVisibleMonth(selectedMonth + 1);
         setVisibleMonth(0);
-        setVisibleYear(shownYear + 1);
+        setVisibleYear(selectedYear + 1);
     };
 
     const setPrevMonth = () => {
-        if (shownMonth > 0) return setVisibleMonth(shownMonth - 1);
+        if (selectedMonth > 0) return setVisibleMonth(selectedMonth - 1);
         setVisibleMonth(11);
-        setVisibleYear(shownYear - 1);
+        setVisibleYear(selectedYear - 1);
     };
 
     return (
         <Container>
             <Header>
-                <Button onClick={() => setVisibleYear(shownYear - 1)}>
+                <Button onClick={() => setVisibleYear(selectedYear - 1)}>
                     {'<<'}
                 </Button>
                 <Button onClick={setPrevMonth}>{'<'}</Button>
-                <Title>{`${monthsOfTheYear[shownMonth]} ${shownYear}`}</Title>
+                <Title>{`${monthsOfTheYear[selectedMonth]} ${selectedYear}`}</Title>
                 <Button onClick={setNextMonth}>{'>'}</Button>
-                <Button onClick={() => setVisibleYear(shownYear + 1)}>
+                <Button onClick={() => setVisibleYear(selectedYear + 1)}>
                     {'>>'}
                 </Button>
             </Header>
@@ -49,12 +54,17 @@ export default function Calendar() {
                     </tr>
                 </thead>
                 <tbody>
-                    {monthDaysToTable(shownYear, shownMonth).map(
+                    {monthDaysToTable(selectedYear, selectedMonth).map(
                         (week, weekIndex) => (
                             <tr key={weekIndex}>
                                 {week.map((day, index) => (
                                     <Cell
                                         day={day}
+                                        date={infoToDate(
+                                            selectedYear,
+                                            selectedMonth,
+                                            day
+                                        )}
                                         key={weekIndex * 7 + index}
                                     />
                                 ))}

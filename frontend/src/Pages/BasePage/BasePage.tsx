@@ -15,6 +15,7 @@ import {
 import Sidebar from '../../Components/Sidebar';
 import UserActions from '../../Components/UserActions';
 import User from '../../Domains/User';
+import DayEvents from '../../Components/DayEvents';
 
 type props = {
     children: ReactChild;
@@ -70,6 +71,7 @@ export default function BasePage({ children }: props) {
             <Main>
                 {logged ? <Sidebar /> : null}
                 {children}
+                {logged ? <DayEvents /> : null}
             </Main>
             {/*<Footer>
                 2020 João Arthur Lothamer Fernandes. Terms Privacy Help

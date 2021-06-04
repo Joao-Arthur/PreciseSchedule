@@ -1,12 +1,12 @@
 import { StrictMode } from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './GlobalStyle';
 import BasePage from './Pages/BasePage';
 import Routes from './Pages/Routes';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore from './Store';
+import setupStore from './Store';
 
-const store = configureStore();
+const store = setupStore();
 
 export default function App() {
     return (

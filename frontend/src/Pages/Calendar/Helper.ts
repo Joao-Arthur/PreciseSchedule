@@ -25,13 +25,15 @@ export const daysOfWeek = [
 
 const monthDays = [31, NaN, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-const isLeapYear = (year: number) =>
-    (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+function isLeapYear(year: number) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
 
-export const getMonthTotalDays = (year: number, month: number): number =>
-    month === 1 ? (isLeapYear(year) ? 29 : 28) : monthDays[month];
+function getMonthTotalDays(year: number, month: number) {
+    return month === 1 ? (isLeapYear(year) ? 29 : 28) : monthDays[month];
+}
 
-export const monthDaysToTable = (year: number, month: number): number[][] => {
+export function monthDaysToTable(year: number, month: number) {
     const firstDayOfWeekInMonth = new Date(year, month, 1).getDay();
     const monthDays = getMonthTotalDays(year, month);
     return [
@@ -49,4 +51,8 @@ export const monthDaysToTable = (year: number, month: number): number[][] => {
             return cellIndex + 1 - firstDayOfWeekInMonth;
         })
     );
-};
+}
+
+export function infoToDate(year: number, month: number, day: number) {
+    return new Date(year, month, day);
+}

@@ -18,4 +18,5 @@ export const InvisibleDayBox = styled.td`
 export const DayLabel = styled.p`
     text-align: center;
     margin: auto;
+    user-select: none;
 `;
