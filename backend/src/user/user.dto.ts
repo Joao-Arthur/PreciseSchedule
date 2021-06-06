@@ -1,7 +1,9 @@
 export class CreateUserDTO {
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
-    birthday: Date;
+    birthdate: Date;
+    language: string;
     username: string;
     password: string;
 }
@@ -11,55 +13,8 @@ export class LoginUserDTO {
     password: string;
 }
 
-export class UserBuilder {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    birthday: Date;
-    hash: string;
-    salt: string;
-    iterations: number;
-
-    setId(id: number) {
-        this.id = id;
-        return this;
-    }
-
-    setName(name: string) {
-        this.name = name;
-        return this;
-    }
-
-    setUsername(username: string) {
-        this.username = username;
-        return this;
-    }
-
-    setEmail(email: string) {
-        this.email = email;
-        return this;
-    }
-
-    setBirthday(birthday: Date) {
-        this.birthday = birthday;
-        return this;
-    }
-
-    setHash(hash: string) {
-        this.hash = hash;
-        return this;
-    }
-
-    setSalt(salt: string) {
-        this.salt = salt;
-        return this;
-    }
-
-    setIterations(iterations: number) {
-        this.iterations = iterations;
-        return this;
-    }
+export class ValidateUserDTO {
+    token: string;
 }
 
 export class UserInfoBuilder {
@@ -71,11 +26,11 @@ export class UserInfoBuilder {
     }
 
     build() {
-        return new User(this);
+        return new UserDTO(this);
     }
 }
 
-export class User {
+export class UserDTO {
     private token: string;
 
     constructor(builder: UserInfoBuilder) {

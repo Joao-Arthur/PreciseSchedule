@@ -1,21 +1,27 @@
 import Cryptography from '../../Core/Cryptography';
 
 export interface User {
-    name?: string;
-    email?: string;
-    birthday?: Date;
+    firstName?: string;
+    lastName?: string;
+    birthdate?: Date;
     username?: string;
     password?: string;
 }
 export default class UserBuilder implements User {
-    name?: string;
+    firstName?: string;
+    lastName?: string;
     email?: string;
-    birthday?: Date;
+    birthdate?: Date;
     username?: string;
     password?: string;
 
-    setName(name: string) {
-        this.name = name;
+    setFirstName(name: string) {
+        this.firstName = name;
+        return this;
+    }
+
+    setLastName(name: string) {
+        this.lastName = name;
         return this;
     }
 
@@ -24,8 +30,8 @@ export default class UserBuilder implements User {
         return this;
     }
 
-    setBirthday(birthday: Date) {
-        this.birthday = birthday;
+    setBirthdate(birthdate: Date) {
+        this.birthdate = birthdate;
         return this;
     }
 
@@ -37,5 +43,17 @@ export default class UserBuilder implements User {
     setPassword(password: string) {
         this.password = Cryptography.encryptRSA(password);
         return this;
+    }
+
+    build() {
+        return {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            email: this.email,
+            birthdate: this.birthdate,
+            username: this.username,
+            password: this.password,
+            language: 'pt-BR'
+        };
     }
 }

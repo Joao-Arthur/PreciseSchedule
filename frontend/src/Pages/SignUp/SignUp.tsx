@@ -10,9 +10,10 @@ import General from '../../Domains/General';
 import { Container, RedirectContainer, Title, Link } from './SignUp.styles';
 
 export default function SignUp() {
-    const [name, setName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [birthday, setBirthday] = useState<Date | null>(null);
+    const [birthdate, setBirthdate] = useState<Date | null>(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordMatch, setPasswordMatch] = useState('');
@@ -20,9 +21,10 @@ export default function SignUp() {
     const dispatch = useDispatch();
 
     function handleSignUp() {
-        if (!name) return;
+        if (!firstName) return;
+        if (!lastName) return;
         if (!email) return;
-        if (!birthday) return;
+        if (!birthdate) return;
         if (!username) return;
         if (!password) return;
         if (!passwordMatch) return;
@@ -31,11 +33,13 @@ export default function SignUp() {
         dispatch(
             User.Creators.signUp(
                 new User.Builder()
-                    .setName(name)
+                    .setFirstName(firstName)
+                    .setLastName(lastName)
                     .setEmail(email)
-                    .setBirthday(birthday)
+                    .setBirthdate(birthdate)
                     .setUsername(username)
                     .setPassword(password)
+                    .build()
             )
         );
     }
@@ -55,11 +59,19 @@ export default function SignUp() {
         <Container>
             <Title>Create your account</Title>
             <Form title='Sign up' loading={loading} onSubmit={handleSignUp}>
-                <Field title='Full name' name='name'>
+                <Field title='First name' name='firstname'>
                     <Text
                         name='name'
-                        value={name}
-                        onChange={setName}
+                        value={firstName}
+                        onChange={setFirstName}
+                        required
+                    />
+                </Field>
+                <Field title='last name' name='lastname'>
+                    <Text
+                        name='name'
+                        value={lastName}
+                        onChange={setLastName}
                         required
                     />
                 </Field>
@@ -71,11 +83,11 @@ export default function SignUp() {
                         required
                     />
                 </Field>
-                <Field title='Birthday' name='birthday'>
+                <Field title='Birthday' name='birthdate'>
                     <Date
-                        name='birthday'
-                        value={birthday}
-                        onChange={setBirthday}
+                        name='birthdate'
+                        value={birthdate}
+                        onChange={setBirthdate}
                         required
                     />
                 </Field>

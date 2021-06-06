@@ -9,6 +9,7 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 ### General
 
 - WebVitals
+- Better password validations
 - A.I.
 
 ### CRUDs
