@@ -6,8 +6,22 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 
 ## TODOs
 
+### General
+
 - WebVitals
-- Events CRUD
+- A.I.
+
+### CRUDs
+
+- Users
+- Events
 - Charts
 - Reports
+
+### Frontend
+
 - Better UI
+
+### Backend
+
+- Swap CORS by proxy
