@@ -13,7 +13,7 @@ export default function ForgotPassword() {
     const [password, setPassword] = useState('');
     const [passwordMatch, setPasswordMatch] = useState('');
 
-    const handleForgotPassword = () => {
+    function handleNewPassword() {
         if (!password) return;
 
         dispatch(
@@ -21,7 +21,7 @@ export default function ForgotPassword() {
                 new User.Builder().setPassword(password)
             )
         );
-    };
+    }
 
     const logged = useSelector((state: StateType) => state.User.isLogged);
     const loading = useSelector((state: StateType) => state.User.loading);
@@ -32,7 +32,7 @@ export default function ForgotPassword() {
             <Form
                 title='generate new password'
                 loading={loading}
-                onSubmit={handleForgotPassword}
+                onSubmit={handleNewPassword}
             >
                 <Field
                     title='password'

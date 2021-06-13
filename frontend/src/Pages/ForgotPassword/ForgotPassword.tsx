@@ -12,13 +12,13 @@ export default function ForgotPassword() {
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
 
-    const handleForgotPassword = () => {
+    function handleForgotPassword() {
         if (!email) return;
 
         dispatch(
             User.Creators.passwordForgot(new User.Builder().setEmail(email))
         );
-    };
+    }
 
     const logged = useSelector((state: StateType) => state.User.isLogged);
     const loading = useSelector((state: StateType) => state.User.loading);

@@ -1,6 +1,6 @@
 import NodeRSA from 'node-rsa';
 
-const encryptRSA = (text: string) => {
+function encryptRSA(text: string) {
     const publicKey = new NodeRSA(
         `-----BEGIN PUBLIC KEY-----
 MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAhHjfi/OHsmRuc9tnyvkd
@@ -19,7 +19,7 @@ NjsOcBln9aaHTYn2u0bF7BECAwEAAQ==
         'pkcs8-public-pem'
     );
     return publicKey.encrypt(text, 'base64');
-};
+}
 
 const Cryptography = {
     encryptRSA

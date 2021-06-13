@@ -10,10 +10,10 @@ type props = {
 };
 
 export default function Form({ title, loading, onSubmit, children }: props) {
-    const handleSubmit = (e: FormEvent) => {
+    function handleSubmit(e: FormEvent) {
         e.preventDefault();
         onSubmit();
-    };
+    }
 
     return (
         <Container>

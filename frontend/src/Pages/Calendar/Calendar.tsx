@@ -20,17 +20,17 @@ export default function Calendar() {
     const [selectedYear, setVisibleYear] = useState(now.getFullYear());
     const [selectedMonth, setVisibleMonth] = useState(now.getMonth());
 
-    const setNextMonth = () => {
+    function setNextMonth() {
         if (selectedMonth < 11) return setVisibleMonth(selectedMonth + 1);
         setVisibleMonth(0);
         setVisibleYear(selectedYear + 1);
-    };
+    }
 
-    const setPrevMonth = () => {
+    function setPreviousMonth() {
         if (selectedMonth > 0) return setVisibleMonth(selectedMonth - 1);
         setVisibleMonth(11);
         setVisibleYear(selectedYear - 1);
-    };
+    }
 
     return (
         <Container>
@@ -38,7 +38,7 @@ export default function Calendar() {
                 <Button onClick={() => setVisibleYear(selectedYear - 1)}>
                     {'<<'}
                 </Button>
-                <Button onClick={setPrevMonth}>{'<'}</Button>
+                <Button onClick={setPreviousMonth}>{'<'}</Button>
                 <Title>{`${monthsOfTheYear[selectedMonth]} ${selectedYear}`}</Title>
                 <Button onClick={setNextMonth}>{'>'}</Button>
                 <Button onClick={() => setVisibleYear(selectedYear + 1)}>

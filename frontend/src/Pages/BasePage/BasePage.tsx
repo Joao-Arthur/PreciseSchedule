@@ -33,7 +33,7 @@ export default function BasePage({ children }: props) {
     );
     const logged = useSelector((state: StateType) => state.User.isLogged);
 
-    const getLinksByPage = () => {
+    function getLinksByPage() {
         switch (actualPage) {
             case 'signin':
                 return <Link to='/signup'>Sign up</Link>;
@@ -47,7 +47,7 @@ export default function BasePage({ children }: props) {
                     </>
                 );
         }
-    };
+    }
 
     return (
         <>
