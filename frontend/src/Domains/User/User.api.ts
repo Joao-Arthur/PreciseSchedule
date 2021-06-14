@@ -1,13 +1,12 @@
 import Fetch from '../../Core/Fetch';
 import { User } from './User.Builder';
 
-type userInfo = {
+export type userInfo = {
     token: string;
 };
 
 function signIn(user: User) {
-    return Promise.resolve({ token: 'mock token' });
-    //return Fetch.post<userInfo>('user/login', user);
+    return Fetch.post<userInfo>('user/login', user);
 }
 
 function signUp(user: User) {

@@ -1,7 +1,6 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { Types, Creators, CreatorsType } from './User.Duck';
-import UserApi from './User.api';
-import assert from '../../Core/assert';
+import UserApi, { userInfo } from './User.api';
 
 function saveToken(token: string) {
     localStorage.setItem('@precise_schedule_token', token);
@@ -9,7 +8,7 @@ function saveToken(token: string) {
 
 function* signIn({ payload }: CreatorsType['signIn']) {
     try {
-        const { token } = yield call(UserApi.signIn, payload);
+        const { token } = (yield call(UserApi.signIn, payload)) as userInfo;
         saveToken(token);
         yield put(Creators.signInSuccess(token));
     } catch (e) {
@@ -54,7 +53,7 @@ function* passwordNew({ payload }: CreatorsType['passwordNew']) {
 function* verifyToken() {
     try {
         const token = localStorage.getItem('@precise_schedule_token');
-        assert(!!token, 'token não encontrado');
+        if (!token) throw new Error();
         yield put(Creators.verifyTokenSuccess());
     } catch (e) {
         console.error(e);

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import Authorization from '../Core/Authorization';
@@ -47,11 +47,21 @@ export class UserService {
         return new UserInfoBuilder().setToken('MOCK TOKEN').build();
     }
 
-    login({ username, password }: LoginUserDTO): UserDTO {
-        const decryptedPassword = Authorization.decryptRSA(password);
-        console.log(decryptedPassword);
+    async login({ username, password }: LoginUserDTO): Promise<UserDTO> {
+        try {
+            const user = await this.usersRepository.findOne({
+                username
+            });
 
-        return new UserInfoBuilder().setToken('MOCK TOKEN').build();
+            if (!user) throw new Error();
+
+            if (user.hash !== Authorization.encryptRSA(password + user.hash))
+                throw new Error();
+
+            return new UserInfoBuilder().setToken('MOCK TOKEN').build();
+        } catch {
+            throw new HttpException('User not found!', HttpStatus.UNAUTHORIZED);
+        }
     }
 
     findAll(): Promise<User[]> {

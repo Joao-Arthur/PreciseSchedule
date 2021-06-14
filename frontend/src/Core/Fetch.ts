@@ -13,7 +13,10 @@ function CustomFetch<T>(
         },
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(content)
-    }).then(res => res.json());
+    }).then(res => {
+        if (!res.ok) throw new Error(res.statusText);
+        return res.json();
+    });
 }
 
 function getFetch<T>(resource: string, content: object) {

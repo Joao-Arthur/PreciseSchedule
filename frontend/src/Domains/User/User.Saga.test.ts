@@ -28,9 +28,10 @@ describe('UserSaga test', () => {
         sagaTester.dispatch(
             Creators.signUp(
                 new UserBuilder()
-                    .setName('RingoStarr')
+                    .setFirstName('Ringo')
+                    .setLastName('Starr')
                     .setEmail('Ringo_Drum@outlook.com')
-                    .setBirthday(new Date(1940, 6, 7))
+                    .setBirthdate(new Date(1940, 6, 7))
                     .setUsername('Ringo')
                     .setPassword('BaDumTsssss')
             )

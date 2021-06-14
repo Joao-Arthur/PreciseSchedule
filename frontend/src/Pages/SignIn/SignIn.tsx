@@ -15,6 +15,7 @@ import {
     Link,
     Label
 } from './SignIn.styles';
+import toast from 'react-hot-toast';
 
 export default function SignIn() {
     const dispatch = useDispatch();
@@ -41,6 +42,8 @@ export default function SignIn() {
 
     const logged = useSelector((state: StateType) => state.User.isLogged);
     const loading = useSelector((state: StateType) => state.User.loading);
+    if (loading) toast.loading('logging in...');
+
     if (logged) return <Redirect to='/calendar' />;
 
     return (

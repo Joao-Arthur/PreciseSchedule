@@ -8,6 +8,7 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 
 ### General
 
+- Token validation
 - WebVitals
 - Better password validations
 - A.I.
@@ -22,6 +23,7 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 ### Frontend
 
 - Better UI
+- Uncontrolled inputs
 
 ### Backend
 
