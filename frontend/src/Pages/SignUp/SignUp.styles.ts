@@ -13,7 +13,7 @@ export const Title = styled.h1`
 
 export const RedirectContainer = styled.div`
     padding: 10px;
-    width: 25%;
+    width: 500px;
     margin: 10px auto;
     border: 1px solid gray;
     border-radius: 4px;

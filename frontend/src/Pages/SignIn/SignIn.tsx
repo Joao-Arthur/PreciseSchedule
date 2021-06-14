@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useMutation } from 'react-query';
 import { Redirect } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import Cryptography from '../../Core/Cryptography';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
@@ -15,22 +18,42 @@ import {
     Link,
     Label
 } from './SignIn.styles';
-import toast from 'react-hot-toast';
 
 export default function SignIn() {
     const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const { isLoading, data, mutate } = useMutation('signIn', () => {
+        const signIn = User.API.signIn({
+            username,
+            password: Cryptography.encryptRSA(password)
+        });
+        toast.promise(
+            signIn,
+            {
+                loading: 'logging in...',
+                error: 'User not found!',
+                success: `Welcome ${username}`
+            },
+            {
+                style: {
+                    minWidth: '250px'
+                }
+            }
+        );
+
+        return signIn;
+    });
+
+    if (data?.token) {
+        dispatch(User.Creators.signInSuccess(data.token));
+    }
+
     function handleSignIn() {
         if (!username) return;
         if (!password) return;
-
-        dispatch(
-            User.Creators.signIn(
-                new User.Builder().setUsername(username).setPassword(password)
-            )
-        );
+        mutate();
     }
 
     useEffect(() => {
@@ -41,15 +64,13 @@ export default function SignIn() {
     }, [dispatch]);
 
     const logged = useSelector((state: StateType) => state.User.isLogged);
-    const loading = useSelector((state: StateType) => state.User.loading);
-    if (loading) toast.loading('logging in...');
 
     if (logged) return <Redirect to='/calendar' />;
 
     return (
         <Container>
             <Title>Sign in to PreciseSchedule</Title>
-            <Form title='Sign in' loading={loading} onSubmit={handleSignIn}>
+            <Form title='Sign in' loading={isLoading} onSubmit={handleSignIn}>
                 <Field title='Username' name='username'>
                     <Text
                         name='username'

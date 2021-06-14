@@ -6,21 +6,27 @@ import BasePage from './Pages/BasePage';
 import Routes from './Pages/Routes';
 import setupStore from './Store';
 import { Toaster } from 'react-hot-toast';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
+const queryClient = new QueryClient();
 const store = setupStore();
 
 export default function App() {
     return (
         <StrictMode>
-            <Toaster />
-            <GlobalStyle />
-            <Provider store={store}>
-                <BrowserRouter>
-                    <BasePage>
-                        <Routes />
-                    </BasePage>
-                </BrowserRouter>
-            </Provider>
+            <QueryClientProvider client={queryClient}>
+                <Toaster />
+                <GlobalStyle />
+                <Provider store={store}>
+                    <BrowserRouter>
+                        <BasePage>
+                            <Routes />
+                        </BasePage>
+                    </BrowserRouter>
+                </Provider>
+                <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
         </StrictMode>
     );
 }

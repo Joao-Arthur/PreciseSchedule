@@ -22,7 +22,8 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 
 ### Frontend
 
-- Better UI
+- Better UI design
+- Mobile / Responsive design
 - Uncontrolled inputs
 
 ### Backend

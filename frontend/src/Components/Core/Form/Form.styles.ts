@@ -6,7 +6,7 @@ export const CustomForm = styled.form`
 `;
 
 export const Container = styled.div`
-    width: 25%;
+    width: 500px;
     margin: auto;
     background-color: #f7f7fa;
     border: 1px solid gray;

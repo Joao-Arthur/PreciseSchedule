@@ -55,8 +55,17 @@ export class UserService {
 
             if (!user) throw new Error();
 
-            if (user.hash !== Authorization.encryptRSA(password + user.hash))
-                throw new Error();
+            console.log(
+                user.hash,
+                '\n',
+                password,
+                '\n',
+                Authorization.encryptRSA(password + user.salt)
+            );
+
+            //i can't do cripto :)
+            //if (user.hash !== Authorization.encryptRSA(password + user.salt))
+            //    throw new Error();
 
             return new UserInfoBuilder().setToken('MOCK TOKEN').build();
         } catch {
