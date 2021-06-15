@@ -16,11 +16,8 @@ export default function ForgotPassword() {
     function handleNewPassword() {
         if (!password) return;
 
-        dispatch(
-            User.Creators.passwordForgot(
-                new User.Builder().setPassword(password)
-            )
-        );
+        //username?
+        dispatch(User.Creators.passwordNew({ password }));
     }
 
     const logged = useSelector((state: StateType) => state.User.isLogged);

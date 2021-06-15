@@ -31,16 +31,15 @@ export default function SignUp() {
         if (password !== passwordMatch) return;
 
         dispatch(
-            User.Creators.signUp(
-                new User.Builder()
-                    .setFirstName(firstName)
-                    .setLastName(lastName)
-                    .setEmail(email)
-                    .setBirthdate(birthdate)
-                    .setUsername(username)
-                    .setPassword(password)
-                    .build()
-            )
+            User.Creators.signUp({
+                firstName,
+                lastName,
+                email,
+                birthdate,
+                username,
+                password,
+                language: 'pt-BR'
+            })
         );
     }
 

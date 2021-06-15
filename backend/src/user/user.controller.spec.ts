@@ -18,11 +18,13 @@ describe('UserController', () => {
         it('should create user', () => {
             expect(
                 userController.create({
-                    name: 'George Harrison',
-                    username: 'George',
-                    password: 'Guitar123',
+                    firstName: 'George',
+                    lastName: 'Harrison',
                     email: 'george@gmail.com',
-                    birthday: new Date(25, 1, 1943)
+                    birthdate: new Date(25, 1, 1943),
+                    language: 'en-US',
+                    username: 'George',
+                    password: 'Guitar123'
                 })
             ).toBeUndefined();
         });

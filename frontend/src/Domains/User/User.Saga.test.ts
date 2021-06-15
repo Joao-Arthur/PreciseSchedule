@@ -1,7 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 import { Types, Creators } from './User.Duck';
 import UserSaga from './User.Saga';
-import UserBuilder from './User.Builder';
 
 describe('UserSaga test', () => {
     let sagaTester: SagaTester<object>;
@@ -13,11 +12,7 @@ describe('UserSaga test', () => {
 
     it('should handle USER_SIGN_IN', async () => {
         sagaTester.dispatch(
-            Creators.signIn(
-                new UserBuilder()
-                    .setUsername('Ringo')
-                    .setPassword('BaDumTsssss')
-            )
+            Creators.signIn({ username: 'Ringo', password: 'BaDumTsssss' })
         );
         await Promise.race([
             sagaTester.waitFor(Types.USER_SIGN_IN_SUCCESS),
@@ -26,15 +21,14 @@ describe('UserSaga test', () => {
     });
     it('should handle USER_SIGN_UP', async () => {
         sagaTester.dispatch(
-            Creators.signUp(
-                new UserBuilder()
-                    .setFirstName('Ringo')
-                    .setLastName('Starr')
-                    .setEmail('Ringo_Drum@outlook.com')
-                    .setBirthdate(new Date(1940, 6, 7))
-                    .setUsername('Ringo')
-                    .setPassword('BaDumTsssss')
-            )
+            Creators.signUp({
+                firstName: 'Ringo',
+                lastName: 'Starr',
+                email: 'Ringo_Drum@outlook.com',
+                birthdate: new Date(1940, 6, 7),
+                username: 'Ringo',
+                password: 'BaDumTsssss'
+            })
         );
         await Promise.race([
             sagaTester.waitFor(Types.USER_SIGN_UP_SUCCESS),

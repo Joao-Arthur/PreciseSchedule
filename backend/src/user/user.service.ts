@@ -30,18 +30,16 @@ export class UserService {
         const [hash, salt] = Authorization.generatePassword(password);
 
         this.usersRepository.save(
-            new UserBuilder()
-                .setActive(true)
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
-                .setBirthdate(birthdate)
-                .setLanguage(language)
-                .setUsername(username)
-                .setHash(hash)
-                .setSalt(salt)
-                .setIterations(Authorization.getIterations())
-                .build()
+            UserBuilder({
+                firstName,
+                lastName,
+                email,
+                birthdate,
+                language,
+                username,
+                hash,
+                salt
+            })
         );
 
         return new UserInfoBuilder().setToken('MOCK TOKEN').build();
@@ -55,17 +53,8 @@ export class UserService {
 
             if (!user) throw new Error();
 
-            console.log(
-                user.hash,
-                '\n',
-                password,
-                '\n',
-                Authorization.encryptRSA(password + user.salt)
-            );
-
-            //i can't do cripto :)
-            //if (user.hash !== Authorization.encryptRSA(password + user.salt))
-            //    throw new Error();
+            if (user.hash !== Authorization.encryptRSA(password + user.salt))
+                throw new Error();
 
             return new UserInfoBuilder().setToken('MOCK TOKEN').build();
         } catch {

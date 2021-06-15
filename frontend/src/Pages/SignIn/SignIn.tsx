@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-query';
 import { Redirect } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import Cryptography from '../../Core/Cryptography';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
@@ -27,7 +26,7 @@ export default function SignIn() {
     const { isLoading, data, mutate } = useMutation('signIn', () => {
         const signIn = User.API.signIn({
             username,
-            password: Cryptography.encryptRSA(password)
+            password
         });
         toast.promise(
             signIn,
