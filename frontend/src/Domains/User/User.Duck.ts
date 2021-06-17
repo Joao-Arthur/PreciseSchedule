@@ -3,11 +3,7 @@ import { User } from './User.Builder';
 
 export enum Types {
     USER_SIGN_IN = 'USER_SIGN_IN',
-    USER_SIGN_IN_SUCCESS = 'USER_SIGN_IN_SUCCESS',
-    USER_SIGN_IN_FAILURE = 'USER_SIGN_IN_FAILURE',
     USER_SIGN_UP = 'USER_SIGN_UP',
-    USER_SIGN_UP_SUCCESS = 'USER_SIGN_UP_SUCCESS',
-    USER_SIGN_UP_FAILURE = 'USER_SIGN_UP_FAILURE',
     USER_PASSWORD_FORGOT = 'USER_PASSWORD_FORGOT',
     USER_PASSWORD_FORGOT_SUCCESS = 'USER_PASSWORD_FORGOT_SUCCESS',
     USER_PASSWORD_FORGOT_FAILURE = 'USER_PASSWORD_FORGOT_FAILURE',
@@ -21,31 +17,16 @@ export enum Types {
 }
 
 export const Creators = {
-    signIn: (payload: User) =>
+    signIn: (payload: string) =>
         <const>{
             type: Types.USER_SIGN_IN,
             payload
         },
-    signInSuccess: (payload: string) =>
-        <const>{
-            type: Types.USER_SIGN_IN_SUCCESS,
-            payload
-        },
-    signInFailure: () =>
-        <const>{
-            type: Types.USER_SIGN_IN_FAILURE
-        },
-    signUp: (payload: User) =>
+    signUp: (payload: string) =>
         <const>{
             type: Types.USER_SIGN_UP,
             payload
         },
-    signUpSuccess: (payload: string) =>
-        <const>{
-            type: Types.USER_SIGN_UP_SUCCESS,
-            payload
-        },
-    signUpFailure: () => <const>{ type: Types.USER_SIGN_UP_FAILURE },
     passwordForgot: (payload: User) =>
         <const>{
             type: Types.USER_PASSWORD_FORGOT,
@@ -97,18 +78,10 @@ export const Reducer = produce((draft, action: Action) => {
     switch (action.type) {
         case Types.USER_SIGN_IN:
         case Types.USER_SIGN_UP:
-            draft.loading = true;
-            break;
-        case Types.USER_SIGN_IN_SUCCESS:
-        case Types.USER_SIGN_UP_SUCCESS:
             draft.loading = false;
             draft.isLogged = true;
             draft.isVerified = true;
             draft.token = action.payload;
-            break;
-        case Types.USER_SIGN_IN_FAILURE:
-        case Types.USER_SIGN_UP_FAILURE:
-            draft.loading = false;
             break;
         case Types.USER_SIGN_OUT:
             draft.isLogged = false;

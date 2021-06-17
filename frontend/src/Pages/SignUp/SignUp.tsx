@@ -37,7 +37,7 @@ export default function SignUp() {
         });
     });
 
-    if (data?.token) dispatch(User.Creators.signUpSuccess(data.token));
+    if (data?.token) dispatch(User.Creators.signUp(data.token));
 
     function handleSignUp() {
         if (!firstName) return;

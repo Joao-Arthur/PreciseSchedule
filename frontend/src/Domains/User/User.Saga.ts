@@ -1,31 +1,17 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { Types, Creators, CreatorsType } from './User.Duck';
-import UserApi, { userInfo } from './User.api';
+import UserApi from './User.api';
 
 function saveToken(token: string) {
     localStorage.setItem('@precise_schedule_token', token);
 }
 
-function* signIn({ payload }: CreatorsType['signIn']) {
-    try {
-        const { token } = (yield call(UserApi.signIn, payload)) as userInfo;
-        saveToken(token);
-        yield put(Creators.signInSuccess(token));
-    } catch (e) {
-        console.error(e);
-        yield put(Creators.signInFailure());
-    }
+function signIn({ payload }: CreatorsType['signIn']) {
+    saveToken(payload);
 }
 
-function* signUp({ payload }: CreatorsType['signUp']) {
-    try {
-        const { token } = yield call(UserApi.signUp, payload);
-        saveToken(token);
-        yield put(Creators.signUpSuccess(token));
-    } catch (e) {
-        console.error(e);
-        yield put(Creators.signUpFailure());
-    }
+function signUp({ payload }: CreatorsType['signUp']) {
+    saveToken(payload);
 }
 
 function* passwordForgot({ payload }: CreatorsType['passwordForgot']) {

@@ -6,10 +6,10 @@ describe('User reducer', () => {
         expect(loading).toBe(true);
     });
 
-    it('Should handle USER_SIGN_IN_SUCCESS', () => {
+    it('Should handle USER_SIGN_IN', () => {
         const payload = 'MOCK TOKEN';
         const { loading, isLogged, token } = Reducer(undefined, {
-            type: Types.USER_SIGN_IN_SUCCESS,
+            type: Types.USER_SIGN_IN,
             payload
         });
         expect(loading).toBe(false);
@@ -29,10 +29,10 @@ describe('User reducer', () => {
         expect(loading).toBe(true);
     });
 
-    it('Should handle USER_SIGN_UP_SUCCESS', () => {
+    it('Should handle USER_SIGN_UP', () => {
         const payload = 'MOCK TOKEN';
         const { loading, isLogged, token } = Reducer(undefined, {
-            type: Types.USER_SIGN_UP_SUCCESS,
+            type: Types.USER_SIGN_UP,
             payload
         });
         expect(loading).toBe(false);

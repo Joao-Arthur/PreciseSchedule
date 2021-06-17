@@ -33,7 +33,7 @@ export default function SignIn() {
         });
     });
 
-    if (data?.token) dispatch(User.Creators.signInSuccess(data.token));
+    if (data?.token) dispatch(User.Creators.signIn(data.token));
 
     function handleSignIn() {
         if (!username) return;
