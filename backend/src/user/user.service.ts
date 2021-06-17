@@ -53,7 +53,7 @@ export class UserService {
 
             if (!user) throw new Error();
 
-            if (user.hash !== Authorization.encryptRSA(password + user.salt))
+            if (Authorization.decryptRSA(user.hash) !== password + user.salt)
                 throw new Error();
 
             return new UserInfoBuilder().setToken('MOCK TOKEN').build();

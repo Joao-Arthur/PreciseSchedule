@@ -1,4 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
+import UserRouter from '../Components/UserRouter';
+import AnonimousRouter from '../Components/AnonimousRouter';
 import Home from './Home';
 import Calendar from './Calendar';
 import SignIn from './SignIn';
@@ -17,15 +19,15 @@ export default function Routes() {
             <Route path='/calendar'>
                 <Calendar />
             </Route>
-            <Route path='/signin'>
+            <AnonimousRouter path='/signin'>
                 <SignIn />
-            </Route>
-            <Route path='/signup'>
+            </AnonimousRouter>
+            <AnonimousRouter path='/signup'>
                 <SignUp />
-            </Route>
-            <Route path='/settings'>
+            </AnonimousRouter>
+            <UserRouter path='/settings'>
                 <Settings />
-            </Route>
+            </UserRouter>
             <Route path='/password/forgot'>
                 <ForgotPassword />
             </Route>

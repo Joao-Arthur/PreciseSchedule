@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useMutation } from 'react-query';
+import toast from 'react-hot-toast';
 import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
@@ -29,18 +30,7 @@ export default function SignUp() {
         if (!password) return;
         if (!passwordMatch) return;
         if (password !== passwordMatch) return;
-
-        dispatch(
-            User.Creators.signUp({
-                firstName,
-                lastName,
-                email,
-                birthdate,
-                username,
-                password,
-                language: 'pt-BR'
-            })
-        );
+        mutate();
     }
 
     useEffect(() => {
@@ -50,9 +40,35 @@ export default function SignUp() {
         };
     }, [dispatch]);
 
-    const logged = useSelector((state: StateType) => state.User.isLogged);
+    const { isLoading, data, mutate } = useMutation('signUp', () => {
+        const signUp = User.API.signUp({
+            firstName,
+            lastName,
+            email,
+            //null is unassignable to undefined
+            birthdate: birthdate ? birthdate : undefined,
+            username,
+            password,
+            language: 'pt-BR'
+        });
+        toast.promise(
+            signUp,
+            {
+                loading: 'registering you...',
+                error: 'We were unable to register you!',
+                success: `Welcome ${username}`
+            },
+            {
+                style: {
+                    minWidth: '250px'
+                }
+            }
+        );
+
+        return signUp;
+    });
+
     const loading = useSelector((state: StateType) => state.User.loading);
-    if (logged) return <Redirect to='/calendar' />;
 
     return (
         <Container>
@@ -82,7 +98,7 @@ export default function SignUp() {
                         required
                     />
                 </Field>
-                <Field title='Birthday' name='birthdate'>
+                <Field title='Birthdate' name='birthdate'>
                     <Date
                         name='birthdate'
                         value={birthdate}

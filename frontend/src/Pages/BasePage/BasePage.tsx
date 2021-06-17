@@ -73,9 +73,6 @@ export default function BasePage({ children }: props) {
                 {children}
                 {logged ? <DayEvents /> : null}
             </Main>
-            {/*<Footer>
-                2020 João Arthur Lothamer Fernandes. Terms Privacy Help
-            </Footer>*/}
         </>
     );
 }

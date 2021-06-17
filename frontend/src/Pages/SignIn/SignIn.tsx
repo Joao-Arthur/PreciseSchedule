@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
-import { Redirect } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { StateType } from '../../Store';
 import Form from '../../Components/Core/Form';
 import Field from '../../Components/Core/Field';
 import { Text, Password } from '../../Components/Core/Input';
@@ -28,7 +26,7 @@ export default function SignIn() {
             username,
             password
         });
-        toast.promise(
+        return toast.promise(
             signIn,
             {
                 loading: 'logging in...',
@@ -41,13 +39,9 @@ export default function SignIn() {
                 }
             }
         );
-
-        return signIn;
     });
 
-    if (data?.token) {
-        dispatch(User.Creators.signInSuccess(data.token));
-    }
+    if (data?.token) dispatch(User.Creators.signInSuccess(data.token));
 
     function handleSignIn() {
         if (!username) return;
@@ -61,10 +55,6 @@ export default function SignIn() {
             dispatch(General.Creators.setActualPage(''));
         };
     }, [dispatch]);
-
-    const logged = useSelector((state: StateType) => state.User.isLogged);
-
-    if (logged) return <Redirect to='/calendar' />;
 
     return (
         <Container>
