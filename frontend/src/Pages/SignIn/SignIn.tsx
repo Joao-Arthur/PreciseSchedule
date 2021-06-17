@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
-import toast from 'react-hot-toast';
+import Toast from '../../Core/Toast';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
 import { Text, Password } from '../../Components/Input';
@@ -26,19 +26,11 @@ export default function SignIn() {
             username,
             password
         });
-        return toast.promise(
-            signIn,
-            {
-                loading: 'logging in...',
-                error: 'User not found!',
-                success: `Welcome ${username}`
-            },
-            {
-                style: {
-                    minWidth: '250px'
-                }
-            }
-        );
+        return Toast(signIn, {
+            loading: 'logging in...',
+            error: 'User not found!',
+            success: `Welcome ${username}`
+        });
     });
 
     if (data?.token) dispatch(User.Creators.signInSuccess(data.token));

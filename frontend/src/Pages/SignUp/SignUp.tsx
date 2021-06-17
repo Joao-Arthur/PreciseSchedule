@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
-import toast from 'react-hot-toast';
-import { StateType } from '../../Store';
+import Toast from '../../Core/Toast';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
 import { Date, Email, Text, Password } from '../../Components/Input';
@@ -11,6 +10,7 @@ import General from '../../Domains/General';
 import { Container, RedirectContainer, Title, Link } from './SignUp.styles';
 
 export default function SignUp() {
+    const dispatch = useDispatch();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -19,7 +19,25 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [passwordMatch, setPasswordMatch] = useState('');
 
-    const dispatch = useDispatch();
+    const { isLoading, data, mutate } = useMutation('signUp', () => {
+        const signUp = User.API.signUp({
+            firstName,
+            lastName,
+            email,
+            //null is unassignable to undefined
+            birthdate: birthdate ? birthdate : undefined,
+            username,
+            password,
+            language: 'pt-BR'
+        });
+        return Toast(signUp, {
+            loading: 'registering you...',
+            error: 'We were unable to register you!',
+            success: `Welcome ${username}`
+        });
+    });
+
+    if (data?.token) dispatch(User.Creators.signUpSuccess(data.token));
 
     function handleSignUp() {
         if (!firstName) return;
@@ -40,40 +58,10 @@ export default function SignUp() {
         };
     }, [dispatch]);
 
-    const { isLoading, data, mutate } = useMutation('signUp', () => {
-        const signUp = User.API.signUp({
-            firstName,
-            lastName,
-            email,
-            //null is unassignable to undefined
-            birthdate: birthdate ? birthdate : undefined,
-            username,
-            password,
-            language: 'pt-BR'
-        });
-        toast.promise(
-            signUp,
-            {
-                loading: 'registering you...',
-                error: 'We were unable to register you!',
-                success: `Welcome ${username}`
-            },
-            {
-                style: {
-                    minWidth: '250px'
-                }
-            }
-        );
-
-        return signUp;
-    });
-
-    const loading = useSelector((state: StateType) => state.User.loading);
-
     return (
         <Container>
             <Title>Create your account</Title>
-            <Form title='Sign up' loading={loading} onSubmit={handleSignUp}>
+            <Form title='Sign up' loading={isLoading} onSubmit={handleSignUp}>
                 <Field title='First name' name='firstname'>
                     <Text
                         name='name'
