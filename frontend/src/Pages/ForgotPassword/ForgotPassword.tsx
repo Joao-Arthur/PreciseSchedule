@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../Store';
-import Form from '../../Components/Core/Form';
-import Field from '../../Components/Core/Field';
-import { Email } from '../../Components/Core/Input';
+import Form from '../../Components/Form';
+import Field from '../../Components/Field';
+import { Email } from '../../Components/Input';
 import User from '../../Domains/User';
 import { Container, RedirectContainer, Link } from './ForgotPassword.styles';
 

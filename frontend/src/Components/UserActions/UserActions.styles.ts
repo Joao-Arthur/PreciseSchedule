@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ButtonIcon from '../Core/ButtonIcon';
+import ButtonIcon from '../ButtonIcon';
 
 export const User = styled(ButtonIcon).attrs({
     name: 'user',

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LinkBase from '../../Components/Core/Link';
+import LinkBase from '../../Components/Link';
 
 export const Container = styled.div`
     display: block;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import LinkBase from '../../Components/Core/Link';
-import ButtonIcon from '../../Components/Core/ButtonIcon';
+import LinkBase from '../../Components/Link';
+import ButtonIcon from '../../Components/ButtonIcon';
 
 export const Header = styled.header`
     display: flex;

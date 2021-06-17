@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
 import toast from 'react-hot-toast';
-import Form from '../../Components/Core/Form';
-import Field from '../../Components/Core/Field';
-import { Text, Password } from '../../Components/Core/Input';
+import Form from '../../Components/Form';
+import Field from '../../Components/Field';
+import { Text, Password } from '../../Components/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 import {

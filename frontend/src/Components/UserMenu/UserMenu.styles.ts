@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import LinkBase from '../Core/Link';
-import IconBase from '../Core/Icon';
+import LinkBase from '../Link';
+import IconBase from '../Icon';
 
 export const Icon = styled(IconBase)`
     padding-right: 15px;

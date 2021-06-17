@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StateType } from '../../Store';
-import Form from '../../Components/Core/Form';
-import Field from '../../Components/Core/Field';
-import { Select, Toggle } from '../../Components/Core/Input';
+import Form from '../../Components/Form';
+import Field from '../../Components/Field';
+import { Select, Toggle } from '../../Components/Input';
 import { Container } from './Settings.styles';
 
 export default function Settings() {

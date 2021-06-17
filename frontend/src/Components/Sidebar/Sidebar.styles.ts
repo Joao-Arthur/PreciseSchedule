@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LinkBase from '../Core/Link';
+import LinkBase from '../Link';
 
 type containerProps = {
     open: boolean;

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from '../../Domains/Calendar';
 import { StateType } from '../../Store';
-import Button from '../Core/Button';
+import Button from '../Button';
 import { Container, Title } from './DayEvents.styles';
 
 export default function DayEvents() {
