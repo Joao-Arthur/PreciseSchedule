@@ -6,11 +6,11 @@ import {
     Header,
     HeaderTitle,
     HeaderDivisionStart,
-    HeaderDivisionCenter,
     HeaderDivisionEnd,
     Main,
     Hamburguer,
-    Link
+    Link,
+    LogoLink
 } from './BasePage.styles';
 import Sidebar from '../../Components/Sidebar';
 import UserActions from '../../Components/UserActions';
@@ -60,10 +60,10 @@ export default function BasePage({ children }: props) {
                             }
                         />
                     ) : null}
+                    <LogoLink to='/'>
+                        <HeaderTitle>PreciseSchedule</HeaderTitle>
+                    </LogoLink>
                 </HeaderDivisionStart>
-                <HeaderDivisionCenter>
-                    <HeaderTitle>PreciseSchedule</HeaderTitle>
-                </HeaderDivisionCenter>
                 <HeaderDivisionEnd>
                     {logged ? <UserActions /> : getLinksByPage()}
                 </HeaderDivisionEnd>

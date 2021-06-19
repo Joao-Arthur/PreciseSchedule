@@ -7,11 +7,18 @@ type props = {
     size: number;
     color: string;
     onClick: () => void;
+    className?: string;
 };
 
-export default function ButtonIcon({ onClick, name, size, color }: props) {
+export default function ButtonIcon({
+    onClick,
+    name,
+    size,
+    color,
+    className
+}: props) {
     return (
-        <Button onClick={onClick}>
+        <Button onClick={onClick} className={className}>
             <Icon name={name} size={size} color={color} />
         </Button>
     );

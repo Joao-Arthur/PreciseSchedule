@@ -10,7 +10,6 @@ export const Header = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #42a5f5;
-    box-shadow: 0px 3px 3px darkgrey;
 `;
 
 export const Button = styled.button`

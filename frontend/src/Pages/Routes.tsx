@@ -1,7 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import UserRouter from '../Components/UserRouter';
 import AnonimousRouter from '../Components/AnonimousRouter';
-import Home from './Home';
 import Calendar from './Calendar';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
@@ -14,9 +13,6 @@ export default function Routes() {
     return (
         <Switch>
             <Route exact path='/'>
-                <Home />
-            </Route>
-            <Route path='/calendar'>
                 <Calendar />
             </Route>
             <AnonimousRouter path='/signin'>

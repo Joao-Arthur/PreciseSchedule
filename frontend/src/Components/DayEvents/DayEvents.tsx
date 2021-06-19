@@ -1,8 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from '../../Domains/Calendar';
 import { StateType } from '../../Store';
-import Button from '../Button';
-import { Container, Title } from './DayEvents.styles';
+import {
+    Container,
+    Title,
+    Close,
+    Header,
+    Button,
+    ButtonContainer
+} from './DayEvents.styles';
 
 export default function DayEvents() {
     const dispatch = useDispatch();
@@ -11,19 +17,31 @@ export default function DayEvents() {
         (state: StateType) => state.Calendar.selectedDay
     );
 
+    const now = new Date();
+
     return (
         <Container open={!!selectedDay}>
-            <Title>
-                {selectedDay ? selectedDay.toLocaleString().slice(0, 10) : null}
-            </Title>
-            <Button
-                onClick={() => {
-                    dispatch(Calendar.Creators.setSelectedDay(null));
-                }}
-            >
-                close
-            </Button>
-            <Button>new</Button>
+            {selectedDay ? (
+                <>
+                    <Header>
+                        <Title>
+                            {selectedDay.toLocaleString().slice(0, 10)}
+                        </Title>
+                        <Close
+                            onClick={() => {
+                                dispatch(
+                                    Calendar.Creators.setSelectedDay(null)
+                                );
+                            }}
+                        />
+                    </Header>
+                    {selectedDay >= now ? (
+                        <ButtonContainer>
+                            <Button>NEW EVENT</Button>
+                        </ButtonContainer>
+                    ) : null}
+                </>
+            ) : null}
         </Container>
     );
 }

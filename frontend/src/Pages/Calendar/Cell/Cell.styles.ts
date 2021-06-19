@@ -7,6 +7,7 @@ export const DayBox = styled.td`
 
     &:hover {
         background-color: #80d6ff;
+        border-radius: 4px;
     }
 `;
 

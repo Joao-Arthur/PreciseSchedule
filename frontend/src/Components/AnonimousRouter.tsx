@@ -13,6 +13,6 @@ export default function AnonimousRouter({ children, path }: props) {
     return !logged ? (
         <Route path={path}>{children}</Route>
     ) : (
-        <Redirect to='/calendar' />
+        <Redirect to='/' />
     );
 }

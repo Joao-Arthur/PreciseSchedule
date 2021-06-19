@@ -3,7 +3,7 @@ import LinkBase from '../Link';
 import IconBase from '../Icon';
 
 export const Icon = styled(IconBase)`
-    padding-right: 15px;
+    padding-right: 18px;
 `;
 
 export const Container = styled.nav`
@@ -13,7 +13,7 @@ export const Container = styled.nav`
     right: 0;
     top: 42px;
     border-radius: 3px;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
 `;
 
 export const List = styled.ul`
@@ -23,7 +23,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-    padding: 12px 30px;
+    padding: 12px 28px;
     cursor: pointer;
     display: flex;
     color: #373737;

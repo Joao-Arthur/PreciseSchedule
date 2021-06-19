@@ -8,7 +8,7 @@ export default function Sidebar() {
     return (
         <Container open={open}>
             <Item>
-                <Link to='/'>home</Link>
+                <Link to='/'>calendar</Link>
             </Item>
             <Item>
                 <Link to='/signup'>signup</Link>
@@ -21,9 +21,6 @@ export default function Sidebar() {
             </Item>
             <Item>
                 <Link to='/password/new'>new password</Link>
-            </Item>
-            <Item>
-                <Link to='/calendar'>calendar</Link>
             </Item>
             <Item>
                 <Link to='/settings'>settings</Link>

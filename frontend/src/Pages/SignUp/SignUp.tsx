@@ -61,7 +61,7 @@ export default function SignUp() {
     return (
         <Container>
             <Title>Create your account</Title>
-            <Form title='Sign up' loading={isLoading} onSubmit={handleSignUp}>
+            <Form title='SIGN UP' loading={isLoading} onSubmit={handleSignUp}>
                 <Field title='First name' name='firstname'>
                     <Text
                         name='name'

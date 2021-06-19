@@ -12,7 +12,7 @@ export default function UserRouter({ children, path }: props) {
     const shouldLogin = useSelector(
         (state: StateType) => !state.User.isLogged && state.User.isVerified
     );
-    return shouldLogin ? (
+    return !shouldLogin ? (
         <Route path={path}>{children}</Route>
     ) : (
         <Redirect to='/signin' />

@@ -20,12 +20,6 @@ export const HeaderDivisionStart = styled.div`
     justify-content: flex-start;
 `;
 
-export const HeaderDivisionCenter = styled.div`
-    display: flex;
-    width: calc(100% / 3);
-    justify-content: center;
-`;
-
 export const HeaderDivisionEnd = styled.div`
     display: flex;
     width: calc(100% / 3);
@@ -56,4 +50,8 @@ export const Link = styled(LinkBase)`
     &:hover {
         color: #ccc;
     }
+`;
+
+export const LogoLink = styled(Link)`
+    padding: 0;
 `;

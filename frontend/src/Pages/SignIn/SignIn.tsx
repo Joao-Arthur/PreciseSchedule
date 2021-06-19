@@ -51,7 +51,7 @@ export default function SignIn() {
     return (
         <Container>
             <Title>Sign in to PreciseSchedule</Title>
-            <Form title='Sign in' loading={isLoading} onSubmit={handleSignIn}>
+            <Form title='SIGN IN' loading={isLoading} onSubmit={handleSignIn}>
                 <Field title='Username' name='username'>
                     <Text
                         name='username'
