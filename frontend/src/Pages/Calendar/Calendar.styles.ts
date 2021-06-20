@@ -9,7 +9,7 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #42a5f5;
+    background-color: var(--calendarprimary);
 `;
 
 export const Button = styled.button`
@@ -36,8 +36,13 @@ export const Title = styled.p`
 
 export const Body = styled.table`
     width: 100%;
-    box-shadow: inset 0px 2px 2px darkgrey;
     background-color: #fff5ff;
+    height: calc(100% - 41px);
+`;
+
+export const THead = styled.thead`
+    height: 1px;
+    line-height: 1px;
 `;
 
 export const BodyHeader = styled.th`

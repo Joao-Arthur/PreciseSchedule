@@ -1,17 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import Calendar from '../../Domains/Calendar';
-import { StateType } from '../../Store';
+import Calendar from '../../../Domains/Calendar';
+import { StateType } from '../../../Store';
+import Events from '../Events';
 import {
     Container,
     Title,
     Close,
     Header,
     Button,
-    ButtonContainer,
-    Edit,
-    Remove
+    ButtonContainer
 } from './DayEvents.styles';
-import ButtonIcon from '../../Components/ButtonIcon';
 
 export default function DayEvents() {
     const dispatch = useDispatch();
@@ -43,11 +41,7 @@ export default function DayEvents() {
                             <Button>NEW EVENT</Button>
                         </ButtonContainer>
                     ) : null}
-                    <div>
-                        <span>jesse's birthday</span>
-                        <Edit onClick={() => {}} />
-                        <Remove onClick={() => {}} />
-                    </div>
+                    <Events />
                 </>
             ) : null}
         </Container>

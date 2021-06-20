@@ -5,8 +5,7 @@ import General from '../../Domains/General';
 import {
     Header,
     HeaderTitle,
-    HeaderDivisionStart,
-    HeaderDivisionEnd,
+    Division,
     Main,
     Hamburguer,
     Link,
@@ -15,7 +14,6 @@ import {
 import Sidebar from '../../Components/Sidebar';
 import UserActions from '../../Components/UserActions';
 import User from '../../Domains/User';
-import DayEvents from '../../Components/DayEvents';
 
 type props = {
     children: ReactChild;
@@ -52,7 +50,7 @@ export default function BasePage({ children }: props) {
     return (
         <>
             <Header>
-                <HeaderDivisionStart>
+                <Division>
                     {logged ? (
                         <Hamburguer
                             onClick={() =>
@@ -63,15 +61,14 @@ export default function BasePage({ children }: props) {
                     <LogoLink to='/'>
                         <HeaderTitle>PreciseSchedule</HeaderTitle>
                     </LogoLink>
-                </HeaderDivisionStart>
-                <HeaderDivisionEnd>
+                </Division>
+                <Division>
                     {logged ? <UserActions /> : getLinksByPage()}
-                </HeaderDivisionEnd>
+                </Division>
             </Header>
             <Main>
                 {logged ? <Sidebar /> : null}
                 {children}
-                {logged ? <DayEvents /> : null}
             </Main>
         </>
     );

@@ -10,8 +10,8 @@ export const Container = styled.nav`
     display: flex;
     position: absolute;
     background-color: white;
-    right: 0;
-    top: 42px;
+    right: 1px;
+    top: 39px;
     border-radius: 3px;
     border: 1px solid lightgray;
 `;
@@ -28,8 +28,8 @@ export const Item = styled.li`
     display: flex;
     color: #373737;
 
-    &:hover {
-        background-color: var(--lightGrey);
+    :hover {
+        background-color: var(--lightGray);
     }
 `;
 

@@ -19,7 +19,7 @@ export const Span = styled.span`
     border-radius: 15px;
     border: 1px solid gray;
 
-    &::before {
+    :before {
         position: absolute;
         transition: 0.3s ease-in-out;
         content: '';
@@ -37,15 +37,15 @@ export const Input = styled.input`
     width: 0;
     height: 0;
 
-    &:checked + ${Span} {
+    :checked + ${Span} {
         background-color: #2196f3;
     }
 
-    &:focus + ${Span} {
+    :focus + ${Span} {
         box-shadow: 0 0 1px #2196f3;
     }
 
-    &:checked + ${Span}:before {
+    :checked + ${Span}:before {
         transform: translateX(29px);
     }
 `;

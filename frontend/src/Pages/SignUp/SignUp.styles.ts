@@ -20,7 +20,7 @@ export const RedirectContainer = styled.div`
 `;
 
 export const Link = styled(LinkBase)`
-    &:hover {
+    :hover {
         text-decoration: underline;
     }
 `;

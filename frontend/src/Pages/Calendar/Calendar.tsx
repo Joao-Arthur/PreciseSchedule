@@ -5,8 +5,10 @@ import {
     Button,
     Title,
     Body,
-    BodyHeader
+    BodyHeader,
+    THead
 } from './Calendar.styles';
+import DayEvents from './DayEvents';
 import Cell from './Cell';
 import {
     monthDaysToTable,
@@ -33,46 +35,49 @@ export default function Calendar() {
     }
 
     return (
-        <Container>
-            <Header>
-                <Button onClick={() => setVisibleYear(selectedYear - 1)}>
-                    {'<<'}
-                </Button>
-                <Button onClick={setPreviousMonth}>{'<'}</Button>
-                <Title>{`${monthsOfTheYear[selectedMonth]} ${selectedYear}`}</Title>
-                <Button onClick={setNextMonth}>{'>'}</Button>
-                <Button onClick={() => setVisibleYear(selectedYear + 1)}>
-                    {'>>'}
-                </Button>
-            </Header>
-            <Body>
-                <thead>
-                    <tr>
-                        {daysOfWeek.map(day => (
-                            <BodyHeader key={day}>{day}</BodyHeader>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {monthDaysToTable(selectedYear, selectedMonth).map(
-                        (week, weekIndex) => (
-                            <tr key={weekIndex}>
-                                {week.map((day, index) => (
-                                    <Cell
-                                        day={day}
-                                        date={infoToDate(
-                                            selectedYear,
-                                            selectedMonth,
-                                            day
-                                        )}
-                                        key={weekIndex * 7 + index}
-                                    />
-                                ))}
-                            </tr>
-                        )
-                    )}
-                </tbody>
-            </Body>
-        </Container>
+        <>
+            <Container>
+                <Header>
+                    <Button onClick={() => setVisibleYear(selectedYear - 1)}>
+                        {'<<'}
+                    </Button>
+                    <Button onClick={setPreviousMonth}>{'<'}</Button>
+                    <Title>{`${monthsOfTheYear[selectedMonth]} ${selectedYear}`}</Title>
+                    <Button onClick={setNextMonth}>{'>'}</Button>
+                    <Button onClick={() => setVisibleYear(selectedYear + 1)}>
+                        {'>>'}
+                    </Button>
+                </Header>
+                <Body>
+                    <THead>
+                        <tr>
+                            {daysOfWeek.map(day => (
+                                <BodyHeader key={day}>{day}</BodyHeader>
+                            ))}
+                        </tr>
+                    </THead>
+                    <tbody>
+                        {monthDaysToTable(selectedYear, selectedMonth).map(
+                            (week, weekIndex) => (
+                                <tr key={weekIndex}>
+                                    {week.map((day, index) => (
+                                        <Cell
+                                            day={day}
+                                            date={infoToDate(
+                                                selectedYear,
+                                                selectedMonth,
+                                                day
+                                            )}
+                                            key={weekIndex * 7 + index}
+                                        />
+                                    ))}
+                                </tr>
+                            )
+                        )}
+                    </tbody>
+                </Body>
+            </Container>
+            <DayEvents />
+        </>
     );
 }

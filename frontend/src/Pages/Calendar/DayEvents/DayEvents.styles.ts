@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import ButtonBase from '../../Components/Button';
-import ButtonIcon from '../../Components/ButtonIcon';
+import ButtonBase from '../../../Components/Button';
+import ButtonIcon from '../../../Components/ButtonIcon';
 
 type containerProps = {
     open: boolean;
@@ -11,7 +11,17 @@ export const Container = styled.div<containerProps>`
     overflow: hidden;
     transition: width 0.6s ease;
     flex: 0 0 auto;
-    width: ${({ open }) => (open ? '500' : '0')}px;
+
+    ${({ open }) =>
+        open
+            ? `
+        width: 500px;
+        border-left: 1px solid lightgray;
+    `
+            : `
+        width: 0px;
+        border-left: none;
+    `}
 `;
 
 export const Title = styled.span`
@@ -54,53 +64,7 @@ export const Close = styled(ButtonIcon).attrs({
     justify-content: center;
 
     :hover {
-        background-color: var(--lightGrey);
-        border: 1px solid lightgray;
-    }
-
-    :active {
-        background-color: #e8e8e8;
-        border: 1px solid lightgray;
-    }
-`;
-
-export const Edit = styled(ButtonIcon).attrs({
-    name: 'edit',
-    size: 20,
-    color: 'gray'
-})`
-    height: 40px;
-    width: 40px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    :hover {
-        background-color: var(--lightGrey);
-        border: 1px solid lightgray;
-    }
-
-    :active {
-        background-color: #e8e8e8;
-        border: 1px solid lightgray;
-    }
-`;
-
-export const Remove = styled(ButtonIcon).attrs({
-    name: 'close',
-    size: 20,
-    color: 'gray'
-})`
-    height: 40px;
-    width: 40px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    :hover {
-        background-color: var(--lightGrey);
+        background-color: var(--lightGray);
         border: 1px solid lightgray;
     }
 

@@ -5,9 +5,9 @@ const GlobalStyle = createGlobalStyle`
         --primary: #1976d2;
         --light: #63a4ff;
         --dark: #004ba0;
-        --primaryGrey: #c2c2c2;
-        --lightGrey: #f5f5f5;
-        --darkGrey: #929292;
+        --primaryGray: #c2c2c2;
+        --lightGray: #f5f5f5;
+        --darkGray: #929292;
 
         --calendarprimary: #42a5f5;
         --calendarlight: #80d6ff;

@@ -13,13 +13,13 @@ export default function UserMenu() {
                         <Icon
                             name='settings'
                             size={20}
-                            color='var(--darkGrey)'
+                            color='var(--darkGray)'
                         />
                         settings
                     </Item>
                 </Link>
                 <Item onClick={() => dispatch(User.Creators.signOut())}>
-                    <Icon name='signOut' size={20} color='var(--darkGrey)' />
+                    <Icon name='signOut' size={20} color='var(--darkGray)' />
                     sign out
                 </Item>
             </List>

@@ -5,8 +5,8 @@ export const DayBox = styled.td`
     height: 5rem;
     cursor: pointer;
 
-    &:hover {
-        background-color: #80d6ff;
+    :hover {
+        background-color: var(--calendarlight);
         border-radius: 4px;
     }
 `;

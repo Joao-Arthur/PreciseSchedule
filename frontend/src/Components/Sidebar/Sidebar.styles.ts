@@ -11,18 +11,27 @@ export const Container = styled.nav<containerProps>`
     transition: width 0.6s ease;
     flex: 0 0 auto;
     width: ${({ open }) => (open ? '300' : '0')}px;
+
+    ${({ open }) =>
+        open
+            ? `
+        width: 300px;
+        border-right: 1px solid lightgray;
+    `
+            : `
+        width: 0px;
+        border-right: none;
+    `}
 `;
 
 export const Item = styled.div`
     display: flex;
-    align-items: center;
-    position: relative;
     cursor: pointer;
-    &:hover {
-        box-shadow: 0px 0px 2px;
-        z-index: 1;
-    }
     white-space: nowrap;
+
+    :hover {
+        background-color: var(--lightGray);
+    }
 `;
 
 export const Link = styled(LinkBase)`
