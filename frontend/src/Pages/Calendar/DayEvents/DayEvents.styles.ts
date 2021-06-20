@@ -53,23 +53,10 @@ export const Button = styled(ButtonBase)`
 export const Close = styled(ButtonIcon).attrs({
     name: 'close',
     size: 20,
-    color: 'gray'
+    color: 'gray',
+    design: 'button'
 })`
     height: 40px;
     width: 40px;
     margin: 10px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    :hover {
-        background-color: var(--lightGray);
-        border: 1px solid lightgray;
-    }
-
-    :active {
-        background-color: #e8e8e8;
-        border: 1px solid lightgray;
-    }
 `;

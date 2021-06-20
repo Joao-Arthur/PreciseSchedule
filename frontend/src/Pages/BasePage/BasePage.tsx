@@ -7,13 +7,13 @@ import {
     HeaderTitle,
     Division,
     Main,
-    Hamburguer,
     Link,
     LogoLink
 } from './BasePage.styles';
 import Sidebar from '../../Components/Sidebar';
 import UserActions from '../../Components/UserActions';
 import User from '../../Domains/User';
+import ButtonIcon from '../../Components/ButtonIcon';
 
 type props = {
     children: ReactChild;
@@ -52,7 +52,11 @@ export default function BasePage({ children }: props) {
             <Header>
                 <Division>
                     {logged ? (
-                        <Hamburguer
+                        <ButtonIcon
+                            name='hamburguer'
+                            size={33}
+                            color='white'
+                            design='transparent'
                             onClick={() =>
                                 dispatch(General.Creators.switchSidebarOpen())
                             }

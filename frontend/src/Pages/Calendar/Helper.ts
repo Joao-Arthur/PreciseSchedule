@@ -1,3 +1,5 @@
+import getMonthTotalDays from '../../Functions/Calendar/getMonthTotalDays';
+
 export const monthsOfTheYear = [
     'January',
     'February',
@@ -23,32 +25,30 @@ export const daysOfWeek = [
     'Saturday'
 ];
 
-const monthDays = [31, NaN, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-function isLeapYear(year: number) {
-    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-}
-
-function getMonthTotalDays(year: number, month: number) {
-    return month === 1 ? (isLeapYear(year) ? 29 : 28) : monthDays[month];
+function getEmptyWeek() {
+    return new Array(7).fill(undefined);
 }
 
 export function monthDaysToTable(year: number, month: number) {
     const firstDayOfWeekInMonth = new Date(year, month, 1).getDay();
-    const monthDays = getMonthTotalDays(year, month);
+    const pastMonthDays = getMonthTotalDays(year, month);
+    const currentMonthDays = getMonthTotalDays(year, month);
+
     return [
-        new Array(7).fill(undefined),
-        new Array(7).fill(undefined),
-        new Array(7).fill(undefined),
-        new Array(7).fill(undefined),
-        new Array(7).fill(undefined),
-        new Array(7).fill(undefined)
+        getEmptyWeek(),
+        getEmptyWeek(),
+        getEmptyWeek(),
+        getEmptyWeek(),
+        getEmptyWeek(),
+        getEmptyWeek()
     ].map((week, weekIndex) =>
         week.map((_, dayIndex) => {
             const cellIndex = weekIndex * 7 + dayIndex;
+            const day = cellIndex + 1 - firstDayOfWeekInMonth;
             if (cellIndex < firstDayOfWeekInMonth) return NaN;
-            if (cellIndex + 1 - firstDayOfWeekInMonth > monthDays) return NaN;
-            return cellIndex + 1 - firstDayOfWeekInMonth;
+            if (day > currentMonthDays) return day - currentMonthDays;
+
+            return day;
         })
     );
 }

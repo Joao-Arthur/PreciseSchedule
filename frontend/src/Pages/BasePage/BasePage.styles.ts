@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import LinkBase from '../../Components/Link';
-import ButtonIcon from '../../Components/ButtonIcon';
 
 export const Header = styled.header`
     display: flex;
@@ -22,12 +21,6 @@ export const Main = styled.main`
     display: flex;
     height: calc(100vh - 43px);
 `;
-
-export const Hamburguer = styled(ButtonIcon).attrs({
-    name: 'hamburguer',
-    size: 33,
-    color: 'white'
-})``;
 
 export const Link = styled(LinkBase)`
     color: white;

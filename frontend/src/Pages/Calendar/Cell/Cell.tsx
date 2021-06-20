@@ -4,10 +4,11 @@ import { DayBox, DayLabel, InvisibleDayBox } from './Cell.styles';
 
 type props = {
     day: number;
+    visible: boolean;
     date: Date;
 };
 
-export default function Cell({ day, date }: props) {
+export default function Cell({ day, visible, date }: props) {
     const dispatch = useDispatch();
 
     return day ? (

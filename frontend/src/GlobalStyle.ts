@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
         --primaryGray: #c2c2c2;
         --lightGray: #f5f5f5;
         --darkGray: #929292;
+        --defaultGray: #e8e8e8;
+
 
         --calendarprimary: #42a5f5;
         --calendarlight: #80d6ff;

@@ -62,6 +62,7 @@ export default function Calendar() {
                                 <tr key={weekIndex}>
                                     {week.map((day, index) => (
                                         <Cell
+                                            visible
                                             day={day}
                                             date={infoToDate(
                                                 selectedYear,

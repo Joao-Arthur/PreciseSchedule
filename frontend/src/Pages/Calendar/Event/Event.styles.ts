@@ -14,45 +14,19 @@ export const Actions = styled.div`
 export const Edit = styled(ButtonIcon).attrs({
     name: 'edit',
     size: 15,
-    color: 'gray'
+    color: 'gray',
+    design: 'button'
 })`
     height: 30px;
     width: 30px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    :hover {
-        background-color: var(--lightGray);
-        border: 1px solid lightgray;
-    }
-
-    :active {
-        background-color: #e8e8e8;
-        border: 1px solid lightgray;
-    }
 `;
 
 export const Remove = styled(ButtonIcon).attrs({
     name: 'close',
     size: 15,
-    color: 'gray'
+    color: 'gray',
+    design: 'button'
 })`
     height: 30px;
     width: 30px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    :hover {
-        background-color: var(--lightGray);
-        border: 1px solid lightgray;
-    }
-
-    :active {
-        background-color: #e8e8e8;
-        border: 1px solid lightgray;
-    }
 `;
