@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const enabledButton = css`
-    background-color: #6239c6;
+    background-color: var(--dark);
     cursor: pointer;
 `;
 
