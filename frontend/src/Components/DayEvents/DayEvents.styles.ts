@@ -63,3 +63,49 @@ export const Close = styled(ButtonIcon).attrs({
         border: 1px solid lightgray;
     }
 `;
+
+export const Edit = styled(ButtonIcon).attrs({
+    name: 'edit',
+    size: 20,
+    color: 'gray'
+})`
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    :hover {
+        background-color: var(--lightGrey);
+        border: 1px solid lightgray;
+    }
+
+    :active {
+        background-color: #e8e8e8;
+        border: 1px solid lightgray;
+    }
+`;
+
+export const Remove = styled(ButtonIcon).attrs({
+    name: 'close',
+    size: 20,
+    color: 'gray'
+})`
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    :hover {
+        background-color: var(--lightGrey);
+        border: 1px solid lightgray;
+    }
+
+    :active {
+        background-color: #e8e8e8;
+        border: 1px solid lightgray;
+    }
+`;

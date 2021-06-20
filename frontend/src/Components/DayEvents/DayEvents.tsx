@@ -7,8 +7,11 @@ import {
     Close,
     Header,
     Button,
-    ButtonContainer
+    ButtonContainer,
+    Edit,
+    Remove
 } from './DayEvents.styles';
+import ButtonIcon from '../../Components/ButtonIcon';
 
 export default function DayEvents() {
     const dispatch = useDispatch();
@@ -40,6 +43,11 @@ export default function DayEvents() {
                             <Button>NEW EVENT</Button>
                         </ButtonContainer>
                     ) : null}
+                    <div>
+                        <span>jesse's birthday</span>
+                        <Edit onClick={() => {}} />
+                        <Remove onClick={() => {}} />
+                    </div>
                 </>
             ) : null}
         </Container>
