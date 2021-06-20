@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import LinkBase from '../Link';
 
-type containerProps = {
+type props = {
     open: boolean;
 };
 
-export const Container = styled.nav<containerProps>`
+export const Container = styled.nav<props>`
     height: calc(100vh - 43px);
     overflow: hidden;
     transition: width 0.6s ease;

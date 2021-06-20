@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import ButtonBase from '../../../Components/Button';
 import ButtonIcon from '../../../Components/ButtonIcon';
 
-type containerProps = {
+type props = {
     open: boolean;
 };
 
-export const Container = styled.div<containerProps>`
+export const Container = styled.div<props>`
     height: calc(100vh - 43px);
     overflow: hidden;
     transition: width 0.6s ease;
@@ -54,9 +54,8 @@ export const Close = styled(ButtonIcon).attrs({
     name: 'close',
     size: 20,
     color: 'gray',
-    design: 'button'
+    design: 'button',
+    buttonSize: 40
 })`
-    height: 40px;
-    width: 40px;
     margin: 10px;
 `;

@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
-export const Transparent = styled.button`
-    background-color: unset;
-    cursor: pointer;
-    border: none;
-`;
+type props = {
+    buttonSize: number;
+};
 
-export const Button = styled.button`
+export const Button = styled.button<props>`
     background-color: unset;
     cursor: pointer;
     border: none;
@@ -14,6 +12,10 @@ export const Button = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    ${({ buttonSize }) =>
+        `height: ${buttonSize}px;
+         width: ${buttonSize}px;`}
 
     :hover {
         background-color: var(--lightGray);

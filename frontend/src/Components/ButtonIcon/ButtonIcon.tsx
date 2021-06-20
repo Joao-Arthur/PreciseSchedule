@@ -1,8 +1,6 @@
 import Icon from '../Icon';
 import { names } from '../Icon/SVG';
-import { Transparent, Button } from './ButtonIcon.styles';
-
-type design = 'transparent' | 'button';
+import { Button } from './ButtonIcon.styles';
 
 type props = {
     name: names;
@@ -10,7 +8,7 @@ type props = {
     color: string;
     onClick: () => void;
     className?: string;
-    design: design;
+    buttonSize: number;
 };
 
 export default function ButtonIcon({
@@ -18,19 +16,12 @@ export default function ButtonIcon({
     name,
     size,
     color,
-    className,
-    design
+    buttonSize,
+    className
 }: props) {
-    let Container;
-    if (design === 'transparent') {
-        Container = Transparent;
-    } else {
-        Container = Button;
-    }
-
     return (
-        <Container onClick={onClick} className={className}>
+        <Button onClick={onClick} buttonSize={buttonSize} className={className}>
             <Icon name={name} size={size} color={color} />
-        </Container>
+        </Button>
     );
 }
