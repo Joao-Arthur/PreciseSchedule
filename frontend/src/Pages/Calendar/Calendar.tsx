@@ -10,12 +10,7 @@ import {
 } from './Calendar.styles';
 import DayEvents from './DayEvents';
 import Cell from './Cell';
-import {
-    monthDaysToTable,
-    daysOfWeek,
-    monthsOfTheYear,
-    infoToDate
-} from './Helper';
+import { monthDaysToTable, daysOfWeek, monthsOfTheYear } from './Helper';
 
 export default function Calendar() {
     const now = new Date();
@@ -60,16 +55,12 @@ export default function Calendar() {
                         {monthDaysToTable(selectedYear, selectedMonth).map(
                             (week, weekIndex) => (
                                 <tr key={weekIndex}>
-                                    {week.map((day, index) => (
+                                    {week.map(day => (
                                         <Cell
-                                            visible
+                                            year={selectedYear}
+                                            month={selectedMonth}
                                             day={day}
-                                            date={infoToDate(
-                                                selectedYear,
-                                                selectedMonth,
-                                                day
-                                            )}
-                                            key={weekIndex * 7 + index}
+                                            key={day}
                                         />
                                     ))}
                                 </tr>

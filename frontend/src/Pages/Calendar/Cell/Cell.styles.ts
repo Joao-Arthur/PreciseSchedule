@@ -16,8 +16,15 @@ export const InvisibleDayBox = styled.td`
     height: 5rem;
 `;
 
-export const DayLabel = styled.p`
+type labelprops = {
+    isInMonth: boolean;
+};
+
+export const DayLabel = styled.p<labelprops>`
     text-align: center;
     margin: auto;
     user-select: none;
+    font-size: 20px;
+
+    ${({ isInMonth }) => (!isInMonth ? 'color: darkgray;' : '')}
 `;

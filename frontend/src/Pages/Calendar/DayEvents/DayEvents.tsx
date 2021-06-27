@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from '../../../Domains/Calendar';
 import { StateType } from '../../../Store';
-import Modal from '../../Modal';
 import Events from '../Events';
 import {
     Container,
@@ -44,11 +43,6 @@ export default function DayEvents() {
                     ) : null}
                     <Events />
                 </>
-            ) : null}
-            {!!selectedDay ? (
-                <Modal>
-                    <div>erjfuerfhefihui</div>
-                </Modal>
             ) : null}
         </Container>
     );
