@@ -1,5 +1,3 @@
-import getMonthTotalDays from '../../Functions/Calendar/getMonthTotalDays';
-
 export const monthsOfTheYear = [
     'January',
     'February',
