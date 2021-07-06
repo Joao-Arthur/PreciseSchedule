@@ -7,6 +7,8 @@ type props = {
 };
 
 export const Container = styled.div<props>`
+    display: flex;
+    flex-direction: column;
     height: calc(100vh - 43px);
     overflow: hidden;
     transition: width 0.6s ease;
@@ -41,7 +43,6 @@ export const Header = styled.div`
 export const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid lightgray;
     margin: 5px;
     padding: 10px 0;
 `;

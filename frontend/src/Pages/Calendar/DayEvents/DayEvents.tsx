@@ -36,12 +36,12 @@ export default function DayEvents() {
                             }}
                         />
                     </Header>
+                    <Events />
                     {selectedDay >= now ? (
                         <ButtonContainer>
                             <Button>NEW EVENT</Button>
                         </ButtonContainer>
                     ) : null}
-                    <Events />
                 </>
             ) : null}
         </Container>
