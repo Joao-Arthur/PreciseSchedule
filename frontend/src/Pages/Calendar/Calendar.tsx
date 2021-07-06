@@ -10,7 +10,8 @@ import {
 } from './Calendar.styles';
 import DayEvents from './DayEvents';
 import Cell from './Cell';
-import { monthDaysToTable, daysOfWeek, monthsOfTheYear } from './Helper';
+import monthDaysToTable from './monthDaysToTable';
+import { MonthsOfTheYear, daysOfWeek } from './Calendar.constants';
 
 export default function Calendar() {
     const now = new Date();
@@ -37,7 +38,7 @@ export default function Calendar() {
                         {'<<'}
                     </Button>
                     <Button onClick={setPreviousMonth}>{'<'}</Button>
-                    <Title>{`${monthsOfTheYear[selectedMonth]} ${selectedYear}`}</Title>
+                    <Title>{`${MonthsOfTheYear[selectedMonth]} ${selectedYear}`}</Title>
                     <Button onClick={setNextMonth}>{'>'}</Button>
                     <Button onClick={() => setVisibleYear(selectedYear + 1)}>
                         {'>>'}
