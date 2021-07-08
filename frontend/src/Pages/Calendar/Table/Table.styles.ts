@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: block;
-    flex: 1 0 auto;
+    flex: 1;
 `;
 
 export const Header = styled.div`
@@ -34,18 +34,16 @@ export const Title = styled.p`
     color: white;
 `;
 
-export const Body = styled.table`
+export const Body = styled.div`
     width: 100%;
     background-color: #fff5ff;
-    height: calc(100% - 41px);
+    display: flex;
+    flex-direction: column;
 `;
 
-export const THead = styled.thead`
-    height: 1px;
-    line-height: 1px;
+export const Row = styled.div`
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 `;
 
-export const BodyHeader = styled.th`
-    text-align: center;
-    padding: 10px 0;
-`;
+export const Column = styled.div``;

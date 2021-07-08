@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import LinkBase from '../../Components/Link';
 
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 export const Header = styled.header`
     display: flex;
     background-color: var(--dark);
@@ -19,7 +24,6 @@ export const Division = styled.div`
 
 export const Main = styled.main`
     display: flex;
-    height: calc(100vh - 43px);
 `;
 
 export const Link = styled(LinkBase)`

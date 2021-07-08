@@ -6,7 +6,6 @@ type props = {
 };
 
 export const Container = styled.nav<props>`
-    height: calc(100vh - 43px);
     overflow: hidden;
     transition: width 0.6s ease;
     flex: 0 0 auto;

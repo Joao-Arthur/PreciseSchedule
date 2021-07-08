@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StateType } from '../../Store';
 import General from '../../Domains/General';
 import {
+    Container,
     Header,
     HeaderTitle,
     Division,
@@ -48,7 +49,7 @@ export default function BasePage({ children }: props) {
     }
 
     return (
-        <>
+        <Container>
             <Header>
                 <Division>
                     {logged ? (
@@ -73,6 +74,6 @@ export default function BasePage({ children }: props) {
                 {logged ? <Sidebar /> : null}
                 {children}
             </Main>
-        </>
+        </Container>
     );
 }

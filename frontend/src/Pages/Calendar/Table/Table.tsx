@@ -5,8 +5,8 @@ import {
     Button,
     Title,
     Body,
-    BodyHeader,
-    THead
+    Row,
+    Column
 } from './Table.styles';
 import Cell from '../Cell';
 import monthDaysToTable from '../monthDaysToTable';
@@ -43,29 +43,20 @@ export default function Events() {
                 </Button>
             </Header>
             <Body>
-                <THead>
-                    <tr>
-                        {daysOfWeek.map(day => (
-                            <BodyHeader key={day}>{day}</BodyHeader>
-                        ))}
-                    </tr>
-                </THead>
-                <tbody>
-                    {monthDaysToTable(selectedYear, selectedMonth).map(
-                        (week, weekIndex) => (
-                            <tr key={weekIndex}>
-                                {week.map(day => (
-                                    <Cell
-                                        year={selectedYear}
-                                        month={selectedMonth}
-                                        day={day}
-                                        key={day}
-                                    />
-                                ))}
-                            </tr>
-                        )
-                    )}
-                </tbody>
+                <Row>
+                    {daysOfWeek.map(day => (
+                        <Column key={day}>{day}</Column>
+                    ))}
+                </Row>
+                {monthDaysToTable(selectedYear, selectedMonth).map(
+                    (week, weekIndex) => (
+                        <Row key={weekIndex}>
+                            {week.map(day => (
+                                <Column>{`day: ${day}`}</Column>
+                            ))}
+                        </Row>
+                    )
+                )}
             </Body>
         </Container>
     );
