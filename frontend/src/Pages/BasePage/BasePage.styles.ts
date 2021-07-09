@@ -4,6 +4,7 @@ import LinkBase from '../../Components/Link';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    height: 100%;
 `;
 
 export const Header = styled.header`
@@ -24,6 +25,7 @@ export const Division = styled.div`
 
 export const Main = styled.main`
     display: flex;
+    height: 100%;
 `;
 
 export const Link = styled(LinkBase)`

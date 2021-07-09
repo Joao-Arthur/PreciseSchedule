@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    display: block;
+    display: flex;
+    flex-direction: column;
     flex: 1;
 `;
 
@@ -35,15 +36,17 @@ export const Title = styled.p`
 `;
 
 export const Body = styled.div`
-    width: 100%;
-    background-color: #fff5ff;
     display: flex;
     flex-direction: column;
+    flex:1;
+    background-color: #fff5ff;
 `;
 
 export const Row = styled.div`
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    display: flex;
+    flex: 1;
 `;
 
-export const Column = styled.div``;
+export const Column = styled.div`
+    flex: 1;
+`;

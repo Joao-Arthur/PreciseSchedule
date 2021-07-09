@@ -16,7 +16,7 @@ export default function App() {
     return (
         <StrictMode>
             <QueryClientProvider client={queryClient}>
-                <Toaster />
+            <Toaster />
                 <GlobalStyle />
                 <Provider store={store}>
                     <BrowserRouter>
@@ -25,6 +25,7 @@ export default function App() {
                         </BasePage>
                     </BrowserRouter>
                 </Provider>
+                <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
         </StrictMode>
     );
