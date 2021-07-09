@@ -38,8 +38,7 @@ export const Title = styled.p`
 export const Body = styled.div`
     display: flex;
     flex-direction: column;
-    flex:1;
-    background-color: #fff5ff;
+    flex: 1;
 `;
 
 export const Row = styled.div`

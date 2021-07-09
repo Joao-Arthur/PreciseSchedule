@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import Calendar from '../../../Domains/Calendar';
-import { DayBox, DayLabel, InvisibleDayBox } from './Cell.styles';
+import { DayBox, DayLabel } from './Cell.styles';
 
 type props = {
     year: number;

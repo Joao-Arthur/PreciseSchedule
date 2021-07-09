@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-export const DayBox = styled.td`
-    width: calc(100% / 7);
-    //min-height: 5rem;
+export const DayBox = styled.div`
     cursor: pointer;
+    flex: 1;
 
     :hover {
         background-color: var(--calendarlight);
@@ -11,18 +10,12 @@ export const DayBox = styled.td`
     }
 `;
 
-export const InvisibleDayBox = styled.td`
-    width: calc(100% / 7);
-    //min-height: 5rem;
-`;
-
-type labelprops = {
+type labelType = {
     isInMonth: boolean;
 };
 
-export const DayLabel = styled.p<labelprops>`
+export const DayLabel = styled.p<labelType>`
     text-align: center;
-    margin: auto;
     user-select: none;
     font-size: 20px;
 

@@ -11,6 +11,7 @@ import {
 import Cell from '../Cell';
 import monthDaysToTable from '../monthDaysToTable';
 import { MonthsOfTheYear, daysOfWeek } from '../Calendar.constants';
+import BodyHeader from '../BodyHeader';
 
 export default function Events() {
     const now = new Date();
@@ -43,16 +44,17 @@ export default function Events() {
                 </Button>
             </Header>
             <Body>
-                <Row>
-                    {daysOfWeek.map(day => (
-                        <Column key={day}>{day}</Column>
-                    ))}
-                </Row>
+                <BodyHeader />
                 {monthDaysToTable(selectedYear, selectedMonth).map(
                     (week, weekIndex) => (
                         <Row key={weekIndex}>
                             {week.map(day => (
-                                <Column>{`day: ${day}`}</Column>
+                                <Cell
+                                    year={selectedYear}
+                                    month={selectedMonth}
+                                    day={day}
+                                    key={day}
+                                />
                             ))}
                         </Row>
                     )
