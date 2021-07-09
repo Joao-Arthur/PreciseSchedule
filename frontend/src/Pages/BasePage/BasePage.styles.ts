@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import LinkBase from '../../Components/Link';
 
-export const Container = styled.div`
+type containerProps = {
+    height: number;
+};
+
+export const Container = styled.div<containerProps>`
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: ${({ height }) => height}px;
 `;
 
 export const Header = styled.header`

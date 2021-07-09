@@ -22,10 +22,6 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: Roboto, sans-serif;
     }
-
-    #root {
-        height: 100vh;
-    }
 `;
 
 export default GlobalStyle;

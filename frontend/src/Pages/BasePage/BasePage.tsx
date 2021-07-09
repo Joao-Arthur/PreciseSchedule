@@ -1,4 +1,4 @@
-import { ReactChild, useEffect } from 'react';
+import { ReactChild, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StateType } from '../../Store';
 import General from '../../Domains/General';
@@ -22,6 +22,11 @@ type props = {
 
 export default function BasePage({ children }: props) {
     const dispatch = useDispatch();
+    const [height, setHeight] = useState(window.innerHeight);
+
+    window.addEventListener('resize', () => {
+        setHeight(window.innerHeight);
+    });
 
     useEffect(() => {
         dispatch(User.Creators.verifyToken());
@@ -49,7 +54,7 @@ export default function BasePage({ children }: props) {
     }
 
     return (
-        <Container>
+        <Container height={height}>
             <Header>
                 <Division>
                     {logged ? (

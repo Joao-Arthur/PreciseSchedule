@@ -26,7 +26,11 @@ export default function DayEvents() {
                 <>
                     <Header>
                         <Title>
-                            {selectedDay.toLocaleString().slice(0, 10)}
+                            {selectedDay.toLocaleString('pt-BR', {
+                                year: 'numeric',
+                                month: 'numeric',
+                                day: 'numeric'
+                            })}
                         </Title>
                         <Close
                             onClick={() => {
