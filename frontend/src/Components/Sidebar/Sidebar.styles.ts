@@ -29,7 +29,7 @@ export const Item = styled.div`
     white-space: nowrap;
 
     :hover {
-        background-color: var(--lightGray);
+        background-color: var(--lighterGray);
     }
 `;
 

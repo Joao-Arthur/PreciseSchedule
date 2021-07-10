@@ -42,7 +42,7 @@ export const Link = styled(LinkBase)`
     padding: 10px 6px;
 
     :hover {
-        color: #ccc;
+        color: var(--Gray);
     }
 `;
 

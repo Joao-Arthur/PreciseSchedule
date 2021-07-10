@@ -26,13 +26,13 @@ export const Item = styled.li`
     padding: 12px 28px;
     cursor: pointer;
     display: flex;
-    color: #373737;
+    color: var(--darkerGray);
 
     :hover {
-        background-color: var(--lightGray);
+        background-color: var(--lighterGray);
     }
 `;
 
 export const Link = styled(LinkBase)`
-    color: #373737;
+    color: var(--darkerGray);
 `;

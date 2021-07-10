@@ -1,21 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    html {
-        --primary: #1976d2;
-        --light: #63a4ff;
-        --dark: #004ba0;
-        
-        --primaryGray: #c2c2c2;
-        --lightGray: #f5f5f5;
+    html {        
+        --lighter: #a1e9ff;
+        --light: #6ab7ff;
+        --primary: #1e88e5;
+        --dark: #005cb2;
+        --darker:#003482;
+       
+        --lighterGray: #f5f5f5;
+        --lightGray: #e8e8e8;
+        --Gray: #ccc;
         --darkGray: #929292;
-        --defaultGray: #e8e8e8;
-
-        --calendarprimary: #42a5f5;
-        --calendarlight: #80d6ff;
-        --calendardark: #0077c2;
-        --calendarprimarygray: #f2f2f2;
-        --calendardarkgray: #aeaeae;
+        --darkerGray: #333;
     }
 
     body {

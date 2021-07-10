@@ -15,7 +15,7 @@ export const Span = styled.span`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--Gray);
     border-radius: 15px;
     border: 1px solid gray;
 
@@ -38,11 +38,11 @@ export const Input = styled.input`
     height: 0;
 
     :checked + ${Span} {
-        background-color: #2196f3;
+        background-color: var(--light);
     }
 
     :focus + ${Span} {
-        box-shadow: 0 0 1px #2196f3;
+        box-shadow: 0 0 1px var(--light);
     }
 
     :checked + ${Span}:before {

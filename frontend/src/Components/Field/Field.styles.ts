@@ -10,7 +10,7 @@ export const Label = styled.label`
     padding: 5px 0;
     font-size: 12px;
     font-weight: bold;
-    color: #333;
+    color: var(--darkerGray);
 `;
 
 export const Observation = styled.span`

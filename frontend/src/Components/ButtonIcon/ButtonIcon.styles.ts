@@ -18,12 +18,12 @@ export const Button = styled.button<props>`
          width: ${buttonSize}px;`}
 
     :hover {
-        background-color: var(--lightGray);
+        background-color: var(--lighterGray);
         border: 1px solid lightgray;
     }
 
     :active {
-        background-color: var(--defaultGray);
+        background-color: var(--lightGray);
         border: 1px solid lightgray;
     }
 `;

@@ -5,7 +5,7 @@ export const DayBox = styled.div`
     flex: 1;
 
     :hover {
-        background-color: var(--calendarlight);
+        background-color: var(--lighter);
         border-radius: 4px;
     }
 `;

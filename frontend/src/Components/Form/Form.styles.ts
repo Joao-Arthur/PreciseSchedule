@@ -8,7 +8,7 @@ export const CustomForm = styled.form`
 export const Container = styled.div`
     width: 500px;
     margin: auto;
-    background-color: #f7f7fa;
+    background-color: var(--lighterGray);
     border: 1px solid gray;
     border-radius: 4px;
     padding: 10px;
