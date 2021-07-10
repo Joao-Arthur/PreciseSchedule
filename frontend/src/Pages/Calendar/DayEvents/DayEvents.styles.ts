@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import MobileStyle from '../../../Core/MobileStyle';
 import ButtonBase from '../../../Components/Button';
 import ButtonIcon from '../../../Components/ButtonIcon';
 
@@ -15,13 +16,23 @@ export const Container = styled.div<props>`
 
     ${({ open }) =>
         open
-            ? `
+            ? `  
+        min-width: 0px;
         width: 500px;
         border-left: 1px solid lightgray;
+        ${MobileStyle`
+        width: 100%;
+        border: none;
+        `}
     `
             : `
         width: 0px;
         border-left: none;
+    `}
+
+    ${MobileStyle`
+        background-color: white;
+       
     `}
 `;
 
