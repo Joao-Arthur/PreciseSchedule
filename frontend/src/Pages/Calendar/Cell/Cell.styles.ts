@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DayBox = styled.div`
+export const Container = styled.div`
     cursor: pointer;
     flex: 1;
 
@@ -10,14 +10,13 @@ export const DayBox = styled.div`
     }
 `;
 
-type labelType = {
+type props = {
     isInMonth: boolean;
 };
 
-export const DayLabel = styled.p<labelType>`
+export const Text = styled.p<props>`
     text-align: center;
     user-select: none;
     font-size: 20px;
-
     ${({ isInMonth }) => (!isInMonth ? 'color: darkgray;' : '')}
 `;

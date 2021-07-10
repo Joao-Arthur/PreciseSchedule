@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import Calendar from '../../../Domains/Calendar';
-import { DayBox, DayLabel } from './Cell.styles';
+import { Container, Text } from './Cell.styles';
 
 type props = {
     year: number;
@@ -14,12 +14,12 @@ export default function Cell({ year, month, day }: props) {
     const isInMonth = date.getMonth() === month;
 
     return (
-        <DayBox
+        <Container
             onClick={() => {
                 dispatch(Calendar.Creators.setSelectedDay(date));
             }}
         >
-            <DayLabel isInMonth={isInMonth}>{date.getDate()}</DayLabel>
-        </DayBox>
+            <Text isInMonth={isInMonth}>{date.getDate()}</Text>
+        </Container>
     );
 }

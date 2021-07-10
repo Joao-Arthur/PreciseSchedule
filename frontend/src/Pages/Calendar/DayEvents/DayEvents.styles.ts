@@ -18,7 +18,7 @@ export const Container = styled.div<props>`
         open
             ? `  
         min-width: 0px;
-        width: 500px;
+        width: 400px;
         border-left: 1px solid lightgray;
         ${MobileStyle`
         width: 100%;
