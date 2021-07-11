@@ -1,16 +1,8 @@
 import { useState } from 'react';
-import {
-    Container,
-    Header,
-    Button,
-    Title,
-    Body,
-    Row,
-    Column
-} from './Table.styles';
+import { Container, Header, Button, Title, Body, Row } from './Table.styles';
 import Cell from '../Cell';
 import monthDaysToTable from '../monthDaysToTable';
-import { MonthsOfTheYear, daysOfWeek } from '../Calendar.constants';
+import { MonthsOfTheYear } from '../Calendar.constants';
 import BodyHeader from '../BodyHeader';
 
 export default function Events() {

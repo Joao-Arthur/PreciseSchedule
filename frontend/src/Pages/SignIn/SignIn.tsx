@@ -3,18 +3,12 @@ import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
 import Toast from '../../Core/Toast';
 import Form from '../../Components/Form';
+import Link from '../../Components/Link';
 import Field from '../../Components/Field';
 import { Text, Password } from '../../Components/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
-import {
-    Container,
-    RedirectContainer,
-    FieldContainer,
-    Title,
-    Link,
-    Label
-} from './SignIn.styles';
+import { FieldContainer, Label } from './SignIn.styles';
 
 export default function SignIn() {
     const dispatch = useDispatch();
@@ -49,35 +43,43 @@ export default function SignIn() {
     }, [dispatch]);
 
     return (
-        <Container>
-            <Title>Sign in</Title>
-            <Form title='SIGN IN' loading={isLoading} onSubmit={handleSignIn}>
-                <Field title='Username' name='username'>
-                    <Text
-                        name='username'
-                        value={username}
-                        onChange={setUsername}
-                        required
-                    />
-                </Field>
-                <FieldContainer>
-                    <Label>
-                        Password{' '}
-                        <Link to='password/forgot'>Forgot password?</Link>
-                    </Label>
-                    <Password
-                        name='password'
-                        minLength={10}
-                        value={password}
-                        onChange={setPassword}
-                        required
-                    />
-                </FieldContainer>
-            </Form>
-            <RedirectContainer>
-                New to PreciseSchedule?{' '}
-                <Link to='signup'>Create an account.</Link>
-            </RedirectContainer>
-        </Container>
+        <Form
+            title='Sign in'
+            action='SIGN IN'
+            loading={isLoading}
+            onSubmit={handleSignIn}
+            footer={
+                <span>
+                    New to PreciseSchedule?{' '}
+                    <Link to='signup' underline>
+                        Create an account
+                    </Link>
+                </span>
+            }
+        >
+            <Field title='Username' name='username'>
+                <Text
+                    name='username'
+                    value={username}
+                    onChange={setUsername}
+                    required
+                />
+            </Field>
+            <FieldContainer>
+                <Label>
+                    Password{' '}
+                    <Link to='password/forgot' underline>
+                        Forgot password?
+                    </Link>
+                </Label>
+                <Password
+                    name='password'
+                    minLength={10}
+                    value={password}
+                    onChange={setPassword}
+                    required
+                />
+            </FieldContainer>
+        </Form>
     );
 }

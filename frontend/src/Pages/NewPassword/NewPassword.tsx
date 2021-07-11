@@ -5,7 +5,6 @@ import Form from '../../Components/Form';
 import Field from '../../Components/Field';
 import { Password } from '../../Components/Input';
 import User from '../../Domains/User';
-import { Container } from './NewPassword.styles';
 
 export default function ForgotPassword() {
     const dispatch = useDispatch();
@@ -22,34 +21,33 @@ export default function ForgotPassword() {
     const loading = useSelector((state: StateType) => state.User.loading);
 
     return (
-        <Container>
-            <Form
-                title='generate new password'
-                loading={loading}
-                onSubmit={handleNewPassword}
+        <Form
+            title='new password'
+            action='generate new password'
+            loading={loading}
+            onSubmit={handleNewPassword}
+        >
+            <Field
+                title='password'
+                name='password'
+                notice='At least 10 characters'
             >
-                <Field
-                    title='password'
+                <Password
                     name='password'
-                    notice='At least 10 characters'
-                >
-                    <Password
-                        name='password'
-                        value={password}
-                        onChange={setPassword}
-                        required
-                    />
-                </Field>
-                <Field title='Type password again' name='passwordMatch'>
-                    <Password
-                        name='passwordMatch'
-                        minLength={10}
-                        value={passwordMatch}
-                        onChange={setPasswordMatch}
-                        required
-                    />
-                </Field>
-            </Form>
-        </Container>
+                    value={password}
+                    onChange={setPassword}
+                    required
+                />
+            </Field>
+            <Field title='Type password again' name='passwordMatch'>
+                <Password
+                    name='passwordMatch'
+                    minLength={10}
+                    value={passwordMatch}
+                    onChange={setPasswordMatch}
+                    required
+                />
+            </Field>
+        </Form>
     );
 }

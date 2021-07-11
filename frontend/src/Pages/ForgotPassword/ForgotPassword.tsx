@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../Store';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
+import Link from '../../Components/Link';
 import { Email } from '../../Components/Input';
 import User from '../../Domains/User';
-import { Container, RedirectContainer, Link } from './ForgotPassword.styles';
 
 export default function ForgotPassword() {
     const dispatch = useDispatch();
@@ -20,24 +20,28 @@ export default function ForgotPassword() {
     const loading = useSelector((state: StateType) => state.User.loading);
 
     return (
-        <Container>
-            <Form
-                title='send email to generate new password'
-                loading={loading}
-                onSubmit={handleForgotPassword}
-            >
-                <Field title='email' name='email'>
-                    <Email
-                        name='email'
-                        required
-                        value={email}
-                        onChange={setEmail}
-                    />
-                </Field>
-            </Form>
-            <RedirectContainer>
-                Already in PreciseSchedule? <Link to='/signin'>Sign in.</Link>
-            </RedirectContainer>
-        </Container>
+        <Form
+            title='forgot password'
+            action='send email to generate new password'
+            loading={loading}
+            onSubmit={handleForgotPassword}
+            footer={
+                <span>
+                    Already in PreciseSchedule?{' '}
+                    <Link to='/signin' underline>
+                        Sign in
+                    </Link>
+                </span>
+            }
+        >
+            <Field title='email' name='email'>
+                <Email
+                    name='email'
+                    required
+                    value={email}
+                    onChange={setEmail}
+                />
+            </Field>
+        </Form>
     );
 }
