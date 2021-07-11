@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Responsive from '../../Core/Responsive';
 
 export const CustomForm = styled.form`
     display: flex;
@@ -6,7 +7,7 @@ export const CustomForm = styled.form`
 `;
 
 export const Container = styled.div`
-    width: 500px;
+    width: ${Responsive`500px``80%`};
     margin: auto;
     background-color: var(--lighterGray);
     border: 1px solid gray;
