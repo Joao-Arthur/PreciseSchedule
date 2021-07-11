@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import Responsive from '../../../Core/Responsive';
+import { Mobile } from '../../../Core/Responsive';
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    ${Responsive```overflow: auto;`};
+    ${Mobile`overflow: auto;`};
 `;
 
 export const Header = styled.div`

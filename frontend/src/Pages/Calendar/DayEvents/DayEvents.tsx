@@ -4,6 +4,7 @@ import { StateType } from '../../../Store';
 import Events from '../Events';
 import {
     Container,
+    Content,
     Title,
     Close,
     Header,
@@ -22,32 +23,34 @@ export default function DayEvents() {
 
     return (
         <Container open={!!selectedDay}>
-            {selectedDay ? (
-                <>
-                    <Header>
-                        <Title>
-                            {selectedDay.toLocaleString('pt-BR', {
-                                year: 'numeric',
-                                month: 'numeric',
-                                day: 'numeric'
-                            })}
-                        </Title>
-                        <Close
-                            onClick={() => {
-                                dispatch(
-                                    Calendar.Creators.setSelectedDay(null)
-                                );
-                            }}
-                        />
-                    </Header>
-                    <Events />
-                    {selectedDay >= now ? (
-                        <ButtonContainer>
-                            <Button>NEW EVENT</Button>
-                        </ButtonContainer>
-                    ) : null}
-                </>
-            ) : null}
+            <Content>
+                {selectedDay ? (
+                    <>
+                        <Header>
+                            <Title>
+                                {selectedDay.toLocaleString('pt-BR', {
+                                    year: 'numeric',
+                                    month: 'numeric',
+                                    day: 'numeric'
+                                })}
+                            </Title>
+                            <Close
+                                onClick={() => {
+                                    dispatch(
+                                        Calendar.Creators.setSelectedDay(null)
+                                    );
+                                }}
+                            />
+                        </Header>
+                        <Events />
+                        {selectedDay >= now ? (
+                            <ButtonContainer>
+                                <Button>NEW EVENT</Button>
+                            </ButtonContainer>
+                        ) : null}
+                    </>
+                ) : null}
+            </Content>
         </Container>
     );
 }

@@ -6,10 +6,11 @@ export const Container = styled.div`
     width: ${Responsive`500px``80%`};
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 0 auto;
+    overflow-x: hidden;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h3`
     text-align: center;
     font-weight: normal;
     margin: 10px;
@@ -19,7 +20,6 @@ const containerCSS = css`
     background-color: var(--lighterGray);
     border: 1px solid gray;
     border-radius: 4px;
-    width: 100%;
 `;
 
 export const FormContainer = styled.div`

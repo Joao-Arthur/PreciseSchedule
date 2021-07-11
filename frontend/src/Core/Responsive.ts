@@ -5,4 +5,7 @@ const Responsive =
     ([mobile]: TemplateStringsArray) =>
         Device.isMobile ? mobile : desktop;
 
+export const Mobile = ([mobile]: TemplateStringsArray) =>
+    Device.isMobile ? mobile : '';
+
 export default Responsive;

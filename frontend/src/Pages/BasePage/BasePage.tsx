@@ -15,6 +15,7 @@ import Sidebar from '../../Components/Sidebar';
 import UserActions from '../../Components/UserActions';
 import User from '../../Domains/User';
 import TransparentIcon from '../../Components/TransparentIcon';
+import Device from '../../Core/Device';
 
 type props = {
     children: ReactChild;
@@ -68,7 +69,9 @@ export default function BasePage({ children }: props) {
                         />
                     ) : null}
                     <LogoLink to='/'>
-                        <HeaderTitle>PreciseSchedule</HeaderTitle>
+                        <HeaderTitle>
+                            {Device.isMobile ? 'PS' : 'PreciseSchedule'}
+                        </HeaderTitle>
                     </LogoLink>
                 </Division>
                 <Division>

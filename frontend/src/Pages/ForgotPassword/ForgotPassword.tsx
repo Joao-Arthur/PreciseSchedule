@@ -22,7 +22,7 @@ export default function ForgotPassword() {
     return (
         <Form
             title='forgot password'
-            action='send email to generate new password'
+            action='CREATE NEW PASSWORD'
             loading={loading}
             onSubmit={handleForgotPassword}
             footer={

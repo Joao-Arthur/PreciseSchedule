@@ -23,7 +23,7 @@ export default function ForgotPassword() {
     return (
         <Form
             title='new password'
-            action='generate new password'
+            action='CREATE NEW PASSWORD'
             loading={loading}
             onSubmit={handleNewPassword}
         >

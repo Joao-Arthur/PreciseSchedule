@@ -1,22 +1,34 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    cursor: pointer;
-    flex: 1;
-
-    :hover {
-        background-color: var(--lighter);
-        border-radius: 4px;
-    }
-`;
-
 type props = {
     isInMonth: boolean;
 };
 
-export const Text = styled.p<props>`
+export const Text = styled.span<props>`
     text-align: center;
+    margin: auto;
     user-select: none;
     font-size: 20px;
-    ${({ isInMonth }) => (!isInMonth ? 'color: darkgray;' : '')}
+    transition: font-size 0.1s ease;
+    ${({ isInMonth }) => (!isInMonth ? 'color: var(--darkGray);' : '')}
+`;
+
+export const Container = styled.div`
+    cursor: pointer;
+    flex: 1;
+    border-radius: 4px;
+    display: flex;
+    transition: background-color 0.1s ease;
+
+    :hover {
+        background-color: var(--lighter);
+    }
+
+    :active {
+        background-color: var(--light);
+
+        ${Text} {
+            font-size: 25px;
+        }
+    }
 `;

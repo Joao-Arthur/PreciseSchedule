@@ -28,9 +28,6 @@ export default function Sidebar() {
             <Item>
                 <Link to='/sample'>sample</Link>
             </Item>
-            <Item>
-                <Link to='/sample'>sample</Link>
-            </Item>
         </Container>
     );
 }

@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 import Responsive from '../../../Core/Responsive';
 import ButtonBase from '../../../Components/Button';
 import ButtonIcon from '../../../Components/ButtonIcon';
+import Device from '../../../Core/Device';
 
 type props = {
     open: boolean;
 };
 
 const openContainer = css`
-    min-width: 0px;
     width: ${Responsive`400px``100%`};
     ${Responsive`border-left: 1px solid lightgray;``background-color: white;`}
 `;
@@ -20,18 +20,26 @@ const closedContainer = css`
 
 export const Container = styled.div<props>`
     display: flex;
-    flex-direction: column;
     overflow: hidden;
     transition: width 0.6s ease;
     flex: 0 0 auto;
     ${({ open }) => (open ? openContainer : closedContainer)}
 `;
 
+export const Content = styled.div`
+    ${Device.isMobile ? 'padding: 0 15px;' : ''}
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+`;
+
 export const Title = styled.span`
     text-align: center;
     padding: 0px;
-    font-size: 25px;
+    font-size: ${Responsive`25``28`}px;
     padding: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
 `;
 
 export const Header = styled.div`
@@ -55,10 +63,9 @@ export const Button = styled(ButtonBase)`
 
 export const Close = styled(ButtonIcon).attrs({
     name: 'close',
-    size: 20,
+    size: Device.isMobile ? 30 : 20,
     color: 'gray',
-    design: 'button',
-    buttonSize: 40
+    buttonSize: Device.isMobile ? 50 : 40
 })`
     margin: 10px;
 `;

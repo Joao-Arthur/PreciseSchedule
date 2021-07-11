@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Modal from '../../Modal';
-import ButtonIcon from '../../../Components/ButtonIcon';
-import { Container, Actions } from './Event.styles';
+import { Container, Text, Actions, Close, Edit } from './Event.styles';
 
 export default function Event() {
     const [isEditVisible, setIsEditVisible] = useState(false);
@@ -10,20 +9,10 @@ export default function Event() {
     return (
         <>
             <Container>
-                <span>jesse's birthday</span>
+                <Text>jesse's birthday</Text>
                 <Actions>
-                    <ButtonIcon
-                        name='edit'
-                        size={15}
-                        color='gray'
-                        buttonSize={30}
-                        onClick={() => setIsEditVisible(!isEditVisible)}
-                    />
-                    <ButtonIcon
-                        name='close'
-                        size={15}
-                        color='gray'
-                        buttonSize={30}
+                    <Edit onClick={() => setIsEditVisible(!isEditVisible)} />
+                    <Close
                         onClick={() => setIsDeleteVisible(!isDeleteVisible)}
                     />
                 </Actions>
