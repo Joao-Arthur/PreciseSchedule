@@ -1,15 +1,50 @@
 import styled from 'styled-components';
+import ButtonBase from '../../Components/Button';
+import Responsive, { Desktop } from '../../Core/Responsive';
 
 export const Container = styled.div`
     position: absolute;
-    min-width: 100px;
-    max-width: 50%;
-    min-height: 100px;
-    max-height: 50%;
+    width: ${Responsive`500px``100%`};
+    height: ${Responsive`200px``100%`};
     background-color: white;
-    border: 1px solid lightgray;
+    ${Desktop`
+        border: 1px solid lightgray;
+        border-radius: 4px;
+    `}
     left: 50%;
-    margin-left: -50px;
     top: 50%;
-    margin-top: -50px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+`;
+
+export const Header = styled.div`
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+`;
+
+export const Title = styled.h3`
+    font-size: 25px;
+    font-weight: normal;
+    margin: 0;
+    user-select: none;
+`;
+
+export const Content = styled.div`
+    flex: 1;
+    padding: 10px;
+`;
+
+export const Footer = styled.div`
+    display: flex;
+    ${Responsive`justify-content: flex-end;``flex-direction: column;`}
+`;
+
+export const Button = styled(ButtonBase)`
+    ${Responsive`
+        width: 150px;
+        margin: 10px;
+    ``
+        margin: 5px 10px;
+    `}
 `;

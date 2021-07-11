@@ -12,23 +12,31 @@ export default function Event() {
                 <Text>jesse's birthday</Text>
                 <Actions>
                     <Edit onClick={() => setIsEditVisible(!isEditVisible)} />
+                    <Modal
+                        visible={isEditVisible}
+                        title='edit "jesses birthday"'
+                        onCancel={() => setIsEditVisible(false)}
+                        onConfirm={() => setIsEditVisible(false)}
+                    >
+                        <>
+                            <p>edit</p>
+                        </>
+                    </Modal>
                     <Close
                         onClick={() => setIsDeleteVisible(!isDeleteVisible)}
                     />
+                    <Modal
+                        visible={isDeleteVisible}
+                        title='delete "jesses birthday"'
+                        onCancel={() => setIsDeleteVisible(false)}
+                        onConfirm={() => setIsDeleteVisible(false)}
+                    >
+                        <>
+                            <p>This action can't be undone, are you sure?</p>
+                        </>
+                    </Modal>
                 </Actions>
             </Container>
-            <Modal visible={isEditVisible}>
-                <>
-                    <p>editar</p>
-                    <button>editar</button>
-                </>
-            </Modal>
-            <Modal visible={isDeleteVisible}>
-                <>
-                    <p>excluir</p>
-                    <button>excluir</button>
-                </>
-            </Modal>
         </>
     );
 }

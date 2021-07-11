@@ -8,4 +8,7 @@ const Responsive =
 export const Mobile = ([mobile]: TemplateStringsArray) =>
     Device.isMobile ? mobile : '';
 
+export const Desktop = ([desktop]: TemplateStringsArray) =>
+    !Device.isMobile ? desktop : '';
+
 export default Responsive;
