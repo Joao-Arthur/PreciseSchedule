@@ -2,10 +2,6 @@ import styled, { css } from 'styled-components';
 import Responsive from '../../Core/Responsive';
 import LinkBase from '../Link';
 
-type props = {
-    open: boolean;
-};
-
 const openContainer = css`
     width: ${Responsive`280px``100%`};
     ${Responsive`border-right: 1px solid lightgray;``background-color: white;`}
@@ -16,7 +12,11 @@ const closedContainer = css`
     border-right: none;
 `;
 
-export const Container = styled.nav<props>`
+type containerProps = {
+    open: boolean;
+};
+
+export const Container = styled.nav<containerProps>`
     overflow: hidden;
     transition: width 0.6s ease;
     flex: 0 0 auto;

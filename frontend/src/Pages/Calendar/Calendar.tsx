@@ -1,11 +1,11 @@
 import Table from './Table';
-import DayEvents from './DayEvents';
+import Sidebar from './Sidebar';
 
 export default function Calendar() {
     return (
         <>
             <Table />
-            <DayEvents />
+            <Sidebar />
         </>
     );
 }

@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import { Mobile } from '../../../Core/Responsive';
 
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
-    ${Mobile`overflow: auto;`};
 `;
