@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from '../../../Domains/Calendar';
 import { StateType } from '../../../Store';
@@ -11,6 +12,7 @@ import {
     Button,
     ButtonContainer
 } from './DayEvents.styles';
+import New from './New';
 
 export default function DayEvents() {
     const dispatch = useDispatch();
@@ -18,6 +20,7 @@ export default function DayEvents() {
     const selectedDay = useSelector(
         (state: StateType) => state.Calendar.selectedDay
     );
+    const [isNewEventVisible, setIsNewEventVisible] = useState(false);
 
     const now = new Date();
 
@@ -45,7 +48,14 @@ export default function DayEvents() {
                         <Events />
                         {selectedDay >= now ? (
                             <ButtonContainer>
-                                <Button>NEW EVENT</Button>
+                                <Button
+                                    onClick={() =>
+                                        setIsNewEventVisible(!isNewEventVisible)
+                                    }
+                                >
+                                    NEW EVENT
+                                </Button>
+                                <New visible={isNewEventVisible} />
                             </ButtonContainer>
                         ) : null}
                     </>
