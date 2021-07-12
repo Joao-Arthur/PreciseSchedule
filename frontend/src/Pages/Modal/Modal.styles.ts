@@ -11,8 +11,9 @@ export const Block = styled.div`
 
 export const Container = styled.div`
     position: absolute;
-    width: ${Responsive`500px``100%`};
-    height: ${Responsive`200px``100%`};
+    ${Responsive`width: 500px``width: 100%`};
+    ${Responsive`max-height: 80%``height: 100%`};
+
     background-color: white;
     ${Desktop`
         border: 1px solid lightgray;
@@ -38,11 +39,13 @@ export const Title = styled.h3`
 `;
 
 export const Content = styled.div`
-    flex: 1;
     padding: 10px;
+    flex: 1;
+    overflow: auto;
 `;
 
 export const Footer = styled.div`
+    padding: 10px;
     display: flex;
     ${Responsive`justify-content: flex-end;``flex-direction: column;`}
 `;
@@ -50,7 +53,7 @@ export const Footer = styled.div`
 export const Button = styled(ButtonBase)`
     ${Responsive`
         width: 150px;
-        margin: 10px;
+        margin-left: 10px;
     ``
         margin: 5px 10px;
     `}

@@ -1,7 +1,8 @@
 import Modal from '../../Modal';
 import Field from '../../../Components/Field';
-import { Select, Toggle, Text, Date } from '../../../Components/Input';
-import Form from '../../../Components/Form';
+import { Select, Toggle, Text, Date, Time } from '../../../Components/Input';
+import ModalForm from '../../../Components/ModalForm';
+
 import { useState } from 'react';
 
 type props = {
@@ -10,7 +11,11 @@ type props = {
 
 export default function New({ visible }: props) {
     const [name, setName] = useState('');
-    const [start, setStart] = useState<Date | null>(null);
+    const [category, setCategory] = useState('apointment');
+    const [startDate, setStartDate] = useState<Date | null>(null);
+    const [startTime, setStartTime] = useState('');
+    const [endDate, setEndDate] = useState<Date | null>(null);
+    const [endTime, setEndTime] = useState('');
 
     return (
         <Modal
@@ -19,7 +24,7 @@ export default function New({ visible }: props) {
             onCancel={() => {}} //setIsNewEventVisible(false)}
             onConfirm={() => {}} // setIsNewEventVisible(false)}
         >
-            <Form title='new event' action='add' onSubmit={() => {}}>
+            <ModalForm onSubmit={() => {}}>
                 <Field title='Event name' name='name'>
                     <Text
                         name='name'
@@ -28,30 +33,52 @@ export default function New({ visible }: props) {
                         required
                     />
                 </Field>
-                <Field title='Start' name='start'>
+                <Field title='Date Start' name='datestart'>
                     <Date
-                        name='start'
-                        value={start}
-                        onChange={setStart}
+                        name='datestart'
+                        value={startDate}
+                        onChange={setStartDate}
                         required
                     />
                 </Field>
-
-                {/*<Field title='Language' name='language'>
-                    <Select
-                        options={['english', 'portuguese', 'spanish', 'german']}
-                        value={language}
-                        onChange={setLanguage}
+                <Field title='Time Start' name='timestart'>
+                    <Time
+                        name='timestart'
+                        value={startTime}
+                        onChange={setStartTime}
+                        required
                     />
                 </Field>
-                <Field
+                <Field title='Date end' name='dateend'>
+                    <Date
+                        name='dateend'
+                        value={endDate}
+                        onChange={setEndDate}
+                        required
+                    />
+                </Field>
+                <Field title='Time end' name='timeend'>
+                    <Time
+                        name='timeend'
+                        value={endTime}
+                        onChange={setEndTime}
+                        required
+                    />
+                </Field>
+                <Field title='Language' name='language'>
+                    <Select
+                        options={['apointment', 'aniversary', 'meeting']}
+                        value={category}
+                        onChange={setCategory}
+                    />
+                </Field>
+                {/*<Field
                     title='enable two factor authentication'
                     name='twoFactor'
                 >
                     <Toggle />
-                </Field>
-                */}
-            </Form>
+                </Field>*/}
+            </ModalForm>
         </Modal>
     );
 }
