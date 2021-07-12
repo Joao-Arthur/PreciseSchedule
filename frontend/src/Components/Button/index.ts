@@ -16,8 +16,17 @@ const primaryCSS = css`
 
 const secondaryCSS = css`
     cursor: pointer;
-    color: var(--dark);
+    color: var(--primary);
     background-color: white;
+
+    :hover {
+        background-color: var(--lighterGray);
+        color: var(--dark);
+    }
+
+    :active {
+        color: var(--darker);
+    }
 `;
 
 const disabledButton = css`

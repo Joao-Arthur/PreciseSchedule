@@ -1,6 +1,7 @@
 import { ReactChild } from 'react';
 
 import {
+    Block,
     Container,
     Header,
     Title,
@@ -23,17 +24,19 @@ export default function Modal({
     onConfirm
 }: modalProps) {
     return (
-        <Container>
-            <Header>
-                <Title>{title}</Title>
-            </Header>
-            <Content>{children}</Content>
-            <Footer>
-                <Button onClick={onCancel} secondary>
-                    CANCEL
-                </Button>
-                <Button onClick={onConfirm}>CONFIRM</Button>
-            </Footer>
-        </Container>
+        <Block>
+            <Container>
+                <Header>
+                    <Title>{title}</Title>
+                </Header>
+                <Content>{children}</Content>
+                <Footer>
+                    <Button onClick={onCancel} secondary>
+                        CANCEL
+                    </Button>
+                    <Button onClick={onConfirm}>CONFIRM</Button>
+                </Footer>
+            </Container>
+        </Block>
     );
 }

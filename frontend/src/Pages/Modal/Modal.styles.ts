@@ -2,6 +2,13 @@ import styled from 'styled-components';
 import ButtonBase from '../../Components/Button';
 import Responsive, { Desktop } from '../../Core/Responsive';
 
+export const Block = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+`;
+
 export const Container = styled.div`
     position: absolute;
     width: ${Responsive`500px``100%`};
