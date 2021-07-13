@@ -12,7 +12,7 @@ import {
     Button,
     ButtonContainer
 } from './Sidebar.styles';
-import New from './New';
+import NewEvent from './NewEvent';
 
 export default function EventsSidebar() {
     const dispatch = useDispatch();
@@ -55,7 +55,10 @@ export default function EventsSidebar() {
                                 >
                                     NEW EVENT
                                 </Button>
-                                <New visible={isNewEventVisible} />
+                                <NewEvent
+                                    visible={isNewEventVisible}
+                                    hide={() => setIsNewEventVisible(false)}
+                                />
                             </ButtonContainer>
                         ) : null}
                     </>

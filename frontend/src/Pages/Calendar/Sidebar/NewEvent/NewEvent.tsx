@@ -1,15 +1,15 @@
-import Modal from '../../Modal';
-import Field from '../../../Components/Field';
-import { Select, Toggle, Text, Date, Time } from '../../../Components/Input';
-import ModalForm from '../../../Components/ModalForm';
-
 import { useState } from 'react';
+import Modal from '../../../Modal';
+import Field from '../../../../Components/Field';
+import { Select, Toggle, Text, Date, Time } from '../../../../Components/Input';
+import ModalForm from '../../../../Components/ModalForm';
 
 type props = {
     visible: boolean;
+    hide: () => void;
 };
 
-export default function New({ visible }: props) {
+export default function NewEvent({ visible, hide }: props) {
     const [name, setName] = useState('');
     const [category, setCategory] = useState('apointment');
     const [startDate, setStartDate] = useState<Date | null>(null);
@@ -21,8 +21,8 @@ export default function New({ visible }: props) {
         <Modal
             visible={visible}
             title='create new event'
-            onCancel={() => {}} //setIsNewEventVisible(false)}
-            onConfirm={() => {}} // setIsNewEventVisible(false)}
+            onCancel={hide}
+            onConfirm={hide}
         >
             <ModalForm onSubmit={() => {}}>
                 <Field title='Event name' name='name'>

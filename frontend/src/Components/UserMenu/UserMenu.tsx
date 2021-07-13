@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { Container, List, Item, Link, Icon } from './UserMenu.styles';
 import User from '../../Domains/User';
+import { Container, List, Item, Link, Icon } from './UserMenu.styles';
 
 export default function UserMenu() {
     const dispatch = useDispatch();
