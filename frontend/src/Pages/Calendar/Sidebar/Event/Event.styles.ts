@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import ButtonIcon from '../../../Components/ButtonIcon';
-import Device from '../../../Core/Device';
-import { Mobile } from '../../../Core/Responsive';
+import ButtonIcon from '../../../../Components/ButtonIcon';
+import Device from '../../../../Core/Device';
+import { Mobile } from '../../../../Core/Responsive';
 
 export const Container = styled.div`
     display: flex;

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-type props = {
+type textProps = {
     isInMonth: boolean;
 };
 
-export const Text = styled.span<props>`
+export const Text = styled.span<textProps>`
     text-align: center;
     margin: auto;
     user-select: none;

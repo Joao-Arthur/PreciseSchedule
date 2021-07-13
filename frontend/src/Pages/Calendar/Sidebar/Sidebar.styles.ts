@@ -4,10 +4,6 @@ import ButtonBase from '../../../Components/Button';
 import ButtonIcon from '../../../Components/ButtonIcon';
 import Device from '../../../Core/Device';
 
-type props = {
-    open: boolean;
-};
-
 const openContainer = css`
     width: ${Responsive`400px``100%`};
     ${Responsive`border-left: 1px solid lightgray;``background-color: white;`}
@@ -18,7 +14,11 @@ const closedContainer = css`
     border-left: none;
 `;
 
-export const Container = styled.div<props>`
+type containerProps = {
+    open: boolean;
+};
+
+export const Container = styled.div<containerProps>`
     display: flex;
     overflow: hidden;
     transition: width 0.6s ease;

@@ -45,6 +45,7 @@ export const Content = styled.div`
 `;
 
 export const Footer = styled.div`
+    border-top: 1px solid lightgray;
     padding: 10px;
     display: flex;
     ${Responsive`justify-content: flex-end;``flex-direction: column;`}

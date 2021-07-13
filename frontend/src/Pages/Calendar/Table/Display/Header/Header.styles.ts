@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Row as RowBase } from '../Table/Table.styles';
 
-export const Row = styled(RowBase)`
+export const Row = styled.div`
+    display: flex;
     flex: 0;
 `;
 
@@ -11,4 +11,8 @@ export const Text = styled.p`
     text-align: center;
     user-select: none;
     font-size: 18px;
+`;
+
+export const Column = styled.div`
+    flex: 1;
 `;

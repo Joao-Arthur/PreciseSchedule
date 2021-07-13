@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
-import setupStore from '../../../Store';
+import setupStore from '../../../../../../Store';
 import Cell from './Cell';
 
 let store: Store;

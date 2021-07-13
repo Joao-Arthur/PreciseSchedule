@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-type props = {
+type buttonProps = {
     buttonSize: number;
 };
 
-export const Button = styled.button<props>`
+export const Button = styled.button<buttonProps>`
     background-color: unset;
     cursor: pointer;
     border: none;

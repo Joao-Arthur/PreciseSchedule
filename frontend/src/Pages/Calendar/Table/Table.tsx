@@ -1,57 +1,45 @@
 import { useState } from 'react';
-import { Container, Header, Button, Title, Body, Row } from './Table.styles';
-import Cell from '../Cell';
-import monthDaysToTable from '../monthDaysToTable';
-import { MonthsOfTheYear } from '../Calendar.constants';
-import BodyHeader from '../BodyHeader';
+import { Container } from './Table.styles';
+import Navigation from './Navigation';
+import Display from './Display';
+
+const now = new Date();
 
 export default function Events() {
-    const now = new Date();
-    const [selectedYear, setVisibleYear] = useState(now.getFullYear());
-    const [selectedMonth, setVisibleMonth] = useState(now.getMonth());
+    const [year, setYear] = useState(now.getFullYear());
+    const [month, setMonth] = useState(now.getMonth());
 
-    function setNextMonth() {
-        if (selectedMonth < 11) return setVisibleMonth(selectedMonth + 1);
-        setVisibleMonth(0);
-        setVisibleYear(selectedYear + 1);
+    function setPreviousYear() {
+        setYear(year - 1);
+    }
+
+    function setNextYear() {
+        setYear(year + 1);
     }
 
     function setPreviousMonth() {
-        if (selectedMonth > 0) return setVisibleMonth(selectedMonth - 1);
-        setVisibleMonth(11);
-        setVisibleYear(selectedYear - 1);
+        if (month > 0) return setMonth(month - 1);
+        setMonth(11);
+        setPreviousYear();
+    }
+
+    function setNextMonth() {
+        if (month < 11) return setMonth(month + 1);
+        setMonth(0);
+        setNextYear();
     }
 
     return (
         <Container>
-            <Header>
-                <Button onClick={() => setVisibleYear(selectedYear - 1)}>
-                    {'<<'}
-                </Button>
-                <Button onClick={setPreviousMonth}>{'<'}</Button>
-                <Title>{`${MonthsOfTheYear[selectedMonth]} ${selectedYear}`}</Title>
-                <Button onClick={setNextMonth}>{'>'}</Button>
-                <Button onClick={() => setVisibleYear(selectedYear + 1)}>
-                    {'>>'}
-                </Button>
-            </Header>
-            <Body>
-                <BodyHeader />
-                {monthDaysToTable(selectedYear, selectedMonth).map(
-                    (week, weekIndex) => (
-                        <Row key={weekIndex}>
-                            {week.map(day => (
-                                <Cell
-                                    year={selectedYear}
-                                    month={selectedMonth}
-                                    day={day}
-                                    key={day}
-                                />
-                            ))}
-                        </Row>
-                    )
-                )}
-            </Body>
+            <Navigation
+                setPreviousYear={setPreviousYear}
+                setNextYear={setNextYear}
+                setPreviousMonth={setPreviousMonth}
+                setNextMonth={setNextMonth}
+                month={month}
+                year={year}
+            />
+            <Display year={year} month={month} />
         </Container>
     );
 }

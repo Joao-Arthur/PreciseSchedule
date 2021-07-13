@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from '../../../Domains/Calendar';
 import { StateType } from '../../../Store';
-import Events from '../Events';
+import Events from './Events';
 import {
     Container,
     Content,
@@ -11,10 +11,10 @@ import {
     Header,
     Button,
     ButtonContainer
-} from './DayEvents.styles';
-import New from './New';
+} from './Sidebar.styles';
+import NewEvent from './NewEvent';
 
-export default function DayEvents() {
+export default function EventsSidebar() {
     const dispatch = useDispatch();
 
     const selectedDay = useSelector(
@@ -55,7 +55,10 @@ export default function DayEvents() {
                                 >
                                     NEW EVENT
                                 </Button>
-                                <New visible={isNewEventVisible} />
+                                <NewEvent
+                                    visible={isNewEventVisible}
+                                    hide={() => setIsNewEventVisible(false)}
+                                />
                             </ButtonContainer>
                         ) : null}
                     </>
