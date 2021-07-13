@@ -12,6 +12,8 @@ type props = {
 export default function NewEvent({ visible, hide }: props) {
     const [name, setName] = useState('');
     const [category, setCategory] = useState('apointment');
+    const [importance, setImportance] = useState('low');
+    const [repeat, setRepeat] = useState('never');
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [startTime, setStartTime] = useState('');
     const [endDate, setEndDate] = useState<Date | null>(null);
@@ -25,12 +27,20 @@ export default function NewEvent({ visible, hide }: props) {
             onConfirm={hide}
         >
             <ModalForm onSubmit={() => {}}>
-                <Field title='Event name' name='name'>
+                <Field title='Name' name='name'>
                     <Text
                         name='name'
                         value={name}
                         onChange={setName}
                         required
+                    />
+                </Field>
+                <Field title='Category' name='category'>
+                    <Select
+                        name='category'
+                        options={['apointment', 'aniversary', 'meeting']}
+                        value={category}
+                        onChange={setCategory}
                     />
                 </Field>
                 <Field title='Date Start' name='datestart'>
@@ -65,19 +75,49 @@ export default function NewEvent({ visible, hide }: props) {
                         required
                     />
                 </Field>
-                <Field title='Language' name='language'>
+                <Field title='Importance' name='importance'>
                     <Select
-                        options={['apointment', 'aniversary', 'meeting']}
-                        value={category}
-                        onChange={setCategory}
+                        name='importance'
+                        options={['high', 'average', 'low']}
+                        value={importance}
+                        onChange={setImportance}
                     />
                 </Field>
-                {/*<Field
-                    title='enable two factor authentication'
-                    name='twoFactor'
+                <Field title='Repeat' name='repeat'>
+                    <Toggle />
+                </Field>
+                <Field title='repeat' name='repeat2'>
+                    <Select
+                        name='repeat2'
+                        options={[
+                            'everyday',
+                            'day on / day off',
+                            'once a week',
+                            'once 2 weeks',
+                            'once a month',
+                            'once 6 months',
+                            'once a year',
+                            'once 2 years',
+                            'once 5 years',
+                            'once 10 years',
+                            'never'
+                        ]}
+                        value={repeat}
+                        onChange={setRepeat}
+                    />
+                </Field>
+                <Field title='Repeat on weekend' name='repeatweekend'>
+                    <Toggle />
+                </Field>
+                <Field title='Send notification' name='sendNotification'>
+                    <Toggle />
+                </Field>
+                <Field
+                    title='Send notification on email'
+                    name='sendNotification2'
                 >
                     <Toggle />
-                </Field>*/}
+                </Field>
             </ModalForm>
         </Modal>
     );

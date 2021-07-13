@@ -23,6 +23,7 @@ export default function Settings() {
         >
             <Field title='Language' name='language'>
                 <Select
+                    name='language'
                     options={['english', 'portuguese', 'spanish', 'german']}
                     value={language}
                     onChange={setLanguage}
