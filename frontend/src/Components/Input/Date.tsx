@@ -1,13 +1,15 @@
-import { Input } from '../Input.styles';
+import { InputTypes } from './Input.types';
+import { Input } from './Input.styles';
 
-type props = {
+export type dateProps = {
+    type: InputTypes.date;
     name: string;
     value: Date | null;
     onChange: (newValue: Date | null) => void;
     required?: boolean;
 };
 
-export default function Date({ name, value, onChange, required }: props) {
+export default function Date({ name, value, onChange, required }: dateProps) {
     return (
         <Input
             name={name}

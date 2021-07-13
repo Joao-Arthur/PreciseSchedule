@@ -14,3 +14,7 @@ export const InputStyle = css`
 export const Input = styled.input`
     ${InputStyle}
 `;
+
+export const SelectInput = styled.select`
+    ${InputStyle}
+`;

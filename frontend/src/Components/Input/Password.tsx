@@ -1,6 +1,8 @@
-import { Input } from '../Input.styles';
+import { InputTypes } from './Input.types';
+import { Input } from './Input.styles';
 
-type props = {
+export type passwordProps = {
+    type: InputTypes.password;
     name: string;
     value: string;
     onChange: (newValue: string) => void;
@@ -8,7 +10,12 @@ type props = {
     minLength?: number;
 };
 
-export default function Password({ name, value, onChange, required }: props) {
+export default function Password({
+    name,
+    value,
+    onChange,
+    required
+}: passwordProps) {
     return (
         <Input
             name={name}

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { StateType } from '../../Store';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
-import { Select, Toggle } from '../../Components/Input';
+import Input, { InputTypes } from '../../Components/Input';
 
 export default function Settings() {
     const [language, setLanguage] = useState('english');
@@ -22,7 +22,8 @@ export default function Settings() {
             onSubmit={() => {}}
         >
             <Field title='Language' name='language'>
-                <Select
+                <Input
+                    type={InputTypes.select}
                     name='language'
                     options={['english', 'portuguese', 'spanish', 'german']}
                     value={language}
@@ -30,7 +31,7 @@ export default function Settings() {
                 />
             </Field>
             <Field title='enable two factor authentication' name='twoFactor'>
-                <Toggle />
+                <Input type={InputTypes.toggle} name='twoFactor' />
             </Field>
             <a href='/password/new'>change password</a>
             <a href='#'>delete my account</a>

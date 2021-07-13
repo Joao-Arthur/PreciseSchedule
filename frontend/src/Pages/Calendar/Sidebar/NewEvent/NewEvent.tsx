@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from '../../../Modal';
 import Field from '../../../../Components/Field';
-import { Select, Toggle, Text, Date, Time } from '../../../../Components/Input';
+import Input, { InputTypes } from '../../../../Components/Input';
 import ModalForm from '../../../../Components/ModalForm';
 
 type props = {
@@ -28,7 +28,8 @@ export default function NewEvent({ visible, hide }: props) {
         >
             <ModalForm onSubmit={() => {}}>
                 <Field title='Name' name='name'>
-                    <Text
+                    <Input
+                        type={InputTypes.text}
                         name='name'
                         value={name}
                         onChange={setName}
@@ -36,7 +37,8 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Category' name='category'>
-                    <Select
+                    <Input
+                        type={InputTypes.select}
                         name='category'
                         options={['apointment', 'aniversary', 'meeting']}
                         value={category}
@@ -44,7 +46,8 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Date Start' name='datestart'>
-                    <Date
+                    <Input
+                        type={InputTypes.date}
                         name='datestart'
                         value={startDate}
                         onChange={setStartDate}
@@ -52,7 +55,8 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Time Start' name='timestart'>
-                    <Time
+                    <Input
+                        type={InputTypes.time}
                         name='timestart'
                         value={startTime}
                         onChange={setStartTime}
@@ -60,7 +64,8 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Date end' name='dateend'>
-                    <Date
+                    <Input
+                        type={InputTypes.date}
                         name='dateend'
                         value={endDate}
                         onChange={setEndDate}
@@ -68,7 +73,8 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Time end' name='timeend'>
-                    <Time
+                    <Input
+                        type={InputTypes.time}
                         name='timeend'
                         value={endTime}
                         onChange={setEndTime}
@@ -76,7 +82,8 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Importance' name='importance'>
-                    <Select
+                    <Input
+                        type={InputTypes.select}
                         name='importance'
                         options={['high', 'average', 'low']}
                         value={importance}
@@ -84,10 +91,11 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Repeat' name='repeat'>
-                    <Toggle />
+                    <Input type={InputTypes.toggle} name='repeat' />
                 </Field>
                 <Field title='repeat' name='repeat2'>
-                    <Select
+                    <Input
+                        type={InputTypes.select}
                         name='repeat2'
                         options={[
                             'everyday',
@@ -107,16 +115,16 @@ export default function NewEvent({ visible, hide }: props) {
                     />
                 </Field>
                 <Field title='Repeat on weekend' name='repeatweekend'>
-                    <Toggle />
+                    <Input type={InputTypes.toggle} name='repeatweekend' />
                 </Field>
                 <Field title='Send notification' name='sendNotification'>
-                    <Toggle />
+                    <Input type={InputTypes.toggle} name='sendNotification' />
                 </Field>
                 <Field
                     title='Send notification on email'
                     name='sendNotification2'
                 >
-                    <Toggle />
+                    <Input type={InputTypes.toggle} name='sendNotification2' />
                 </Field>
             </ModalForm>
         </Modal>

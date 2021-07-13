@@ -1,13 +1,15 @@
-import { Input } from '../Input.styles';
+import { InputTypes } from './Input.types';
+import { Input } from './Input.styles';
 
-type props = {
+export type textProps = {
+    type: InputTypes.text;
     name: string;
     value: string;
     onChange: (newValue: string) => void;
     required?: boolean;
 };
 
-export default function Text({ name, value, onChange, required }: props) {
+export default function Text({ name, value, onChange, required }: textProps) {
     return (
         <Input
             name={name}

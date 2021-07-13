@@ -5,7 +5,7 @@ import Toast from '../../Core/Toast';
 import Form from '../../Components/Form';
 import Link from '../../Components/Link';
 import Field from '../../Components/Field';
-import { Text, Password } from '../../Components/Input';
+import Input, { InputTypes } from '../../Components/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 import { FieldContainer, Label } from './SignIn.styles';
@@ -58,7 +58,8 @@ export default function SignIn() {
             }
         >
             <Field title='Username' name='username'>
-                <Text
+                <Input
+                    type={InputTypes.text}
                     name='username'
                     value={username}
                     onChange={setUsername}
@@ -72,7 +73,8 @@ export default function SignIn() {
                         Forgot password?
                     </Link>
                 </Label>
-                <Password
+                <Input
+                    type={InputTypes.password}
                     name='password'
                     minLength={10}
                     value={password}

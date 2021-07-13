@@ -1,17 +1,19 @@
-import { Input } from '../Input.styles';
+import { InputTypes } from './Input.types';
+import { Input } from './Input.styles';
 
-type props = {
+export type timeProps = {
+    type: InputTypes.time;
     name: string;
     value: string;
     onChange: (newValue: string) => void;
     required?: boolean;
 };
 
-export default function Email({ name, value, onChange, required }: props) {
+export default function Time({ name, value, onChange, required }: timeProps) {
     return (
         <Input
             name={name}
-            type='email'
+            type='time'
             value={value}
             onChange={e => onChange(e.target.value)}
             required={required}

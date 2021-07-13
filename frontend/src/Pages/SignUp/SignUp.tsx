@@ -5,7 +5,7 @@ import Toast from '../../Core/Toast';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
 import Link from '../../Components/Link';
-import { Date, Email, Text, Password } from '../../Components/Input';
+import Input, { InputTypes } from '../../Components/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 
@@ -74,7 +74,8 @@ export default function SignUp() {
             }
         >
             <Field title='First name' name='firstname'>
-                <Text
+                <Input
+                    type={InputTypes.text}
                     name='name'
                     value={firstName}
                     onChange={setFirstName}
@@ -82,7 +83,8 @@ export default function SignUp() {
                 />
             </Field>
             <Field title='last name' name='lastname'>
-                <Text
+                <Input
+                    type={InputTypes.text}
                     name='name'
                     value={lastName}
                     onChange={setLastName}
@@ -90,7 +92,8 @@ export default function SignUp() {
                 />
             </Field>
             <Field title='Email' name='email'>
-                <Email
+                <Input
+                    type={InputTypes.email}
                     name='email'
                     value={email}
                     onChange={setEmail}
@@ -98,7 +101,8 @@ export default function SignUp() {
                 />
             </Field>
             <Field title='Birthdate' name='birthdate'>
-                <Date
+                <Input
+                    type={InputTypes.date}
                     name='birthdate'
                     value={birthdate}
                     onChange={setBirthdate}
@@ -106,7 +110,8 @@ export default function SignUp() {
                 />
             </Field>
             <Field title='Username' name='username'>
-                <Text
+                <Input
+                    type={InputTypes.text}
                     name='username'
                     value={username}
                     onChange={setUsername}
@@ -118,7 +123,8 @@ export default function SignUp() {
                 name='password'
                 notice='At least 10 characters'
             >
-                <Password
+                <Input
+                    type={InputTypes.password}
                     name='password'
                     minLength={10}
                     value={password}
@@ -127,7 +133,8 @@ export default function SignUp() {
                 />
             </Field>
             <Field title='Type password again' name='passwordMatch'>
-                <Password
+                <Input
+                    type={InputTypes.password}
                     name='passwordMatch'
                     minLength={10}
                     value={passwordMatch}

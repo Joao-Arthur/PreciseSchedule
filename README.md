@@ -1,6 +1,6 @@
 # PreciseSchedule
 
-This project is a refactor of an old personal project. There is nothing special about it.
+This project is a refactor of an old personal project.
 
 It is a monorepo with backend written in _NestJS_ and frontend written in _React_.
 
@@ -19,12 +19,6 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 - Events
 - Charts
 - Reports
-
-### Frontend
-
-- Better UI design
-- Mobile / Responsive design
-- Uncontrolled inputs
 
 ### Backend
 

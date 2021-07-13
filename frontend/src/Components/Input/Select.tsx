@@ -1,13 +1,20 @@
-import { SelectInput } from './Select.styles';
+import { InputTypes } from './Input.types';
+import { SelectInput } from './Input.styles';
 
-type props = {
+export type selectProps = {
+    type: InputTypes.select;
     name: string;
     options: string[];
     value: string;
     onChange: (newValue: string) => void;
 };
 
-export default function Select({ name, options, value, onChange }: props) {
+export default function Select({
+    name,
+    options,
+    value,
+    onChange
+}: selectProps) {
     return (
         <SelectInput
             name={name}
