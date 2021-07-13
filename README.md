@@ -30,16 +30,3 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 
 - Swap CORS by reverse proxy
 - Mongo
-
-## Structure
-
-- `Components`
-- `Core`
-- `Domains`
-
-  - a domain is a functionality, usually `duck` + `sagas` + `api requests`
-
-- `Pages`
-- `Setup`
-- `Store`
-  - setup the store
