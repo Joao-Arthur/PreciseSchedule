@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../Store';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
-import Input, { InputTypes } from '../../Components/Input';
+import { InputTypes } from '../../Components/Input';
 import User from '../../Domains/User';
 
 export default function ForgotPassword() {
@@ -31,25 +31,20 @@ export default function ForgotPassword() {
                 title='password'
                 name='password'
                 notice='At least 10 characters'
-            >
-                <Input
-                    type={InputTypes.password}
-                    name='password'
-                    value={password}
-                    onChange={setPassword}
-                    required
-                />
-            </Field>
-            <Field title='Type password again' name='passwordMatch'>
-                <Input
-                    type={InputTypes.password}
-                    name='passwordMatch'
-                    minLength={10}
-                    value={passwordMatch}
-                    onChange={setPasswordMatch}
-                    required
-                />
-            </Field>
+                type={InputTypes.password}
+                value={password}
+                onChange={setPassword}
+                required
+            />
+            <Field
+                title='Type password again'
+                name='passwordMatch'
+                type={InputTypes.password}
+                minLength={10}
+                value={passwordMatch}
+                onChange={setPasswordMatch}
+                required
+            />
         </Form>
     );
 }

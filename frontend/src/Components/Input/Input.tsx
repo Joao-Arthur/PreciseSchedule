@@ -7,7 +7,7 @@ import Select, { selectProps } from './Select';
 import Toggle, { toggleProps } from './Toggle';
 import { InputTypes } from './Input.types';
 
-type props =
+export type inputProps =
     | textProps
     | emailProps
     | passwordProps
@@ -16,7 +16,7 @@ type props =
     | selectProps
     | toggleProps;
 
-export default function Input(props: props) {
+export default function Input(props: inputProps) {
     switch (props.type) {
         case InputTypes.text:
             return <Text {...props} />;

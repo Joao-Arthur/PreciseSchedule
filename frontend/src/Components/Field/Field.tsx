@@ -1,19 +1,24 @@
-import { ReactChild } from 'react';
+import { ReactElement } from 'react';
+import Input from '../Input';
+import { inputProps } from '../Input/Input';
 import { Container, Label, Observation } from './Field.styles';
 
-type props = {
-    children: ReactChild;
+type fieldProps = {
     title: string;
-    name: string;
+    extraInfo?: ReactElement<any, any>;
     notice?: string;
 };
 
-export default function FormField({ children, title, name, notice }: props) {
+type props = inputProps & fieldProps;
+
+export default function Field(props: props) {
     return (
         <Container>
-            <Label htmlFor={name}>{title}</Label>
-            {children}
-            {notice ? <Observation>{notice}</Observation> : null}
+            <Label htmlFor={props.name}>
+                {props.title} {props.extraInfo || null}
+            </Label>
+            <Input {...props} />
+            {props.notice ? <Observation>{props.notice}</Observation> : null}
         </Container>
     );
 }

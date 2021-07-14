@@ -4,7 +4,7 @@ import { StateType } from '../../Store';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
 import Link from '../../Components/Link';
-import Input, { InputTypes } from '../../Components/Input';
+import { InputTypes } from '../../Components/Input';
 import User from '../../Domains/User';
 
 export default function ForgotPassword() {
@@ -34,15 +34,14 @@ export default function ForgotPassword() {
                 </span>
             }
         >
-            <Field title='email' name='email'>
-                <Input
-                    type={InputTypes.email}
-                    name='email'
-                    required
-                    value={email}
-                    onChange={setEmail}
-                />
-            </Field>
+            <Field
+                title='email'
+                name='email'
+                type={InputTypes.email}
+                required
+                value={email}
+                onChange={setEmail}
+            />
         </Form>
     );
 }

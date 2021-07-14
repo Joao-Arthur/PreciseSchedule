@@ -5,10 +5,9 @@ import Toast from '../../Core/Toast';
 import Form from '../../Components/Form';
 import Link from '../../Components/Link';
 import Field from '../../Components/Field';
-import Input, { InputTypes } from '../../Components/Input';
+import { InputTypes } from '../../Components/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
-import { FieldContainer, Label } from './SignIn.styles';
 
 export default function SignIn() {
     const dispatch = useDispatch();
@@ -57,31 +56,28 @@ export default function SignIn() {
                 </span>
             }
         >
-            <Field title='Username' name='username'>
-                <Input
-                    type={InputTypes.text}
-                    name='username'
-                    value={username}
-                    onChange={setUsername}
-                    required
-                />
-            </Field>
-            <FieldContainer>
-                <Label>
-                    Password{' '}
+            <Field
+                title='Username'
+                name='username'
+                type={InputTypes.text}
+                value={username}
+                onChange={setUsername}
+                required
+            />
+            <Field
+                title='Password'
+                name='password'
+                extraInfo={
                     <Link to='password/forgot' underline>
                         Forgot password?
                     </Link>
-                </Label>
-                <Input
-                    type={InputTypes.password}
-                    name='password'
-                    minLength={10}
-                    value={password}
-                    onChange={setPassword}
-                    required
-                />
-            </FieldContainer>
+                }
+                type={InputTypes.password}
+                minLength={10}
+                value={password}
+                onChange={setPassword}
+                required
+            />
         </Form>
     );
 }

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { StateType } from '../../Store';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
-import Input, { InputTypes } from '../../Components/Input';
+import { InputTypes } from '../../Components/Input';
 
 export default function Settings() {
     const [language, setLanguage] = useState('english');
@@ -21,18 +21,19 @@ export default function Settings() {
             loading={false}
             onSubmit={() => {}}
         >
-            <Field title='Language' name='language'>
-                <Input
-                    type={InputTypes.select}
-                    name='language'
-                    options={['english', 'portuguese', 'spanish', 'german']}
-                    value={language}
-                    onChange={setLanguage}
-                />
-            </Field>
-            <Field title='enable two factor authentication' name='twoFactor'>
-                <Input type={InputTypes.toggle} name='twoFactor' />
-            </Field>
+            <Field
+                title='Language'
+                name='language'
+                type={InputTypes.select}
+                options={['english', 'portuguese', 'spanish', 'german']}
+                value={language}
+                onChange={setLanguage}
+            />
+            <Field
+                title='enable two factor authentication'
+                name='twoFactor'
+                type={InputTypes.toggle}
+            />
             <a href='/password/new'>change password</a>
             <a href='#'>delete my account</a>
             <a href='#'>what info do PreciseSchedule know about you?</a>
