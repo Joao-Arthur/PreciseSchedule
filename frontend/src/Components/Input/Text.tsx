@@ -1,8 +1,7 @@
-import { InputTypes } from './Input.types';
 import { Input } from './Input.styles';
 
 export type textProps = {
-    type: InputTypes.text;
+    type: 'text';
     name: string;
     value: string;
     onChange: (newValue: string) => void;

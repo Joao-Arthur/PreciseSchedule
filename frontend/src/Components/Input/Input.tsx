@@ -5,7 +5,6 @@ import Date, { dateProps } from './Date';
 import Time, { timeProps } from './Time';
 import Select, { selectProps } from './Select';
 import Toggle, { toggleProps } from './Toggle';
-import { InputTypes } from './Input.types';
 
 export type inputProps =
     | textProps
@@ -18,19 +17,19 @@ export type inputProps =
 
 export default function Input(props: inputProps) {
     switch (props.type) {
-        case InputTypes.text:
+        case 'text':
             return <Text {...props} />;
-        case InputTypes.email:
+        case 'email':
             return <Email {...props} />;
-        case InputTypes.password:
+        case 'password':
             return <Password {...props} />;
-        case InputTypes.date:
+        case 'date':
             return <Date {...props} />;
-        case InputTypes.time:
+        case 'time':
             return <Time {...props} />;
-        case InputTypes.select:
+        case 'select':
             return <Select {...props} />;
-        case InputTypes.toggle:
+        case 'toggle':
             return <Toggle {...props} />;
     }
 }

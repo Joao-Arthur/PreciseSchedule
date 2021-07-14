@@ -4,6 +4,8 @@ export const Container = styled.div`
     padding: 5px 0;
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-width: 100px;
 `;
 
 export const Label = styled.label`

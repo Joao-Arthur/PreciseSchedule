@@ -5,7 +5,6 @@ import Toast from '../../Core/Toast';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
 import Link from '../../Components/Link';
-import { InputTypes } from '../../Components/Input';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 
@@ -74,59 +73,59 @@ export default function SignUp() {
             }
         >
             <Field
+                type='text'
                 title='First name'
                 name='firstname'
-                type={InputTypes.text}
                 value={firstName}
                 onChange={setFirstName}
                 required
             />
             <Field
+                type='text'
                 title='last name'
                 name='lastname'
-                type={InputTypes.text}
                 value={lastName}
                 onChange={setLastName}
                 required
             />
             <Field
+                type='email'
                 title='Email'
                 name='email'
-                type={InputTypes.email}
                 value={email}
                 onChange={setEmail}
                 required
             />
             <Field
+                type='date'
                 title='Birthdate'
                 name='birthdate'
-                type={InputTypes.date}
                 value={birthdate}
                 onChange={setBirthdate}
                 required
             />
             <Field
+                type='text'
                 title='Username'
                 name='username'
-                type={InputTypes.text}
                 value={username}
                 onChange={setUsername}
                 required
             />
             <Field
+                type='password'
                 title='Password'
                 name='password'
                 notice='At least 10 characters'
-                type={InputTypes.password}
                 minLength={10}
                 value={password}
                 onChange={setPassword}
                 required
             />
             <Field
+                type='password'
                 title='Type password again'
                 name='passwordMatch'
-                type={InputTypes.password}
                 minLength={10}
                 value={passwordMatch}
                 onChange={setPasswordMatch}

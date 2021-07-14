@@ -1,8 +1,7 @@
-import { InputTypes } from './Input.types';
 import { Input } from './Input.styles';
 
 export type dateProps = {
-    type: InputTypes.date;
+    type: 'date';
     name: string;
     value: Date | null;
     onChange: (newValue: Date | null) => void;

@@ -1,8 +1,7 @@
-import { InputTypes } from './Input.types';
 import { SelectInput } from './Input.styles';
 
 export type selectProps = {
-    type: InputTypes.select;
+    type: 'select';
     name: string;
     options: string[];
     value: string;

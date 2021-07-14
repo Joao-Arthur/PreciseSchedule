@@ -1,8 +1,7 @@
-import { InputTypes } from './Input.types';
 import { Input } from './Input.styles';
 
 export type emailProps = {
-    type: InputTypes.email;
+    type: 'email';
     name: string;
     value: string;
     onChange: (newValue: string) => void;

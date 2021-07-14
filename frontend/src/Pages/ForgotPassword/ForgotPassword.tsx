@@ -4,7 +4,6 @@ import { StateType } from '../../Store';
 import Form from '../../Components/Form';
 import Field from '../../Components/Field';
 import Link from '../../Components/Link';
-import { InputTypes } from '../../Components/Input';
 import User from '../../Domains/User';
 
 export default function ForgotPassword() {
@@ -35,9 +34,9 @@ export default function ForgotPassword() {
             }
         >
             <Field
+                type='email'
                 title='email'
                 name='email'
-                type={InputTypes.email}
                 required
                 value={email}
                 onChange={setEmail}

@@ -1,8 +1,7 @@
-import { InputTypes } from './Input.types';
 import { Label, Input, Span } from './Toggle.styles';
 
 export type toggleProps = {
-    type: InputTypes.toggle;
+    type: 'toggle';
     name: string;
 };
 

@@ -1,8 +1,7 @@
-import { InputTypes } from './Input.types';
 import { Input } from './Input.styles';
 
 export type timeProps = {
-    type: InputTypes.time;
+    type: 'time';
     name: string;
     value: string;
     onChange: (newValue: string) => void;
