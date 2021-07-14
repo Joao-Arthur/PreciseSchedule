@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Modal from '../../../Modal';
-import Field from '../../../../Components/Field';
-import ModalForm from '../../../../Components/ModalForm';
+import { ModalForm, Field, Group } from '../../../../Components/Form';
 
 type props = {
     visible: boolean;
@@ -42,7 +41,7 @@ export default function NewEvent({ visible, hide }: props) {
                     value={category}
                     onChange={setCategory}
                 />
-                <div style={{ display: 'flex', columnGap: '10px' }}>
+                <Group>
                     <Field
                         type='date'
                         title='Date Start'
@@ -59,23 +58,25 @@ export default function NewEvent({ visible, hide }: props) {
                         onChange={setStartTime}
                         required
                     />
-                </div>
-                <Field
-                    type='date'
-                    title='Date end'
-                    name='dateend'
-                    value={endDate}
-                    onChange={setEndDate}
-                    required
-                />
-                <Field
-                    type='time'
-                    title='Time end'
-                    name='timeend'
-                    value={endTime}
-                    onChange={setEndTime}
-                    required
-                />
+                </Group>
+                <Group>
+                    <Field
+                        type='date'
+                        title='Date end'
+                        name='dateend'
+                        value={endDate}
+                        onChange={setEndDate}
+                        required
+                    />
+                    <Field
+                        type='time'
+                        title='Time end'
+                        name='timeend'
+                        value={endTime}
+                        onChange={setEndTime}
+                        required
+                    />
+                </Group>
                 <Field
                     type='select'
                     title='Importance'
@@ -108,17 +109,17 @@ export default function NewEvent({ visible, hide }: props) {
                 <Field
                     type='toggle'
                     title='Repeat on weekend'
-                    name='repeatweekend'
+                    name='weekendRepeat'
                 />
                 <Field
                     type='toggle'
-                    title='Send notification'
-                    name='sendNotification'
+                    title='notificate on browser'
+                    name='browserNotification'
                 />
                 <Field
                     type='toggle'
-                    title='Send notification on email'
-                    name='sendNotification2'
+                    title='notificate on email'
+                    name='emailNotification'
                 />
             </ModalForm>
         </Modal>
