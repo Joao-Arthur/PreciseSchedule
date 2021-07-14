@@ -1,8 +1,8 @@
+import { everyInputProps } from './type';
 import { SelectInput } from './Input.styles';
 
-export type selectProps = {
+export type selectProps = everyInputProps & {
     type: 'select';
-    name: string;
     options: string[];
     value: string;
     onChange: (newValue: string) => void;

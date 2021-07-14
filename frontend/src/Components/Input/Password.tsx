@@ -1,11 +1,10 @@
+import { everyInputProps } from './type';
 import { Input } from './Input.styles';
 
-export type passwordProps = {
+export type passwordProps = everyInputProps & {
     type: 'password';
-    name: string;
     value: string;
     onChange: (newValue: string) => void;
-    required?: boolean;
     minLength?: number;
 };
 
@@ -13,7 +12,8 @@ export default function Password({
     name,
     value,
     onChange,
-    required
+    required,
+    readOnly
 }: passwordProps) {
     return (
         <Input
@@ -22,6 +22,7 @@ export default function Password({
             value={value}
             onChange={e => onChange(e.target.value)}
             required={required}
+            readOnly={readOnly}
         />
     );
 }

@@ -1,14 +1,19 @@
+import { everyInputProps } from './type';
 import { Input } from './Input.styles';
 
-export type timeProps = {
+export type timeProps = everyInputProps & {
     type: 'time';
-    name: string;
     value: string;
     onChange: (newValue: string) => void;
-    required?: boolean;
 };
 
-export default function Time({ name, value, onChange, required }: timeProps) {
+export default function Time({
+    name,
+    value,
+    onChange,
+    required,
+    readOnly
+}: timeProps) {
     return (
         <Input
             name={name}
@@ -16,6 +21,7 @@ export default function Time({ name, value, onChange, required }: timeProps) {
             value={value}
             onChange={e => onChange(e.target.value)}
             required={required}
+            readOnly={readOnly}
         />
     );
 }

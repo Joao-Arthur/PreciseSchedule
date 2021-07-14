@@ -1,14 +1,19 @@
+import { everyInputProps } from './type';
 import { Input } from './Input.styles';
 
-export type textProps = {
+export type textProps = everyInputProps & {
     type: 'text';
-    name: string;
     value: string;
     onChange: (newValue: string) => void;
-    required?: boolean;
 };
 
-export default function Text({ name, value, onChange, required }: textProps) {
+export default function Text({
+    name,
+    value,
+    onChange,
+    required,
+    readOnly
+}: textProps) {
     return (
         <Input
             name={name}
@@ -16,6 +21,7 @@ export default function Text({ name, value, onChange, required }: textProps) {
             value={value}
             onChange={e => onChange(e.target.value)}
             required={required}
+            readOnly={readOnly}
         />
     );
 }

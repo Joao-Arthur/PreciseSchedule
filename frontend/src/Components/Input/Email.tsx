@@ -1,14 +1,19 @@
+import { everyInputProps } from './type';
 import { Input } from './Input.styles';
 
-export type emailProps = {
+export type emailProps = everyInputProps & {
     type: 'email';
-    name: string;
     value: string;
     onChange: (newValue: string) => void;
-    required?: boolean;
 };
 
-export default function Email({ name, value, onChange, required }: emailProps) {
+export default function Email({
+    name,
+    value,
+    onChange,
+    required,
+    readOnly
+}: emailProps) {
     return (
         <Input
             name={name}
@@ -16,6 +21,7 @@ export default function Email({ name, value, onChange, required }: emailProps) {
             value={value}
             onChange={e => onChange(e.target.value)}
             required={required}
+            readOnly={readOnly}
         />
     );
 }

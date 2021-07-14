@@ -1,14 +1,19 @@
+import { everyInputProps } from './type';
 import { Input } from './Input.styles';
 
-export type dateProps = {
+export type dateProps = everyInputProps & {
     type: 'date';
-    name: string;
     value: Date | null;
     onChange: (newValue: Date | null) => void;
-    required?: boolean;
 };
 
-export default function Date({ name, value, onChange, required }: dateProps) {
+export default function Date({
+    name,
+    value,
+    onChange,
+    required,
+    readOnly
+}: dateProps) {
     return (
         <Input
             name={name}
@@ -16,6 +21,7 @@ export default function Date({ name, value, onChange, required }: dateProps) {
             value={value?.toISOString().slice(0, 10)}
             onChange={e => onChange(e.target.valueAsDate)}
             required={required}
+            readOnly={readOnly}
         />
     );
 }

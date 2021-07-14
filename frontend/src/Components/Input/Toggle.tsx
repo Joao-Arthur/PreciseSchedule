@@ -1,14 +1,14 @@
+import { everyInputProps } from './type';
 import { Label, Input, Span } from './Toggle.styles';
 
-export type toggleProps = {
+export type toggleProps = everyInputProps & {
     type: 'toggle';
-    name: string;
 };
 
-export default function Toggle({ name }: toggleProps) {
+export default function Toggle({ name, readOnly }: toggleProps) {
     return (
         <Label>
-            <Input type='checkbox' name={name} />
+            <Input type='checkbox' name={name} readOnly={readOnly} />
             <Span />
         </Label>
     );
