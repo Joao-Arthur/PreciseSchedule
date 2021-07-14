@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
 import Toast from '../../Core/Toast';
-import { Form, Field } from '../../Components/Form';
+import { Form, Field, Group } from '../../Components/Form';
 import Link from '../../Components/Link';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
@@ -71,22 +71,24 @@ export default function SignUp() {
                 </span>
             }
         >
-            <Field
-                type='text'
-                title='First name'
-                name='firstname'
-                value={firstName}
-                onChange={setFirstName}
-                required
-            />
-            <Field
-                type='text'
-                title='last name'
-                name='lastname'
-                value={lastName}
-                onChange={setLastName}
-                required
-            />
+            <Group>
+                <Field
+                    type='text'
+                    title='First name'
+                    name='firstname'
+                    value={firstName}
+                    onChange={setFirstName}
+                    required
+                />
+                <Field
+                    type='text'
+                    title='last name'
+                    name='lastname'
+                    value={lastName}
+                    onChange={setLastName}
+                    required
+                />
+            </Group>
             <Field
                 type='email'
                 title='Email'

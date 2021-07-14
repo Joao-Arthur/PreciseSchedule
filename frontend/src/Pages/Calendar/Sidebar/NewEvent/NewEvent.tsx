@@ -111,16 +111,18 @@ export default function NewEvent({ visible, hide }: props) {
                     title='Repeat on weekend'
                     name='weekendRepeat'
                 />
-                <Field
-                    type='toggle'
-                    title='notificate on browser'
-                    name='browserNotification'
-                />
-                <Field
-                    type='toggle'
-                    title='notificate on email'
-                    name='emailNotification'
-                />
+                <Group>
+                    <Field
+                        type='toggle'
+                        title='notificate on browser'
+                        name='browserNotification'
+                    />
+                    <Field
+                        type='toggle'
+                        title='notificate on email'
+                        name='emailNotification'
+                    />
+                </Group>
             </ModalForm>
         </Modal>
     );
