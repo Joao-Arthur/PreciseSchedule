@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StateType } from '../../Store';
-import Form from '../../Components/Form';
-import Field from '../../Components/Field';
+import { Form, Field } from '../../Components/Form';
 
 export default function Settings() {
     const [language, setLanguage] = useState('english');

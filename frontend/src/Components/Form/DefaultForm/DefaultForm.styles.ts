@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import Responsive from '../../Core/Responsive';
-import ButtonBase from '../Button';
+import Responsive from '../../../Core/Responsive';
+import ButtonBase from '../../Button';
 
 export const Container = styled.div`
     width: ${Responsive`500px``80%`};

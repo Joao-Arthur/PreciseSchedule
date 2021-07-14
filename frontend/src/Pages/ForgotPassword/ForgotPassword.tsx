@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StateType } from '../../Store';
-import Form from '../../Components/Form';
-import Field from '../../Components/Field';
+import { Form, Field } from '../../Components/Form';
 import Link from '../../Components/Link';
 import User from '../../Domains/User';
 

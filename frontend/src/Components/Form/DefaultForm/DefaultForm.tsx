@@ -7,7 +7,7 @@ import {
     CustomForm,
     FooterContainer,
     FooterContent
-} from './Form.styles';
+} from './DefaultForm.styles';
 
 type props = {
     title: string;
@@ -18,7 +18,7 @@ type props = {
     children: ReactChild | ReactChild[];
 };
 
-export default function Form({
+export default function DefaultForm({
     title,
     action,
     loading,

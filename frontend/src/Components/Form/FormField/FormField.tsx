@@ -1,17 +1,16 @@
 import { ReactElement } from 'react';
-import Input from '../Input';
-import { inputProps } from '../Input/Input';
-import { Container, Label, Observation } from './Field.styles';
+import Input, { inputProps } from '../../Input';
+import { Container, Label, Observation } from './FormField.styles';
 
-type fieldProps = {
+type formFieldProps = {
     title: string;
     extraInfo?: ReactElement<any, any>;
     notice?: string;
 };
 
-type props = inputProps & fieldProps;
+type props = inputProps & formFieldProps;
 
-export default function Field(props: props) {
+export default function FormField(props: props) {
     return (
         <Container>
             <Label htmlFor={props.name}>

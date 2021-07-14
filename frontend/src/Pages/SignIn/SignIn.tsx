@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
 import Toast from '../../Core/Toast';
-import Form from '../../Components/Form';
+import { Form, Field } from '../../Components/Form';
 import Link from '../../Components/Link';
-import Field from '../../Components/Field';
 import User from '../../Domains/User';
 import General from '../../Domains/General';
 
