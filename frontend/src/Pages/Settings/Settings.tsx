@@ -6,6 +6,8 @@ import { Form, Field } from '../../Components/Form';
 
 export default function Settings() {
     const [language, setLanguage] = useState('english');
+    const [twoFactorAuthentication, setTwoFactorAuthentication] =
+        useState(false);
 
     const shouldLogin = useSelector(
         (state: StateType) => !state.User.isLogged && state.User.isVerified
@@ -30,7 +32,9 @@ export default function Settings() {
             <Field
                 type='toggle'
                 title='enable two factor authentication'
-                name='twoFactor'
+                name='twoFactorAuthentication'
+                value={twoFactorAuthentication}
+                onChange={setTwoFactorAuthentication}
             />
             <a href='/password/new'>change password</a>
             <a href='#'>delete my account</a>

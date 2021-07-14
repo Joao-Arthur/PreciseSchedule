@@ -11,11 +11,15 @@ export default function NewEvent({ visible, hide }: props) {
     const [name, setName] = useState('');
     const [category, setCategory] = useState('apointment');
     const [importance, setImportance] = useState('low');
-    const [repeat, setRepeat] = useState('never');
+    const [repeats, setRepeats] = useState(false);
+    const [frequency, setFrequency] = useState('never');
+    const [weekendRepeat, setWeekendRepeat] = useState(false);
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [startTime, setStartTime] = useState('');
     const [endDate, setEndDate] = useState<Date | null>(null);
     const [endTime, setEndTime] = useState('');
+    const [browserNotification, setBrowserNotification] = useState(false);
+    const [emailNotification, setEmailNotification] = useState(false);
 
     return (
         <Modal
@@ -85,11 +89,17 @@ export default function NewEvent({ visible, hide }: props) {
                     value={importance}
                     onChange={setImportance}
                 />
-                <Field title='Repeat' name='repeat' type='toggle' />
+                <Field
+                    type='toggle'
+                    title='Repeat'
+                    name='repeat'
+                    value={repeats}
+                    onChange={setRepeats}
+                />
                 <Field
                     type='select'
-                    title='repeat'
-                    name='repeat2'
+                    title='Frequency'
+                    name='frequency'
                     options={[
                         'everyday',
                         'day on / day off',
@@ -103,24 +113,30 @@ export default function NewEvent({ visible, hide }: props) {
                         'once 10 years',
                         'never'
                     ]}
-                    value={repeat}
-                    onChange={setRepeat}
+                    value={frequency}
+                    onChange={setFrequency}
                 />
                 <Field
                     type='toggle'
                     title='Repeat on weekend'
                     name='weekendRepeat'
+                    value={weekendRepeat}
+                    onChange={setWeekendRepeat}
                 />
                 <Group>
                     <Field
                         type='toggle'
-                        title='notificate on browser'
+                        title='Notificate on browser'
                         name='browserNotification'
+                        value={browserNotification}
+                        onChange={setBrowserNotification}
                     />
                     <Field
                         type='toggle'
-                        title='notificate on email'
+                        title='Notificate on email'
                         name='emailNotification'
+                        value={emailNotification}
+                        onChange={setEmailNotification}
                     />
                 </Group>
             </ModalForm>
