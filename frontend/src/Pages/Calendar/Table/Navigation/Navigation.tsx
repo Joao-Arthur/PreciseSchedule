@@ -1,6 +1,7 @@
 import Device from '../../../../Core/Device';
 import Range from '../../../../Core/Range';
-import { Container, Button, Title } from './Navigation.styles';
+import { Container, Button } from './Navigation.styles';
+import NavigationSelect from './NavigationSelect';
 
 const monthsOfYear = [
     'January',
@@ -35,37 +36,63 @@ const monthsOfYearAbbrev = [
 type props = {
     setPreviousYear: () => void;
     setNextYear: () => void;
+    setYear: (newYear: number) => void;
     setPreviousMonth: () => void;
     setNextMonth: () => void;
+    setMonth: (newMonth: number) => void;
     month: number;
     year: number;
 };
 
+const options = Range(1900, 2100);
+
 export default function Navigation({
     setPreviousYear,
     setNextYear,
+    setYear,
     setPreviousMonth,
     setNextMonth,
+    setMonth,
     month,
     year
 }: props) {
     const months = Device.isMobile ? monthsOfYearAbbrev : monthsOfYear;
 
-    return (
+    return Device.isMobile ? (
+        <Container>
+            <NavigationSelect
+                type='select'
+                options={months}
+                name='month'
+                value={months[month]}
+                onChange={newMonth => setMonth(months.indexOf(newMonth))}
+            />
+            <NavigationSelect
+                type='select'
+                options={options}
+                name='month'
+                value={String(year)}
+                onChange={newYear => setYear(Number(newYear))}
+            />
+        </Container>
+    ) : (
         <Container>
             <Button onClick={setPreviousYear}>{'<<'}</Button>
             <Button onClick={setPreviousMonth}>{'<'}</Button>
-            <select>
-                {months.map(mon => (
-                    <option>{mon}</option>
-                ))}
-            </select>
-            <select>
-                {Range(1900, 2100).map(mon => (
-                    <option>{mon}</option>
-                ))}
-            </select>
-            <Title>{`${months[month]} ${year}`}</Title>
+            <NavigationSelect
+                type='select'
+                options={months}
+                name='month'
+                value={months[month]}
+                onChange={newMonth => setMonth(months.indexOf(newMonth))}
+            />
+            <NavigationSelect
+                type='select'
+                options={options}
+                name='month'
+                value={String(year)}
+                onChange={newYear => setYear(Number(newYear))}
+            />
             <Button onClick={setNextMonth}>{'>'}</Button>
             <Button onClick={setNextYear}>{'>>'}</Button>
         </Container>

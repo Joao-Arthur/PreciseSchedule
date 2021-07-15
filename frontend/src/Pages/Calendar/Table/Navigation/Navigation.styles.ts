@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import Responsive from '../../../../Core/Responsive';
+import styled, { css } from 'styled-components';
 import ButtonBase from '../../../../Components/Button';
 
 export const Container = styled.div`
@@ -10,25 +9,34 @@ export const Container = styled.div`
     padding: 4px 0;
 `;
 
-export const Button = styled(ButtonBase)`
+const common = css`
     background-color: unset !important;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size: 18px;
     border: 1px solid lightgray;
-    cursor: pointer;
     color: var(--darkerGray);
-    padding: 0;
+    margin: 0 5px;
+    font-size: 18px;
 `;
 
-export const Title = styled.p`
-    width: ${Responsive`180``100`}px;
-    font-size: 18px;
-    margin: 10px 0;
-    text-align: center;
-    white-space: nowrap;
-    list-style: none;
-    color: var(--darkerGray);
+export const Button = styled(ButtonBase)`
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    transition: font-size 0.2s;
+    :hover,
+    :active {
+        font-size: 20px;
+    }
+
+    ${common}
+`;
+
+export const Select = styled.select`
+    border-radius: 4px;
+    padding: 5px;
+    height: 40px;
+    width: 130px;
+    cursor: pointer;
+    appearance: none;
+    text-align-last: center;
+    ${common}
 `;

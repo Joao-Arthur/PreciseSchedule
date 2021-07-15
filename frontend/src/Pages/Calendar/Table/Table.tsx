@@ -34,8 +34,10 @@ export default function Events() {
             <Navigation
                 setPreviousYear={setPreviousYear}
                 setNextYear={setNextYear}
+                setYear={setYear}
                 setPreviousMonth={setPreviousMonth}
                 setNextMonth={setNextMonth}
+                setMonth={setMonth}
                 month={month}
                 year={year}
             />
