@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Responsive from '../../../Core/Responsive';
+import Responsive, { Mobile } from '../../../Core/Responsive';
 import ButtonBase from '../../../Components/Button';
 import ButtonIcon from '../../../Components/ButtonIcon';
 import Device from '../../../Core/Device';
@@ -27,7 +27,7 @@ export const Container = styled.div<containerProps>`
 `;
 
 export const Content = styled.div`
-    ${Device.isMobile ? 'padding: 0 15px;' : ''}
+    ${Mobile`padding: 0 15px;`}
     display: flex;
     flex-direction: column;
     flex: 1;

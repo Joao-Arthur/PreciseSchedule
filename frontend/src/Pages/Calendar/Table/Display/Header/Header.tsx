@@ -11,10 +11,10 @@ const daysOfWeek = [
     'Saturday'
 ];
 
-const daysOfWeekAbbreviated = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const daysOfWeekAbbrev = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default function Header() {
-    const days = Device.isMobile ? daysOfWeekAbbreviated : daysOfWeek;
+    const days = Device.isMobile ? daysOfWeekAbbrev : daysOfWeek;
 
     return (
         <Row>
