@@ -27,7 +27,7 @@ export default function NewEvent({ visible, hide, day }: props) {
     return (
         <Modal
             visible={visible}
-            title='create new event'
+            title={`create new event on ${day.toLocaleDateString()}`}
             onCancel={hide}
             onConfirm={hide}
         >

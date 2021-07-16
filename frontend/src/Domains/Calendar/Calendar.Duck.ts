@@ -29,10 +29,7 @@ const initialState: state = {
 export const Reducer = produce((draft, action: Action) => {
     switch (action.type) {
         case Types.CALENDAR_SET_SELECTED_DAY:
-            if (
-                draft.selectedDay?.toLocaleString() ===
-                action.payload?.toLocaleString()
-            ) {
+            if (draft.selectedDay?.getTime() === action.payload?.getTime()) {
                 draft.selectedDay = null;
             } else {
                 draft.selectedDay = action.payload;

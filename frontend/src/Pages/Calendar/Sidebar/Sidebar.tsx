@@ -20,6 +20,8 @@ export default function EventsSidebar() {
     const selectedDay = useSelector(
         (state: StateType) => state.Calendar.selectedDay
     );
+    const logged = useSelector((state: StateType) => state.User.isLogged);
+
     const [isNewEventVisible, setIsNewEventVisible] = useState(false);
 
     const now = new Date();
@@ -30,13 +32,7 @@ export default function EventsSidebar() {
                 {selectedDay ? (
                     <>
                         <Header>
-                            <Title>
-                                {selectedDay.toLocaleString(undefined, {
-                                    year: 'numeric',
-                                    month: 'numeric',
-                                    day: 'numeric'
-                                })}
-                            </Title>
+                            <Title>{selectedDay.toLocaleDateString()}</Title>
                             <Close
                                 onClick={() => {
                                     dispatch(
@@ -46,7 +42,7 @@ export default function EventsSidebar() {
                             />
                         </Header>
                         <Events />
-                        {selectedDay >= now ? (
+                        {logged && selectedDay >= now ? (
                             <ButtonContainer>
                                 <Button
                                     onClick={() =>
