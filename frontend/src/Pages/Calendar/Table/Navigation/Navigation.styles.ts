@@ -10,23 +10,28 @@ export const Container = styled.div`
 `;
 
 const common = css`
-    background-color: unset !important;
     border: 1px solid lightgray;
     color: var(--darkerGray);
     margin: 0 5px;
     font-size: 18px;
+    transition: background-color 0.2s;
+    background-color: white;
+
+    :hover {
+        background-color: var(--lighterGray);
+        color: var(--darkGrey);
+    }
+
+    :active {
+        background-color: var(--lighterGray);
+        color: var(--darkerGrey);
+    }
 `;
 
 export const Button = styled(ButtonBase)`
     width: 2.5rem;
     height: 2.5rem;
     padding: 0;
-    transition: font-size 0.2s;
-    :hover,
-    :active {
-        font-size: 20px;
-    }
-
     ${common}
 `;
 

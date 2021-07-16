@@ -31,7 +31,7 @@ export default function EventsSidebar() {
                     <>
                         <Header>
                             <Title>
-                                {selectedDay.toLocaleString('pt-BR', {
+                                {selectedDay.toLocaleString(undefined, {
                                     year: 'numeric',
                                     month: 'numeric',
                                     day: 'numeric'
@@ -58,6 +58,7 @@ export default function EventsSidebar() {
                                 <NewEvent
                                     visible={isNewEventVisible}
                                     hide={() => setIsNewEventVisible(false)}
+                                    day={selectedDay}
                                 />
                             </ButtonContainer>
                         ) : null}
