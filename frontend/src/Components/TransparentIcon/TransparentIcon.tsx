@@ -1,5 +1,5 @@
 import Icon from '../Icon';
-import { names } from '../Icon/SVG';
+import { names } from '../Icon/SVG/SVG';
 import { Button } from './TransparentIcon.styles';
 
 type props = {

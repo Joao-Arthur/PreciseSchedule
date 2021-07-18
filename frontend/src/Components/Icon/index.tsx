@@ -1,4 +1,4 @@
-import SVG, { names } from './SVG';
+import SVG, { names } from './SVG/SVG';
 import styled from 'styled-components';
 
 type props = {

@@ -44,8 +44,6 @@ type props = {
     year: number;
 };
 
-const options = Range(1900, 2100);
-
 export default function Navigation({
     setPreviousYear,
     setNextYear,
@@ -57,6 +55,8 @@ export default function Navigation({
     year
 }: props) {
     const months = Device.isMobile ? monthsOfYearAbbrev : monthsOfYear;
+
+    const options = Range(year, 4);
 
     return Device.isMobile ? (
         <Container>
