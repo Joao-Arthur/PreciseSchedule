@@ -1,3 +1,3 @@
-import Events from './Events';
+import EventsList from './EventsList';
 
-export default Events;
+export default EventsList;

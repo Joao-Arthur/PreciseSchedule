@@ -1,5 +1,5 @@
 import Event from '../EventListItem';
-import { Container } from './Events.styles';
+import { Container } from './EventsList.styles';
 
 export default function Events() {
     return (

@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import Modal from '../../../Modal';
 import { ModalForm, Field, Group } from '../../../../Components/Form';
-import { Container, Text, Actions, Info, Edit, Delete } from './Event.styles';
+import {
+    Container,
+    Text,
+    Actions,
+    Info,
+    Edit,
+    Delete
+} from './EventListItem.styles';
 
 export default function Event() {
     const [isEditVisible, setIsEditVisible] = useState(false);

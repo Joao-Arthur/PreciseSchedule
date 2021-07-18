@@ -55,6 +55,7 @@ export default function EventsSidebar() {
                                     visible={isNewEventVisible}
                                     hide={() => setIsNewEventVisible(false)}
                                     day={selectedDay}
+                                    mode='NEW'
                                 />
                             </ButtonContainer>
                         ) : null}
