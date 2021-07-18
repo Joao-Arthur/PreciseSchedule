@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from '../../../Modal';
 import { ModalForm, Field, Group } from '../../../../Components/Form';
-import { Container, Text, Actions, Close, Edit } from './Event.styles';
+import { Container, Text, Actions, Info, Edit, Delete } from './Event.styles';
 
 export default function Event() {
     const [isEditVisible, setIsEditVisible] = useState(false);
@@ -25,6 +25,7 @@ export default function Event() {
             <Container>
                 <Text>jesse's birthday</Text>
                 <Actions>
+                    <Info onClick={() => {}} />
                     <Edit onClick={() => setIsEditVisible(!isEditVisible)} />
                     <Modal
                         visible={isEditVisible}
@@ -149,7 +150,7 @@ export default function Event() {
                             </Group>
                         </ModalForm>
                     </Modal>
-                    <Close
+                    <Delete
                         onClick={() => setIsDeleteVisible(!isDeleteVisible)}
                     />
                     <Modal
@@ -158,9 +159,7 @@ export default function Event() {
                         onCancel={() => setIsDeleteVisible(false)}
                         onConfirm={() => setIsDeleteVisible(false)}
                     >
-                        <>
-                            <p>This action can't be undone, are you sure?</p>
-                        </>
+                        <p>This action can't be undone, are you sure?</p>
                     </Modal>
                 </Actions>
             </Container>

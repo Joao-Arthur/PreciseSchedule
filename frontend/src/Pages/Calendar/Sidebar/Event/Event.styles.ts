@@ -18,10 +18,10 @@ export const Actions = styled.div`
     display: flex;
 `;
 
-export const Close = styled(ButtonIcon).attrs({
-    name: 'close',
-    size: Device.isMobile ? 25 : 15,
+export const Info = styled(ButtonIcon).attrs({
+    name: 'info',
     color: 'gray',
+    size: Device.isMobile ? 25 : 15,
     buttonSize: Device.isMobile ? 40 : 30
 })`
     margin: 0 5px;
@@ -29,8 +29,17 @@ export const Close = styled(ButtonIcon).attrs({
 
 export const Edit = styled(ButtonIcon).attrs({
     name: 'edit',
-    size: Device.isMobile ? 25 : 15,
     color: 'gray',
+    size: Device.isMobile ? 25 : 15,
+    buttonSize: Device.isMobile ? 40 : 30
+})`
+    margin: 0 5px;
+`;
+
+export const Delete = styled(ButtonIcon).attrs({
+    name: 'close',
+    color: 'gray',
+    size: Device.isMobile ? 25 : 15,
     buttonSize: Device.isMobile ? 40 : 30
 })`
     margin: 0 5px;

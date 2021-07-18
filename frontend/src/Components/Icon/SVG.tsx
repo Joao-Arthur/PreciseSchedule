@@ -1,11 +1,12 @@
-import { ReactComponent as hamburguer } from './hamburguer.svg';
-import { ReactComponent as user } from './user.svg';
-import { ReactComponent as settings } from './settings.svg';
-import { ReactComponent as signOut } from './signOut.svg';
-import { ReactComponent as close } from './close.svg';
-import { ReactComponent as edit } from './edit.svg';
+import { ReactComponent as hamburguer } from './SVG/hamburguer.svg';
+import { ReactComponent as user } from './SVG/user.svg';
+import { ReactComponent as settings } from './SVG/settings.svg';
+import { ReactComponent as signOut } from './SVG/signOut.svg';
+import { ReactComponent as close } from './SVG/close.svg';
+import { ReactComponent as edit } from './SVG/edit.svg';
+import { ReactComponent as info } from './SVG/info.svg';
 
-const SVGs = { hamburguer, user, settings, signOut, close, edit };
+const SVGs = { hamburguer, user, settings, signOut, close, edit, info };
 
 export type names = keyof typeof SVGs;
 
