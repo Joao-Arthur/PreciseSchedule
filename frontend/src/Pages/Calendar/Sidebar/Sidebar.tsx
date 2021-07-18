@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from '../../../Domains/Calendar';
 import { StateType } from '../../../Store';
-import Events from './Events';
+import Events from './EventsList';
 import {
     Container,
     Content,

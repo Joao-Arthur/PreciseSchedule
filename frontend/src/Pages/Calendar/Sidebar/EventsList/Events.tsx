@@ -1,4 +1,4 @@
-import Event from '../Event';
+import Event from '../EventListItem';
 import { Container } from './Events.styles';
 
 export default function Events() {

@@ -1,14 +1,21 @@
 import { useState } from 'react';
-import Modal from '../../../Modal';
-import { ModalForm, Field, Group } from '../../../../Components/Form';
+import Modal from '../../Modal';
+import { ModalForm, Field, Group } from '../../../Components/Form';
+
+enum Mode {
+    NEW = 'NEW',
+    EDIT = 'EDIT',
+    INFO = 'INFO'
+}
 
 type props = {
     visible: boolean;
     hide: () => void;
     day: Date;
+    mode: keyof typeof Mode;
 };
 
-export default function NewEvent({ visible, hide, day }: props) {
+export default function EventRegister({ visible, hide, day, mode }: props) {
     const [name, setName] = useState('');
     const [category, setCategory] = useState('apointment');
     const [importance, setImportance] = useState('low');
@@ -23,6 +30,9 @@ export default function NewEvent({ visible, hide, day }: props) {
     const [emailNotification, setEmailNotification] = useState(false);
 
     const isBirthday = category === 'birthday';
+    const isNew = mode === 'NEW';
+    const isEdit = mode === 'EDIT';
+    const isInfo = mode === 'INFO';
 
     return (
         <Modal
@@ -39,6 +49,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                     value={name}
                     onChange={setName}
                     required
+                    readOnly={isInfo}
                 />
                 <Group>
                     <Field
@@ -54,6 +65,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         ]}
                         value={category}
                         onChange={setCategory}
+                        readOnly={isInfo}
                     />
                     <Field
                         type='select'
@@ -62,6 +74,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         options={['high', 'average', 'low']}
                         value={importance}
                         onChange={setImportance}
+                        readOnly={isInfo}
                     />
                 </Group>
                 <Group>
@@ -81,7 +94,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         value={isBirthday ? '00:00' : startTime}
                         onChange={setStartTime}
                         required
-                        readOnly={isBirthday}
+                        readOnly={isBirthday || isInfo}
                     />
                 </Group>
                 <Group>
@@ -101,7 +114,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         value={isBirthday ? '23:59' : endTime}
                         onChange={setEndTime}
                         required
-                        readOnly={isBirthday}
+                        readOnly={isBirthday || isInfo}
                     />
                 </Group>
                 <Group>
@@ -111,6 +124,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         name='repeats'
                         value={isBirthday || repeats}
                         onChange={setRepeats}
+                        readOnly={isInfo}
                     />
                     <Field
                         type='toggle'
@@ -118,6 +132,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         name='weekendRepeat'
                         value={weekendRepeat}
                         onChange={setWeekendRepeat}
+                        readOnly={isInfo}
                         invisible={
                             isBirthday ||
                             !['everyday', 'every other day'].includes(frequency)
@@ -143,7 +158,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                     ]}
                     value={isBirthday ? 'every year' : frequency}
                     onChange={setFrequency}
-                    readOnly={isBirthday}
+                    readOnly={isBirthday || isInfo}
                     invisible={!repeats && !isBirthday}
                 />
                 <Group>
@@ -153,6 +168,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         name='browserNotification'
                         value={browserNotification}
                         onChange={setBrowserNotification}
+                        readOnly={isInfo}
                     />
                     <Field
                         type='toggle'
@@ -160,6 +176,7 @@ export default function NewEvent({ visible, hide, day }: props) {
                         name='emailNotification'
                         value={emailNotification}
                         onChange={setEmailNotification}
+                        readOnly={isInfo}
                     />
                 </Group>
             </ModalForm>
