@@ -12,7 +12,7 @@ import {
     Button,
     ButtonContainer
 } from './Sidebar.styles';
-import NewEvent from '../Event/NewEvent';
+import EventRegister from '../Event/EventRegister';
 
 export default function EventsSidebar() {
     const dispatch = useDispatch();
@@ -51,7 +51,7 @@ export default function EventsSidebar() {
                                 >
                                     NEW EVENT
                                 </Button>
-                                <NewEvent
+                                <EventRegister
                                     visible={isNewEventVisible}
                                     hide={() => setIsNewEventVisible(false)}
                                     day={selectedDay}
