@@ -12,7 +12,7 @@ import {
     Button,
     ButtonContainer
 } from './Sidebar.styles';
-import EventRegister from '../Event/EventRegister';
+import EventRegister from '../EventRegister';
 
 export default function EventsSidebar() {
     const dispatch = useDispatch();
