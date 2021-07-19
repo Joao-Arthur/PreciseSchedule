@@ -17,4 +17,5 @@ export const Input = styled.input`
 
 export const SelectInput = styled.select`
     ${InputStyle}
+    cursor: pointer;
 `;

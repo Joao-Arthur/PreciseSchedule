@@ -8,7 +8,6 @@ It is a monorepo with backend written in _NestJS_ and frontend written in _React
 
 ### Next Steps
 
-- unify "edit event modal" and "create event modal"
 - mongo on backend
 - improve password validation
 - integration tests backend and frontend with mobile / multiple browsers

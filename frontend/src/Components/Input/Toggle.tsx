@@ -19,7 +19,7 @@ export default function Toggle({
                 type='checkbox'
                 name={name}
                 checked={value}
-                readOnly={readOnly}
+                disabled={readOnly}
                 onChange={e => onChange(e.target.checked)}
             />
             <Span />
