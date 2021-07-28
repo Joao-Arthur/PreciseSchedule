@@ -1,6 +1,13 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@nivo/bar': ^0.73.1
+  '@nivo/calendar': ^0.73.0
+  '@nivo/core': ^0.73.0
+  '@nivo/pie': ^0.73.0
+  '@redux-devtools/core': ^3.9.0
+  '@redux-devtools/dock-monitor': ^1.4.0
+  '@redux-devtools/log-monitor': ^2.3.0
   '@testing-library/jest-dom': ^5.14.1
   '@testing-library/react': ^11.2.7
   '@testing-library/user-event': ^13.2.1
@@ -27,13 +34,16 @@ specifiers:
   react-scripts: 4.0.3
   redux: ^4.1.0
   redux-devtools: ^3.7.0
-  redux-devtools-extension: ^2.13.9
   redux-saga: ^1.1.3
   styled-components: ^5.3.0
   typescript: ^4.3.5
   web-vitals: ^1.1.2
 
 dependencies:
+  '@nivo/bar': 0.73.1_d2d88a10f5f59d9c4de0292bca2d5fe7
+  '@nivo/calendar': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
+  '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+  '@nivo/pie': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
   immer: 9.0.5
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -44,12 +54,14 @@ dependencies:
   react-scripts: 4.0.3_react@17.0.2+typescript@4.3.5
   redux: 4.1.0
   redux-devtools: 3.7.0_5527f171b90f9b4118f62c8991bf7d26
-  redux-devtools-extension: 2.13.9_redux@4.1.0
   redux-saga: 1.1.3
   styled-components: 5.3.0_react-dom@17.0.2+react@17.0.2
   web-vitals: 1.1.2
 
 devDependencies:
+  '@redux-devtools/core': 3.9.0_5527f171b90f9b4118f62c8991bf7d26
+  '@redux-devtools/dock-monitor': 1.4.0_9a9eaac94b7959a6b31c4582b94b4032
+  '@redux-devtools/log-monitor': 2.3.0_9a9eaac94b7959a6b31c4582b94b4032
   '@testing-library/jest-dom': 5.14.1
   '@testing-library/react': 11.2.7_react-dom@17.0.2+react@17.0.2
   '@testing-library/user-event': 13.2.1
@@ -1865,6 +1877,198 @@ packages:
       '@types/yargs': 15.0.14
       chalk: 4.1.1
 
+  /@nivo/annotations/0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7:
+    resolution: {integrity: sha512-1rLAX5tcQh1Zo8ToENIO2WI1va72UhKc9K3219rtGRhXsy3f2hbmRZiw/iOJCLqzGtmT8RIKA++hOExWSyh4dQ==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/colors': 0.73.0_@nivo+core@0.73.0+react@17.0.2
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      '@react-spring/web': 9.2.4_react-dom@17.0.2+react@17.0.2
+      lodash: 4.17.21
+      react: 17.0.2
+    transitivePeerDependencies:
+      - prop-types
+      - react-dom
+    dev: false
+
+  /@nivo/arcs/0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7:
+    resolution: {integrity: sha512-jIjqr3McQUrDWoP6X4CZh8Tg0HphLZdU6K1IDfna2nkG8Dkr2LcB7Ejt5SFbhff+0SC/hjvjNC//h8vcynl7yA==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/colors': 0.73.0_@nivo+core@0.73.0+react@17.0.2
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      '@react-spring/web': 9.2.4_react-dom@17.0.2+react@17.0.2
+      d3-shape: 1.3.7
+      react: 17.0.2
+    transitivePeerDependencies:
+      - prop-types
+      - react-dom
+    dev: false
+
+  /@nivo/axes/0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7:
+    resolution: {integrity: sha512-tyB+PqQTW117q9E5vz1jVTywDG6mjqD/RvtVGeqAwHziHAQxpSVb+r0UUtTFOgyaddEbLDaOXPqjD3l6Npo89g==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      prop-types: '>= 15.5.10 < 16.0.0'
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      '@nivo/scales': 0.73.0
+      '@react-spring/web': 9.2.4_react-dom@17.0.2+react@17.0.2
+      d3-format: 1.4.5
+      d3-time: 1.1.0
+      d3-time-format: 3.0.0
+      react: 17.0.2
+    transitivePeerDependencies:
+      - react-dom
+    dev: false
+
+  /@nivo/bar/0.73.1_d2d88a10f5f59d9c4de0292bca2d5fe7:
+    resolution: {integrity: sha512-sBltCxCEgFV7kErW4K14OSUjsU1cmYAWWvKoelVI1NTJ0MWhH/Z4UVip6+Zk7/TOzdZntT0x3SE6cAc9Ov7rxg==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/annotations': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
+      '@nivo/axes': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
+      '@nivo/colors': 0.73.0_@nivo+core@0.73.0+react@17.0.2
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      '@nivo/legends': 0.73.0_@nivo+core@0.73.0+react@17.0.2
+      '@nivo/recompose': 0.73.0_react@17.0.2
+      '@nivo/scales': 0.73.0
+      '@nivo/tooltip': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
+      '@react-spring/web': 9.2.4_react-dom@17.0.2+react@17.0.2
+      d3-scale: 3.3.0
+      d3-shape: 1.3.7
+      lodash: 4.17.21
+      react: 17.0.2
+    transitivePeerDependencies:
+      - prop-types
+      - react-dom
+    dev: false
+
+  /@nivo/calendar/0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7:
+    resolution: {integrity: sha512-loqJ16g8IgHJ4zf60ZaWhOE4NuMayG9TYZxHpjb77PKR7Zo/uu0CaWBOfh2fbv+9LbtsD1og1RllGzG80/IAGA==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      '@nivo/legends': 0.73.0_@nivo+core@0.73.0+react@17.0.2
+      '@nivo/tooltip': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
+      d3-scale: 3.3.0
+      d3-time: 1.1.0
+      d3-time-format: 3.0.0
+      lodash: 4.17.21
+      react: 17.0.2
+    transitivePeerDependencies:
+      - prop-types
+      - react-dom
+    dev: false
+
+  /@nivo/colors/0.73.0_@nivo+core@0.73.0+react@17.0.2:
+    resolution: {integrity: sha512-6T1FBR+sv7cCfAZCkjeY71//W4RqDNGkXJqsnyJA/6EsjLEbOBc1l2v66cRmZs2bioOkYcS+f4hQxB9d1WAgwA==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      prop-types: '>= 15.5.10 < 16.0.0'
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      d3-color: 2.0.0
+      d3-scale: 3.3.0
+      d3-scale-chromatic: 2.0.0
+      lodash: 4.17.21
+      react: 17.0.2
+      react-motion: 0.5.2_react@17.0.2
+    dev: false
+
+  /@nivo/core/0.73.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-NFKSk5NQgC2NB3olG8hltN4b4Ri0rB0vt3q1yGmQj+RdGRS4f82Dtwt5Ratxu6QeZD8lt0DhqN9Q7TJ+j/kt0g==}
+    peerDependencies:
+      '@nivo/tooltip': 0.73.0
+      prop-types: '>= 15.5.10 < 16.0.0'
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/recompose': 0.73.0_react@17.0.2
+      '@react-spring/web': 9.2.4_react-dom@17.0.2+react@17.0.2
+      d3-color: 2.0.0
+      d3-format: 1.4.5
+      d3-hierarchy: 1.1.9
+      d3-interpolate: 2.0.1
+      d3-scale: 3.3.0
+      d3-scale-chromatic: 2.0.0
+      d3-shape: 1.3.7
+      d3-time-format: 3.0.0
+      lodash: 4.17.21
+      react: 17.0.2
+      resize-observer-polyfill: 1.5.1
+    transitivePeerDependencies:
+      - react-dom
+    dev: false
+
+  /@nivo/legends/0.73.0_@nivo+core@0.73.0+react@17.0.2:
+    resolution: {integrity: sha512-OWyu3U6PJL2VGlAfoz6nTU4opXHlR0yp0h+0Q0rf/hMKQLiew6NmecKcR1Nx2Qw4dJHgOnZRXqQ6vQrhcNV3WQ==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      prop-types: '>= 15.5.10 < 16.0.0'
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      react: 17.0.2
+    dev: false
+
+  /@nivo/pie/0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7:
+    resolution: {integrity: sha512-CWwpK9NSs1hfqvhcVvYJMTk+qD/tuxKDloURjfgJglUOs5m2NT1osDJN64jr02aZ6wZyplkP6WvJuc4K6mej6Q==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      '@nivo/arcs': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
+      '@nivo/colors': 0.73.0_@nivo+core@0.73.0+react@17.0.2
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      '@nivo/legends': 0.73.0_@nivo+core@0.73.0+react@17.0.2
+      '@nivo/tooltip': 0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7
+      d3-shape: 1.3.7
+      react: 17.0.2
+    transitivePeerDependencies:
+      - prop-types
+      - react-dom
+    dev: false
+
+  /@nivo/recompose/0.73.0_react@17.0.2:
+    resolution: {integrity: sha512-WzFJMkyfX1jGPxjcGjvMKxzodgARv9x+alWbr4o39wJ+0eqpZlq6K7oaJ0RnVazcKrKxIe7mKK2piZ0usRt+Zg==}
+    peerDependencies:
+      react: '>= 16.14.0 < 18.0.0'
+    dependencies:
+      react: 17.0.2
+      react-lifecycles-compat: 3.0.4
+    dev: false
+
+  /@nivo/scales/0.73.0:
+    resolution: {integrity: sha512-xnvCEXz6KkT7/SG4ubJ/hBtbMcTraZnJSKKSVkttBkvfIhkSpQChHkNX8g0Wd4hpwBv2QlltLbjoD6pJ0b/mRA==}
+    dependencies:
+      d3-scale: 3.3.0
+      d3-time: 1.1.0
+      d3-time-format: 3.0.0
+      lodash: 4.17.21
+    dev: false
+
+  /@nivo/tooltip/0.73.0_d2d88a10f5f59d9c4de0292bca2d5fe7:
+    resolution: {integrity: sha512-6tRRV5mzn1siArAlChXqBC/ISD0AV0tvGRbuyZokVXcM2xbvtfi6OAPaZ10UYbVejBo1rRI3gnhhyNkP0UG2ug==}
+    peerDependencies:
+      '@nivo/core': 0.73.0
+    dependencies:
+      '@nivo/core': 0.73.0_react-dom@17.0.2+react@17.0.2
+      '@react-spring/web': 9.2.4_react-dom@17.0.2+react@17.0.2
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
+
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -1927,6 +2131,125 @@ packages:
       webpack: 4.44.2
       webpack-dev-server: 3.11.1_webpack@4.44.2
     dev: false
+
+  /@react-spring/animated/9.2.4_react@17.0.2:
+    resolution: {integrity: sha512-AfV6ZM8pCCAT29GY5C8/1bOPjZrv/7kD0vedjiE/tEYvNDwg9GlscrvsTViWR2XykJoYrDfdkYArrldWpsCJ5g==}
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0
+    dependencies:
+      '@react-spring/shared': 9.2.4_react@17.0.2
+      '@react-spring/types': 9.2.4
+      react: 17.0.2
+    dev: false
+
+  /@react-spring/core/9.2.4_react@17.0.2:
+    resolution: {integrity: sha512-R+PwyfsjiuYCWqaTTfCpYpRmsP0h87RNm7uxC1Uxy7QAHUfHEm2sAHn+AdHPwq/MbVwDssVT8C5yf2WGcqiXGg==}
+    requiresBuild: true
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0
+    dependencies:
+      '@react-spring/animated': 9.2.4_react@17.0.2
+      '@react-spring/shared': 9.2.4_react@17.0.2
+      '@react-spring/types': 9.2.4
+      react: 17.0.2
+    dev: false
+
+  /@react-spring/rafz/9.2.4:
+    resolution: {integrity: sha512-SOKf9eue+vAX+DGo7kWYNl9i9J3gPUlQjifIcV9Bzw9h3i30wPOOP0TjS7iMG/kLp2cdHQYDNFte6nt23VAZkQ==}
+    dev: false
+
+  /@react-spring/shared/9.2.4_react@17.0.2:
+    resolution: {integrity: sha512-ZEr4l2BxmyFRUvRA2VCkPfCJii4E7cGkwbjmTBx1EmcGrOnde/V2eF5dxqCTY3k35QuCegkrWe0coRJVkh8q2Q==}
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0
+    dependencies:
+      '@react-spring/rafz': 9.2.4
+      '@react-spring/types': 9.2.4
+      react: 17.0.2
+    dev: false
+
+  /@react-spring/types/9.2.4:
+    resolution: {integrity: sha512-zHUXrWO8nweUN/ISjrjqU7GgXXvoEbFca1CgiE0TY0H/dqJb3l+Rhx8ecPVNYimzFg3ZZ1/T0egpLop8SOv4aA==}
+    dev: false
+
+  /@react-spring/web/9.2.4_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-vtPvOalLFvuju/MDBtoSnCyt0xXSL6Amyv82fljOuWPl1yGd4M1WteijnYL9Zlriljl0a3oXcPunAVYTD9dbDQ==}
+    peerDependencies:
+      react: ^16.8.0  || ^17.0.0
+      react-dom: ^16.8.0  || ^17.0.0
+    dependencies:
+      '@react-spring/animated': 9.2.4_react@17.0.2
+      '@react-spring/core': 9.2.4_react@17.0.2
+      '@react-spring/shared': 9.2.4_react@17.0.2
+      '@react-spring/types': 9.2.4
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /@redux-devtools/core/3.9.0_5527f171b90f9b4118f62c8991bf7d26:
+    resolution: {integrity: sha512-Jvj060Lx/JnWHvcNwHND4JCF0NJ9+yPHsZTvfHzyCbX4XWHwA0H3yn3ZhceATDG/7VJ0fq0garUab6sXgAU12A==}
+    peerDependencies:
+      react: ^0.14.9 || ^15.3.0 || ^16.0.0 || ^17.0.0
+      react-redux: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
+      redux: ^3.5.2 || ^4.0.0
+    dependencies:
+      '@redux-devtools/instrument': 1.11.0_redux@4.1.0
+      '@types/prop-types': 15.7.4
+      lodash: 4.17.21
+      prop-types: 15.7.2
+      react: 17.0.2
+      react-redux: 7.2.4_react-dom@17.0.2+react@17.0.2
+      redux: 4.1.0
+    dev: true
+
+  /@redux-devtools/dock-monitor/1.4.0_9a9eaac94b7959a6b31c4582b94b4032:
+    resolution: {integrity: sha512-di98QS6+xBiNBcMH90dULKX73luYyNkH/1mtjWLyxKSV3eJorA4NB2nhRwZanNcaxh5kC8nB/zV8El489+KvPQ==}
+    peerDependencies:
+      '@redux-devtools/core': ^3.7.0
+      '@types/react': ^16.3.0 || ^17.0.0
+      react: ^16.3.0 || ^17.0.0
+      redux: ^3.4.0 || ^4.0.0
+    dependencies:
+      '@redux-devtools/core': 3.9.0_5527f171b90f9b4118f62c8991bf7d26
+      '@types/prop-types': 15.7.4
+      '@types/react': 17.0.15
+      parse-key: 0.2.1
+      prop-types: 15.7.2
+      react: 17.0.2
+      react-dock: 0.4.0_5801e6465414ef85acbf5710ce4c0dcf
+      redux: 4.1.0
+    dev: true
+
+  /@redux-devtools/instrument/1.11.0_redux@4.1.0:
+    resolution: {integrity: sha512-/Ko8DI5jUXkRbZnCQo1kHx3remQMJ4D71C8zCJmsosignficGtta5qvdUT0DqmY9MV3MhO7HlHcBi8neKxjBzw==}
+    peerDependencies:
+      redux: ^3.4.0 || ^4.0.0
+    dependencies:
+      lodash: 4.17.21
+      redux: 4.1.0
+      symbol-observable: 2.0.3
+    dev: true
+
+  /@redux-devtools/log-monitor/2.3.0_9a9eaac94b7959a6b31c4582b94b4032:
+    resolution: {integrity: sha512-Tu0O0MStMXDUYavNDs99Ovhg3F2DigqPHjV0RtdvBxmHtxBfyTQKEpkAeI5h/y8HjRd/Jn6s5T2+gqJ5+FdxMg==}
+    peerDependencies:
+      '@redux-devtools/core': ^3.7.0
+      '@types/react': ^16.3.0 || ^17.0.0
+      react: ^16.3.0 || ^17.0.0
+      redux: ^3.4.0 || ^4.0.0
+    dependencies:
+      '@redux-devtools/core': 3.9.0_5527f171b90f9b4118f62c8991bf7d26
+      '@types/lodash.debounce': 4.0.6
+      '@types/prop-types': 15.7.4
+      '@types/react': 17.0.15
+      '@types/redux-devtools-themes': 1.0.0
+      lodash.debounce: 4.0.8
+      prop-types: 15.7.2
+      react: 17.0.2
+      react-json-tree: 0.15.0_5801e6465414ef85acbf5710ce4c0dcf
+      redux: 4.1.0
+      redux-devtools-themes: 1.0.0
+    dev: true
 
   /@redux-saga/core/1.1.3:
     resolution: {integrity: sha512-8tInBftak8TPzE6X13ABmEtRJGjtK17w7VUs7qV17S8hCO5S3+aUTWZ/DBsBJPdE8Z5jOPwYALyvofgq1Ws+kg==}
@@ -2219,6 +2542,10 @@ packages:
       '@babel/types': 7.14.8
     dev: false
 
+  /@types/base16/1.0.2:
+    resolution: {integrity: sha512-oYO/U4VD1DavwrKuCSQWdLG+5K22SLPem2OQaHmFcQuwHoVeGC+JGVRji2MUqZUAIQZHEonOeVfAX09hYiLsdg==}
+    dev: true
+
   /@types/eslint/7.28.0:
     resolution: {integrity: sha512-07XlgzX0YJUn4iG1ocY4IX9DzKSmMGUs6ESKlxWhZRaa0fatIWaHWUVapcuGa8r5HFnTqzj+4OCjd5f7EZ/i/A==}
     dependencies:
@@ -2284,6 +2611,22 @@ packages:
   /@types/json-schema/7.0.8:
     resolution: {integrity: sha512-YSBPTLTVm2e2OoQIDYx8HaeWJ5tTToLH67kXR7zYNGupXMEHa2++G8k+DczX2cFVgalypqtyZIcU19AFcmOpmg==}
 
+  /@types/lodash.curry/4.1.6:
+    resolution: {integrity: sha512-x3ctCcmOYqRrihNNnQJW6fe/yZFCgnrIa6p80AiPQRO8Jis29bBdy1dEw1FwngoF/mCZa3Bx+33fUZvOEE635Q==}
+    dependencies:
+      '@types/lodash': 4.14.171
+    dev: true
+
+  /@types/lodash.debounce/4.0.6:
+    resolution: {integrity: sha512-4WTmnnhCfDvvuLMaF3KV4Qfki93KebocUF45msxhYyjMttZDQYzHkO639ohhk8+oco2cluAFL3t5+Jn4mleylQ==}
+    dependencies:
+      '@types/lodash': 4.14.171
+    dev: true
+
+  /@types/lodash/4.14.171:
+    resolution: {integrity: sha512-7eQ2xYLLI/LsicL2nejW9Wyko3lcpN6O/z0ZLHrEQsg280zIdCv1t/0m6UtBjUHokCGBQ3gYTbHzDkZ1xOBwwg==}
+    dev: true
+
   /@types/minimatch/3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
     dev: false
@@ -2345,6 +2688,12 @@ packages:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
       csstype: 3.0.8
+
+  /@types/redux-devtools-themes/1.0.0:
+    resolution: {integrity: sha512-ul3x0MYM5Nzj57Fh9wINyHFne8vZL04RC4nWAUWLYcL105vHoa/oJyopuKOrQmqVmhqmDiL4c9FfLbUmIB7TWQ==}
+    dependencies:
+      '@types/base16': 1.0.2
+    dev: true
 
   /@types/redux-saga-tester/1.0.3:
     resolution: {integrity: sha512-DgQYVe/8cFBt7Cj1nFlPMV2Tr2OI7bbOZUFjuaRgm8M8UXp9Ln5JezQt3Y+BTkLYlnLZ2jeDFnY3s/bVAtfW1w==}
@@ -3317,6 +3666,10 @@ packages:
       pascalcase: 0.1.1
     dev: false
 
+  /base16/1.0.0:
+    resolution: {integrity: sha1-4pf2DX7BAUp6lxo568ipjAtoHnA=}
+    dev: true
+
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
@@ -3893,14 +4246,12 @@ packages:
     dependencies:
       color-name: 1.1.4
       simple-swizzle: 0.2.2
-    dev: false
 
   /color/3.2.1:
     resolution: {integrity: sha512-aBl7dZI9ENN6fUGC7mWpMTPNHmWUSNan9tuWN6ahh5ZLNk9baLJOnSMlrQkHcrfFgz2/RigjUVAjdx36VcemKA==}
     dependencies:
       color-convert: 1.9.3
       color-string: 1.6.0
-    dev: false
 
   /colorette/1.2.2:
     resolution: {integrity: sha512-MKGMzyfeuutC/ZJ1cba9NqcNpfeqMUcYmyF1ZFY6/Cn7CNSAKx6a+s48sqLqyAiZuaP2TcqMhoo+dlwFnVxT9w==}
@@ -4429,6 +4780,73 @@ packages:
     dependencies:
       es5-ext: 0.10.53
       type: 1.2.0
+    dev: false
+
+  /d3-array/2.12.1:
+    resolution: {integrity: sha512-B0ErZK/66mHtEsR1TkPEEkwdy+WDesimkM5gpZr5Dsg54BiTA5RXtYW5qTLIAcekaS9xfZrzBLF/OAkB3Qn1YQ==}
+    dependencies:
+      internmap: 1.0.1
+    dev: false
+
+  /d3-color/2.0.0:
+    resolution: {integrity: sha512-SPXi0TSKPD4g9tw0NMZFnR95XVgUZiBH+uUTqQuDu1OsE2zomHU7ho0FISciaPvosimixwHFl3WHLGabv6dDgQ==}
+    dev: false
+
+  /d3-format/1.4.5:
+    resolution: {integrity: sha512-J0piedu6Z8iB6TbIGfZgDzfXxUFN3qQRMofy2oPdXzQibYGqPB/9iMcxr/TGalU+2RsyDO+U4f33id8tbnSRMQ==}
+    dev: false
+
+  /d3-hierarchy/1.1.9:
+    resolution: {integrity: sha512-j8tPxlqh1srJHAtxfvOUwKNYJkQuBFdM1+JAUfq6xqH5eAqf93L7oG1NVqDa4CpFZNvnNKtCYEUC8KY9yEn9lQ==}
+    dev: false
+
+  /d3-interpolate/2.0.1:
+    resolution: {integrity: sha512-c5UhwwTs/yybcmTpAVqwSFl6vrQ8JZJoT5F7xNFK9pymv5C0Ymcc9/LIJHtYIggg/yS9YHw8i8O8tgb9pupjeQ==}
+    dependencies:
+      d3-color: 2.0.0
+    dev: false
+
+  /d3-path/1.0.9:
+    resolution: {integrity: sha512-VLaYcn81dtHVTjEHd8B+pbe9yHWpXKZUC87PzoFmsFrJqgFwDe/qxfp5MlfsfM1V5E/iVt0MmEbWQ7FVIXh/bg==}
+    dev: false
+
+  /d3-scale-chromatic/2.0.0:
+    resolution: {integrity: sha512-LLqy7dJSL8yDy7NRmf6xSlsFZ6zYvJ4BcWFE4zBrOPnQERv9zj24ohnXKRbyi9YHnYV+HN1oEO3iFK971/gkzA==}
+    dependencies:
+      d3-color: 2.0.0
+      d3-interpolate: 2.0.1
+    dev: false
+
+  /d3-scale/3.3.0:
+    resolution: {integrity: sha512-1JGp44NQCt5d1g+Yy+GeOnZP7xHo0ii8zsQp6PGzd+C1/dl0KGsp9A7Mxwp+1D1o4unbTTxVdU/ZOIEBoeZPbQ==}
+    dependencies:
+      d3-array: 2.12.1
+      d3-format: 1.4.5
+      d3-interpolate: 2.0.1
+      d3-time: 2.1.1
+      d3-time-format: 3.0.0
+    dev: false
+
+  /d3-shape/1.3.7:
+    resolution: {integrity: sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==}
+    dependencies:
+      d3-path: 1.0.9
+    dev: false
+
+  /d3-time-format/3.0.0:
+    resolution: {integrity: sha512-UXJh6EKsHBTjopVqZBhFysQcoXSv/5yLONZvkQ5Kk3qbwiUYkdX17Xa1PT6U1ZWXGGfB1ey5L8dKMlFq2DO0Ag==}
+    dependencies:
+      d3-time: 2.1.1
+    dev: false
+
+  /d3-time/1.1.0:
+    resolution: {integrity: sha512-Xh0isrZ5rPYYdqhAVk8VLnMEidhz5aP7htAADH6MfzgmmicPkTo8LhkLxci61/lCB7n7UmE3bN0leRt+qvkLxA==}
+    dev: false
+
+  /d3-time/2.1.1:
+    resolution: {integrity: sha512-/eIQe/eR4kCQwq7yxi7z4c6qEXf2IYGcjoWB5OOQy4Tq9Uv39/947qlDcN2TLkiTzQWzvnsuYPB9TrWaNfipKQ==}
+    dependencies:
+      d3-array: 2.12.1
     dev: false
 
   /damerau-levenshtein/1.0.7:
@@ -6343,6 +6761,10 @@ packages:
       side-channel: 1.0.4
     dev: false
 
+  /internmap/1.0.1:
+    resolution: {integrity: sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw==}
+    dev: false
+
   /ip-regex/2.1.0:
     resolution: {integrity: sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk=}
     engines: {node: '>=4'}
@@ -6394,7 +6816,6 @@ packages:
 
   /is-arrayish/0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
-    dev: false
 
   /is-bigint/1.0.2:
     resolution: {integrity: sha512-0JV5+SOCQkIdzjBK9buARcV804Ddu7A0Qet6sHi3FimE9ne6m4BGQZfRn+NZiXbBk4F4XmHfDZIipLj9pX8dSA==}
@@ -7538,9 +7959,12 @@ packages:
   /lodash.clonedeep/4.5.0:
     resolution: {integrity: sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=}
 
+  /lodash.curry/4.1.1:
+    resolution: {integrity: sha1-JI42By7ekGUB11lmIAqG2riyMXA=}
+    dev: true
+
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha1-gteb/zCmfEAF/9XiUVMArZyk168=}
-    dev: false
 
   /lodash.memoize/4.1.2:
     resolution: {integrity: sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=}
@@ -8137,7 +8561,6 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
     engines: {node: '>=0.10.0'}
-    dev: false
 
   /object-copy/0.1.0:
     resolution: {integrity: sha1-fn2Fi3gb18mRpBupde04EnVOmYw=}
@@ -8450,6 +8873,10 @@ packages:
       lines-and-columns: 1.1.6
     dev: false
 
+  /parse-key/0.2.1:
+    resolution: {integrity: sha1-e892WVU242B1Zkvk1ofkvdkQII8=}
+    dev: true
+
   /parse5/6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
     dev: false
@@ -8540,6 +8967,10 @@ packages:
       ripemd160: 2.0.2
       safe-buffer: 5.2.1
       sha.js: 2.4.11
+    dev: false
+
+  /performance-now/0.2.0:
+    resolution: {integrity: sha1-M+8wxcd9TqIcWlOGnZG1bY8lVeU=}
     dev: false
 
   /performance-now/2.1.0:
@@ -9370,7 +9801,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
-    dev: false
 
   /proxy-addr/2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -9521,6 +9951,17 @@ packages:
       whatwg-fetch: 3.6.2
     dev: false
 
+  /react-base16-styling/0.8.0:
+    resolution: {integrity: sha512-ElvciPaL4xpWh7ISX7ugkNS/dvoh7DpVMp4t93ngnEsS2LkMd8Gu+cDDOLis2rj4889CNK662UdjOfv3wvZg9w==}
+    dependencies:
+      '@types/base16': 1.0.2
+      '@types/lodash.curry': 4.1.6
+      base16: 1.0.0
+      color: 3.2.1
+      csstype: 3.0.8
+      lodash.curry: 4.1.1
+    dev: true
+
   /react-dev-utils/11.0.4:
     resolution: {integrity: sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A==}
     engines: {node: '>=10'}
@@ -9550,6 +9991,19 @@ packages:
       strip-ansi: 6.0.0
       text-table: 0.2.0
     dev: false
+
+  /react-dock/0.4.0_5801e6465414ef85acbf5710ce4c0dcf:
+    resolution: {integrity: sha512-/Z87agsAOcU5gcb3lAgjaTciFXBrBAdyGD8qS2hTfBgMj5F4QXVNqnbEjgS+YeQ/RWXJyQrDZJxr0ZVrCIagcQ==}
+    peerDependencies:
+      '@types/react': ^16.3.0 || ^17.0.0
+      react: ^16.3.0 || ^17.0.0
+    dependencies:
+      '@types/prop-types': 15.7.4
+      '@types/react': 17.0.15
+      lodash.debounce: 4.0.8
+      prop-types: 15.7.2
+      react: 17.0.2
+    dev: true
 
   /react-dom/17.0.2_react@17.0.2:
     resolution: {integrity: sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==}
@@ -9585,6 +10039,34 @@ packages:
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+
+  /react-json-tree/0.15.0_5801e6465414ef85acbf5710ce4c0dcf:
+    resolution: {integrity: sha512-/bEFXZBfLFiep6ReuzatR8mz9G7sRmejElRDgcAuqY0Jsx7llouax2DM03rlQifrUJgmvTGmPA+olyWYyGagqA==}
+    peerDependencies:
+      '@types/react': ^16.3.0 || ^17.0.0
+      react: ^16.3.0 || ^17.0.0
+    dependencies:
+      '@types/prop-types': 15.7.4
+      '@types/react': 17.0.15
+      prop-types: 15.7.2
+      react: 17.0.2
+      react-base16-styling: 0.8.0
+    dev: true
+
+  /react-lifecycles-compat/3.0.4:
+    resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+    dev: false
+
+  /react-motion/0.5.2_react@17.0.2:
+    resolution: {integrity: sha512-9q3YAvHoUiWlP3cK0v+w1N5Z23HXMj4IF4YuvjvWegWqNPfLXsOBE/V7UvQGpXxHFKRQQcNcVQE31g9SB/6qgQ==}
+    peerDependencies:
+      react: ^0.14.9 || ^15.3.0 || ^16.0.0
+    dependencies:
+      performance-now: 0.2.0
+      prop-types: 15.7.2
+      raf: 3.4.1
+      react: 17.0.2
+    dev: false
 
   /react-query/3.19.1_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-tMBVKlmWevPHYWgI8ZBEgsTulJXSuXsxDbxqANODRnPI+3hd5GRVcc7nNIYSUx3aaULt08rN3EhTMHyTcFUNJw==}
@@ -9853,14 +10335,6 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
-  /redux-devtools-extension/2.13.9_redux@4.1.0:
-    resolution: {integrity: sha512-cNJ8Q/EtjhQaZ71c8I9+BPySIBVEKssbPpskBfsXqb8HJ002A3KRVHfeRzwRo6mGPqsm7XuHTqNSNeS1Khig0A==}
-    peerDependencies:
-      redux: ^3.1.0 || ^4.0.0
-    dependencies:
-      redux: 4.1.0
-    dev: false
-
   /redux-devtools-instrument/1.10.0_redux@4.1.0:
     resolution: {integrity: sha512-X8JRBCzX2ADSMp+iiV7YQ8uoTNyEm0VPFPd4T854coz6lvRiBrFSqAr9YAS2n8Kzxx8CJQotR0QF9wsMM+3DvA==}
     deprecated: Package moved to @redux-devtools/instrument.
@@ -9871,6 +10345,12 @@ packages:
       redux: 4.1.0
       symbol-observable: 1.2.0
     dev: false
+
+  /redux-devtools-themes/1.0.0:
+    resolution: {integrity: sha1-xILc48U3OXYEX0ATSQfZ3LOuPV0=}
+    dependencies:
+      base16: 1.0.0
+    dev: true
 
   /redux-devtools/3.7.0_5527f171b90f9b4118f62c8991bf7d26:
     resolution: {integrity: sha512-Lnx3UX7mnJij2Xs+RicPK1GyKkbuodrCKtfYmJsN603wC0mc99W//xCAskGVNmRhIXg4e57m2k1CyX0kVzCsBg==}
@@ -10032,6 +10512,10 @@ packages:
 
   /requires-port/1.0.0:
     resolution: {integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=}
+    dev: false
+
+  /resize-observer-polyfill/1.5.1:
+    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
     dev: false
 
   /resolve-cwd/2.0.0:
@@ -10503,7 +10987,6 @@ packages:
     resolution: {integrity: sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo=}
     dependencies:
       is-arrayish: 0.3.2
-    dev: false
 
   /sisteransi/1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
@@ -10996,6 +11479,11 @@ packages:
   /symbol-observable/1.2.0:
     resolution: {integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==}
     engines: {node: '>=0.10.0'}
+
+  /symbol-observable/2.0.3:
+    resolution: {integrity: sha512-sQV7phh2WCYAn81oAkakC5qjq2Ml0g8ozqz03wOGnx9dDlG1de6yrF+0RAzSJD8fPUow3PTSMf2SAbOGxb93BA==}
+    engines: {node: '>=0.10'}
+    dev: true
 
   /symbol-tree/3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}

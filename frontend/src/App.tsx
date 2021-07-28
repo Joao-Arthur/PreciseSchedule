@@ -8,6 +8,7 @@ import setupStore from './Store';
 import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import StoreDevTools from './StoreDevTools';
 
 const queryClient = new QueryClient();
 const store = setupStore();
@@ -25,6 +26,7 @@ export default function App() {
                             <Routes />
                         </BasePage>
                     </BrowserRouter>
+                    <StoreDevTools />
                 </Provider>
             </QueryClientProvider>
         </StrictMode>
