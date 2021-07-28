@@ -11,7 +11,6 @@ import {
     Link,
     LogoLink
 } from './BasePage.styles';
-import Sidebar from '../../Components/Sidebar';
 import UserActions from '../../Components/UserActions';
 import User from '../../Domains/User';
 import TransparentIcon from '../../Components/TransparentIcon';
@@ -78,10 +77,7 @@ export default function BasePage({ children }: props) {
                     {logged ? <UserActions /> : getLinksByPage()}
                 </Division>
             </Header>
-            <Main>
-                {logged ? <Sidebar /> : null}
-                {children}
-            </Main>
+            <Main>{children}</Main>
         </Container>
     );
 }

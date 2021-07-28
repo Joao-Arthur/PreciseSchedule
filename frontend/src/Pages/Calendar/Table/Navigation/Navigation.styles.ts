@@ -4,7 +4,7 @@ import ButtonBase from '../../../../Components/Button';
 export const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     border-bottom: 1px solid lightgray;
     padding: 4px 0;
 `;

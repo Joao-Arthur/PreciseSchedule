@@ -13,7 +13,9 @@ export default function UserActions() {
                 color='white'
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
             />
-            {userMenuOpen ? <UserMenu /> : null}
+            {userMenuOpen ? (
+                <UserMenu onOutClick={() => setUserMenuOpen(false)} />
+            ) : null}
         </>
     );
 }

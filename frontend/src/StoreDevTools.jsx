@@ -6,7 +6,7 @@ const StoreDevTools = createDevTools(
     <DockMonitor
         toggleVisibilityKey='shift-l'
         changePositionKey='shift-k'
-        defaultIsVisible
+        defaultIsVisible={false}
     >
         <LogMonitor theme='tomorrow' />
     </DockMonitor>

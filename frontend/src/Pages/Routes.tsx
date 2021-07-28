@@ -8,6 +8,7 @@ import NotFound from './NotFound';
 import Settings from './Settings';
 import ForgotPassword from './ForgotPassword';
 import NewPassword from './NewPassword';
+import Charts from './Charts';
 
 export default function Routes() {
     return (
@@ -29,6 +30,9 @@ export default function Routes() {
             </Route>
             <Route path='/password/new'>
                 <NewPassword />
+            </Route>
+            <Route path='/charts'>
+                <Charts />
             </Route>
             <Route>
                 <NotFound />

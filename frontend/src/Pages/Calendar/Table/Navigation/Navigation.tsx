@@ -1,7 +1,8 @@
 import Device from '../../../../Core/Device';
 import Range from '../../../../Core/Range';
-import { Container, Button } from './Navigation.styles';
+import PrimaryButton from '../../../../Components/Button';
 import NavigationSelect from './NavigationSelect';
+import { Container, Button } from './Navigation.styles';
 
 const monthsOfYear = [
     'January',
@@ -58,43 +59,48 @@ export default function Navigation({
 
     const options = Range(year, 4);
 
-    return Device.isMobile ? (
+    return (
         <Container>
-            <NavigationSelect
-                type='select'
-                options={months}
-                name='month'
-                value={months[month]}
-                onChange={newMonth => setMonth(months.indexOf(newMonth))}
-            />
-            <NavigationSelect
-                type='select'
-                options={options}
-                name='month'
-                value={String(year)}
-                onChange={newYear => setYear(Number(newYear))}
-            />
-        </Container>
-    ) : (
-        <Container>
-            <Button onClick={setPreviousYear}>{'<<'}</Button>
-            <Button onClick={setPreviousMonth}>{'<'}</Button>
-            <NavigationSelect
-                type='select'
-                options={months}
-                name='month'
-                value={months[month]}
-                onChange={newMonth => setMonth(months.indexOf(newMonth))}
-            />
-            <NavigationSelect
-                type='select'
-                options={options}
-                name='month'
-                value={String(year)}
-                onChange={newYear => setYear(Number(newYear))}
-            />
-            <Button onClick={setNextMonth}>{'>'}</Button>
-            <Button onClick={setNextYear}>{'>>'}</Button>
+            <div>
+                <Button onClick={setPreviousYear}>Today</Button>
+                <select name='dfvhweuih'>
+                    <option>calendar</option>
+                    <option>activies</option>
+                </select>
+            </div>
+            <div>
+                {!Device.isMobile ? (
+                    <>
+                        <Button onClick={setPreviousYear}>{'<<'}</Button>
+                        <Button onClick={setPreviousMonth}>{'<'}</Button>
+                    </>
+                ) : null}
+                <NavigationSelect
+                    type='select'
+                    options={months}
+                    name='month'
+                    value={months[month]}
+                    onChange={newMonth => setMonth(months.indexOf(newMonth))}
+                />
+                <NavigationSelect
+                    type='select'
+                    options={options}
+                    name='month'
+                    value={String(year)}
+                    onChange={newYear => setYear(Number(newYear))}
+                />
+                {!Device.isMobile ? (
+                    <>
+                        <Button onClick={setNextMonth}>{'>'}</Button>
+                        <Button onClick={setNextYear}>{'>>'}</Button>
+                    </>
+                ) : null}
+            </div>
+            <div>
+                <PrimaryButton style={{ justifySelf: 'flex-end' }}>
+                    new
+                </PrimaryButton>
+            </div>
         </Container>
     );
 }
