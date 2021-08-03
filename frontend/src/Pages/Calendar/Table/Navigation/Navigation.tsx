@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Device from '../../../../Core/Device';
 import Range from '../../../../Core/Range';
 import PrimaryButton from '../../../../Components/Button';
@@ -41,6 +43,7 @@ type props = {
     setPreviousMonth: () => void;
     setNextMonth: () => void;
     setMonth: (newMonth: number) => void;
+    setToday: () => void;
     month: number;
     year: number;
 };
@@ -52,21 +55,24 @@ export default function Navigation({
     setPreviousMonth,
     setNextMonth,
     setMonth,
+    setToday,
     month,
     year
 }: props) {
+    const [selectedCharts, setSelectedCharts] = useState(false);
+
     const months = Device.isMobile ? monthsOfYearAbbrev : monthsOfYear;
 
     const options = Range(year, 4);
 
+    if (selectedCharts) return <Redirect to='/charts' />;
     return (
         <Container>
             <div>
-                <Button onClick={setPreviousYear}>Today</Button>
-                <select name='dfvhweuih'>
-                    <option>calendar</option>
-                    <option>activies</option>
-                </select>
+                <Button onClick={() => setSelectedCharts(true)}>
+                    activies
+                </Button>
+                <Button onClick={setToday}>Today</Button>
             </div>
             <div>
                 {!Device.isMobile ? (

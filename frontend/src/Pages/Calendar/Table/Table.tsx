@@ -29,6 +29,12 @@ export default function Events() {
         setNextYear();
     }
 
+    function setToday() {
+        const now = new Date();
+        setYear(now.getFullYear());
+        setMonth(now.getMonth());
+    }
+
     return (
         <Container>
             <Navigation
@@ -38,6 +44,7 @@ export default function Events() {
                 setPreviousMonth={setPreviousMonth}
                 setNextMonth={setNextMonth}
                 setMonth={setMonth}
+                setToday={setToday}
                 month={month}
                 year={year}
             />
