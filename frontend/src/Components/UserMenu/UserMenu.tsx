@@ -27,7 +27,7 @@ export default function UserMenu({ onOutClick }: props) {
 
     return (
         <Container onClick={onMenuClick}>
-            <List>
+            <List onClick={onOutClick}>
                 <Link to='/settings'>
                     <Item>
                         <Icon

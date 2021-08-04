@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import ButtonBase from '../../../../Components/Button';
+import Responsive from '../../../../Core/Responsive';
 
 export const Container = styled.div`
     display: flex;
@@ -39,7 +40,7 @@ export const Select = styled.select`
     border-radius: 4px;
     padding: 5px;
     height: 40px;
-    width: 130px;
+    width: ${Responsive`8``5`}rem;
     cursor: pointer;
     appearance: none;
     text-align-last: center;

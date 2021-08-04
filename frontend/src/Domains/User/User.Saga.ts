@@ -3,7 +3,7 @@ import { Types, Creators, CreatorsType } from './User.Duck';
 import UserApi from './User.api';
 
 function saveToken(token: string) {
-    localStorage.setItem('@precise_schedule/token', token);
+    localStorage.setItem('@PreciseSchedule/token', token);
 }
 
 function signIn({ payload }: CreatorsType['signIn']) {
@@ -38,7 +38,7 @@ function* passwordNew({ payload }: CreatorsType['passwordNew']) {
 
 function* verifyToken() {
     try {
-        const token = localStorage.getItem('@precise_schedule/token');
+        const token = localStorage.getItem('@PreciseSchedule/token');
         if (!token) throw new Error();
         yield put(Creators.verifyTokenSuccess());
     } catch (e) {
@@ -48,7 +48,7 @@ function* verifyToken() {
 }
 
 function signOut() {
-    localStorage.removeItem('@precise_schedule/token');
+    localStorage.removeItem('@PreciseSchedule/token');
 }
 
 function* UserSaga() {

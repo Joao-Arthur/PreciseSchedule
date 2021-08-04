@@ -21,6 +21,9 @@ export const Header = styled.header`
 export const HeaderTitle = styled.h1`
     margin: 0;
     color: white;
+    font-weight: normal;
+    line-height: 1px;
+    letter-spacing: -0.1rem;
 `;
 
 export const Division = styled.div`

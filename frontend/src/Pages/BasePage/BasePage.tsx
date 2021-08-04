@@ -1,7 +1,6 @@
 import { ReactChild, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StateType } from '../../Store';
-import General from '../../Domains/General';
 import {
     Container,
     Header,
@@ -13,7 +12,6 @@ import {
 } from './BasePage.styles';
 import UserActions from '../../Components/UserActions';
 import User from '../../Domains/User';
-import TransparentIcon from '../../Components/TransparentIcon';
 import Device from '../../Core/Device';
 
 type props = {
@@ -57,19 +55,9 @@ export default function BasePage({ children }: props) {
         <Container height={height}>
             <Header>
                 <Division>
-                    {logged ? (
-                        <TransparentIcon
-                            name='hamburguer'
-                            size={33}
-                            color='white'
-                            onClick={() =>
-                                dispatch(General.Creators.switchSidebarOpen())
-                            }
-                        />
-                    ) : null}
                     <LogoLink to='/'>
                         <HeaderTitle>
-                            {Device.isMobile ? 'PS' : 'PreciseSchedule'}
+                            {Device.isMobile ? 'PS' : 'PSchedule'}
                         </HeaderTitle>
                     </LogoLink>
                 </Division>
