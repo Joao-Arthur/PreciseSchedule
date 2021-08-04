@@ -4,6 +4,7 @@ import { Button } from './ButtonIcon.styles';
 
 type props = {
     name: names;
+    title?: string;
     size: number;
     color: string;
     onClick: () => void;
@@ -12,15 +13,21 @@ type props = {
 };
 
 export default function ButtonIcon({
-    onClick,
     name,
+    title,
     size,
     color,
-    buttonSize,
-    className
+    onClick,
+    className,
+    buttonSize
 }: props) {
     return (
-        <Button onClick={onClick} buttonSize={buttonSize} className={className}>
+        <Button
+            title={title}
+            onClick={onClick}
+            buttonSize={buttonSize}
+            className={className}
+        >
             <Icon name={name} size={size} color={color} />
         </Button>
     );

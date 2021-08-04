@@ -9,6 +9,7 @@ import {
     Button
 } from './Charts.styles';
 import Chart from './Chart';
+import ButtonIcon from '../../Components/ButtonIcon';
 
 export default function Charts() {
     const [selectedCalendar, setSelectedCalendar] = useState(false);
@@ -17,9 +18,14 @@ export default function Charts() {
     return (
         <Container>
             <Navigation>
-                <Button onClick={() => setSelectedCalendar(true)}>
-                    calendar
-                </Button>
+                <ButtonIcon
+                    title='calendar'
+                    name='calendar'
+                    color='gray'
+                    size={25}
+                    buttonSize={40}
+                    onClick={() => setSelectedCalendar(true)}
+                />
             </Navigation>
             <ChartsContainer>
                 <Row>
