@@ -1,18 +1,18 @@
 import { takeLatest, select, put, delay } from 'redux-saga/effects';
 import { StateType } from '../../Store';
-import { Types, Creators, CreatorsType } from './Calendar.Duck';
+import { Types, Actions, ActionsType } from './Calendar.Duck';
 
-function* toggleSelectedDay({ payload }: CreatorsType['toggleSelectedDay']) {
+function* toggleSelectedDay({ payload }: ActionsType['toggleSelectedDay']) {
     const selectedDay: Date | null = yield select(
         (state: StateType) => state.Calendar.selectedDay
     );
 
     if (selectedDay?.getTime() === payload?.getTime()) {
-        yield put(Creators.hideSelectedDay());
+        yield put(Actions.hideSelectedDay());
         yield delay(600);
-        yield put(Creators.removeSelectedDay());
+        yield put(Actions.removeSelectedDay());
     } else {
-        if (payload) yield put(Creators.setSelectedDay(payload));
+        if (payload) yield put(Actions.setSelectedDay(payload));
     }
 }
 

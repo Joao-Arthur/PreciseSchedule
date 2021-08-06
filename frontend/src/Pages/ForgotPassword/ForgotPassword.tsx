@@ -12,7 +12,7 @@ export default function ForgotPassword() {
     function handleForgotPassword() {
         if (!email) return;
 
-        dispatch(User.Creators.passwordForgot({ email }));
+        dispatch(User.Actions.passwordForgot({ email }));
     }
 
     const loading = useSelector((state: StateType) => state.User.loading);

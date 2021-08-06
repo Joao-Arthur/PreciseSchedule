@@ -1,10 +1,10 @@
-import { Reducer, Creators } from './User.Duck';
+import { Reducer, Actions } from './User.Duck';
 import Saga from './User.Saga';
 import API from './User.api';
 
 const User = {
     Reducer,
-    Creators,
+    Actions,
     Saga,
     API
 };

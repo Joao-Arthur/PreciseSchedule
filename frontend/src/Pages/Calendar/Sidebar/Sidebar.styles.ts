@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
-import Responsive, { Mobile } from '../../../Core/Responsive';
+import Responsive from '../../../Core/Responsive';
 import ButtonBase from '../../../Components/Button';
 import ButtonIcon from '../../../Components/ButtonIcon';
 import Device from '../../../Core/Device';
 
 const openContainer = css`
-    width: ${Responsive`400px``100%`};
+    width: ${Responsive`400px``100vw`};
     ${Responsive`border-left: 1px solid lightgray;``background-color: white;`}
 `;
 
@@ -27,13 +27,12 @@ export const Container = styled.div<containerProps>`
 `;
 
 export const Content = styled.div`
-    width: ${Responsive`400px``100%`};
+    width: ${Responsive`400px``100vw`};
     flex: 0;
     display: flex;
 `;
 
 export const SubContent = styled.div`
-    ${Mobile`padding: 0 15px;`}
     display: flex;
     flex-direction: column;
     flex: 1;

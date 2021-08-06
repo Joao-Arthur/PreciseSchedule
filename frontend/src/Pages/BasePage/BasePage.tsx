@@ -27,7 +27,7 @@ export default function BasePage({ children }: props) {
     });
 
     useEffect(() => {
-        dispatch(User.Creators.verifyToken());
+        dispatch(User.Actions.verifyToken());
     }, [dispatch]);
 
     const actualPage = useSelector(

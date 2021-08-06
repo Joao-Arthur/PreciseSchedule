@@ -1,38 +1,38 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { Types, Creators, CreatorsType } from './User.Duck';
+import { Types, Actions, ActionsType } from './User.Duck';
 import UserApi from './User.api';
 
 function saveToken(token: string) {
     localStorage.setItem('@PreciseSchedule/token', token);
 }
 
-function signIn({ payload }: CreatorsType['signIn']) {
+function signIn({ payload }: ActionsType['signIn']) {
     saveToken(payload);
 }
 
-function signUp({ payload }: CreatorsType['signUp']) {
+function signUp({ payload }: ActionsType['signUp']) {
     saveToken(payload);
 }
 
-function* passwordForgot({ payload }: CreatorsType['passwordForgot']) {
+function* passwordForgot({ payload }: ActionsType['passwordForgot']) {
     try {
         const { token } = yield call(UserApi.forgotPassword, payload);
         saveToken(token);
-        yield put(Creators.passwordForgotSuccess(token));
+        yield put(Actions.passwordForgotSuccess(token));
     } catch (e) {
         console.error(e);
-        yield put(Creators.passwordForgotFailure());
+        yield put(Actions.passwordForgotFailure());
     }
 }
 
-function* passwordNew({ payload }: CreatorsType['passwordNew']) {
+function* passwordNew({ payload }: ActionsType['passwordNew']) {
     try {
         const { token } = yield call(UserApi.newPassword, payload);
         saveToken(token);
-        yield put(Creators.passwordNewSuccess(token));
+        yield put(Actions.passwordNewSuccess(token));
     } catch (e) {
         console.error(e);
-        yield put(Creators.passwordNewFailure());
+        yield put(Actions.passwordNewFailure());
     }
 }
 
@@ -40,10 +40,10 @@ function* verifyToken() {
     try {
         const token = localStorage.getItem('@PreciseSchedule/token');
         if (!token) throw new Error();
-        yield put(Creators.verifyTokenSuccess());
+        yield put(Actions.verifyTokenSuccess());
     } catch (e) {
         console.error(e);
-        yield put(Creators.verifyTokenFailure());
+        yield put(Actions.verifyTokenFailure());
     }
 }
 

@@ -1,8 +1,8 @@
-import { Reducer, Creators } from './General.Duck';
+import { Reducer, Actions } from './General.Duck';
 
 const General = {
     Reducer,
-    Creators
+    Actions
 };
 
 export default General;

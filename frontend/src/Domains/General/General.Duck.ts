@@ -5,7 +5,7 @@ export enum Types {
     GENERAL_SWITCH_SIDEBAR_OPEN = 'GENERAL_SWITCH_SIDEBAR_OPEN'
 }
 
-export const Creators = {
+export const Actions = {
     setActualPage: (payload: string) =>
         <const>{
             type: Types.GENERAL_SET_ACTUAL_PAGE,
@@ -17,11 +17,11 @@ export const Creators = {
         }
 };
 
-export type CreatorsType = {
-    [action in keyof typeof Creators]: ReturnType<typeof Creators[action]>;
+export type ActionsType = {
+    [action in keyof typeof Actions]: ReturnType<typeof Actions[action]>;
 };
 
-type Action = ReturnType<typeof Creators[keyof typeof Creators]>;
+type Action = ReturnType<typeof Actions[keyof typeof Actions]>;
 
 const initialState = {
     actualPage: '',

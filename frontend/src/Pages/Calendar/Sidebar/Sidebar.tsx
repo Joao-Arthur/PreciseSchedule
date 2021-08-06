@@ -41,7 +41,7 @@ export default function EventsSidebar() {
                             <Close
                                 onClick={() => {
                                     dispatch(
-                                        Calendar.Creators.toggleSelectedDay(
+                                        Calendar.Actions.toggleSelectedDay(
                                             selectedDay
                                         )
                                     );

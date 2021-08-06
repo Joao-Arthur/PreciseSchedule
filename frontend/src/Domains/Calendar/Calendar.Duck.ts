@@ -7,7 +7,7 @@ export enum Types {
     CALENDAR_HIDE_SELECTED_DAY = 'CALENDAR_HIDE_SELECTED_DAY'
 }
 
-export const Creators = {
+export const Actions = {
     toggleSelectedDay: (payload: Date | null) =>
         <const>{
             type: Types.CALENDAR_TOGGLE_SELECTED_DAY,
@@ -28,11 +28,11 @@ export const Creators = {
         }
 };
 
-export type CreatorsType = {
-    [action in keyof typeof Creators]: ReturnType<typeof Creators[action]>;
+export type ActionsType = {
+    [action in keyof typeof Actions]: ReturnType<typeof Actions[action]>;
 };
 
-type Action = ReturnType<typeof Creators[keyof typeof Creators]>;
+type Action = ReturnType<typeof Actions[keyof typeof Actions]>;
 
 type state = {
     selectedDay: Date | null;

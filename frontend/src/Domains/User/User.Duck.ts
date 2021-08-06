@@ -16,7 +16,7 @@ export enum Types {
     VERIFY_TOKEN_FAILURE = 'VERIFY_TOKEN_FAILURE'
 }
 
-export const Creators = {
+export const Actions = {
     signIn: (payload: string) =>
         <const>{
             type: Types.USER_SIGN_IN,
@@ -61,11 +61,11 @@ export const Creators = {
     verifyTokenFailure: () => <const>{ type: Types.VERIFY_TOKEN_FAILURE }
 };
 
-export type CreatorsType = {
-    [action in keyof typeof Creators]: ReturnType<typeof Creators[action]>;
+export type ActionsType = {
+    [action in keyof typeof Actions]: ReturnType<typeof Actions[action]>;
 };
 
-type Action = ReturnType<typeof Creators[keyof typeof Creators]>;
+type Action = ReturnType<typeof Actions[keyof typeof Actions]>;
 
 const initialState = {
     loading: false,

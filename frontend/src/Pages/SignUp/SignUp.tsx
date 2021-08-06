@@ -35,7 +35,7 @@ export default function SignUp() {
         });
     });
 
-    if (data?.token) dispatch(User.Creators.signUp(data.token));
+    if (data?.token) dispatch(User.Actions.signUp(data.token));
 
     function handleSignUp() {
         if (!firstName) return;
@@ -50,9 +50,9 @@ export default function SignUp() {
     }
 
     useEffect(() => {
-        dispatch(General.Creators.setActualPage('signup'));
+        dispatch(General.Actions.setActualPage('signup'));
         return () => {
-            dispatch(General.Creators.setActualPage(''));
+            dispatch(General.Actions.setActualPage(''));
         };
     }, [dispatch]);
 

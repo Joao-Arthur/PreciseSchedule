@@ -38,7 +38,7 @@ export default function UserMenu({ onOutClick }: props) {
                         settings
                     </Item>
                 </Link>
-                <Item onClick={() => dispatch(User.Creators.signOut())}>
+                <Item onClick={() => dispatch(User.Actions.signOut())}>
                     <Icon name='signOut' size={20} color='var(--darkGray)' />
                     sign out
                 </Item>

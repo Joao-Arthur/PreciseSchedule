@@ -13,7 +13,7 @@ export default function ForgotPassword() {
         if (!password) return;
 
         //username?
-        dispatch(User.Creators.passwordNew({ password }));
+        dispatch(User.Actions.passwordNew({ password }));
     }
 
     const loading = useSelector((state: StateType) => state.User.loading);

@@ -24,7 +24,7 @@ export default function SignIn() {
         });
     });
 
-    if (data?.token) dispatch(User.Creators.signIn(data.token));
+    if (data?.token) dispatch(User.Actions.signIn(data.token));
 
     function handleSignIn() {
         if (!username) return;
@@ -33,9 +33,9 @@ export default function SignIn() {
     }
 
     useEffect(() => {
-        dispatch(General.Creators.setActualPage('signin'));
+        dispatch(General.Actions.setActualPage('signin'));
         return () => {
-            dispatch(General.Creators.setActualPage(''));
+            dispatch(General.Actions.setActualPage(''));
         };
     }, [dispatch]);
 
