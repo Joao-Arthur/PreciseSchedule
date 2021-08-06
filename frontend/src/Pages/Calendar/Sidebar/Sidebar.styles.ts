@@ -27,6 +27,12 @@ export const Container = styled.div<containerProps>`
 `;
 
 export const Content = styled.div`
+    width: ${Responsive`400px``100%`};
+    flex: 0;
+    display: flex;
+`;
+
+export const SubContent = styled.div`
     ${Mobile`padding: 0 15px;`}
     display: flex;
     flex-direction: column;

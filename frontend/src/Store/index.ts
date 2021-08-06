@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { fork } from 'redux-saga/effects';
 import User from '../Domains/User';
 import General from '../Domains/General';
 import Calendar from '../Domains/Calendar';
@@ -7,13 +8,18 @@ import StoreDevTools from '../StoreDevTools';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const CombinedReducers = combineReducers({
+const reducers = combineReducers({
     User: User.Reducer,
     General: General.Reducer,
     Calendar: Calendar.Reducer
 });
 
-export type StateType = ReturnType<typeof CombinedReducers>;
+function* sagas() {
+    yield fork(User.Saga);
+    yield fork(Calendar.Saga);
+}
+
+export type StateType = ReturnType<typeof reducers>;
 
 const enhancer = compose(
     applyMiddleware(sagaMiddleware),
@@ -21,7 +27,7 @@ const enhancer = compose(
 );
 
 export default function setupStore() {
-    const store = createStore(CombinedReducers, enhancer);
-    sagaMiddleware.run(User.Saga);
+    const store = createStore(reducers, enhancer);
+    sagaMiddleware.run(sagas);
     return store;
 }

@@ -6,7 +6,7 @@ import { Mobile } from '../../../../Core/Responsive';
 export const Container = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 10px;
 `;
 
 export const Text = styled.span`

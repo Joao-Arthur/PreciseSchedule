@@ -16,7 +16,7 @@ export default function Cell({ year, month, day }: props) {
     return (
         <Container
             onClick={() => {
-                dispatch(Calendar.Creators.setSelectedDay(date));
+                dispatch(Calendar.Creators.toggleSelectedDay(date));
             }}
         >
             <Text isInMonth={isInMonth}>{date.getDate()}</Text>

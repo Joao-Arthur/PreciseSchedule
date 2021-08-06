@@ -31,7 +31,7 @@ const secondaryCSS = css`
 
 const disabledButton = css`
     background-color: gray;
-    cursor: wait;
+    cursor: default;
 `;
 
 type buttonProps = {

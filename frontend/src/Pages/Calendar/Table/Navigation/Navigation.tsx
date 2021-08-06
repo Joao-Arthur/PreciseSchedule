@@ -2,9 +2,14 @@ import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import Device from '../../../../Core/Device';
 import Range from '../../../../Core/Range';
-import PrimaryButton from '../../../../Components/Button';
 import NavigationSelect from './NavigationSelect';
-import { Container, Button } from './Navigation.styles';
+import {
+    Container,
+    NavigationButton,
+    InfoButton,
+    NewButton
+} from './Navigation.styles';
+import ButtonIcon from '../../../../Components/ButtonIcon';
 
 const monthsOfYear = [
     'January',
@@ -62,23 +67,45 @@ export default function Navigation({
     const [selectedCharts, setSelectedCharts] = useState(false);
 
     const months = Device.isMobile ? monthsOfYearAbbrev : monthsOfYear;
-
     const options = Range(year, 4);
+    const now = new Date();
 
     if (selectedCharts) return <Redirect to='/charts' />;
     return (
         <Container>
-            <div>
-                <Button onClick={() => setSelectedCharts(true)}>
-                    activies
-                </Button>
-                <Button onClick={setToday}>Today</Button>
+            <div style={{ display: 'flex' }}>
+                <ButtonIcon
+                    title='activities'
+                    name='chart'
+                    color='gray'
+                    size={25}
+                    buttonSize={40}
+                    onClick={() => setSelectedCharts(true)}
+                />
+                <InfoButton
+                    onClick={setToday}
+                    disabled={
+                        year === now.getFullYear() && month === now.getMonth()
+                    }
+                >
+                    Today
+                </InfoButton>
             </div>
             <div>
                 {!Device.isMobile ? (
                     <>
-                        <Button onClick={setPreviousYear}>{'<<'}</Button>
-                        <Button onClick={setPreviousMonth}>{'<'}</Button>
+                        <NavigationButton
+                            title='previous year'
+                            onClick={setPreviousYear}
+                        >
+                            {'<<'}
+                        </NavigationButton>
+                        <NavigationButton
+                            title='previous month'
+                            onClick={setPreviousMonth}
+                        >
+                            {'<'}
+                        </NavigationButton>
                     </>
                 ) : null}
                 <NavigationSelect
@@ -97,15 +124,23 @@ export default function Navigation({
                 />
                 {!Device.isMobile ? (
                     <>
-                        <Button onClick={setNextMonth}>{'>'}</Button>
-                        <Button onClick={setNextYear}>{'>>'}</Button>
+                        <NavigationButton
+                            title='next month'
+                            onClick={setNextMonth}
+                        >
+                            {'>'}
+                        </NavigationButton>
+                        <NavigationButton
+                            title='next year'
+                            onClick={setNextYear}
+                        >
+                            {'>>'}
+                        </NavigationButton>
                     </>
                 ) : null}
             </div>
             <div>
-                <PrimaryButton style={{ justifySelf: 'flex-end' }}>
-                    new
-                </PrimaryButton>
+                <NewButton>new</NewButton>
             </div>
         </Container>
     );

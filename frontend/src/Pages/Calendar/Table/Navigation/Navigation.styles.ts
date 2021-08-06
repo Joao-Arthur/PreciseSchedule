@@ -29,11 +29,25 @@ const common = css`
     }
 `;
 
-export const Button = styled(ButtonBase)`
+export const NavigationButton = styled(ButtonBase)`
     width: 2.5rem;
     height: 2.5rem;
     padding: 0;
     ${common}
+`;
+
+export const InfoButton = styled(ButtonBase)`
+    width: 5rem;
+    height: 2.5rem;
+    padding: 0;
+    ${common}
+`;
+
+export const NewButton = styled(ButtonBase)`
+    width: 4rem;
+    height: 2.5rem;
+    padding: 0;
+    font-size: 18px;
 `;
 
 export const Select = styled.select`

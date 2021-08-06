@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from '../../../Domains/Calendar';
 import { StateType } from '../../../Store';
@@ -6,6 +6,7 @@ import Events from './EventsList';
 import {
     Container,
     Content,
+    SubContent,
     Title,
     Close,
     Header,
@@ -20,6 +21,10 @@ export default function EventsSidebar() {
     const selectedDay = useSelector(
         (state: StateType) => state.Calendar.selectedDay
     );
+    const showSelectedDay = useSelector(
+        (state: StateType) => state.Calendar.showSelectedDay
+    );
+
     const logged = useSelector((state: StateType) => state.User.isLogged);
 
     const [isNewEventVisible, setIsNewEventVisible] = useState(false);
@@ -27,16 +32,18 @@ export default function EventsSidebar() {
     const now = new Date();
 
     return (
-        <Container open={!!selectedDay}>
+        <Container open={showSelectedDay}>
             <Content>
                 {selectedDay ? (
-                    <>
+                    <SubContent>
                         <Header>
                             <Title>{selectedDay.toLocaleDateString()}</Title>
                             <Close
                                 onClick={() => {
                                     dispatch(
-                                        Calendar.Creators.setSelectedDay(null)
+                                        Calendar.Creators.toggleSelectedDay(
+                                            selectedDay
+                                        )
                                     );
                                 }}
                             />
@@ -59,7 +66,7 @@ export default function EventsSidebar() {
                                 />
                             </ButtonContainer>
                         ) : null}
-                    </>
+                    </SubContent>
                 ) : null}
             </Content>
         </Container>
