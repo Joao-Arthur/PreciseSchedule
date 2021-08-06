@@ -37,14 +37,14 @@ export const NavigationButton = styled(ButtonBase)`
 `;
 
 export const InfoButton = styled(ButtonBase)`
-    width: 5rem;
+    width: 4rem;
     height: 2.5rem;
     padding: 0;
     ${common}
 `;
 
 export const NewButton = styled(ButtonBase)`
-    width: 4rem;
+    width: 3rem;
     height: 2.5rem;
     padding: 0;
     font-size: 18px;
@@ -54,7 +54,7 @@ export const Select = styled.select`
     border-radius: 4px;
     padding: 5px;
     height: 40px;
-    width: ${Responsive`8``5`}rem;
+    width: ${Responsive`8``4`}rem;
     cursor: pointer;
     appearance: none;
     text-align-last: center;

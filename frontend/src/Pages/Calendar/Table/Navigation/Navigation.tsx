@@ -140,7 +140,7 @@ export default function Navigation({
                 ) : null}
             </div>
             <div>
-                <NewButton>new</NewButton>
+                <NewButton>NEW</NewButton>
             </div>
         </Container>
     );
