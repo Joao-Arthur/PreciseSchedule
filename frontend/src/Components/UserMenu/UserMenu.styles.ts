@@ -10,7 +10,7 @@ export const Container = styled.nav`
     display: flex;
     position: absolute;
     background-color: white;
-    right: 1px;
+    right: 3px;
     top: 39px;
     border-radius: 3px;
     border: 1px solid lightgray;

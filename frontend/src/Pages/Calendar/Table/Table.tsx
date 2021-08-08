@@ -1,11 +1,17 @@
 import { useState } from 'react';
-import { Container } from './Table.styles';
-import Navigation from './Navigation';
+import Device from '../../../Core/Device';
 import Display from './Display';
+import Navigation from './Navigation';
+import {
+    Container,
+    ContainerMobile,
+    Content,
+    SubContent
+} from './Table.styles';
 
 const now = new Date();
 
-export default function Events() {
+export default function Table() {
     const [year, setYear] = useState(now.getFullYear());
     const [month, setMonth] = useState(now.getMonth());
 
@@ -35,7 +41,26 @@ export default function Events() {
         setMonth(now.getMonth());
     }
 
-    return (
+    return Device.isMobile ? (
+        <ContainerMobile>
+            <Content>
+                <SubContent>
+                    <Navigation
+                        setPreviousYear={setPreviousYear}
+                        setNextYear={setNextYear}
+                        setYear={setYear}
+                        setPreviousMonth={setPreviousMonth}
+                        setNextMonth={setNextMonth}
+                        setMonth={setMonth}
+                        setToday={setToday}
+                        month={month}
+                        year={year}
+                    />
+                    <Display year={year} month={month} />
+                </SubContent>
+            </Content>
+        </ContainerMobile>
+    ) : (
         <Container>
             <Navigation
                 setPreviousYear={setPreviousYear}

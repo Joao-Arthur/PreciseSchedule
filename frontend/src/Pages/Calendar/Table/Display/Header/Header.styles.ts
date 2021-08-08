@@ -15,4 +15,5 @@ export const Text = styled.p`
 
 export const Column = styled.div`
     flex: 1;
+    overflow: hidden;
 `;

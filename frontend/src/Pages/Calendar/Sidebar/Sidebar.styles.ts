@@ -27,7 +27,6 @@ export const Container = styled.div<containerProps>`
 `;
 
 export const Content = styled.div`
-    width: ${Responsive`400px``100vw`};
     flex: 0;
     display: flex;
 `;
