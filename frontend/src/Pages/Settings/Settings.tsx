@@ -36,6 +36,13 @@ export default function Settings() {
                 value={twoFactorAuthentication}
                 onChange={setTwoFactorAuthentication}
             />
+            <Field
+                type='toggle'
+                title='dark mode'
+                name='theme'
+                value={twoFactorAuthentication}
+                onChange={setTwoFactorAuthentication}
+            />
             <a href='/password/new'>change password</a>
             <a href='#'>delete my account</a>
             <a href='#'>what info do PreciseSchedule know about you?</a>

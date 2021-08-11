@@ -1,14 +1,8 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import {
-    Container,
-    Navigation,
-    ChartsContainer,
-    Row,
-    Column,
-    Button
-} from './Charts.styles';
+import { Container, Navigation, ChartsContainer, Row } from './Charts.styles';
 import Chart from './Chart';
+import EventsTable from './EventsTable';
 import ButtonIcon from '../../Components/ButtonIcon';
 
 export default function Charts() {
@@ -29,12 +23,16 @@ export default function Charts() {
             </Navigation>
             <ChartsContainer>
                 <Row>
-                    <Chart />
-                    <Chart />
+                    <EventsTable />
                 </Row>
                 <Row>
-                    <Chart />
-                    <Chart />
+                    <Chart title='total' />
+                </Row>
+                <Row>
+                    <Chart title='type' />
+                </Row>
+                <Row>
+                    <Chart title='importance' />
                 </Row>
             </ChartsContainer>
         </Container>
