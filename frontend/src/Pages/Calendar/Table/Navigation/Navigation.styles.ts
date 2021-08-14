@@ -5,9 +5,25 @@ import Responsive from '../../../../Core/Responsive';
 export const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
     border-bottom: 1px solid lightgray;
     padding: 4px 10px;
+`;
+
+export const Left = styled.div`
+    display: flex;
+    width: 10%;
+`;
+
+export const Center = styled.div`
+    width: 80%;
+    justify-content: center;
+    display: flex;
+`;
+
+export const Right = styled.div`
+    width: 10%;
+    justify-content: flex-end;
+    display: flex;
 `;
 
 const common = css`

@@ -1,15 +1,20 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { StateType } from '../../../../Store';
+import ButtonIcon from '../../../../Components/ButtonIcon';
 import Device from '../../../../Core/Device';
 import Range from '../../../../Core/Range';
 import NavigationSelect from './NavigationSelect';
 import {
     Container,
+    Left,
+    Center,
+    Right,
     NavigationButton,
     InfoButton,
     NewButton
 } from './Navigation.styles';
-import ButtonIcon from '../../../../Components/ButtonIcon';
 
 const monthsOfYear = [
     'January',
@@ -66,6 +71,8 @@ export default function Navigation({
 }: props) {
     const [selectedCharts, setSelectedCharts] = useState(false);
 
+    const logged = useSelector((state: StateType) => state.User.isLogged);
+
     const months = Device.isMobile ? monthsOfYearAbbrev : monthsOfYear;
     const options = Range(year, 4);
     const now = new Date();
@@ -73,7 +80,7 @@ export default function Navigation({
     if (selectedCharts) return <Redirect to='/charts' />;
     return (
         <Container>
-            <div style={{ display: 'flex' }}>
+            <Left>
                 <ButtonIcon
                     title='activities'
                     name='chart'
@@ -90,8 +97,8 @@ export default function Navigation({
                 >
                     Today
                 </InfoButton>
-            </div>
-            <div>
+            </Left>
+            <Center>
                 {!Device.isMobile ? (
                     <>
                         <NavigationButton
@@ -138,10 +145,8 @@ export default function Navigation({
                         </NavigationButton>
                     </>
                 ) : null}
-            </div>
-            <div>
-                <NewButton>NEW</NewButton>
-            </div>
+            </Center>
+            <Right>{logged ? <NewButton>NEW</NewButton> : null}</Right>
         </Container>
     );
 }

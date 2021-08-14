@@ -42,7 +42,7 @@ export const Link = styled(LinkBase)`
     cursor: pointer;
     font-weight: bold;
     align-self: center;
-    padding: 10px 6px;
+    padding: 9px 6px;
 
     :hover {
         color: var(--Gray);

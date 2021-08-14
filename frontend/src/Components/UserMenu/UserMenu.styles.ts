@@ -23,7 +23,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-    padding: 12px 28px;
+    padding: 12px 28px 12px 20px;
     cursor: pointer;
     display: flex;
     color: var(--darkerGray);

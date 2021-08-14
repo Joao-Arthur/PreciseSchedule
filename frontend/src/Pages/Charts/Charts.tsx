@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Container, Navigation, ChartsContainer, Row } from './Charts.styles';
-import Chart from './Chart';
 import EventsTable from './EventsTable';
 import ButtonIcon from '../../Components/ButtonIcon';
+import AllEvents from './AllEvents';
+import EventsByCategory from './EventsByCategory';
+import EventsByImportance from './EventsByImportance';
 
 export default function Charts() {
     const [selectedCalendar, setSelectedCalendar] = useState(false);
@@ -26,13 +28,13 @@ export default function Charts() {
                     <EventsTable />
                 </Row>
                 <Row>
-                    <Chart title='total' />
+                    <AllEvents />
                 </Row>
                 <Row>
-                    <Chart title='type' />
+                    <EventsByCategory />
                 </Row>
                 <Row>
-                    <Chart title='importance' />
+                    <EventsByImportance />
                 </Row>
             </ChartsContainer>
         </Container>
