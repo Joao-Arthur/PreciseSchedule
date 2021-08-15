@@ -1,4 +1,5 @@
 import Chart from './Chart';
+import randomColor from './randomColor';
 
 export default function AllEvents() {
     const data = [
@@ -36,5 +37,12 @@ export default function AllEvents() {
         }
     ];
 
-    return <Chart title='total' data={data} xKey='name' yKeys={['events']} />;
+    return (
+        <Chart
+            title='total'
+            data={data}
+            xKey='name'
+            dataKeys={[{ key: 'events', color: randomColor() }]}
+        />
+    );
 }

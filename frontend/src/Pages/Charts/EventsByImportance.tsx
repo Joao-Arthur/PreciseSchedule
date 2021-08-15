@@ -1,4 +1,5 @@
 import Chart from './Chart';
+import randomColor from './randomColor';
 
 export default function EventsByImportance() {
     const data = [
@@ -57,7 +58,11 @@ export default function EventsByImportance() {
             title='importance'
             data={data}
             xKey='name'
-            yKeys={['high', 'average', 'low']}
+            dataKeys={[
+                { key: 'high', color: randomColor() },
+                { key: 'average', color: randomColor() },
+                { key: 'low', color: randomColor() }
+            ]}
         />
     );
 }

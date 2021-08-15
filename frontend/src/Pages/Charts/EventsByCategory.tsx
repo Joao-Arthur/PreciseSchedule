@@ -1,4 +1,5 @@
 import Chart from './Chart';
+import randomColor from './randomColor';
 
 export default function EventsByCategory() {
     const data = [
@@ -73,7 +74,13 @@ export default function EventsByCategory() {
             title='category'
             data={data}
             xKey='name'
-            yKeys={['apointment', 'meeting', 'birthday', 'party', 'date']}
+            dataKeys={[
+                { key: 'apointment', color: randomColor() },
+                { key: 'meeting', color: randomColor() },
+                { key: 'birthday', color: randomColor() },
+                { key: 'party', color: randomColor() },
+                { key: 'date', color: randomColor() }
+            ]}
         />
     );
 }
