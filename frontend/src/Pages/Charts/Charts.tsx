@@ -22,6 +22,14 @@ export default function Charts() {
                     buttonSize={40}
                     onClick={() => setSelectedCalendar(true)}
                 />
+                <ButtonIcon
+                    title='calendar'
+                    name='calendar'
+                    color='gray'
+                    size={25}
+                    buttonSize={40}
+                    onClick={() => setSelectedCalendar(true)}
+                />
             </Navigation>
             <ChartsContainer>
                 <Row>

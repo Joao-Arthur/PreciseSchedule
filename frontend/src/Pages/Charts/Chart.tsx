@@ -26,6 +26,11 @@ export default function Chart({ title, data, xKey, dataKeys }: props) {
     return (
         <ResponsiveContainer width='100%' height='100%'>
             <AreaChart data={data}>
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis dataKey={xKey} />
+                <YAxis />
+                <Tooltip />
+                <Legend />
                 <defs>
                     {dataKeys.map(({ key, color }) => (
                         <linearGradient
@@ -36,9 +41,9 @@ export default function Chart({ title, data, xKey, dataKeys }: props) {
                             y2='1'
                         >
                             <stop
-                                offset='5%'
+                                offset='10%'
                                 stopColor={color}
-                                stopOpacity={0.5}
+                                stopOpacity={0.6}
                             />
                             <stop
                                 offset='95%'
@@ -48,11 +53,6 @@ export default function Chart({ title, data, xKey, dataKeys }: props) {
                         </linearGradient>
                     ))}
                 </defs>
-                <CartesianGrid strokeDasharray='3 3' />
-                <XAxis dataKey={xKey} />
-                <YAxis />
-                <Tooltip />
-                <Legend />
                 {dataKeys.map(({ key, color }) => (
                     <Area
                         type='monotone'

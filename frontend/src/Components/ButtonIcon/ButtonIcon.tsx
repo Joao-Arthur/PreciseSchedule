@@ -1,5 +1,5 @@
-import Icon from '../Icon';
-import { names } from '../Icon/SVG';
+import Icon from '../IconOld';
+import { names } from '../IconOld/SVG';
 import { Button } from './ButtonIcon.styles';
 
 type props = {
