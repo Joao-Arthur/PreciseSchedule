@@ -19,8 +19,8 @@ export default function ForgotPassword() {
 
     return (
         <Form
-            title='forgot password'
-            action='CREATE NEW PASSWORD'
+            title='Forgot your password'
+            action='GENERATE NEW PASSWORD'
             loading={loading}
             onSubmit={handleForgotPassword}
             footer={

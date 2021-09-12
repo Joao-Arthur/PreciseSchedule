@@ -6,7 +6,7 @@ type props = {
     title?: string;
     size: number;
     color: string;
-    onClick: () => void;
+    onClick?: () => void;
     className?: string;
     buttonSize: number;
 };

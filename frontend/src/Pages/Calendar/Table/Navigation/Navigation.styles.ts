@@ -26,6 +26,19 @@ export const Right = styled.div`
     display: flex;
 `;
 
+const enabledCSS = css`
+    :hover,
+    :active {
+        background-color: var(--lighterGray);
+        color: var(--darkerGray);
+    }
+`;
+
+const disabledCSS = css`
+    background-color: var(--lighterGray);
+    color: var(--darkGray);
+`;
+
 const common = css`
     border: 1px solid lightgray;
     color: var(--darkerGray);
@@ -33,16 +46,7 @@ const common = css`
     font-size: 18px;
     transition: background-color 0.2s;
     background-color: white;
-
-    :hover {
-        background-color: var(--lighterGray);
-        color: var(--darkGrey);
-    }
-
-    :active {
-        background-color: var(--lighterGray);
-        color: var(--darkerGrey);
-    }
+    ${enabledCSS}
 `;
 
 export const NavigationButton = styled(ButtonBase)`
@@ -56,7 +60,13 @@ export const InfoButton = styled(ButtonBase)`
     width: 4rem;
     height: 2.5rem;
     padding: 0;
-    ${common}
+    border: 1px solid lightgray;
+    color: var(--darkerGray);
+    margin: 0 5px;
+    font-size: 18px;
+    transition: background-color 0.2s;
+    background-color: white;
+    ${({ disabled }) => (disabled ? disabledCSS : enabledCSS)}
 `;
 
 export const NewButton = styled(ButtonBase)`

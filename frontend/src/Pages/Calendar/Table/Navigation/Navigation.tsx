@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { StateType } from '../../../../Store';
 import ButtonIcon from '../../../../Components/ButtonIcon';
 import Device from '../../../../Core/Device';
@@ -69,26 +68,23 @@ export default function Navigation({
     month,
     year
 }: props) {
-    const [selectedCharts, setSelectedCharts] = useState(false);
-
     const logged = useSelector((state: StateType) => state.User.isLogged);
-
     const months = Device.isMobile ? monthsOfYearAbbrev : monthsOfYear;
     const options = Range(year, 4);
     const now = new Date();
 
-    if (selectedCharts) return <Redirect to='/charts' />;
     return (
         <Container>
             <Left>
-                <ButtonIcon
-                    title='activities'
-                    name='chart'
-                    color='gray'
-                    size={25}
-                    buttonSize={40}
-                    onClick={() => setSelectedCharts(true)}
-                />
+                <Link to='/charts'>
+                    <ButtonIcon
+                        title='activities'
+                        name='chart'
+                        color='gray'
+                        size={25}
+                        buttonSize={40}
+                    />
+                </Link>
                 <InfoButton
                     onClick={setToday}
                     disabled={

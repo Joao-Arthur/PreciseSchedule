@@ -16,7 +16,7 @@ export default function Settings() {
 
     return (
         <Form
-            title='settings'
+            title='Settings'
             action='SAVE SETTINGS'
             loading={false}
             onSubmit={() => {}}

@@ -14,6 +14,7 @@ export const Container = styled.nav`
     top: 39px;
     border-radius: 3px;
     border: 1px solid lightgray;
+    z-index: 1;
 `;
 
 export const List = styled.ul`

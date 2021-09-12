@@ -32,7 +32,8 @@ export const CustomForm = styled.form`
 
 export const FooterContainer = styled.div`
     margin-top: 10px;
-    ${containerCSS}
+    border: 1px solid gray;
+    border-radius: 4px;
 `;
 
 export const FooterContent = styled.div`
